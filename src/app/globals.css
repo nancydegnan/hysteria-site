@@ -1,26 +1,468 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --red: #E30613;
+  --yellow: #F5D000;
+  --hot-pink: #E84B8A;
+  --black: #0A0A0A;
+  --cream: #F5F0E8;
+  --cream-dark: #EBE3D5;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  /* Clear Tailwind default shade scales that conflict with our single-value colors */
+  --color-red-*: initial;
+  --color-yellow-*: initial;
+  --color-pink-*: initial;
+
+  --color-background: #F5F0E8;
+  --color-foreground: #0A0A0A;
+  --color-black: #0A0A0A;
+  --color-red: #E30613;
+  --color-yellow: #F5D000;
+  --color-hot-pink: #E84B8A;
+  --color-cream: #F5F0E8;
+  --color-cream-dark: #EBE3D5;
+  --font-heading: var(--font-anton);
+  --font-body: var(--font-space-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* === SMOOTH SCROLL === */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--black);
+  font-family: var(--font-body), monospace;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
+
+/* === SELECTION === */
+::selection {
+  background: var(--red);
+  color: var(--cream);
+}
+
+/* === BEN-DAY DOTS === */
+.dots-pattern {
+  background-image: radial-gradient(circle, var(--red) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.dots-pattern-large {
+  background-image: radial-gradient(circle, var(--red) 2.5px, transparent 2.5px);
+  background-size: 14px 14px;
+}
+
+/* === DIAGONAL STRIPES === */
+.stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    var(--red) 10px,
+    var(--red) 20px
+  );
+}
+
+/* === TORN PAPER EDGES === */
+.torn-bottom {
+  position: relative;
+}
+.torn-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: inherit;
+  clip-path: polygon(
+    0% 0%, 3% 60%, 5% 20%, 8% 70%, 11% 10%, 15% 55%, 18% 5%,
+    22% 65%, 25% 15%, 28% 60%, 32% 0%, 35% 50%, 38% 10%,
+    42% 55%, 45% 5%, 48% 70%, 52% 15%, 55% 60%, 58% 0%,
+    62% 55%, 65% 10%, 68% 65%, 72% 5%, 75% 50%, 78% 15%,
+    82% 60%, 85% 0%, 88% 55%, 92% 10%, 95% 65%, 98% 20%, 100% 0%
+  );
+  z-index: 10;
+}
+
+.torn-top {
+  position: relative;
+}
+.torn-top::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: inherit;
+  clip-path: polygon(
+    0% 100%, 2% 40%, 5% 80%, 8% 30%, 12% 90%, 15% 45%,
+    18% 95%, 22% 35%, 25% 85%, 28% 40%, 32% 100%, 35% 50%,
+    38% 90%, 42% 45%, 45% 95%, 48% 30%, 52% 85%, 55% 40%,
+    58% 100%, 62% 45%, 65% 90%, 68% 35%, 72% 95%, 75% 50%,
+    78% 85%, 82% 40%, 85% 100%, 88% 45%, 92% 90%, 95% 35%,
+    98% 80%, 100% 100%
+  );
+  z-index: 10;
+}
+
+/* === LETTERPRESS / WOODBLOCK TEXT EFFECT === */
+.text-letterpress {
+  filter: url(#letterpress);
+}
+
+/* Ink grain overlay — simulates uneven ink coverage on dark text */
+.ink-grain {
+  position: relative;
+}
+.ink-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='ink'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23ink)' opacity='0.18'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* === STROKE / OUTLINED TEXT === */
+.text-outline-red {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--red);
+}
+
+.text-outline-black {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--black);
+}
+
+.text-outline-cream {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--cream);
+}
+
+.text-outline-yellow {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--yellow);
+}
+
+/* Fill on hover — smooth transition */
+.text-outline-fill-red {
+  transition: color 0.6s cubic-bezier(.23, 1, .32, 1),
+              -webkit-text-stroke-color 0.6s cubic-bezier(.23, 1, .32, 1);
+}
+.text-outline-fill-red:hover {
+  color: var(--red);
+  -webkit-text-stroke-color: var(--red);
+}
+
+/* === HALFTONE OVERLAY === */
+.halftone-overlay {
+  position: relative;
+}
+.halftone-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.12) 1px, transparent 1px);
+  background-size: 4px 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* === PRINT GRAIN (screen-print / letterpress texture) === */
+.print-grain {
+  position: relative;
+}
+.print-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+/* === MARQUEE / TICKER === */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-scroll {
+  animation: ticker 25s linear infinite;
+}
+
+/* === ROTATING CIRCLE TEXT === */
+@keyframes rotate-continuous {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rotate-slow {
+  animation: rotate-continuous 20s linear infinite;
+}
+
+/* === CLIP-PATH REVEAL ON HOVER === */
+.clip-reveal {
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.8s cubic-bezier(.23, 1, .32, 1);
+}
+.clip-reveal-parent:hover .clip-reveal {
+  clip-path: circle(100% at 50% 50%);
+}
+
+/* === CARD LIFT HOVER === */
+.card-hover {
+  transition: transform 0.6s cubic-bezier(.23, 1, .32, 1),
+              box-shadow 0.6s cubic-bezier(.23, 1, .32, 1);
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(10, 10, 10, 0.15);
+}
+
+/* === TEXT REVEAL LINK === */
+.link-reveal {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+.link-reveal span {
+  display: block;
+  transition: transform 0.5s cubic-bezier(.68, -.55, .265, 1.55);
+}
+.link-reveal:hover span:first-child {
+  transform: translateY(-110%);
+}
+.link-reveal .link-reveal-hover {
+  position: absolute;
+  top: 110%;
+  left: 0;
+}
+.link-reveal:hover .link-reveal-hover {
+  transform: translateY(-110%);
+}
+
+/* === COLLAGE / CUT-OUT LETTERS === */
+.collage-letter {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  font-family: var(--font-body), monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s cubic-bezier(.68, -.55, .265, 1.55);
+}
+.collage-letter:hover {
+  transform: scale(1.1) rotate(0deg) !important;
+}
+
+/* === RANSOM CUT-OUTS === */
+.ransom {
+  display: inline-block;
+  background: var(--black);
+  color: var(--cream);
+  padding: 0.1em 0.4em;
+  margin: 0.1em;
+}
+
+.ransom-red {
+  display: inline-block;
+  background: var(--red);
+  color: var(--cream);
+  padding: 0.1em 0.4em;
+  margin: 0.1em;
+}
+
+.ransom-yellow {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  padding: 0.1em 0.4em;
+  margin: 0.1em;
+}
+
+.ransom-pink {
+  display: inline-block;
+  background: var(--hot-pink);
+  color: var(--cream);
+  padding: 0.1em 0.4em;
+  margin: 0.1em;
+}
+
+/* === STAMP === */
+.stamp {
+  display: inline-block;
+  border: 4px solid var(--hot-pink);
+  padding: 0.25rem 1rem;
+  transform: rotate(-3deg);
+  font-family: var(--font-heading), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* === SPEECH BUBBLE === */
+.speech-bubble {
+  position: relative;
+  background: var(--cream);
+  border: 3px solid var(--black);
+  padding: 2rem;
+}
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 40px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid var(--black);
+}
+
+/* === FORM === */
+input[type="email"] {
+  background: var(--cream);
+  border: 3px solid var(--black);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body), monospace;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.4s cubic-bezier(.23, 1, .32, 1);
+}
+input[type="email"]:focus {
+  border-color: var(--red);
+}
+input[type="email"]::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* === PUNK BUTTONS === */
+.btn-punk {
+  display: inline-block;
+  background: var(--red);
+  color: var(--cream);
+  border: 3px solid var(--black);
+  padding: 0.85rem 2.5rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 5px 5px 0 var(--black);
+  transition: transform 0.4s cubic-bezier(.68, -.55, .265, 1.55),
+              box-shadow 0.4s cubic-bezier(.68, -.55, .265, 1.55);
+}
+.btn-punk:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--black);
+}
+.btn-punk:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--black);
+}
+
+.btn-punk-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--black);
+  border: 3px solid var(--black);
+  padding: 0.85rem 2.5rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 5px 5px 0 var(--black);
+  transition: all 0.4s cubic-bezier(.68, -.55, .265, 1.55);
+}
+.btn-punk-outline:hover {
+  background: var(--black);
+  color: var(--cream);
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--red);
+}
+
+.btn-punk-dark {
+  display: inline-block;
+  background: var(--cream);
+  color: var(--black);
+  border: 3px solid var(--cream);
+  padding: 0.85rem 2.5rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 5px 5px 0 var(--red);
+  transition: transform 0.4s cubic-bezier(.68, -.55, .265, 1.55),
+              box-shadow 0.4s cubic-bezier(.68, -.55, .265, 1.55);
+}
+.btn-punk-dark:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--red);
+}
+
+.btn-yellow {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  border: 3px solid var(--black);
+  padding: 0.85rem 2.5rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 5px 5px 0 var(--black);
+  transition: transform 0.4s cubic-bezier(.68, -.55, .265, 1.55),
+              box-shadow 0.4s cubic-bezier(.68, -.55, .265, 1.55);
+}
+.btn-yellow:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--black);
+}
+
+/* === FADE IN ON SCROLL (JS will toggle .is-visible) === */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.23, 1, .32, 1),
+              transform 0.8s cubic-bezier(.23, 1, .32, 1);
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === STAGGER CHILDREN (for grid reveals) === */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(.23, 1, .32, 1),
+              transform 0.6s cubic-bezier(.23, 1, .32, 1);
+}
+.stagger-children.is-visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
+.stagger-children.is-visible > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+.stagger-children.is-visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+.stagger-children.is-visible > *:nth-child(4) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+.stagger-children.is-visible > *:nth-child(5) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
