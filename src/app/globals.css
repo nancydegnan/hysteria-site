@@ -134,6 +134,16 @@ body {
   z-index: 1;
 }
 
+/* === HEAVY SECTION TITLES (Guerrilla Girls weight) === */
+.section-title {
+  -webkit-text-stroke: 3px var(--black);
+  paint-order: stroke fill;
+}
+.section-title-cream {
+  -webkit-text-stroke: 3px var(--cream);
+  paint-order: stroke fill;
+}
+
 /* === STROKE / OUTLINED TEXT === */
 .text-outline-red {
   color: transparent;

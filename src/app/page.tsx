@@ -67,14 +67,6 @@ function RotatingCircleText({ text, size }: { text: string; size: number }) {
   );
 }
 
-const PUNK_TAG_STYLES = [
-  "bg-red text-cream",
-  "bg-yellow text-black",
-  "bg-hot-pink text-cream",
-  "bg-black text-cream",
-  "bg-red text-cream",
-];
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-cream text-foreground">
@@ -193,8 +185,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ====== DIVIDER ====== */}
+      {/* ====== QUOTE — THE HYSTERIC ARCHETYPE ====== */}
       <div className="bg-black torn-bottom h-2" />
+      <section className="relative bg-yellow py-20 md:py-28 px-6 overflow-hidden print-grain">
+        <div className="max-w-5xl mx-auto relative z-10">
+          <RevealSection>
+            <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-black mb-8 opacity-60">
+              The Hysteric Archetype
+            </p>
+            <blockquote className="relative">
+              <div className="flex items-start gap-4">
+                <span
+                  className="font-heading text-[5rem] md:text-[8rem] leading-none text-black select-none"
+                  style={{ marginTop: "-0.2em" }}
+                  aria-hidden="true"
+                >
+                  &ldquo;
+                </span>
+                <div>
+                  <p className="font-heading text-2xl md:text-4xl lg:text-5xl text-black uppercase leading-[1.05] tracking-tight">
+                    He is not a little{" "}
+                    <span className="ransom-pink inline-block rotate-[-1deg]">
+                      mystified
+                    </span>{" "}
+                    when he encounters in her periodically recurring phases of{" "}
+                    <span className="ransom-red inline-block rotate-[1deg]">
+                      hypersensitiveness
+                    </span>
+                    ,{" "}
+                    <span className="text-hot-pink">unreasonableness</span>, and{" "}
+                    <span className="ransom inline-block rotate-[-0.5deg]">
+                      loss of the sense of proportion.
+                    </span>
+                  </p>
+                  <footer className="mt-6">
+                    <span className="ransom inline-block text-sm md:text-base tracking-[0.3em] uppercase font-body">
+                      — 20th-century medical commentary on women
+                    </span>
+                  </footer>
+                </div>
+              </div>
+            </blockquote>
+          </RevealSection>
+        </div>
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.07]"
+          style={{
+            backgroundImage: "radial-gradient(circle, var(--black) 1.5px, transparent 1.5px)",
+            backgroundSize: "10px 10px",
+          }}
+        />
+      </section>
+      <div className="bg-black torn-top h-2" />
 
       {/* ====== ABOUT SECTION ====== */}
       <section
@@ -207,15 +249,12 @@ export default function Home() {
               <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-hot-pink mb-4">
                 // About
               </p>
-              <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-black uppercase leading-[0.9]">
-                The film that
+              <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-black uppercase leading-[0.9] section-title">
+                No more
                 <br />
                 <span className="text-hot-pink">
-                  refuses
-                </span>{" "}
-                to be
-                <br />
-                <span className="text-hot-pink">silent.</span>
+                  breadcrumbs.
+                </span>
               </h2>
             </div>
           </RevealSection>
@@ -224,12 +263,23 @@ export default function Home() {
             <RevealSection>
               <div className="space-y-8">
                 <p className="font-body text-base md:text-lg leading-[1.8]">
-                  <strong>HYSTERIA</strong> rips the silence off one of the most
+                  <span className="ransom inline-block rotate-[-1deg] font-bold">HYSTERIA</span> rips the muffle off one of the most
                   common yet criminally under-researched diseases in the world.{" "}
-                  <span className="font-bold text-hot-pink">Endometriosis</span>{" "}
-                  affects an estimated 190 million people globally — and most of
-                  them spend nearly a decade just trying to get someone to
-                  believe them.
+                  <span className="ransom-red inline-block rotate-[1deg] font-bold">Endometriosis</span>{" "}
+                  affects over an estimated 190 million people globally — and
+                  most of them spend nearly a decade of their youth just trying
+                  to get someone to believe them.
+                </p>
+                <p className="font-body text-base md:text-lg leading-[1.8]">
+                  The medical system has offered women with chronic conditions
+                  like Endo meager breadcrumbs while funding an assortment of
+                  boner pills and even a study on whether men find women with
+                  Endo attractive. Systems such as this survive upon the fear, confusion,
+                  and desperation of their subjects, who don&apos;t know how to
+                  advocate for themselves.{" "}
+                  <span className="ransom-yellow inline-block rotate-[1.5deg] font-bold text-xl md:text-2xl">
+                    NO MORE.
+                  </span>
                 </p>
                 <p className="font-body text-base md:text-lg leading-[1.8]">
                   This film follows my journey to put my stage 3 endometriosis
@@ -237,10 +287,10 @@ export default function Home() {
                   researchers, and biotech companies to discover the path to
                   treating this disease and healing my body. Along the way, I
                   discover the hidden link between{" "}
-                  <span className="font-bold text-hot-pink">WITCHES</span>,{" "}
-                  <span className="font-bold text-hot-pink">HYSTERIA</span>,
+                  <span className="ransom-pink inline-block rotate-[-1deg] font-bold">WITCHES</span>,{" "}
+                  <span className="ransom inline-block rotate-[1deg] font-bold">HYSTERIA</span>,
                   and{" "}
-                  <span className="font-bold text-hot-pink">ENDOMETRIOSIS</span>{" "}
+                  <span className="ransom-red inline-block rotate-[-1.5deg] font-bold">ENDOMETRIOSIS</span>{" "}
                   — tracing back the lineage of medical folklore that continues
                   to haunt women in the doctor&apos;s office today. The cavalry
                   may not be coming, but we can be the cavalry for each other.
@@ -252,8 +302,8 @@ export default function Home() {
               <div className="space-y-8">
                 <div className="speech-bubble">
                   <p className="font-body font-bold text-lg md:text-xl leading-relaxed">
-                    &ldquo;It&apos;s not normal. It&apos;s not in your head. And
-                    it&apos;s not just period pain.&rdquo;
+                    &ldquo;Ask yourself, who benefits from this remaining
+                    incurable and hopeless? Follow the money.&rdquo;
                   </p>
                 </div>
 
@@ -271,36 +321,60 @@ export default function Home() {
                 <div className="clip-reveal-parent relative bg-black text-cream p-8 border-l-[6px] border-red card-hover cursor-default">
                   <div className="clip-reveal absolute inset-0 bg-red" />
                   <p className="relative z-10 font-heading text-4xl md:text-5xl uppercase leading-tight">
-                    $80B+
+                    $180B&ndash;$250B
                   </p>
                   <p className="relative z-10 font-body text-sm mt-4 opacity-80 font-bold">
-                    Annual economic cost of endometriosis in the U.S. alone.
+                    Global market opportunity if the &ldquo;unmet needs&rdquo; of
+                    endometriosis (diagnostics, effective treatments, and
+                    fertility) were addressed.
                   </p>
                 </div>
               </div>
             </RevealSection>
           </div>
 
-          {/* Zine keywords — bold punk colors */}
-          <RevealSection
-            stagger
-            className="mt-20 md:mt-28 flex flex-wrap gap-4 justify-center"
-          >
-            {[
-              "UNDERFUNDED",
-              "MISDIAGNOSED",
-              "DISMISSED",
-              "INVISIBLE",
-              "EPIDEMIC",
-            ].map((word, i) => (
-              <span
-                key={word}
-                className={`font-heading text-xl md:text-2xl ${PUNK_TAG_STYLES[i]} px-5 py-3 rotate-[-1deg] hover:rotate-[1deg] hover:scale-105 transition-all duration-500 cursor-default`}
-              >
-                {word}
-              </span>
-            ))}
-          </RevealSection>
+          {/* ====== QUOTE — STACY SIMS ====== */}
+          <div className="mt-28 md:mt-40 -mx-6">
+            <div className="bg-black torn-bottom h-2" />
+            <div className="relative bg-yellow py-20 md:py-28 px-6 overflow-hidden print-grain">
+              <div className="max-w-5xl mx-auto relative z-10">
+                <RevealSection>
+                  <blockquote className="relative">
+                    <div className="flex items-start gap-4">
+                      <span
+                        className="font-heading text-[5rem] md:text-[8rem] leading-none text-black select-none"
+                        style={{ marginTop: "-0.2em" }}
+                        aria-hidden="true"
+                      >
+                        &ldquo;
+                      </span>
+                      <div>
+                        <p className="font-heading text-3xl md:text-5xl lg:text-6xl text-black uppercase leading-[1] tracking-tight">
+                          Women are not{" "}
+                          <span className="ransom-pink inline-block rotate-[-1deg] text-3xl md:text-5xl lg:text-6xl">
+                            small men.
+                          </span>
+                        </p>
+                        <footer className="mt-6">
+                          <span className="ransom inline-block text-sm md:text-base tracking-[0.3em] uppercase font-body">
+                            — Stacy Sims
+                          </span>
+                        </footer>
+                      </div>
+                    </div>
+                  </blockquote>
+                </RevealSection>
+              </div>
+              <div
+                className="absolute inset-0 pointer-events-none opacity-[0.07]"
+                style={{
+                  backgroundImage: "radial-gradient(circle, var(--black) 1.5px, transparent 1.5px)",
+                  backgroundSize: "10px 10px",
+                }}
+              />
+            </div>
+            <div className="bg-black torn-top h-2" />
+          </div>
 
           {/* ====== MY STORY ====== */}
           <RevealSection className="mt-28 md:mt-40">
@@ -308,7 +382,7 @@ export default function Home() {
               <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-hot-pink mb-4">
                 // My Story
               </p>
-              <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-black uppercase leading-[0.9] mb-12">
+              <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-black uppercase leading-[0.9] mb-12 section-title">
                 How I
                 <br />
                 <span className="text-hot-pink">got here.</span>
@@ -316,51 +390,110 @@ export default function Home() {
               <div className="space-y-6 font-body text-base md:text-lg leading-[1.9]">
                 <p>
                   In 2020, when the world was falling apart, so did my body. My
-                  period became so painful that I was vomiting and blacking out
-                  for hours at a time. Doctors told me this was normal.{" "}
+                  period became so painful I was vomiting and blacking out for
+                  hours. Doctors told me it was normal. Maybe I should try
+                  antidepressants. Maybe I just needed to have a baby.
+                </p>
+                <p>
                   <strong>I would not accept.</strong>
                 </p>
                 <p>
-                  One year later I self-diagnosed and found a surgeon who would
-                  do diagnostic surgery. Turns out, I had stage 3 endometriosis.
-                  When I walked into his office for the post-op, ready to hear
-                  about my treatment plan, he looked at me with a sigh and said
-                  my only option was birth control or putting my body into
-                  medical menopause.
+                  After a year of research, I self-diagnosed and found a surgeon
+                  who confirmed Stage 3 Endometriosis. When I walked into his
+                  office for the post-op, ready for a treatment plan, he sighed
+                  and said my only options were{" "}
+                  <span className="ransom inline-block rotate-[-1deg] font-bold">birth control</span>{" "}
+                  or{" "}
+                  <span className="ransom-yellow inline-block rotate-[1deg] font-bold">medical menopause</span>.
                 </p>
                 <p>
-                  I was devastated. I knew that birth control would only mask the
-                  symptoms while the disease grew internally, and that I&apos;d
-                  be back in another surgeon&apos;s office in a number of years.
-                  But, desperate to get my life back, I took the birth control
-                  and went on with my life.
+                  I was devastated.{" "}
+                  <strong>
+                    Birth control would mask the symptoms while the disease grew
+                    internally
+                  </strong>{" "}
+                  — risking my organs, my fertility, my future. But desperate to get my life back, I took the
+                  prescription and moved on.
                 </p>
                 <p>
-                  Now, I&apos;m determined to find a better solution. I do not
-                  accept that this is &ldquo;just something I have to live
-                  with&rdquo; or that chronic illness needs to become a second
-                  full-time job.{" "}
-                  <span className="font-heading text-hot-pink text-xl md:text-2xl uppercase">
-                    No.
-                  </span>
+                  Then I discovered the work of women who are transforming how we
+                  understand female biology. And I became determined to present
+                  new options to the world.
                 </p>
                 <p>
-                  I have set out on an experiment to put my endo into remission.
+                  I do not accept that Endo is &ldquo;just something I have to
+                  live with.&rdquo; I refuse the narrative that women are cursed
+                  with the harder biology.{" "}
+                  <strong>
+                    We have a biology optimized for flow and harmony, strength
+                    and resilience
+                  </strong>{" "}
+                  — distorted under a lens
+                  that was never built for us.
+                </p>
+                <p>
+                  <strong>I have set out to put my Endo into remission.</strong>{" "}
                   Not less pain &mdash;{" "}
-                  <strong className="text-hot-pink">NO PAIN.</strong> I want my
-                  story to bring hope and encouragement to anyone out there
-                  suffering with period pain. I want you to know there{" "}
-                  <em>are</em> answers, and I am determined to bring them to the
-                  masses.
-                </p>
-                <p className="opacity-70">
-                  Thank you for following along as we build this project.
+                  <span className="ransom-red inline-block rotate-[-1deg] font-bold text-xl md:text-2xl">NO PAIN.</span>{" "}
+                  To restore
+                  health to my whole body, not just my uterus. I want my story
+                  to bring hope to anyone suffering with chronic pain. There are
+                  answers, and I am determined to bring them to the masses.
                 </p>
               </div>
             </div>
           </RevealSection>
         </div>
       </section>
+
+      {/* ====== QUOTE — ALISA VITTI ====== */}
+      <div className="bg-black torn-bottom h-2" />
+      <section className="relative bg-yellow py-20 md:py-28 px-6 overflow-hidden print-grain">
+        <div className="max-w-5xl mx-auto relative z-10">
+          <RevealSection>
+            <blockquote className="relative">
+              <div className="flex items-start gap-4">
+                <span
+                  className="font-heading text-[5rem] md:text-[8rem] leading-none text-black select-none"
+                  style={{ marginTop: "-0.2em" }}
+                  aria-hidden="true"
+                >
+                  &ldquo;
+                </span>
+                <div>
+                  <p className="font-heading text-2xl md:text-4xl lg:text-5xl text-black uppercase leading-[1.05] tracking-tight">
+                    Women tend to get{" "}
+                    <span className="ransom-red inline-block rotate-[1deg]">
+                      &lsquo;sucked&rsquo;
+                    </span>{" "}
+                    into believing that our bodies are{" "}
+                    <span className="ransom-pink inline-block rotate-[-1.5deg]">
+                      wild, scary, shameful
+                    </span>{" "}
+                    places that need to be managed by an outside source,{" "}
+                    <span className="text-hot-pink">medicated</span>,{" "}
+                    <span className="text-hot-pink">controlled</span>, and{" "}
+                    <span className="ransom inline-block rotate-[0.5deg]">sterilized.</span>
+                  </p>
+                  <footer className="mt-6">
+                    <span className="ransom inline-block text-sm md:text-base tracking-[0.3em] uppercase font-body">
+                      — Alisa Vitti
+                    </span>
+                  </footer>
+                </div>
+              </div>
+            </blockquote>
+          </RevealSection>
+        </div>
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.07]"
+          style={{
+            backgroundImage: "radial-gradient(circle, var(--black) 1.5px, transparent 1.5px)",
+            backgroundSize: "10px 10px",
+          }}
+        />
+      </section>
+      <div className="bg-black torn-top h-2" />
 
       {/* ====== RESOURCES SECTION ====== */}
       <section id="resources" className="relative bg-black text-cream py-28 md:py-40 px-6">
@@ -370,7 +503,7 @@ export default function Home() {
               <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-hot-pink mb-4">
                 // Resources
               </p>
-              <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-cream uppercase leading-[0.9]">
+              <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-cream uppercase leading-[0.9] section-title-cream">
                 Tools that
                 <br />
                 <span className="text-hot-pink">helped</span> me.
@@ -422,22 +555,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ====== STRIPE DIVIDER ====== */}
-      <div className="stripes h-8 border-y-[3px] border-black" />
+      {/* ====== DIVIDER ====== */}
+      <div className="bg-black torn-bottom torn-top h-2" />
 
-      {/* ====== HOT PINK CALLOUT — Corita Kent / protest poster ====== */}
-      <section className="bg-hot-pink py-20 md:py-28 px-6 print-grain relative">
-        <div className="relative z-10 max-w-5xl mx-auto text-center">
+      {/* ====== QUOTE — WUTHERING HEIGHTS ====== */}
+      <section className="relative bg-yellow py-20 md:py-28 px-6 overflow-hidden print-grain">
+        <div className="max-w-5xl mx-auto relative z-10">
           <RevealSection>
-            <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-black uppercase leading-[0.85]">
-              The war on
-              <br />
-              women&apos;s pain
-              <br />
-              <span className="text-cream">ends now.</span>
-            </h2>
+            <blockquote className="relative">
+              <div className="flex items-start gap-4">
+                <span
+                  className="font-heading text-[5rem] md:text-[8rem] leading-none text-black select-none"
+                  style={{ marginTop: "-0.2em" }}
+                  aria-hidden="true"
+                >
+                  &ldquo;
+                </span>
+                <div>
+                  <p className="font-heading text-2xl md:text-4xl lg:text-5xl text-black uppercase leading-[1.05] tracking-tight">
+                    I&apos;m tired of being{" "}
+                    <span className="ransom inline-block rotate-[-1deg]">
+                      enclosed
+                    </span>{" "}
+                    here. I&apos;m wearying to{" "}
+                    <span className="ransom-pink inline-block rotate-[1deg]">
+                      escape
+                    </span>{" "}
+                    into that glorious world, and to be always there: not seeing
+                    it dimly through{" "}
+                    <span className="ransom-red inline-block rotate-[-0.5deg]">
+                      tears
+                    </span>
+                    , and yearning for it through the walls of an{" "}
+                    <span className="ransom-pink inline-block rotate-[1deg]">
+                      aching heart.
+                    </span>
+                  </p>
+                  <footer className="mt-6">
+                    <span className="ransom inline-block text-sm md:text-base tracking-[0.3em] uppercase font-body">
+                      — Catherine Earnshaw, Wuthering Heights
+                    </span>
+                  </footer>
+                </div>
+              </div>
+            </blockquote>
           </RevealSection>
         </div>
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.07]"
+          style={{
+            backgroundImage: "radial-gradient(circle, var(--black) 1.5px, transparent 1.5px)",
+            backgroundSize: "10px 10px",
+          }}
+        />
       </section>
 
       {/* ====== EMAIL SIGNUP SECTION ====== */}
@@ -452,7 +622,7 @@ export default function Home() {
             <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-hot-pink mb-6">
               // Community
             </p>
-            <h2 className="font-heading text-6xl md:text-8xl lg:text-[7rem] uppercase leading-[0.85] mb-8">
+            <h2 className="font-heading text-6xl md:text-8xl lg:text-[7rem] uppercase leading-[0.85] mb-8 section-title">
               <span className="text-cream">Join</span>{" "}
               <span className="text-hot-pink">the</span>
               <br />
@@ -462,9 +632,8 @@ export default function Home() {
 
           <RevealSection>
             <p className="font-body text-base md:text-lg leading-[1.8] mb-4 max-w-xl mx-auto opacity-90">
-              This isn&apos;t just a film — it&apos;s a community. Sign up to
-              get updates on screenings, action campaigns, and ways to fight
-              back.
+              This isn&apos;t just a film — it&apos;s a community and a
+              movement. Sign up to get updates on gatherings and resources.
             </p>
           </RevealSection>
 
@@ -481,8 +650,8 @@ export default function Home() {
               </h3>
               <p className="font-body text-sm md:text-base leading-[1.8] opacity-80 mb-6">
                 I&apos;m hosting live events in LA to bring the endo community
-                together — panels, screenings, and honest conversations about
-                living with this disease. Dates and locations go out to the
+                together — honest and supportive conversations about living and
+                healing with this disease. Dates and locations go out to the
                 mailing list first.
               </p>
               <p className="font-body text-xs uppercase tracking-[0.2em] text-hot-pink font-bold">
@@ -528,7 +697,7 @@ export default function Home() {
               <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-red mb-4">
                 // Support
               </p>
-              <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-black uppercase leading-[0.9]">
+              <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-black uppercase leading-[0.9] section-title">
                 Fund
                 <br />
                 <span className="text-red">the</span>{" "}
@@ -543,7 +712,7 @@ export default function Home() {
                 <p className="font-body text-base md:text-lg leading-[1.8] mb-10">
                   Independent film doesn&apos;t fund itself. Your contribution
                   goes directly toward production, post-production, and
-                  distribution — getting this story in front of the people and
+                  distribution. Getting this story in front of the people and
                   policymakers who need to see it.
                 </p>
                 <div className="flex flex-wrap gap-5">
@@ -624,12 +793,12 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           {/* Large footer title — outlined */}
           <div className="mb-16 md:mb-24">
-            <h3 className="font-heading text-6xl md:text-8xl lg:text-[7rem] text-outline-cream leading-[0.85] select-none">
+            <h3 className="font-heading text-6xl md:text-8xl lg:text-[7rem] text-outline-cream leading-[0.85] select-none section-title-cream">
               HYSTERIA
             </h3>
             <p className="font-body text-sm md:text-base leading-relaxed opacity-50 mt-6 max-w-md">
               A documentary film about endometriosis, medical gaslighting, and
-              the fight for recognition.
+              one woman&apos;s refusal to accept a life of pain as her fate.
             </p>
           </div>
 
