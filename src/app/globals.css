@@ -476,3 +476,70 @@ input[type="email"]::placeholder {
 .stagger-children.is-visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
 .stagger-children.is-visible > *:nth-child(4) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
 .stagger-children.is-visible > *:nth-child(5) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+
+/* === PHOTO CUT-OUT / FLOATING EFFECT (punk poster style) === */
+.photo-cutout {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-cutout img {
+  filter: contrast(1.6) brightness(1.15) saturate(0);
+  mix-blend-mode: multiply;
+  transition: filter 0.6s cubic-bezier(.23, 1, .32, 1);
+}
+
+.photo-cutout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+.photo-cutout-pink::before {
+  background: var(--hot-pink);
+}
+
+.photo-cutout-yellow::before {
+  background: var(--yellow);
+}
+
+/* halftone dot overlay on cutout photos */
+.photo-cutout::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(10, 10, 10, 0.1) 1px, transparent 1px);
+  background-size: 4px 4px;
+  pointer-events: none;
+  z-index: 3;
+  mix-blend-mode: multiply;
+}
+
+/* bright variant for darker source photos */
+.photo-cutout-bright img {
+  filter: contrast(1.8) brightness(1.6) saturate(0);
+}
+
+/* collage photo container with tape/pin decoration */
+.collage-photo {
+  position: relative;
+  box-shadow: 4px 4px 0 var(--black);
+  border: 3px solid var(--black);
+}
+
+/* tape strip decoration */
+.collage-photo .tape {
+  position: absolute;
+  width: 60px;
+  height: 22px;
+  background: rgba(245, 208, 0, 0.55);
+  z-index: 10;
+  transform: rotate(-5deg);
+  top: -8px;
+  left: 50%;
+  margin-left: -30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}

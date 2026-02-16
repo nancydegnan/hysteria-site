@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function useScrollReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -68,6 +68,15 @@ function RotatingCircleText({ text, size }: { text: string; size: number }) {
 }
 
 export default function Home() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
   return (
     <div className="min-h-screen bg-cream text-foreground">
       {/* Hidden SVG filter for letterpress/woodblock text effect */}
@@ -378,7 +387,7 @@ export default function Home() {
 
           {/* ====== MY STORY ====== */}
           <RevealSection className="mt-28 md:mt-40">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-6xl mx-auto">
               <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-hot-pink mb-4">
                 // My Story
               </p>
@@ -387,59 +396,104 @@ export default function Home() {
                 <br />
                 <span className="text-hot-pink">got here.</span>
               </h2>
-              <div className="space-y-6 font-body text-base md:text-lg leading-[1.9]">
-                <p>
-                  In 2020, when the world was falling apart, so did my body. My
-                  period became so painful I was vomiting and blacking out for
-                  hours. Doctors told me it was normal. Maybe I should try
-                  antidepressants. Maybe I just needed to have a baby.
-                </p>
-                <p>
-                  <strong>I would not accept.</strong>
-                </p>
-                <p>
-                  After a year of research, I self-diagnosed and found a surgeon
-                  who confirmed Stage 3 Endometriosis. When I walked into his
-                  office for the post-op, ready for a treatment plan, he sighed
-                  and said my only options were{" "}
-                  <span className="ransom inline-block rotate-[-1deg] font-bold">birth control</span>{" "}
-                  or{" "}
-                  <span className="ransom-yellow inline-block rotate-[1deg] font-bold">medical menopause</span>.
-                </p>
-                <p>
-                  I was devastated.{" "}
-                  <strong>
-                    Birth control would mask the symptoms while the disease grew
-                    internally
-                  </strong>{" "}
-                  — risking my organs, my fertility, my future. But desperate to get my life back, I took the
-                  prescription and moved on.
-                </p>
-                <p>
-                  Then I discovered the work of women who are transforming how we
-                  understand female biology. And I became determined to present
-                  new options to the world.
-                </p>
-                <p>
-                  I do not accept that Endo is &ldquo;just something I have to
-                  live with.&rdquo; I refuse the narrative that women are cursed
-                  with the harder biology.{" "}
-                  <strong>
-                    We have a biology optimized for flow and harmony, strength
-                    and resilience
-                  </strong>{" "}
-                  — distorted under a lens
-                  that was never built for us.
-                </p>
-                <p>
-                  <strong>I have set out to put my Endo into remission.</strong>{" "}
-                  Not less pain &mdash;{" "}
-                  <span className="ransom-red inline-block rotate-[-1deg] font-bold text-xl md:text-2xl">NO PAIN.</span>{" "}
-                  To restore
-                  health to my whole body, not just my uterus. I want my story
-                  to bring hope to anyone suffering with chronic pain. There are
-                  answers, and I am determined to bring them to the masses.
-                </p>
+
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 lg:gap-16 items-start">
+                {/* Text column */}
+                <div className="space-y-6 font-body text-base md:text-lg leading-[1.9]">
+                  <p>
+                    In 2020, when the world was falling apart, so did my body. My
+                    period became so painful I was vomiting and blacking out for
+                    hours. Doctors told me it was normal. Maybe I should try
+                    antidepressants. Maybe I just needed to have a baby.
+                  </p>
+                  <p>
+                    <strong>I would not accept.</strong>
+                  </p>
+                  <p>
+                    After a year of research, I self-diagnosed and found a surgeon
+                    who confirmed Stage 3 Endometriosis. When I walked into his
+                    office for the post-op, ready for a treatment plan, he sighed
+                    and said my only options were{" "}
+                    <span className="ransom inline-block rotate-[-1deg] font-bold">birth control</span>{" "}
+                    or{" "}
+                    <span className="ransom-yellow inline-block rotate-[1deg] font-bold">medical menopause</span>.
+                  </p>
+                  <p>
+                    I was devastated.{" "}
+                    <strong>
+                      Birth control would mask the symptoms while the disease grew
+                      internally
+                    </strong>{" "}
+                    — risking my organs, my fertility, my future. But desperate to get my life back, I took the
+                    prescription and moved on.
+                  </p>
+                  <p>
+                    Then I discovered the work of women who are transforming how we
+                    understand female biology. And I became determined to present
+                    new options to the world.
+                  </p>
+                  <p>
+                    I do not accept that Endo is &ldquo;just something I have to
+                    live with.&rdquo; I refuse the narrative that women are cursed
+                    with the harder biology.{" "}
+                    <strong>
+                      We have a biology optimized for flow and harmony, strength
+                      and resilience
+                    </strong>{" "}
+                    — distorted under a lens
+                    that was never built for us.
+                  </p>
+                  <p>
+                    <strong>I have set out to put my Endo into remission.</strong>{" "}
+                    Not less pain &mdash;{" "}
+                    <span className="ransom-red inline-block rotate-[-1deg] font-bold text-xl md:text-2xl">NO PAIN.</span>{" "}
+                    To restore
+                    health to my whole body, not just my uterus. I want my story
+                    to bring hope to anyone suffering with chronic pain. There are
+                    answers, and I am determined to bring them to the masses.
+                  </p>
+                </div>
+
+                {/* Photo collage column */}
+                <div className="relative flex flex-col gap-6 lg:sticky lg:top-24">
+                  {/* Photo 0 — portrait (_MG_4378) */}
+                  <div
+                    className="collage-photo relative rotate-[-1.5deg] z-5"
+                  >
+                    <div className="tape" />
+                    <img
+                      src="/_MG_4378.jpg"
+                      alt="Nancy portrait"
+                      className="w-full h-[340px] object-cover"
+                      style={{ objectPosition: "center 80%" }}
+                    />
+                  </div>
+
+                  {/* Photo 1 — hospital (IMG_1568 3) */}
+                  <div
+                    className="collage-photo relative rotate-[2deg] z-10"
+                  >
+                    <div className="tape" />
+                    <img
+                      src="/IMG_1568 3.jpg"
+                      alt="Nancy before surgery in hospital gown and cap"
+                      className="w-full h-[340px] object-cover object-center"
+                    />
+                  </div>
+
+                  {/* Photo 2 — resting (IMG_0509) */}
+                  <div
+                    className="collage-photo relative rotate-[-3deg] z-20 lg:-mt-8"
+                  >
+                    <div className="tape" />
+                    <img
+                      src="/IMG_0509.jpg"
+                      alt="Nancy resting during recovery"
+                      className="w-full h-[300px] object-cover"
+                      style={{ objectPosition: "0% center" }}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </RevealSection>
@@ -717,16 +771,16 @@ export default function Home() {
                 </p>
                 <div className="flex flex-wrap gap-5">
                   <a
-                    href="#"
+                    href="https://donate.mazloweb.com/donate/hysteria-documentary-production-fund"
                     className="btn-punk"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Donate Now
                   </a>
-                  <a href="#community" className="btn-punk-outline">
-                    Spread the Word
-                  </a>
+                  <button onClick={handleCopyLink} className="btn-punk-outline">
+                    {copied ? "Link Copied!" : "Spread the Word"}
+                  </button>
                 </div>
               </div>
             </RevealSection>
@@ -852,7 +906,9 @@ export default function Home() {
                 Follow
               </h4>
               <a
-                href="#"
+                href="https://www.instagram.com/nancydegnan/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex items-center gap-4 mb-6"
               >
                 {/* Instagram icon */}
@@ -875,7 +931,7 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="font-heading text-base uppercase tracking-wider text-cream/70 group-hover:text-red transition-colors duration-500">
-                    @hysteriafilm
+                    @nancydegnan
                   </p>
                   <p className="font-body text-xs opacity-50 mt-1">
                     Follow the fight on Instagram
