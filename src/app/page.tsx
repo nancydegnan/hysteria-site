@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 function useScrollReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -572,38 +573,56 @@ export default function Home() {
 
           <RevealSection stagger>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  category: "Practitioner",
-                  title: "Coming Soon",
-                  description: "Doctors and specialists who actually listen.",
-                },
-                {
-                  category: "Tool",
-                  title: "Coming Soon",
-                  description: "Products and tools that help manage daily life.",
-                },
-                {
-                  category: "Reading",
-                  title: "Coming Soon",
-                  description: "Books, articles, and research worth your time.",
-                },
-              ].map((resource) => (
-                <div
-                  key={resource.category}
-                  className="border-[3px] border-cream/20 p-8 hover:border-hot-pink transition-colors duration-500 card-hover cursor-default"
-                >
-                  <span className="font-heading text-xs uppercase tracking-[0.3em] text-hot-pink">
-                    {resource.category}
+              {/* Practitioner — live link */}
+              <Link
+                href="/practitioners"
+                className="border-[3px] border-cream/20 p-8 hover:border-hot-pink transition-colors duration-500 card-hover cursor-pointer group"
+              >
+                <span className="font-heading text-xs uppercase tracking-[0.3em] text-hot-pink">
+                  Practitioner
+                </span>
+                <h3 className="font-heading text-2xl uppercase mt-3 mb-4">
+                  Explore{" "}
+                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                    &rarr;
                   </span>
-                  <h3 className="font-heading text-2xl uppercase mt-3 mb-4">
-                    {resource.title}
-                  </h3>
-                  <p className="font-body text-sm leading-relaxed opacity-60">
-                    {resource.description}
-                  </p>
-                </div>
-              ))}
+                </h3>
+                <p className="font-body text-sm leading-relaxed opacity-60">
+                  Doctors and specialists who actually listen.
+                </p>
+              </Link>
+
+              {/* Tool — live link */}
+              <Link
+                href="/tools"
+                className="border-[3px] border-cream/20 p-8 hover:border-hot-pink transition-colors duration-500 card-hover cursor-pointer group"
+              >
+                <span className="font-heading text-xs uppercase tracking-[0.3em] text-hot-pink">
+                  Tool
+                </span>
+                <h3 className="font-heading text-2xl uppercase mt-3 mb-4">
+                  Explore{" "}
+                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                    &rarr;
+                  </span>
+                </h3>
+                <p className="font-body text-sm leading-relaxed opacity-60">
+                  Products and tools that help manage daily life.
+                </p>
+              </Link>
+
+              {/* Reading — coming soon */}
+              <div className="border-[3px] border-cream/20 p-8 hover:border-hot-pink transition-colors duration-500 card-hover cursor-default">
+                <span className="font-heading text-xs uppercase tracking-[0.3em] text-hot-pink">
+                  Reading
+                </span>
+                <h3 className="font-heading text-2xl uppercase mt-3 mb-4">
+                  Coming Soon
+                </h3>
+                <p className="font-body text-sm leading-relaxed opacity-60">
+                  Books, articles, and research worth your time.
+                </p>
+              </div>
             </div>
           </RevealSection>
         </div>
