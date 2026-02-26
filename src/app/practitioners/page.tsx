@@ -53,12 +53,64 @@ interface Practitioner {
   website?: string;
 }
 
+/* ── Instagram accounts ── */
+interface InstagramAccount {
+  handle: string;
+  url: string;
+  description: string;
+}
+
+const instagramAccounts: InstagramAccount[] = [
+  {
+    handle: "@savannahregensburger",
+    url: "https://www.instagram.com/savannahregensburger/",
+    description:
+      "Clinical Nutritionist, Educator + Speaker with Endo.",
+  },
+  {
+    handle: "@chef_bai",
+    url: "https://www.instagram.com/chef_bai/",
+    description:
+      "Vegan chef with endo, 2X bestselling author of \"Breaking Up With Dairy.\"",
+  },
+  {
+    handle: "@alisa.vitti",
+    url: "https://www.instagram.com/alisa.vitti/",
+    description:
+      "Women\u2019s Hormone Expert, Creator of Cycle Syncing Method, @floliving + MyFLO app, author of Woman Code + In the FLO.",
+  },
+  {
+    handle: "@endonutrition",
+    url: "https://www.instagram.com/endonutrition/?hl=en",
+    description:
+      "Khush Sra \u2014 Stage 4 \u2192 20 yrs remission. Advanced endometriosis care. Fx Med x Nervous System.",
+  },
+  {
+    handle: "@aileyjolie",
+    url: "https://www.instagram.com/aileyjolie/?hl=en",
+    description:
+      "MCP, MA Psychologist. Guiding You Back to Your Body. Somatic Psychologist & Supervisor. Founder of INBODY.",
+  },
+  {
+    handle: "@thebeanprotocol",
+    url: "https://www.instagram.com/thebeanprotocol/?hl=en",
+    description:
+      "Creating a healthy internal environment. Hormones \u2022 natural detox \u2022 gut \u2022 skin \u2022 weight \u2022 resilience \u2022 vitality. @uniquehammond.",
+  },
+  {
+    handle: "@nicolesachslcsw",
+    url: "https://www.instagram.com/nicolesachslcsw/?hl=en",
+    description:
+      "Creator of JournalSpeak. The Brain Science Behind Chronic Pain and Anxiety.",
+  },
+];
+
 const practitioners: Practitioner[] = [
   {
     name: "Dr. Iris Orbuch",
     city: "Los Angeles",
     state: "California",
-    remote: true,
+    remote: false,
     description:
       "Endometriosis excision specialist and author of 'Beating Endo.' Performs advanced laparoscopic excision surgery and offers comprehensive treatment plans that address the whole patient.",
     bestFor:
@@ -67,52 +119,73 @@ const practitioners: Practitioner[] = [
     website: "https://www.beatingendo.com",
   },
   {
-    name: "Dr. Tamer Seckin",
-    city: "New York City",
-    state: "New York",
+    name: "Dr. Chandra Spring-Robinson",
+    city: "San Diego",
+    state: "California",
     remote: false,
     description:
-      "Pioneer in deep-excision laparoscopic surgery for endometriosis. Founder of the Endometriosis Foundation of America and a leading advocate for early diagnosis.",
+      "Endometriosis and minimally invasive gynecologic surgery specialist based in San Diego, focused on advanced care for pelvic pain and endometriosis.",
     bestFor:
-      "Complex or deep-infiltrating endometriosis cases requiring an experienced surgical specialist.",
-    contact: { type: "phone", value: "(212) 555-0198" },
-    website: "https://www.drseckin.com",
+      "Patients in Southern California seeking specialized endometriosis care in the San Diego area.",
+    website: "https://www.socalendo.health/",
   },
   {
-    name: "Dr. Andrea Vidali",
-    city: "New York City",
-    state: "New York",
-    remote: true,
-    description:
-      "Reproductive immunologist and endometriosis surgeon integrating immune-focused diagnostics with minimally invasive excision techniques.",
-    bestFor:
-      "Patients dealing with endo-related infertility or immune dysfunction alongside endometriosis.",
-    contact: { type: "email", value: "info@endocenterclinic.com" },
-    website: "https://www.endocenterclinic.com",
-  },
-  {
-    name: "Dr. Patrick Yeung",
-    city: "St. Louis",
-    state: "Missouri",
+    name: "Emily Eckmann",
+    city: "Los Angeles",
+    state: "California",
     remote: false,
     description:
-      "Minimally invasive gynecologic surgeon specializing in endometriosis excision. Focuses on fertility-preserving surgery and chronic pelvic pain.",
+      "Pelvic Health Physical Therapist specializing in pelvic floor rehabilitation and chronic pelvic pain management.",
     bestFor:
-      "Patients in the Midwest seeking high-quality excision surgery and pelvic pain management.",
-    contact: { type: "phone", value: "(314) 555-0172" },
-    website: "https://www.centerforendo.com",
+      "Patients in Los Angeles seeking specialized pelvic floor physical therapy.",
+    website: "https://www.emilyeckmannpt.com/",
   },
   {
-    name: "Jessica Murnane",
-    city: "Chicago",
-    state: "Illinois",
+    name: "Dr. Kelly N. Wright, MD",
+    city: "Los Angeles",
+    state: "California",
+    remote: false,
+    description:
+      "Director of Minimally Invasive Gynecologic Surgery at Cedars-Sinai. Harvard AAGL-fellowship trained endometriosis expert specializing in excision surgery, fertility preservation, and pelvic pain.",
+    bestFor:
+      "Patients in Los Angeles seeking an experienced endometriosis surgeon at a major medical center.",
+    website: "https://www.cedars-sinai.org/provider/kelly-wright-816326.html",
+  },
+];
+
+const remotePractitioners: Practitioner[] = [
+  {
+    name: "Dr. Jolene Brighten",
+    city: "",
+    state: "",
     remote: true,
     description:
-      "Holistic wellness advocate and author of 'One Part Plant.' Coaches on anti-inflammatory nutrition, lifestyle shifts, and building a support system for chronic illness.",
+      "Naturopathic endocrinologist and bestselling author of 'Beyond the Pill.' Specializes in hormonal health, post-birth-control syndrome, and root-cause approaches to period problems and endometriosis.",
     bestFor:
-      "Anyone looking for nutritional guidance and community support alongside medical treatment.",
-    contact: { type: "email", value: "hello@jessicamurnane.com" },
-    website: "https://www.jessicamurnane.com",
+      "Patients seeking a functional and hormonal approach to managing endometriosis and related conditions.",
+    website: "https://drbrighten.com/",
+  },
+  {
+    name: "Unique Hammond",
+    city: "",
+    state: "",
+    remote: true,
+    description:
+      "Nutritionist specializing in dietary approaches to support hormonal health and chronic conditions like endometriosis.",
+    bestFor:
+      "Patients looking for personalized nutritional guidance to complement their endo treatment plan.",
+    website: "https://www.youregreat.com/",
+  },
+  {
+    name: "Karen Hurd",
+    city: "",
+    state: "",
+    remote: true,
+    description:
+      "Biochemist and nutritional consultant, and the originator of the idea that soluble fiber (primarily from beans) can help the body bind and excrete excess hormones, particularly estrogen \u2014 which is central to conditions like endometriosis. Offers remote courses you can purchase on her website covering an array of conditions as well as overall health.",
+    bestFor:
+      "Anyone looking for accessible, self-paced nutritional education for chronic conditions and general wellness.",
+    website: "https://karen-r.mylearnworlds.com/courses",
   },
 ];
 
@@ -159,8 +232,107 @@ export default function PractitionersPage() {
         </RevealSection>
       </header>
 
+      {/* ── Jump-to buttons ── */}
+      <nav className="px-6 max-w-5xl mx-auto mb-12 md:mb-16 flex flex-wrap gap-4">
+        <button
+          onClick={() =>
+            document.getElementById("practitioners")?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="font-heading text-sm md:text-base uppercase tracking-[0.2em] border-[3px] border-cream/20 px-6 py-3 hover:border-hot-pink hover:text-hot-pink transition-colors duration-300"
+        >
+          Practitioners
+        </button>
+        <button
+          onClick={() =>
+            document.getElementById("instagram")?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="font-heading text-sm md:text-base uppercase tracking-[0.2em] border-[3px] border-cream/20 px-6 py-3 hover:border-hot-pink hover:text-hot-pink transition-colors duration-300"
+        >
+          Instagram Accounts
+        </button>
+      </nav>
+
       {/* ── Practitioner listings ── */}
-      <main className="px-6 pb-28 md:pb-40 max-w-5xl mx-auto">
+      <main id="practitioners" className="px-6 pb-28 md:pb-40 max-w-5xl mx-auto scroll-mt-8">
+        {/* ── Available Remotely ── */}
+        <section className="mb-16 md:mb-24">
+          <RevealSection>
+            <h2 className="font-heading text-3xl md:text-4xl uppercase tracking-wide text-hot-pink mb-8 md:mb-10">
+              Available Remotely
+            </h2>
+          </RevealSection>
+
+          <div className="grid gap-6">
+            {remotePractitioners.map((p) => (
+              <RevealSection key={p.name}>
+                <div className="border-[3px] border-cream/20 p-8 md:p-10 hover:border-hot-pink transition-colors duration-500">
+                  <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+                    <h3 className="font-heading text-2xl md:text-3xl uppercase leading-tight">
+                      {p.name}
+                    </h3>
+                    <span className="inline-flex items-center gap-1.5 font-body text-xs tracking-wide uppercase bg-hot-pink/20 text-hot-pink px-3 py-1">
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
+                        <circle cx="12" cy="12" r="3" />
+                      </svg>
+                      Available Remotely
+                    </span>
+                  </div>
+
+                  <p className="font-body text-sm md:text-base leading-[1.8] opacity-80 mb-6">
+                    {p.description}
+                  </p>
+
+                  <div className="mb-6">
+                    <span className="font-heading text-xs uppercase tracking-[0.2em] text-hot-pink">
+                      Best fit for
+                    </span>
+                    <p className="font-body text-sm leading-[1.8] opacity-70 mt-1">
+                      {p.bestFor}
+                    </p>
+                  </div>
+
+                  {p.website && (
+                    <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-cream/10">
+                      <a
+                        href={p.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 font-heading text-sm uppercase tracking-wider text-cream hover:text-hot-pink transition-colors duration-300"
+                      >
+                        Visit Website
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                          <polyline points="15 3 21 3 21 9" />
+                          <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </RevealSection>
+            ))}
+          </div>
+        </section>
+
         {grouped.map(([state, list]) => (
           <section key={state} className="mb-16 md:mb-24 last:mb-0">
             <RevealSection>
@@ -309,6 +481,58 @@ export default function PractitionersPage() {
           </section>
         ))}
       </main>
+
+      {/* ── Instagram accounts ── */}
+      <section id="instagram" className="px-6 pb-28 md:pb-40 max-w-5xl mx-auto scroll-mt-8">
+        <RevealSection>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase text-cream leading-[0.85] mb-4">
+            Instagram Accounts
+          </h2>
+          <p className="font-body text-sm md:text-base leading-[1.8] opacity-60 mb-10 max-w-2xl">
+            Accounts I follow that consistently share helpful, honest content
+            about endo, women&apos;s health, and hormonal health.
+          </p>
+        </RevealSection>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {instagramAccounts.map((acct) => (
+            <RevealSection key={acct.handle}>
+              <a
+                href={acct.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block border-[3px] border-cream/20 p-8 hover:border-hot-pink transition-colors duration-500 h-full"
+              >
+                {/* Instagram icon + handle */}
+                <div className="flex items-center gap-3 mb-4">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-hot-pink shrink-0"
+                  >
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                  <span className="font-heading text-sm md:text-base uppercase tracking-wide group-hover:text-hot-pink transition-colors duration-300 break-all">
+                    {acct.handle}
+                  </span>
+                </div>
+
+                <p className="font-body text-sm leading-[1.8] opacity-70">
+                  {acct.description}
+                </p>
+              </a>
+            </RevealSection>
+          ))}
+        </div>
+      </section>
 
       {/* ── Footer ── */}
       <footer className="border-t border-cream/10 px-6 py-12">

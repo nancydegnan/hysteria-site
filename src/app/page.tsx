@@ -26,15 +26,18 @@ function RevealSection({
   children,
   className = "",
   stagger = false,
+  id,
 }: {
   children: React.ReactNode;
   className?: string;
   stagger?: boolean;
+  id?: string;
 }) {
   const ref = useScrollReveal();
   return (
     <div
       ref={ref}
+      id={id}
       className={`${stagger ? "stagger-children" : "fade-in-section"} ${className}`}
     >
       {children}
@@ -117,6 +120,24 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* ====== NAV BUTTONS ====== */}
+      <nav className="bg-black py-3 px-6 flex justify-center gap-3 md:gap-5 flex-wrap">
+        {[
+          { href: "#my-story", label: "My Story" },
+          { href: "#resources", label: "Resources" },
+          { href: "#meetups", label: "LA Meetups" },
+          { href: "#donate", label: "Fund the Fight" },
+        ].map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="font-heading text-xs md:text-sm uppercase tracking-[0.2em] text-cream/80 hover:text-hot-pink transition-colors duration-300 px-3 py-1 border border-cream/20 hover:border-hot-pink"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
 
       {/* ====== HERO SECTION ====== */}
       <section className="relative min-h-screen flex items-center justify-center px-6 py-10 md:py-16 overflow-hidden">
@@ -312,8 +333,7 @@ export default function Home() {
               <div className="space-y-8">
                 <div className="speech-bubble">
                   <p className="font-body font-bold text-lg md:text-xl leading-relaxed">
-                    &ldquo;Ask yourself, who benefits from this remaining
-                    incurable and hopeless? Follow the money.&rdquo;
+                    &ldquo;The global hormonal contraceptive market is worth $19 billion. The first-line treatment for endometriosis has been the same since 1957.&rdquo;
                   </p>
                 </div>
 
@@ -324,6 +344,19 @@ export default function Home() {
                   </p>
                   <p className="relative z-10 font-body text-sm mt-4 text-black font-bold">
                     Average time to receive an endometriosis diagnosis.
+                  </p>
+                </div>
+
+                {/* NIH funding stat — red */}
+                <div className="bg-red border-[4px] border-black p-8 print-grain card-hover cursor-default">
+                  <p className="relative z-10 font-heading text-4xl md:text-5xl text-cream uppercase leading-tight">
+                    $2 per year
+                    <br />
+                    per patient
+                  </p>
+                  <p className="relative z-10 font-body text-sm mt-4 text-cream font-bold">
+                    Amount of funding the NIH allocates to endometriosis
+                    research and diagnostics.
                   </p>
                 </div>
 
@@ -387,7 +420,7 @@ export default function Home() {
           </div>
 
           {/* ====== MY STORY ====== */}
-          <RevealSection className="mt-28 md:mt-40">
+          <RevealSection className="mt-28 md:mt-40" id="my-story">
             <div className="max-w-6xl mx-auto">
               <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-hot-pink mb-4">
                 // My Story
@@ -579,7 +612,7 @@ export default function Home() {
                 className="border-[3px] border-cream/20 p-8 hover:border-hot-pink transition-colors duration-500 card-hover cursor-pointer group"
               >
                 <span className="font-heading text-xs uppercase tracking-[0.3em] text-hot-pink">
-                  Practitioner
+                  Practitioners
                 </span>
                 <h3 className="font-heading text-2xl uppercase mt-3 mb-4">
                   Explore{" "}
@@ -598,7 +631,7 @@ export default function Home() {
                 className="border-[3px] border-cream/20 p-8 hover:border-hot-pink transition-colors duration-500 card-hover cursor-pointer group"
               >
                 <span className="font-heading text-xs uppercase tracking-[0.3em] text-hot-pink">
-                  Tool
+                  Tools
                 </span>
                 <h3 className="font-heading text-2xl uppercase mt-3 mb-4">
                   Explore{" "}
@@ -611,18 +644,24 @@ export default function Home() {
                 </p>
               </Link>
 
-              {/* Reading — coming soon */}
-              <div className="border-[3px] border-cream/20 p-8 hover:border-hot-pink transition-colors duration-500 card-hover cursor-default">
+              {/* Reading — live link */}
+              <Link
+                href="/reading"
+                className="border-[3px] border-cream/20 p-8 hover:border-hot-pink transition-colors duration-500 card-hover cursor-pointer group"
+              >
                 <span className="font-heading text-xs uppercase tracking-[0.3em] text-hot-pink">
-                  Reading
+                  Read, Watch, Listen
                 </span>
                 <h3 className="font-heading text-2xl uppercase mt-3 mb-4">
-                  Coming Soon
+                  Explore{" "}
+                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                    &rarr;
+                  </span>
                 </h3>
                 <p className="font-body text-sm leading-relaxed opacity-60">
-                  Books, articles, and research worth your time.
+                  Books, films, podcasts, articles, and research worth your time.
                 </p>
-              </div>
+              </Link>
             </div>
           </RevealSection>
         </div>
@@ -711,7 +750,7 @@ export default function Home() {
           </RevealSection>
 
           {/* Live Events Callout */}
-          <RevealSection>
+          <RevealSection id="meetups">
             <div className="my-14 border-[3px] border-hot-pink p-8 md:p-10 max-w-2xl mx-auto text-left">
               <p className="font-heading text-xs uppercase tracking-[0.3em] text-hot-pink mb-4">
                 Live in Los Angeles
