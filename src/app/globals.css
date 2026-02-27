@@ -7,6 +7,7 @@
   --black: #0A0A0A;
   --cream: #F5F0E8;
   --cream-dark: #EBE3D5;
+  --pink-deep: #2D1525;
 }
 
 @theme {
@@ -23,6 +24,7 @@
   --color-hot-pink: #E84B8A;
   --color-cream: #F5F0E8;
   --color-cream-dark: #EBE3D5;
+  --color-pink-deep: #2D1525;
   --font-heading: var(--font-anton);
   --font-body: var(--font-space-mono);
 }
