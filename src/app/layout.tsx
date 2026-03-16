@@ -1,29 +1,27 @@
 import type { Metadata } from "next";
-import { Anton, Space_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const anton = Anton({
-  weight: "400",
-  variable: "--font-anton",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
   display: "swap",
 });
 
-const spaceMono = Space_Mono({
-  weight: ["400", "700"],
-  variable: "--font-space-mono",
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  variable: "--font-playfair",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "HYSTERIA — A Documentary About Endometriosis",
+  title: "No Cure Club — An Endometriosis Community & Curation Hub",
   description:
-    "I went looking for a diagnosis. I found a global crisis. HYSTERIA is a documentary film exposing the endometriosis epidemic.",
+    "No Cure Club is a community and curation hub for people living with endometriosis. Resources, stories, advocacy, and the HYSTERIA documentary — because no one should fight alone.",
   openGraph: {
-    title: "HYSTERIA — A Documentary About Endometriosis",
+    title: "No Cure Club — An Endometriosis Community & Curation Hub",
     description:
-      "I went looking for a diagnosis. I found a global crisis.",
+      "Resources, stories, and solidarity for people living with endometriosis. No cure. No silence. No surrender.",
     type: "website",
   },
 };
@@ -35,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${anton.variable} ${spaceMono.variable} antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         {children}
       </body>
     </html>

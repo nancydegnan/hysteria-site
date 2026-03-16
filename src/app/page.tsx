@@ -1,78 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-
-function useScrollReveal() {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add("is-visible");
-        }
-      },
-      { threshold: 0.15 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-  return ref;
-}
-
-function RevealSection({
-  children,
-  className = "",
-  stagger = false,
-  id,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  stagger?: boolean;
-  id?: string;
-}) {
-  const ref = useScrollReveal();
-  return (
-    <div
-      ref={ref}
-      id={id}
-      className={`${stagger ? "stagger-children" : "fade-in-section"} ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
-function RotatingCircleText({ text, size }: { text: string; size: number }) {
-  return (
-    <div
-      className="rotate-slow select-none"
-      style={{ width: size, height: size }}
-    >
-      <svg viewBox="0 0 200 200" width={size} height={size}>
-        <defs>
-          <path
-            id="circlePath"
-            d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
-          />
-        </defs>
-        <text
-          fill="currentColor"
-          fontSize="14"
-          fontFamily="var(--font-heading), sans-serif"
-          letterSpacing="3"
-        >
-          <textPath href="#circlePath">{text}</textPath>
-        </text>
-      </svg>
-    </div>
-  );
-}
+import { RevealSection, Footer } from "./components";
+import { tools } from "./tools/data";
 
 export default function Home() {
   const [copied, setCopied] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href).then(() => {
@@ -81,936 +16,517 @@ export default function Home() {
     });
   };
 
+  const navLinks = [
+    { href: "/hysteria-doc", label: "documentary" },
+    { href: "/practitioners", label: "practitioners" },
+    { href: "/tools", label: "shop" },
+    { href: "/reading", label: "read" },
+    { href: "#community", label: "community" },
+  ];
+
   return (
-    <div className="min-h-screen bg-cream text-foreground">
-      {/* Hidden SVG filter for letterpress/woodblock text effect */}
-      <svg className="absolute w-0 h-0" aria-hidden="true">
-        <defs>
-          <filter id="letterpress">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.04"
-              numOctaves="4"
-              seed="2"
-              result="noise"
-            />
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="noise"
-              scale="3"
-              xChannelSelector="R"
-              yChannelSelector="G"
-            />
-          </filter>
-        </defs>
-      </svg>
-
-      {/* ====== TICKER BAR ====== */}
-      <div className="bg-hot-pink overflow-hidden whitespace-nowrap py-2 border-b-[3px] border-black">
-        <div className="ticker-scroll inline-block">
-          {Array.from({ length: 2 }).map((_, i) => (
-            <span
-              key={i}
-              className="font-heading text-cream text-sm tracking-[0.3em] uppercase mx-4"
-            >
-              1 IN 10 WOMEN &bull; 190 MILLION WORLDWIDE &bull; AVERAGE 7-10
-              YEARS TO DIAGNOSE &bull; NO KNOWN CURE &bull; EXPOSED &bull;
-              SILENCED &bull; IGNORED &bull; NOT ANYMORE &bull;&nbsp;
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* ====== NAV BUTTONS ====== */}
-      <nav className="bg-black py-3 px-6 flex justify-center gap-3 md:gap-5 flex-wrap">
-        {[
-          { href: "#my-story", label: "My Story" },
-          { href: "#resources", label: "Resources" },
-          { href: "#meetups", label: "LA Meetups" },
-          { href: "#donate", label: "Fund the Fight" },
-        ].map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            className="font-heading text-xs md:text-sm uppercase tracking-[0.2em] text-cream/80 hover:text-hot-pink transition-colors duration-300 px-3 py-1 border border-cream/20 hover:border-hot-pink"
+    <div className="min-h-screen bg-white text-foreground">
+      {/* ====== STICKY NAV ====== */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-mid">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Link
+            href="/"
+            className="text-xl font-black tracking-tight text-black uppercase"
           >
-            {link.label}
-          </a>
-        ))}
+            NCC
+          </Link>
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) =>
+              link.href.startsWith("#") ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-gray-text hover:text-black transition-colors duration-300"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-gray-text hover:text-black transition-colors duration-300"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+          </div>
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden text-black"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              {mobileMenuOpen ? (
+                <path d="M6 6l12 12M6 18L18 6" />
+              ) : (
+                <path d="M4 8h16M4 16h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-gray-mid bg-white px-6 py-4 flex flex-col gap-3">
+            {navLinks.map((link) =>
+              link.href.startsWith("#") ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-gray-text hover:text-black transition-colors duration-300"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-gray-text hover:text-black transition-colors duration-300"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+          </div>
+        )}
       </nav>
 
-      {/* ====== HERO SECTION ====== */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 py-10 md:py-16 overflow-hidden">
-        {/* Fullscreen background video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/hysteria_hero_v3.mp4" type="video/mp4" />
-        </video>
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/50" />
-
-
-
-        <div className="relative z-10 w-full max-w-6xl mx-auto text-center">
-          {/* Tagline — top — ransom collage style */}
-          <div className="flex flex-wrap justify-center gap-[3px] md:gap-[5px] mb-6 md:mb-8 select-none">
-            <span className="collage-letter bg-black text-cream rotate-[-2deg] text-xs md:text-sm">I</span>
-            <span className="collage-letter bg-cream text-black border border-black rotate-[1deg] text-[0.65rem] md:text-xs">went</span>
-            <span className="collage-letter bg-hot-pink text-cream rotate-[-1deg] text-xs md:text-sm">looking</span>
-            <span className="collage-letter bg-yellow text-black rotate-[2deg] text-[0.65rem] md:text-xs">for</span>
-            <span className="collage-letter bg-black text-cream rotate-[-1.5deg] text-xs md:text-sm">a</span>
-            <span className="collage-letter bg-red text-cream rotate-[1.5deg] text-xs md:text-sm font-heading tracking-wider">diagnosis.</span>
-          </div>
-
-          {/* MASSIVE CENTERED TITLE — ultra-condensed letterpress style */}
-          <div className="relative flex justify-center">
-            <h1
-              className="font-heading text-hot-pink text-[clamp(14rem,45vw,38rem)] leading-[0.76] tracking-[-0.03em] uppercase select-none text-center"
-              style={{ transform: "scaleX(0.4)", transformOrigin: "center" }}
-            >
-              HYSTERIA
-            </h1>
-          </div>
-
-          {/* Tagline — bottom — ransom collage style */}
-          <div className="flex flex-wrap justify-center gap-[3px] md:gap-[5px] mt-6 md:mt-8 select-none">
-            <span className="collage-letter bg-cream text-black border border-black rotate-[1.5deg] text-xs md:text-sm">I</span>
-            <span className="collage-letter bg-red text-cream rotate-[-2deg] text-xs md:text-sm">found</span>
-            <span className="collage-letter bg-black text-cream rotate-[1deg] text-[0.65rem] md:text-xs">a</span>
-            <span className="collage-letter bg-yellow text-black rotate-[-1deg] text-xs md:text-sm font-heading tracking-wider">global</span>
-            <span className="collage-letter bg-hot-pink text-cream rotate-[2.5deg] text-xs md:text-sm font-heading tracking-wider">crisis.</span>
-          </div>
-
-          {/* Stamp */}
-          <div className="mt-10 md:mt-14 flex flex-col items-center gap-6">
-            <span className="stamp text-lg md:text-xl text-hot-pink font-bold border-hot-pink">
-              A Documentary Film
-            </span>
-          </div>
-
-          {/* Down arrow */}
-          <div className="mt-12">
-            <a
-              href="#about"
-              className="inline-block text-black hover:text-red transition-colors duration-500"
-              aria-label="Scroll to about section"
-            >
-              <svg
-                width="44"
-                height="44"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="square"
-              >
-                <path d="M12 5v14M5 12l7 7 7-7" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ====== QUOTE — THE HYSTERIC ARCHETYPE ====== */}
-      <div className="bg-black torn-bottom h-2" />
-      <section className="relative bg-yellow py-20 md:py-28 px-6 overflow-hidden print-grain">
-        <div className="max-w-5xl mx-auto relative z-10">
+      {/* ====== HERO ====== */}
+      <section className="min-h-[90vh] flex items-center justify-center px-6 pt-24">
+        <div className="max-w-5xl mx-auto text-center">
           <RevealSection>
-            <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-black mb-8 opacity-60">
-              The Hysteric Archetype
+            <p className="font-serif-italic text-lg md:text-xl text-gray-text mb-6">
+              an endometriosis community
             </p>
-            <blockquote className="relative">
-              <div className="flex items-start gap-4">
-                <span
-                  className="font-heading text-[5rem] md:text-[8rem] leading-none text-black select-none"
-                  style={{ marginTop: "-0.2em" }}
-                  aria-hidden="true"
-                >
-                  &ldquo;
-                </span>
-                <div>
-                  <p className="font-heading text-2xl md:text-4xl lg:text-5xl text-black uppercase leading-[1.05] tracking-tight">
-                    He is not a little{" "}
-                    <span className="ransom-pink inline-block rotate-[-1deg]">
-                      mystified
-                    </span>{" "}
-                    when he encounters in her periodically recurring phases of{" "}
-                    <span className="ransom-red inline-block rotate-[1deg]">
-                      hypersensitiveness
-                    </span>
-                    ,{" "}
-                    <span className="text-hot-pink">unreasonableness</span>, and{" "}
-                    <span className="ransom inline-block rotate-[-0.5deg]">
-                      loss of the sense of proportion.
-                    </span>
-                  </p>
-                  <footer className="mt-6">
-                    <span className="ransom inline-block text-sm md:text-base tracking-[0.3em] uppercase font-body">
-                      — 20th-century medical commentary on women
-                    </span>
-                  </footer>
-                </div>
-              </div>
-            </blockquote>
-          </RevealSection>
-        </div>
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.07]"
-          style={{
-            backgroundImage: "radial-gradient(circle, var(--black) 1.5px, transparent 1.5px)",
-            backgroundSize: "10px 10px",
-          }}
-        />
-      </section>
-      <div className="bg-black torn-top h-2" />
-
-      {/* ====== ABOUT SECTION ====== */}
-      <section
-        id="about"
-        className="relative bg-cream pt-24 md:pt-32 pb-28 md:pb-40 px-6"
-      >
-        <div className="max-w-5xl mx-auto">
-          <RevealSection>
-            <div className="mb-16 md:mb-24">
-              <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-hot-pink mb-4">
-                // About
-              </p>
-              <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-black uppercase leading-[0.9] section-title">
-                No more
-                <br />
-                <span className="text-hot-pink">
-                  breadcrumbs.
-                </span>
-              </h2>
-            </div>
-          </RevealSection>
-
-          <div className="grid md:grid-cols-2 gap-12 md:gap-20">
-            <RevealSection>
-              <div className="space-y-8">
-                <p className="font-body text-base md:text-lg leading-[1.8]">
-                  <span className="ransom inline-block rotate-[-1deg] font-bold">HYSTERIA</span> rips the muffle off one of the most
-                  common yet criminally under-researched diseases in the world.{" "}
-                  <span className="ransom-red inline-block rotate-[1deg] font-bold">Endometriosis</span>{" "}
-                  affects over an estimated 190 million people globally — and
-                  most of them spend nearly a decade of their youth just trying
-                  to get someone to believe them.
-                </p>
-                <p className="font-body text-base md:text-lg leading-[1.8]">
-                  The medical system has offered women with chronic conditions
-                  like Endo meager breadcrumbs while funding an assortment of
-                  boner pills and even a study on whether men find women with
-                  Endo attractive. Systems such as this survive upon the fear, confusion,
-                  and desperation of their subjects, who don&apos;t know how to
-                  advocate for themselves.{" "}
-                  <span className="ransom-yellow inline-block rotate-[1.5deg] font-bold text-xl md:text-2xl">
-                    NO MORE.
-                  </span>
-                </p>
-                <p className="font-body text-base md:text-lg leading-[1.8]">
-                  This film follows my journey to put my stage 3 endometriosis
-                  into remission. I work with cutting-edge specialists,
-                  researchers, and biotech companies to discover the path to
-                  treating this disease and healing my body. Along the way, I
-                  discover the hidden link between{" "}
-                  <span className="ransom-pink inline-block rotate-[-1deg] font-bold">WITCHES</span>,{" "}
-                  <span className="ransom inline-block rotate-[1deg] font-bold">HYSTERIA</span>,
-                  and{" "}
-                  <span className="ransom-red inline-block rotate-[-1.5deg] font-bold">ENDOMETRIOSIS</span>{" "}
-                  — tracing back the lineage of medical folklore that continues
-                  to haunt women in the doctor&apos;s office today. The cavalry
-                  may not be coming, but we can be the cavalry for each other.
-                </p>
-              </div>
-            </RevealSection>
-
-            <RevealSection>
-              <div className="space-y-8">
-                <div className="speech-bubble">
-                  <p className="font-body font-bold text-lg md:text-xl leading-relaxed">
-                    &ldquo;The global hormonal contraceptive market is worth $19 billion. The first-line treatment for endometriosis has been the same since 1957.&rdquo;
-                  </p>
-                </div>
-
-                {/* Guerrilla Girls-style yellow stat callout */}
-                <div className="bg-yellow border-[4px] border-black p-8 print-grain card-hover cursor-default">
-                  <p className="relative z-10 font-heading text-4xl md:text-5xl text-black uppercase leading-tight">
-                    7&ndash;10 years.
-                  </p>
-                  <p className="relative z-10 font-body text-sm mt-4 text-black font-bold">
-                    Average time to receive an endometriosis diagnosis.
-                  </p>
-                </div>
-
-                {/* NIH funding stat — red */}
-                <div className="bg-red border-[4px] border-black p-8 print-grain card-hover cursor-default">
-                  <p className="relative z-10 font-heading text-4xl md:text-5xl text-cream uppercase leading-tight">
-                    $2 per year
-                    <br />
-                    per patient
-                  </p>
-                  <p className="relative z-10 font-body text-sm mt-4 text-cream font-bold">
-                    Amount of funding the NIH allocates to endometriosis
-                    research and diagnostics.
-                  </p>
-                </div>
-
-                {/* Bold stat card — black with red accent */}
-                <div className="clip-reveal-parent relative bg-black text-cream p-8 border-l-[6px] border-red card-hover cursor-default">
-                  <div className="clip-reveal absolute inset-0 bg-red" />
-                  <p className="relative z-10 font-heading text-4xl md:text-5xl uppercase leading-tight">
-                    $180B&ndash;$250B
-                  </p>
-                  <p className="relative z-10 font-body text-sm mt-4 opacity-80 font-bold">
-                    Global market opportunity if the &ldquo;unmet needs&rdquo; of
-                    endometriosis (diagnostics, effective treatments, and
-                    fertility) were addressed.
-                  </p>
-                </div>
-              </div>
-            </RevealSection>
-          </div>
-
-          {/* ====== QUOTE — STACY SIMS ====== */}
-          <div className="mt-28 md:mt-40 -mx-6">
-            <div className="bg-black torn-bottom h-2" />
-            <div className="relative bg-yellow py-20 md:py-28 px-6 overflow-hidden print-grain">
-              <div className="max-w-5xl mx-auto relative z-10">
-                <RevealSection>
-                  <blockquote className="relative">
-                    <div className="flex items-start gap-4">
-                      <span
-                        className="font-heading text-[5rem] md:text-[8rem] leading-none text-black select-none"
-                        style={{ marginTop: "-0.2em" }}
-                        aria-hidden="true"
-                      >
-                        &ldquo;
-                      </span>
-                      <div>
-                        <p className="font-heading text-3xl md:text-5xl lg:text-6xl text-black uppercase leading-[1] tracking-tight">
-                          Women are not{" "}
-                          <span className="ransom-pink inline-block rotate-[-1deg] text-3xl md:text-5xl lg:text-6xl">
-                            small men.
-                          </span>
-                        </p>
-                        <footer className="mt-6">
-                          <span className="ransom inline-block text-sm md:text-base tracking-[0.3em] uppercase font-body">
-                            — Stacy Sims
-                          </span>
-                        </footer>
-                      </div>
-                    </div>
-                  </blockquote>
-                </RevealSection>
-              </div>
-              <div
-                className="absolute inset-0 pointer-events-none opacity-[0.07]"
-                style={{
-                  backgroundImage: "radial-gradient(circle, var(--black) 1.5px, transparent 1.5px)",
-                  backgroundSize: "10px 10px",
-                }}
-              />
-            </div>
-            <div className="bg-black torn-top h-2" />
-          </div>
-
-          {/* ====== MY STORY ====== */}
-          <RevealSection className="mt-28 md:mt-40" id="my-story">
-            <div className="max-w-6xl mx-auto">
-              <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-hot-pink mb-4">
-                // My Story
-              </p>
-              <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-black uppercase leading-[0.9] mb-12 section-title">
-                How I
-                <br />
-                <span className="text-hot-pink">got here.</span>
-              </h2>
-
-              <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 lg:gap-16 items-start">
-                {/* Text column */}
-                <div className="space-y-6 font-body text-base md:text-lg leading-[1.9]">
-                  <p>
-                    In 2020, when the world was falling apart, so did my body. My
-                    period became so painful I was vomiting and blacking out for
-                    hours. Doctors told me it was normal. Maybe I should try
-                    antidepressants. Maybe I just needed to have a baby.
-                  </p>
-                  <p>
-                    <strong>I would not accept.</strong>
-                  </p>
-                  <p>
-                    After a year of research, I self-diagnosed and found a surgeon
-                    who confirmed Stage 3 Endometriosis. When I walked into his
-                    office for the post-op, ready for a treatment plan, he sighed
-                    and said my only options were{" "}
-                    <span className="ransom inline-block rotate-[-1deg] font-bold">birth control</span>{" "}
-                    or{" "}
-                    <span className="ransom-yellow inline-block rotate-[1deg] font-bold">medical menopause</span>.
-                  </p>
-                  <p>
-                    I was devastated.{" "}
-                    <strong>
-                      Birth control would mask the symptoms while the disease grew
-                      internally
-                    </strong>{" "}
-                    — risking my organs, my fertility, my future. But desperate to get my life back, I took the
-                    prescription and moved on.
-                  </p>
-                  <p>
-                    Then I discovered the work of women who are transforming how we
-                    understand female biology. And I became determined to present
-                    new options to the world.
-                  </p>
-                  <p>
-                    I do not accept that Endo is &ldquo;just something I have to
-                    live with.&rdquo; I refuse the narrative that women are cursed
-                    with the harder biology.{" "}
-                    <strong>
-                      We have a biology optimized for flow and harmony, strength
-                      and resilience
-                    </strong>{" "}
-                    — distorted under a lens
-                    that was never built for us.
-                  </p>
-                  <p>
-                    <strong>I have set out to put my Endo into remission.</strong>{" "}
-                    Not less pain &mdash;{" "}
-                    <span className="ransom-red inline-block rotate-[-1deg] font-bold text-xl md:text-2xl">NO PAIN.</span>{" "}
-                    To restore
-                    health to my whole body, not just my uterus. I want my story
-                    to bring hope to anyone suffering with chronic pain. There are
-                    answers, and I am determined to bring them to the masses.
-                  </p>
-                </div>
-
-                {/* Photo collage column */}
-                <div className="relative flex flex-col gap-6 lg:sticky lg:top-24">
-                  {/* Photo 0 — portrait (_MG_4378) */}
-                  <div
-                    className="collage-photo relative rotate-[-1.5deg] z-5"
-                  >
-                    <div className="tape" />
-                    <img
-                      src="/_MG_4378.jpg"
-                      alt="Nancy portrait"
-                      className="w-full h-[340px] object-cover"
-                      style={{ objectPosition: "center 80%" }}
-                    />
-                  </div>
-
-                  {/* Photo 1 — hospital (IMG_1568 3) */}
-                  <div
-                    className="collage-photo relative rotate-[2deg] z-10"
-                  >
-                    <div className="tape" />
-                    <img
-                      src="/IMG_1568 3.jpg"
-                      alt="Nancy before surgery in hospital gown and cap"
-                      className="w-full h-[340px] object-cover object-center"
-                    />
-                  </div>
-
-                  {/* Photo 2 — resting (IMG_0509) */}
-                  <div
-                    className="collage-photo relative rotate-[-3deg] z-20 lg:-mt-8"
-                  >
-                    <div className="tape" />
-                    <img
-                      src="/IMG_0509.jpg"
-                      alt="Nancy resting during recovery"
-                      className="w-full h-[300px] object-cover"
-                      style={{ objectPosition: "0% center" }}
-                    />
-                  </div>
-                </div>
-              </div>
+            <h1 className="text-[4.5rem] md:text-[8rem] lg:text-[11rem] font-black uppercase tracking-tighter text-black leading-[0.85]">
+              No Cure
+              <br />
+              Club
+            </h1>
+            <p className="font-serif text-lg md:text-xl text-gray-text mt-8 max-w-2xl mx-auto leading-relaxed">
+              resources, <em className="text-black">stories</em>, and solidarity.
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
+              <a href="#resources" className="btn-primary">
+                explore resources
+              </a>
+              <Link href="/hysteria-doc" className="btn-secondary">
+                watch the doc
+              </Link>
             </div>
           </RevealSection>
         </div>
       </section>
 
-      {/* ====== QUOTE — ALISA VITTI ====== */}
-      <div className="bg-black torn-bottom h-2" />
-      <section className="relative bg-yellow py-20 md:py-28 px-6 overflow-hidden print-grain">
-        <div className="max-w-5xl mx-auto relative z-10">
+      {/* ====== FEATURED PRODUCTS ====== */}
+      <section id="resources" className="py-20 md:py-28 px-6">
+        <div className="max-w-6xl mx-auto">
           <RevealSection>
-            <blockquote className="relative">
-              <div className="flex items-start gap-4">
-                <span
-                  className="font-heading text-[5rem] md:text-[8rem] leading-none text-black select-none"
-                  style={{ marginTop: "-0.2em" }}
-                  aria-hidden="true"
-                >
-                  &ldquo;
-                </span>
-                <div>
-                  <p className="font-heading text-2xl md:text-4xl lg:text-5xl text-black uppercase leading-[1.05] tracking-tight">
-                    Women tend to get{" "}
-                    <span className="ransom-red inline-block rotate-[1deg]">
-                      &lsquo;sucked&rsquo;
-                    </span>{" "}
-                    into believing that our bodies are{" "}
-                    <span className="ransom-pink inline-block rotate-[-1.5deg]">
-                      wild, scary, shameful
-                    </span>{" "}
-                    places that need to be managed by an outside source,{" "}
-                    <span className="text-hot-pink">medicated</span>,{" "}
-                    <span className="text-hot-pink">controlled</span>, and{" "}
-                    <span className="ransom inline-block rotate-[0.5deg]">sterilized.</span>
-                  </p>
-                  <footer className="mt-6">
-                    <span className="ransom inline-block text-sm md:text-base tracking-[0.3em] uppercase font-body">
-                      — Alisa Vitti
-                    </span>
-                  </footer>
-                </div>
+            <div className="flex items-end justify-between mb-12">
+              <div>
+                <p className="font-serif-italic text-sm text-gray-text mb-2">
+                  from our editors
+                </p>
+                <h2 className="font-serif text-3xl md:text-4xl tracking-tight">
+                  tools <em>we love.</em>
+                </h2>
               </div>
-            </blockquote>
-          </RevealSection>
-        </div>
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.07]"
-          style={{
-            backgroundImage: "radial-gradient(circle, var(--black) 1.5px, transparent 1.5px)",
-            backgroundSize: "10px 10px",
-          }}
-        />
-      </section>
-      <div className="bg-black torn-top h-2" />
-
-      {/* ====== RESOURCES SECTION ====== */}
-      <section id="resources" className="relative bg-black text-cream py-28 md:py-40 px-6">
-        <div className="max-w-5xl mx-auto">
-          <RevealSection>
-            <div className="mb-16 md:mb-20">
-              <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-hot-pink mb-4">
-                // Resources
-              </p>
-              <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-cream uppercase leading-[0.9] section-title-cream">
-                Tools that
-                <br />
-                <span className="text-hot-pink">helped</span> me.
-              </h2>
-              <p className="font-body text-base md:text-lg leading-[1.8] mt-8 opacity-80 max-w-2xl">
-                I&apos;m sharing practitioners, products, and resources that have
-                made a real difference in my journey — updated in real time as I
-                discover them.
-              </p>
+              <Link
+                href="/tools"
+                className="font-serif-italic text-sm text-gray-text hover:text-black transition-colors"
+              >
+                see all &rarr;
+              </Link>
             </div>
           </RevealSection>
 
           <RevealSection stagger>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Practitioner — live link */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+              {tools.slice(0, 6).map((tool) => (
+                <a
+                  key={tool.name}
+                  href={tool.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="editorial-card group"
+                >
+                  <div className="aspect-[4/5] bg-gray-light overflow-hidden">
+                    {tool.image && (
+                      <img
+                        src={tool.image}
+                        alt={tool.name}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
+                  </div>
+                  <div className="pt-4">
+                    <p className="font-serif-italic text-xs text-gray-text">
+                      {tool.company}
+                    </p>
+                    <h3 className="font-serif text-base mt-1">{tool.name}</h3>
+                    <p className="font-serif text-sm text-blush mt-1">{tool.price}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </RevealSection>
+        </div>
+      </section>
+
+      {/* ====== WHAT IS ENDO? ====== */}
+      <section id="what-is-endo" className="py-20 md:py-28 px-6 bg-gray-light">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+            <RevealSection>
+              <p className="font-serif-italic text-sm text-gray-text mb-4">
+                about the disease
+              </p>
+              <h2 className="text-3xl md:text-4xl tracking-tight mb-8">
+                <span className="font-black">The disease</span>{" "}
+                <em className="font-serif-italic font-normal">no one talks about.</em>
+              </h2>
+              <div className="space-y-5 font-serif text-base text-gray-text leading-[1.85]">
+                <p>
+                  <strong className="text-black">Endometriosis</strong> is a
+                  chronic, inflammatory disease where tissue similar to the
+                  uterine lining grows outside the uterus — on the ovaries,
+                  bowel, bladder, and beyond. It causes debilitating pain,
+                  fatigue, infertility, and organ damage.
+                </p>
+                <p>
+                  It affects an estimated{" "}
+                  <strong className="text-black">190 million</strong> people
+                  worldwide — roughly 1 in 10 women and people assigned female at
+                  birth. Despite its prevalence, it takes an average of{" "}
+                  <strong className="text-black">7-10 years</strong> to receive a
+                  diagnosis.
+                </p>
+                <p>
+                  There is <strong className="text-blush">no cure.</strong> The
+                  first-line treatment hasn&apos;t changed since 1957. Research is
+                  chronically underfunded. But awareness is growing, and
+                  communities like this one are fighting to change the narrative.
+                </p>
+              </div>
+            </RevealSection>
+
+            <RevealSection stagger>
+              <div className="space-y-4">
+                <div className="bg-white p-8">
+                  <p className="text-4xl font-black tracking-tight">
+                    7&ndash;10 <em className="font-serif-italic font-light">years</em>
+                  </p>
+                  <p className="font-serif text-sm text-gray-text mt-2">
+                    Average time to diagnosis
+                  </p>
+                </div>
+                <div className="bg-white p-8">
+                  <p className="text-4xl font-black tracking-tight">
+                    1 in 10
+                  </p>
+                  <p className="font-serif text-sm text-gray-text mt-2">
+                    Women and AFAB individuals affected
+                  </p>
+                </div>
+                <div className="bg-white p-8">
+                  <p className="text-4xl font-black tracking-tight text-blush">
+                    $2<em className="font-serif-italic font-light">/year</em>
+                  </p>
+                  <p className="font-serif text-sm text-gray-text mt-2">
+                    NIH research funding per patient
+                  </p>
+                </div>
+              </div>
+            </RevealSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== MY STORY ====== */}
+      <section id="my-story" className="py-20 md:py-28 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_350px] gap-12 md:gap-20 items-start">
+            <RevealSection>
+              <p className="font-serif-italic text-sm text-gray-text mb-4">
+                my story
+              </p>
+              <h2 className="text-3xl md:text-4xl tracking-tight mb-8">
+                <span className="font-black">How I</span>{" "}
+                <em className="font-serif-italic font-normal">got here.</em>
+              </h2>
+              <div className="space-y-5 font-serif text-base text-gray-text leading-[1.85]">
+                <p>
+                  In 2020, when the world was falling apart, so did my body. My
+                  period became so painful I was vomiting and blacking out for
+                  hours. Doctors told me it was normal. Maybe I should try
+                  antidepressants. Maybe I just needed to have a baby.
+                </p>
+                <p>
+                  <strong className="text-black">I would not accept.</strong>
+                </p>
+                <p>
+                  After a year of research, I self-diagnosed and found a surgeon
+                  who confirmed Stage 3 Endometriosis. When I walked into his
+                  office for the post-op, ready for a treatment plan, he sighed
+                  and said my only options were{" "}
+                  <strong className="text-black">birth control</strong> or{" "}
+                  <strong className="text-black">medical menopause</strong>.
+                </p>
+              </div>
+              <div className="mt-8">
+                <Link href="/hysteria-doc#my-story" className="btn-secondary">
+                  read the full story &rarr;
+                </Link>
+              </div>
+            </RevealSection>
+
+            <RevealSection>
+              <div className="overflow-hidden">
+                <img
+                  src="/_MG_4378.jpg"
+                  alt="Nancy portrait"
+                  className="w-full aspect-[3/4] object-cover"
+                  style={{ objectPosition: "center 80%" }}
+                />
+              </div>
+            </RevealSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== RESOURCES ====== */}
+      <section className="py-20 md:py-28 px-6 bg-gray-light">
+        <div className="max-w-6xl mx-auto">
+          <RevealSection>
+            <div className="mb-12">
+              <p className="font-serif-italic text-sm text-gray-text mb-2">
+                our resources
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl tracking-tight">
+                read, watch, <em>listen.</em>
+              </h2>
+            </div>
+          </RevealSection>
+
+          <RevealSection stagger>
+            <div className="grid md:grid-cols-3 gap-6">
               <Link
                 href="/practitioners"
-                className="border-[3px] border-cream/20 p-8 hover:border-hot-pink transition-colors duration-500 card-hover cursor-pointer group"
+                className="group bg-white p-8 hover:shadow-sm transition-shadow duration-300"
               >
-                <span className="font-heading text-xs uppercase tracking-[0.3em] text-hot-pink">
-                  Practitioners
-                </span>
-                <h3 className="font-heading text-2xl uppercase mt-3 mb-4">
-                  Explore{" "}
-                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-                    &rarr;
-                  </span>
-                </h3>
-                <p className="font-body text-sm leading-relaxed opacity-60">
-                  Doctors and specialists who actually listen.
+                <p className="font-serif-italic text-sm text-blush mb-3">
+                  practitioners
                 </p>
+                <h3 className="font-serif text-xl mb-3">
+                  doctors <em>who listen.</em>
+                </h3>
+                <p className="font-serif text-sm text-gray-text leading-relaxed">
+                  Vetted specialists and practitioners across the country.
+                </p>
+                <span className="font-serif-italic inline-block mt-4 text-sm text-black group-hover:translate-x-1 transition-transform duration-300">
+                  explore &rarr;
+                </span>
               </Link>
 
-              {/* Tool — live link */}
               <Link
                 href="/tools"
-                className="border-[3px] border-cream/20 p-8 hover:border-hot-pink transition-colors duration-500 card-hover cursor-pointer group"
+                className="group bg-white p-8 hover:shadow-sm transition-shadow duration-300"
               >
-                <span className="font-heading text-xs uppercase tracking-[0.3em] text-hot-pink">
-                  Tools
-                </span>
-                <h3 className="font-heading text-2xl uppercase mt-3 mb-4">
-                  Explore{" "}
-                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-                    &rarr;
-                  </span>
-                </h3>
-                <p className="font-body text-sm leading-relaxed opacity-60">
-                  Products and tools that help manage daily life.
+                <p className="font-serif-italic text-sm text-blush mb-3">
+                  tools
                 </p>
+                <h3 className="font-serif text-xl mb-3">
+                  products <em>that help.</em>
+                </h3>
+                <p className="font-serif text-sm text-gray-text leading-relaxed">
+                  Curated tools for managing daily life with endo.
+                </p>
+                <span className="font-serif-italic inline-block mt-4 text-sm text-black group-hover:translate-x-1 transition-transform duration-300">
+                  explore &rarr;
+                </span>
               </Link>
 
-              {/* Reading — live link */}
               <Link
                 href="/reading"
-                className="border-[3px] border-cream/20 p-8 hover:border-hot-pink transition-colors duration-500 card-hover cursor-pointer group"
+                className="group bg-white p-8 hover:shadow-sm transition-shadow duration-300"
               >
-                <span className="font-heading text-xs uppercase tracking-[0.3em] text-hot-pink">
-                  Read, Watch, Listen
-                </span>
-                <h3 className="font-heading text-2xl uppercase mt-3 mb-4">
-                  Explore{" "}
-                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-                    &rarr;
-                  </span>
-                </h3>
-                <p className="font-body text-sm leading-relaxed opacity-60">
-                  Books, films, podcasts, articles, and research worth your time.
+                <p className="font-serif-italic text-sm text-blush mb-3">
+                  reading
                 </p>
+                <h3 className="font-serif text-xl mb-3">
+                  knowledge <em>is power.</em>
+                </h3>
+                <p className="font-serif text-sm text-gray-text leading-relaxed">
+                  Books, podcasts, films, and research worth your time.
+                </p>
+                <span className="font-serif-italic inline-block mt-4 text-sm text-black group-hover:translate-x-1 transition-transform duration-300">
+                  explore &rarr;
+                </span>
               </Link>
             </div>
           </RevealSection>
         </div>
       </section>
 
-      {/* ====== DIVIDER ====== */}
-      <div className="bg-black torn-bottom torn-top h-2" />
-
-      {/* ====== QUOTE — WUTHERING HEIGHTS ====== */}
-      <section className="relative bg-yellow py-20 md:py-28 px-6 overflow-hidden print-grain">
-        <div className="max-w-5xl mx-auto relative z-10">
+      {/* ====== QUOTE ====== */}
+      <section className="py-20 md:py-28 px-6">
+        <div className="max-w-3xl mx-auto text-center">
           <RevealSection>
-            <blockquote className="relative">
-              <div className="flex items-start gap-4">
-                <span
-                  className="font-heading text-[5rem] md:text-[8rem] leading-none text-black select-none"
-                  style={{ marginTop: "-0.2em" }}
-                  aria-hidden="true"
-                >
-                  &ldquo;
-                </span>
-                <div>
-                  <p className="font-heading text-2xl md:text-4xl lg:text-5xl text-black uppercase leading-[1.05] tracking-tight">
-                    I&apos;m tired of being{" "}
-                    <span className="ransom inline-block rotate-[-1deg]">
-                      enclosed
-                    </span>{" "}
-                    here. I&apos;m wearying to{" "}
-                    <span className="ransom-pink inline-block rotate-[1deg]">
-                      escape
-                    </span>{" "}
-                    into that glorious world, and to be always there: not seeing
-                    it dimly through{" "}
-                    <span className="ransom-red inline-block rotate-[-0.5deg]">
-                      tears
-                    </span>
-                    , and yearning for it through the walls of an{" "}
-                    <span className="ransom-pink inline-block rotate-[1deg]">
-                      aching heart.
-                    </span>
-                  </p>
-                  <footer className="mt-6">
-                    <span className="ransom inline-block text-sm md:text-base tracking-[0.3em] uppercase font-body">
-                      — Catherine Earnshaw, Wuthering Heights
-                    </span>
-                  </footer>
-                </div>
-              </div>
+            <blockquote>
+              <p className="font-serif-italic text-2xl md:text-3xl lg:text-4xl font-light leading-[1.4] text-black">
+                &ldquo;I&apos;m tired of being enclosed here. I&apos;m wearying
+                to escape into that glorious world, and to be always there: not
+                seeing it dimly through tears, and yearning for it through the
+                walls of an aching heart.&rdquo;
+              </p>
+              <footer className="mt-6">
+                <p className="font-serif-italic text-sm text-gray-text">
+                  Catherine Earnshaw, Wuthering Heights
+                </p>
+              </footer>
             </blockquote>
           </RevealSection>
         </div>
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.07]"
-          style={{
-            backgroundImage: "radial-gradient(circle, var(--black) 1.5px, transparent 1.5px)",
-            backgroundSize: "10px 10px",
-          }}
-        />
       </section>
 
-      {/* ====== EMAIL SIGNUP SECTION ====== */}
+      {/* ====== COMMUNITY ====== */}
       <section
         id="community"
-        className="relative bg-black text-cream py-28 md:py-40 px-6 torn-bottom torn-top"
+        className="py-20 md:py-28 px-6 bg-black text-white"
       >
-        <div className="absolute inset-0 dots-pattern-large opacity-[0.04]" />
-
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center">
           <RevealSection>
-            <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-hot-pink mb-6">
-              // Community
+            <p className="font-serif-italic text-sm text-blush mb-4">
+              community
             </p>
-            <h2 className="font-heading text-6xl md:text-8xl lg:text-[7rem] uppercase leading-[0.85] mb-8 section-title">
-              <span className="text-cream">Join</span>{" "}
-              <span className="text-hot-pink">the</span>
-              <br />
-              <span className="text-cream">movement.</span>
+            <h2 className="text-4xl md:text-5xl tracking-tight mb-6">
+              <span className="font-black">Join</span>{" "}
+              <em className="font-serif-italic font-light">the movement.</em>
             </h2>
-          </RevealSection>
-
-          <RevealSection>
-            <p className="font-body text-base md:text-lg leading-[1.8] mb-4 max-w-xl mx-auto opacity-90">
-              This isn&apos;t just a film — it&apos;s a community and a
-              movement. Sign up to get updates on gatherings and resources.
+            <p className="font-serif text-base text-white/70 leading-relaxed mb-4 max-w-xl mx-auto">
+              We&apos;re building a community of people who refuse to suffer in
+              silence. Sign up for updates on gatherings, resources, and ways to
+              get involved.
             </p>
           </RevealSection>
 
-          {/* Live Events Callout */}
           <RevealSection id="meetups">
-            <div className="my-14 border-[3px] border-hot-pink p-8 md:p-10 max-w-2xl mx-auto text-left">
-              <p className="font-heading text-xs uppercase tracking-[0.3em] text-hot-pink mb-4">
-                Live in Los Angeles
+            <div className="my-10 border border-white/20 p-8 max-w-lg mx-auto text-left">
+              <p className="font-serif-italic text-sm text-blush mb-3">
+                los angeles
               </p>
-              <h3 className="font-heading text-3xl md:text-4xl uppercase leading-[0.9] mb-4">
-                Endo community
-                <br />
-                <span className="text-hot-pink">meetups.</span>
+              <h3 className="font-serif text-xl mb-3">
+                endo community meetups
               </h3>
-              <p className="font-body text-sm md:text-base leading-[1.8] opacity-80 mb-6">
-                I&apos;m hosting live events in LA to bring the endo community
-                together — honest and supportive conversations about living and
-                healing with this disease. Dates and locations go out to the
-                mailing list first.
-              </p>
-              <p className="font-body text-xs uppercase tracking-[0.2em] text-hot-pink font-bold">
-                Subscribe below to be the first to know.
+              <p className="font-serif text-sm text-white/60 leading-relaxed">
+                Live events to bring the endo community together. Dates go out
+                to the mailing list first.
               </p>
             </div>
           </RevealSection>
 
           <RevealSection>
-            <p className="font-body text-sm mb-8 opacity-50">
-              No spam. No fluff. Just the fight + event invites.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 name="email"
                 placeholder="your@email.com"
                 required
-                className="flex-1 bg-cream-dark text-black"
+                className="flex-1 !bg-white/10 !border-white/20 text-white placeholder-white/40 !rounded-full"
               />
-              <button type="submit" className="btn-punk whitespace-nowrap">
-                Sign Up
+              <button type="submit" className="btn-blush whitespace-nowrap">
+                subscribe
               </button>
             </form>
+            <p className="text-xs text-white/40 mt-4">no spam. just updates.</p>
           </RevealSection>
-
-          {/* Decorative line */}
-          <div className="mt-20 md:mt-28 flex items-center justify-center gap-4 opacity-20 select-none">
-            <div className="h-px bg-cream flex-1 max-w-[120px]" />
-            <span className="font-heading text-xs tracking-[0.5em] uppercase">
-              Silence is not an option
-            </span>
-            <div className="h-px bg-cream flex-1 max-w-[120px]" />
-          </div>
         </div>
       </section>
 
-      {/* ====== DONATION SECTION ====== */}
-      <section id="donate" className="relative bg-cream py-28 md:py-40 px-6">
-        <div className="max-w-5xl mx-auto">
-          <RevealSection>
-            <div className="mb-16 md:mb-24">
-              <p className="font-heading text-sm md:text-base tracking-[0.4em] uppercase text-red mb-4">
-                // Support
-              </p>
-              <h2 className="font-heading text-5xl md:text-7xl lg:text-[6rem] text-black uppercase leading-[0.9] section-title">
-                Fund
-                <br />
-                <span className="text-red">the</span>{" "}
-                <span className="text-red">fight.</span>
-              </h2>
-            </div>
-          </RevealSection>
-
-          <div className="grid md:grid-cols-[1fr,1.2fr] gap-16 md:gap-20 items-start">
+      {/* ====== DONATION ====== */}
+      <section id="donate" className="py-20 md:py-28 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
             <RevealSection>
-              <div>
-                <p className="font-body text-base md:text-lg leading-[1.8] mb-10">
-                  Independent film doesn&apos;t fund itself. Your contribution
-                  goes directly toward production, post-production, and
-                  distribution. Getting this story in front of the people and
-                  policymakers who need to see it.
-                </p>
-                <div className="flex flex-wrap gap-5">
-                  <a
-                    href="https://donate.mazloweb.com/donate/hysteria-documentary-production-fund"
-                    className="btn-punk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Donate Now
-                  </a>
-                  <button onClick={handleCopyLink} className="btn-punk-outline">
-                    {copied ? "Link Copied!" : "Spread the Word"}
-                  </button>
-                </div>
+              <p className="font-serif-italic text-sm text-gray-text mb-4">
+                support
+              </p>
+              <h2 className="text-3xl md:text-4xl tracking-tight mb-8">
+                <span className="font-black">Fund</span>{" "}
+                <em className="font-serif-italic font-normal">the fight.</em>
+              </h2>
+              <p className="font-serif text-base text-gray-text leading-[1.85] mb-8">
+                Your contribution goes toward resources, community events,
+                advocacy, and getting the HYSTERIA documentary in front of the
+                people and policymakers who need to see it.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://donate.mazloweb.com/donate/hysteria-documentary-production-fund"
+                  className="btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  donate now
+                </a>
+                <button onClick={handleCopyLink} className="btn-secondary">
+                  {copied ? "copied!" : "share"}
+                </button>
               </div>
             </RevealSection>
 
             <RevealSection stagger>
-              {/* Tax-deductible — yellow Guerrilla Girls style */}
-              <div className="bg-yellow border-[4px] border-black p-8 print-grain card-hover cursor-default">
-                <p className="relative z-10 font-heading text-xl md:text-2xl uppercase mb-3 text-black">
-                  Tax-Deductible
-                </p>
-                <p className="relative z-10 font-body text-sm leading-relaxed text-black">
-                  HYSTERIA is fiscally sponsored, so your donation is
-                  tax-deductible to the fullest extent of the law.
-                </p>
-              </div>
-
-              {/* Independent — bold red */}
-              <div className="clip-reveal-parent relative bg-red text-cream p-8 card-hover cursor-default mt-5">
-                <div className="clip-reveal absolute inset-0 bg-black" />
-                <p className="relative z-10 font-heading text-xl md:text-2xl uppercase mb-3">
-                  100% Independent
-                </p>
-                <p className="relative z-10 font-body text-sm leading-relaxed opacity-90">
-                  No studio backing. No corporate agenda. This film is made by
-                  patients, for everyone.
-                </p>
-              </div>
-
-              {/* Every dollar — black with hot pink accent */}
-              <div className="clip-reveal-parent relative bg-black text-cream p-8 border-l-[6px] border-hot-pink card-hover cursor-default mt-5">
-                <div className="clip-reveal absolute inset-0 bg-hot-pink" />
-                <p className="relative z-10 font-heading text-xl md:text-2xl uppercase mb-3">
-                  Every Dollar Counts
-                </p>
-                <p className="relative z-10 font-body text-sm leading-relaxed opacity-80">
-                  From $5 to $5,000 — every contribution fuels production,
-                  research trips, and getting this story told.
-                </p>
+              <div className="space-y-4">
+                <div className="bg-gray-light p-8">
+                  <h3 className="font-serif text-lg mb-2">tax-deductible</h3>
+                  <p className="font-serif text-sm text-gray-text leading-relaxed">
+                    Fiscally sponsored and tax-deductible to the fullest extent
+                    of the law.
+                  </p>
+                </div>
+                <div className="bg-gray-light p-8">
+                  <h3 className="font-serif text-lg mb-2">
+                    community-powered
+                  </h3>
+                  <p className="font-serif text-sm text-gray-text leading-relaxed">
+                    Built by patients, for everyone. Every dollar fuels
+                    advocacy, community gatherings, and getting this story told.
+                  </p>
+                </div>
               </div>
             </RevealSection>
           </div>
         </div>
       </section>
 
-      {/* ====== BOTTOM TICKER ====== */}
-      <div className="bg-yellow overflow-hidden whitespace-nowrap py-4 border-y-[3px] border-black">
+      {/* ====== FOOTER ====== */}
+      <div className="pb-12">
+        <Footer />
+      </div>
+
+      {/* ====== FIXED TICKER ====== */}
+      <div className="ticker-fixed overflow-hidden whitespace-nowrap py-3 border-t border-gray-mid">
         <div className="ticker-scroll inline-block">
-          {Array.from({ length: 2 }).map((_, i) => (
+          {Array.from({ length: 3 }).map((_, i) => (
             <span
               key={i}
-              className="font-heading text-black text-lg md:text-xl tracking-[0.2em] uppercase mx-4"
+              className="text-xs font-black tracking-[0.3em] uppercase text-black mx-4"
             >
-              HYSTERIA &bull; COMING SOON &bull; DEMAND BETTER &bull; BREAK THE
-              SILENCE &bull; END THE STIGMA &bull; HYSTERIA &bull; COMING SOON
-              &bull; DEMAND BETTER &bull; BREAK THE SILENCE &bull; END THE
-              STIGMA &bull;&nbsp;
+              NO CURE CLUB &bull; YOU ARE NOT ALONE &bull; 190 MILLION WORLDWIDE
+              &bull; DEMAND BETTER &bull; NO CURE CLUB &bull; YOU ARE NOT ALONE
+              &bull; 190 MILLION WORLDWIDE &bull; DEMAND BETTER &bull;&nbsp;
             </span>
           ))}
         </div>
       </div>
-
-      {/* ====== FOOTER ====== */}
-      <footer className="bg-black text-cream py-20 md:py-28 px-6">
-        <div className="max-w-5xl mx-auto">
-          {/* Large footer title — outlined */}
-          <div className="mb-16 md:mb-24">
-            <h3 className="font-heading text-6xl md:text-8xl lg:text-[7rem] text-outline-cream leading-[0.85] select-none section-title-cream">
-              HYSTERIA
-            </h3>
-            <p className="font-body text-sm md:text-base leading-relaxed opacity-50 mt-6 max-w-md">
-              A documentary film about endometriosis, medical gaslighting, and
-              one woman&apos;s refusal to accept a life of pain as her fate.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-12 md:gap-16">
-            {/* Navigate */}
-            <div>
-              <h4 className="font-heading text-lg uppercase tracking-[0.2em] mb-6 text-red">
-                Navigate
-              </h4>
-              <nav className="flex flex-col gap-3">
-                {[
-                  { href: "#about", label: "About the Film" },
-                  { href: "#community", label: "Join the Movement" },
-                  { href: "#donate", label: "Donate" },
-                ].map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="link-reveal font-body text-sm text-cream/70 hover:text-red transition-colors duration-500"
-                  >
-                    <span>{link.label}</span>
-                    <span className="link-reveal-hover text-red">
-                      {link.label}
-                    </span>
-                  </a>
-                ))}
-              </nav>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h4 className="font-heading text-lg uppercase tracking-[0.2em] mb-6 text-red">
-                Contact
-              </h4>
-              <div className="font-body text-sm space-y-3 opacity-70">
-                <p>
-                  <a
-                    href="mailto:hello@hysteriafilm.com"
-                    className="hover:text-red transition-colors duration-500"
-                  >
-                    hello@hysteriafilm.com
-                  </a>
-                </p>
-                <p>Press inquiries welcome.</p>
-              </div>
-            </div>
-
-            {/* Instagram */}
-            <div>
-              <h4 className="font-heading text-lg uppercase tracking-[0.2em] mb-6 text-red">
-                Follow
-              </h4>
-              <a
-                href="https://www.instagram.com/nancydegnan/?hl=en"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-4 mb-6"
-              >
-                {/* Instagram icon */}
-                <div className="w-12 h-12 border-[3px] border-cream/40 group-hover:border-red flex items-center justify-center transition-colors duration-500">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-cream/70 group-hover:text-red transition-colors duration-500"
-                  >
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-heading text-base uppercase tracking-wider text-cream/70 group-hover:text-red transition-colors duration-500">
-                    @nancydegnan
-                  </p>
-                  <p className="font-body text-xs opacity-50 mt-1">
-                    Follow the fight on Instagram
-                  </p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          {/* Bottom line */}
-          <div className="mt-16 md:mt-24 pt-8 border-t border-cream/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="font-body text-xs opacity-40">
-              &copy; {new Date().getFullYear()} HYSTERIA Film. All rights
-              reserved.
-            </p>
-            <p className="font-body text-xs opacity-40">
-              Made with rage and purpose.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
