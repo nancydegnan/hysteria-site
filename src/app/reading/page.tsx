@@ -2,33 +2,25 @@
 
 import Link from "next/link";
 import { bookGroups, podcastGroups, articleGroups, researchGroups } from "./data";
-import { RevealSection, Footer } from "../components";
+import { RevealSection, Footer, SubpageNav } from "../components";
 
 export default function ReadingPage() {
   return (
     <div className="min-h-screen bg-white text-black">
       {/* ── Header ── */}
-      <div className="border-b border-gray-mid">
-        <div className="px-6 pt-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-gray-text hover:text-black transition-colors duration-300"
-          >
-            <span>&larr;</span>
-            <span>Back to Home</span>
-          </Link>
-        </div>
+      <SubpageNav />
 
+      <div className="border-b border-gray-mid">
         <header className="px-6 pt-8 pb-12 md:pt-12 md:pb-16 max-w-6xl mx-auto">
           <RevealSection>
-            <p className="font-serif-italic text-sm text-gray-text mb-3">
+            <p className="section-label text-sm text-gray-text mb-3">
               resources
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
               <span className="font-black">Read, Watch,</span>{" "}
-              <em className="font-serif-italic font-light">Listen</em>
+              <em className="playfair-italic font-light">Listen</em>
             </h1>
-            <p className="font-serif text-base leading-[1.8] mt-6 text-gray-text max-w-2xl">
+            <p className="playfair text-base leading-[1.8] mt-6 text-gray-text max-w-2xl">
               Books, films, podcasts, articles, and research worth your time. These are all resources that have shaped how I
               understand my body, my pain, and how to embark upon healing.
             </p>
@@ -36,7 +28,28 @@ export default function ReadingPage() {
         </header>
       </div>
 
-      <main className="px-6 pb-20 md:pb-28 max-w-6xl mx-auto pt-16 md:pt-24">
+      {/* ── Quote ── */}
+      <section className="py-16 md:py-20 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <RevealSection>
+            <blockquote>
+              <p className="playfair-italic text-2xl md:text-3xl lg:text-4xl font-light leading-[1.4] text-black">
+                &ldquo;I&apos;m tired of being enclosed here. I&apos;m wearying
+                to escape into that glorious world, and to be always there: not
+                seeing it dimly through tears, and yearning for it through the
+                walls of an aching heart.&rdquo;
+              </p>
+              <footer className="mt-6">
+                <p className="playfair-italic text-sm text-black">
+                  Catherine Earnshaw, Wuthering Heights
+                </p>
+              </footer>
+            </blockquote>
+          </RevealSection>
+        </div>
+      </section>
+
+      <main className="px-6 pb-20 md:pb-28 max-w-6xl mx-auto">
         {/* ── Books ── */}
         <section className="mb-16 md:mb-24">
           <RevealSection>
@@ -58,7 +71,7 @@ export default function ReadingPage() {
                   <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
-                  <span className="block font-serif-italic text-xs text-gray-text mt-1">
+                  <span className="block playfair-italic text-xs text-gray-text mt-1">
                     {group.books.length} {group.books.length === 1 ? "book" : "books"}
                   </span>
                 </Link>
@@ -88,7 +101,7 @@ export default function ReadingPage() {
                   <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
-                  <span className="block font-serif-italic text-xs text-gray-text mt-1">
+                  <span className="block playfair-italic text-xs text-gray-text mt-1">
                     {group.podcasts.length} {group.podcasts.length === 1 ? "episode" : "episodes"}
                   </span>
                 </Link>
@@ -115,7 +128,7 @@ export default function ReadingPage() {
               <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                 &rarr;
               </span>
-              <span className="block font-serif-italic text-xs text-gray-text mt-1">
+              <span className="block playfair-italic text-xs text-gray-text mt-1">
                 3 films
               </span>
             </Link>
@@ -143,7 +156,7 @@ export default function ReadingPage() {
                   <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
-                  <span className="block font-serif-italic text-xs text-gray-text mt-1">
+                  <span className="block playfair-italic text-xs text-gray-text mt-1">
                     {group.articles.length} {group.articles.length === 1 ? "article" : "articles"}
                   </span>
                 </Link>
@@ -173,7 +186,7 @@ export default function ReadingPage() {
                   <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
-                  <span className="block font-serif-italic text-xs text-gray-text mt-1">
+                  <span className="block playfair-italic text-xs text-gray-text mt-1">
                     {group.articles.length} {group.articles.length === 1 ? "paper" : "papers"}
                   </span>
                 </Link>

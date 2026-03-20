@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { RevealSection, Footer } from "../components";
+import { RevealSection, Footer, SubpageNav } from "../components";
 
 /* ── Practitioner data ── */
 interface Practitioner {
@@ -181,15 +181,15 @@ function PractitionerCard({ p }: { p: Practitioner }) {
         </div>
       </div>
 
-      <p className="font-serif text-sm leading-[1.8] text-gray-text mb-6">
+      <p className="playfair text-sm leading-[1.8] text-gray-text mb-6">
         {p.description}
       </p>
 
       <div className="mb-6">
-        <span className="font-serif-italic text-xs text-blush">
+        <span className="text-xs font-semibold text-blush uppercase tracking-wider">
           best fit for
         </span>
-        <p className="font-serif text-sm leading-[1.8] text-gray-text mt-1">
+        <p className="playfair text-sm leading-[1.8] text-gray-text mt-1">
           {p.bestFor}
         </p>
       </div>
@@ -230,27 +230,19 @@ export default function PractitionersPage() {
   return (
     <div className="min-h-screen bg-white text-black">
       {/* ── Header ── */}
-      <div className="border-b border-gray-mid">
-        <div className="px-6 pt-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-gray-text hover:text-black transition-colors duration-300"
-          >
-            <span>&larr;</span>
-            <span>Back to Home</span>
-          </Link>
-        </div>
+      <SubpageNav />
 
+      <div className="border-b border-gray-mid">
         <header className="px-6 pt-8 pb-12 md:pt-12 md:pb-16 max-w-6xl mx-auto">
           <RevealSection>
-            <p className="font-serif-italic text-sm text-gray-text mb-3">
+            <p className="section-label text-sm text-gray-text mb-3">
               vetted &amp; trusted
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
               <span className="font-black">Practitioners</span>{" "}
-              <em className="font-serif-italic font-light">who care.</em>
+              <em className="playfair-italic font-light">who care.</em>
             </h1>
-            <p className="font-serif text-base leading-[1.8] mt-6 text-gray-text max-w-2xl">
+            <p className="playfair text-base leading-[1.8] mt-6 text-gray-text max-w-2xl">
               Every person listed here has been personally vetted or recommended
               by someone I trust. This is not an ad — it&apos;s a shortcut through
               the maze I had to navigate alone.
@@ -322,7 +314,7 @@ export default function PractitionersPage() {
           <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
             Instagram Accounts
           </h2>
-          <p className="font-serif text-sm leading-[1.8] text-gray-text mb-10 max-w-2xl">
+          <p className="playfair text-sm leading-[1.8] text-gray-text mb-10 max-w-2xl">
             Accounts I follow that consistently share helpful, honest content
             about endo, women&apos;s health, and hormonal health.
           </p>
@@ -342,7 +334,7 @@ export default function PractitionersPage() {
                     {acct.handle}
                   </span>
                 </div>
-                <p className="font-serif text-sm leading-[1.8] text-gray-text">
+                <p className="playfair text-sm leading-[1.8] text-gray-text">
                   {acct.description}
                 </p>
               </a>

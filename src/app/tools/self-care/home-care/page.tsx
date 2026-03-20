@@ -2,27 +2,19 @@
 
 import Link from "next/link";
 import { selfCareGroups } from "../../data";
-import { RevealSection, Footer } from "../../../components";
+import { RevealSection, Footer, SubpageNav } from "../../../components";
 
 const group = selfCareGroups.find((g) => g.slug === "home-care")!;
 
 export default function HomeCarePage() {
   return (
     <div className="min-h-screen bg-white text-black">
-      <div className="border-b border-gray-mid">
-        <div className="px-6 pt-8">
-          <Link
-            href="/tools"
-            className="inline-flex items-center gap-2 text-sm text-gray-text hover:text-black transition-colors duration-300"
-          >
-            <span>&larr;</span>
-            <span>Back to Tools</span>
-          </Link>
-        </div>
+      <SubpageNav />
 
+      <div className="border-b border-gray-mid">
         <header className="px-6 pt-8 pb-12 md:pt-12 md:pb-16 max-w-6xl mx-auto">
           <RevealSection>
-            <p className="font-serif-italic text-sm text-gray-text mb-3">
+            <p className="section-label text-sm text-gray-text mb-3">
               fragrance-free self care
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
@@ -54,21 +46,21 @@ export default function HomeCarePage() {
                 )}
 
                 <div className="p-8 flex flex-col flex-1">
-                  <span className="font-serif-italic text-xs text-gray-text">
+                  <span className="playfair-italic text-xs text-gray-text">
                     {product.company}
                   </span>
-                  <h3 className="font-serif text-xl leading-tight mt-3 mb-2">
+                  <h3 className="playfair text-xl leading-tight mt-3 mb-2">
                     {product.name}
                   </h3>
-                  <p className="font-serif text-base text-blush mb-4">
+                  <p className="playfair text-base text-blush mb-4">
                     {product.price}
                   </p>
-                  <p className="font-serif text-sm leading-[1.8] text-gray-text mb-6 flex-1">
+                  <p className="playfair text-sm leading-[1.8] text-gray-text mb-6 flex-1">
                     {product.description}
                   </p>
                   {product.discountCode && (
                     <div className="border border-dashed border-blush/30 px-4 py-3 mb-6">
-                      <span className="font-serif-italic text-xs text-gray-text">
+                      <span className="playfair-italic text-xs text-gray-text">
                         discount code
                       </span>
                       <p className="text-sm font-medium mt-1">

@@ -2,27 +2,19 @@
 
 import Link from "next/link";
 import { bookGroups } from "../../data";
-import { RevealSection, Footer } from "../../../components";
+import { RevealSection, Footer, SubpageNav } from "../../../components";
 
 const group = bookGroups.find((g) => g.slug === "nutrition-and-gut-health")!;
 
 export default function BooksSubsectionPage() {
   return (
     <div className="min-h-screen bg-white text-black">
-      <div className="border-b border-gray-mid">
-        <div className="px-6 pt-8">
-          <Link
-            href="/reading"
-            className="inline-flex items-center gap-2 text-sm text-gray-text hover:text-black transition-colors duration-300"
-          >
-            <span>&larr;</span>
-            <span>Back to Read, Watch, Listen</span>
-          </Link>
-        </div>
+      <SubpageNav />
 
+      <div className="border-b border-gray-mid">
         <header className="px-6 pt-8 pb-12 md:pt-12 md:pb-16 max-w-6xl mx-auto">
           <RevealSection>
-            <p className="font-serif-italic text-sm text-gray-text mb-3">
+            <p className="section-label text-sm text-gray-text mb-3">
               books
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
@@ -37,13 +29,13 @@ export default function BooksSubsectionPage() {
           {group.books.map((book) => (
             <RevealSection key={book.title}>
               <div className="bg-gray-light border border-gray-mid p-8 flex flex-col items-center text-center hover:border-black transition-all duration-300 h-full card-hover">
-                <h4 className="font-serif text-xl leading-tight mb-2">
+                <h4 className="playfair text-xl leading-tight mb-2">
                   {book.title}
                 </h4>
-                <p className="font-serif-italic text-xs text-gray-text mb-4">
+                <p className="playfair-italic text-xs text-gray-text mb-4">
                   {book.authors}
                 </p>
-                <p className="font-serif text-sm leading-[1.8] text-gray-text mb-6">
+                <p className="playfair text-sm leading-[1.8] text-gray-text mb-6">
                   {book.description}
                 </p>
                 <a

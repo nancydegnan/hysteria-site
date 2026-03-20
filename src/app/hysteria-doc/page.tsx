@@ -52,17 +52,17 @@ export default function HysteriaDoc() {
 
         <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <RevealSection>
-            <p className="font-serif-italic text-lg md:text-xl text-white/80 mb-6">
+            <p className="playfair-italic text-lg md:text-xl text-white/80 mb-6">
               I went looking for a diagnosis.
             </p>
             <h1 className="text-[5rem] md:text-[9rem] lg:text-[12rem] font-black tracking-tighter text-white uppercase leading-[0.85]">
               HYSTERIA
             </h1>
-            <p className="font-serif-italic text-lg md:text-xl text-white/80 mt-6">
+            <p className="playfair-italic text-lg md:text-xl text-white/80 mt-6">
               I found a global crisis.
             </p>
             <div className="mt-10">
-              <span className="font-serif-italic text-sm text-blush border border-blush px-5 py-2 rounded-full inline-block">
+              <span className="playfair-italic text-sm text-blush border border-blush px-5 py-2 rounded-full inline-block">
                 A Documentary Film
               </span>
             </div>
@@ -92,11 +92,11 @@ export default function HysteriaDoc() {
       <section className="py-16 md:py-24 px-6 bg-gray-light">
         <div className="max-w-3xl mx-auto">
           <RevealSection>
-            <p className="font-serif-italic text-sm text-gray-text mb-6">
+            <p className="section-label text-sm text-gray-text mb-6">
               the hysteric archetype
             </p>
             <blockquote className="border-l-2 border-blush pl-8">
-              <p className="font-serif-italic text-xl md:text-2xl lg:text-3xl font-light leading-[1.4] text-black">
+              <p className="playfair-italic text-xl md:text-2xl lg:text-3xl font-light leading-[1.4] text-black">
                 &ldquo;He is not a little mystified when he encounters in her
                 periodically recurring phases of hypersensitiveness,
                 unreasonableness, and loss of the sense of proportion.&rdquo;
@@ -116,14 +116,14 @@ export default function HysteriaDoc() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
             <RevealSection>
-              <p className="font-serif-italic text-sm text-gray-text mb-4">
+              <p className="section-label text-sm text-gray-text mb-4">
                 about the film
               </p>
               <h2 className="text-3xl md:text-4xl tracking-tight mb-8">
                 <span className="font-black">No more</span>{" "}
-                <em className="font-serif-italic font-light">breadcrumbs.</em>
+                <em className="playfair-italic font-light">breadcrumbs.</em>
               </h2>
-              <div className="space-y-5 font-serif text-base text-gray-text leading-[1.85]">
+              <div className="space-y-5 playfair text-base text-gray-text leading-[1.85]">
                 <p>
                   <strong className="text-black">HYSTERIA</strong> rips the
                   muffle off one of the most common yet criminally
@@ -160,7 +160,7 @@ export default function HysteriaDoc() {
             <RevealSection stagger>
               <div className="space-y-4">
                 <blockquote className="border-l-2 border-blush pl-6 py-4 bg-gray-light">
-                  <p className="font-serif font-medium text-base leading-relaxed">
+                  <p className="playfair font-medium text-base leading-relaxed">
                     &ldquo;The global hormonal contraceptive market is worth $19
                     billion. The first-line treatment for endometriosis has been
                     the same since 1957.&rdquo;
@@ -171,7 +171,7 @@ export default function HysteriaDoc() {
                   <p className="text-4xl font-semibold tracking-tight">
                     7&ndash;10 years
                   </p>
-                  <p className="font-serif text-sm text-gray-text mt-2">
+                  <p className="playfair text-sm text-gray-text mt-2">
                     Average time to receive an endometriosis diagnosis.
                   </p>
                 </div>
@@ -182,7 +182,7 @@ export default function HysteriaDoc() {
                     <br />
                     per patient
                   </p>
-                  <p className="font-serif text-sm text-white/60 mt-2">
+                  <p className="playfair text-sm text-white/60 mt-2">
                     Amount of funding the NIH allocates to endometriosis
                     research and diagnostics.
                   </p>
@@ -192,7 +192,7 @@ export default function HysteriaDoc() {
                   <p className="text-4xl font-semibold tracking-tight">
                     $180B&ndash;$250B
                   </p>
-                  <p className="font-serif text-sm text-gray-text mt-2">
+                  <p className="playfair text-sm text-gray-text mt-2">
                     Global market opportunity if the &ldquo;unmet needs&rdquo; of
                     endometriosis were addressed.
                   </p>
@@ -208,7 +208,7 @@ export default function HysteriaDoc() {
         <div className="max-w-3xl mx-auto">
           <RevealSection>
             <blockquote className="border-l-2 border-blush pl-8">
-              <p className="font-serif-italic text-2xl md:text-3xl lg:text-4xl font-light leading-[1.4] text-black">
+              <p className="playfair-italic text-2xl md:text-3xl lg:text-4xl font-light leading-[1.4] text-black">
                 &ldquo;Women are not small men.&rdquo;
               </p>
               <footer className="mt-4">
@@ -223,18 +223,18 @@ export default function HysteriaDoc() {
       <section id="my-story" className="py-20 md:py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <RevealSection>
-            <p className="font-serif-italic text-sm text-gray-text mb-4">
+            <p className="section-label text-sm text-gray-text mb-4">
               my story
             </p>
             <h2 className="text-3xl md:text-4xl tracking-tight mb-12">
               <span className="font-black">How I</span>{" "}
-              <em className="font-serif-italic font-light">got here.</em>
+              <em className="playfair-italic font-light">got here.</em>
             </h2>
           </RevealSection>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 lg:gap-16 items-start">
             <RevealSection>
-              <div className="space-y-5 font-serif text-base text-gray-text leading-[1.85]">
+              <div className="space-y-5 playfair text-base text-gray-text leading-[1.85]">
                 <p>
                   In 2020, when the world was falling apart, so did my body. My
                   period became so painful I was vomiting and blacking out for
@@ -325,7 +325,7 @@ export default function HysteriaDoc() {
         <div className="max-w-3xl mx-auto">
           <RevealSection>
             <blockquote className="border-l-2 border-blush pl-8">
-              <p className="font-serif-italic text-xl md:text-2xl lg:text-3xl font-light leading-[1.4] text-black">
+              <p className="playfair-italic text-xl md:text-2xl lg:text-3xl font-light leading-[1.4] text-black">
                 &ldquo;Women tend to get sucked into believing that our bodies
                 are wild, scary, shameful places that need to be managed by an
                 outside source, medicated, controlled, and sterilized.&rdquo;
@@ -343,14 +343,14 @@ export default function HysteriaDoc() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <RevealSection>
-              <p className="font-serif-italic text-sm text-gray-text mb-4">
+              <p className="section-label text-sm text-gray-text mb-4">
                 support
               </p>
               <h2 className="text-3xl md:text-4xl tracking-tight mb-8">
                 <span className="font-black">Fund</span>{" "}
-                <em className="font-serif-italic font-light">the film.</em>
+                <em className="playfair-italic font-light">the film.</em>
               </h2>
-              <p className="font-serif text-base text-gray-text leading-[1.85] mb-8">
+              <p className="playfair text-base text-gray-text leading-[1.85] mb-8">
                 Independent film doesn&apos;t fund itself. Your contribution goes
                 directly toward production, post-production, and distribution.
                 Getting this story in front of the people and policymakers who
@@ -375,7 +375,7 @@ export default function HysteriaDoc() {
               <div className="space-y-4">
                 <div className="bg-gray-light p-8">
                   <h3 className="text-lg font-medium mb-2">Tax-Deductible</h3>
-                  <p className="font-serif text-sm text-gray-text leading-relaxed">
+                  <p className="playfair text-sm text-gray-text leading-relaxed">
                     HYSTERIA is fiscally sponsored, so your donation is
                     tax-deductible to the fullest extent of the law.
                   </p>
@@ -384,7 +384,7 @@ export default function HysteriaDoc() {
                   <h3 className="text-lg font-medium mb-2">
                     100% Independent
                   </h3>
-                  <p className="font-serif text-sm text-white/70 leading-relaxed">
+                  <p className="playfair text-sm text-white/70 leading-relaxed">
                     No studio backing. No corporate agenda. This film is made by
                     patients, for everyone.
                   </p>
@@ -393,7 +393,7 @@ export default function HysteriaDoc() {
                   <h3 className="text-lg font-medium mb-2">
                     Every Dollar Counts
                   </h3>
-                  <p className="font-serif text-sm text-gray-text leading-relaxed">
+                  <p className="playfair text-sm text-gray-text leading-relaxed">
                     From $5 to $5,000 — every contribution fuels production,
                     research trips, and getting this story told.
                   </p>

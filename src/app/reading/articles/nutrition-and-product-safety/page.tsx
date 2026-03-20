@@ -2,27 +2,19 @@
 
 import Link from "next/link";
 import { articleGroups } from "../../data";
-import { RevealSection, Footer } from "../../../components";
+import { RevealSection, Footer, SubpageNav } from "../../../components";
 
 const group = articleGroups.find((g) => g.slug === "nutrition-and-product-safety")!;
 
 export default function ArticlesSubsectionPage() {
   return (
     <div className="min-h-screen bg-white text-black">
-      <div className="border-b border-gray-mid">
-        <div className="px-6 pt-8">
-          <Link
-            href="/reading"
-            className="inline-flex items-center gap-2 text-sm text-gray-text hover:text-black transition-colors duration-300"
-          >
-            <span>&larr;</span>
-            <span>Back to Read, Watch, Listen</span>
-          </Link>
-        </div>
+      <SubpageNav />
 
+      <div className="border-b border-gray-mid">
         <header className="px-6 pt-8 pb-12 md:pt-12 md:pb-16 max-w-6xl mx-auto">
           <RevealSection>
-            <p className="font-serif-italic text-sm text-gray-text mb-3">
+            <p className="section-label text-sm text-gray-text mb-3">
               articles
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
@@ -42,18 +34,18 @@ export default function ArticlesSubsectionPage() {
                 rel="noopener noreferrer"
                 className="block bg-gray-light border border-gray-mid p-8 hover:border-black transition-all duration-300 group card-hover"
               >
-                <h4 className="font-serif text-lg md:text-xl leading-tight mb-2 group-hover:text-blush transition-colors duration-300">
+                <h4 className="playfair text-lg md:text-xl leading-tight mb-2 group-hover:text-blush transition-colors duration-300">
                   {article.title}
                   <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
                 </h4>
                 {article.author && (
-                  <p className="font-serif-italic text-xs text-gray-text mb-3">
+                  <p className="playfair-italic text-xs text-gray-text mb-3">
                     {article.author}
                   </p>
                 )}
-                <p className="font-serif text-sm leading-[1.8] text-gray-text">
+                <p className="playfair text-sm leading-[1.8] text-gray-text">
                   {article.description}
                 </p>
               </a>

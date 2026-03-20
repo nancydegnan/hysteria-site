@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Lora, Work_Sans } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,7 +8,13 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  variable: "--font-work-sans",
+  display: "swap",
+});
+
+const lora = Lora({
   subsets: ["latin"],
   variable: "--font-playfair",
   display: "swap",
@@ -33,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+      <body className={`${inter.variable} ${lora.variable} ${workSans.variable} antialiased`}>
         {children}
       </body>
     </html>

@@ -2,33 +2,25 @@
 
 import Link from "next/link";
 import { tools, selfCareGroups, advocacyTools, healingTools } from "./data";
-import { RevealSection, Footer } from "../components";
+import { RevealSection, Footer, SubpageNav } from "../components";
 
 export default function ToolsPage() {
   return (
     <div className="min-h-screen bg-white text-black">
       {/* ── Header ── */}
-      <div className="border-b border-gray-mid">
-        <div className="px-6 pt-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-gray-text hover:text-black transition-colors duration-300"
-          >
-            <span>&larr;</span>
-            <span>Back to Home</span>
-          </Link>
-        </div>
+      <SubpageNav />
 
+      <div className="border-b border-gray-mid">
         <header className="px-6 pt-8 pb-12 md:pt-12 md:pb-16 max-w-6xl mx-auto">
           <RevealSection>
-            <p className="font-serif-italic text-sm text-gray-text mb-3">
+            <p className="section-label text-sm text-gray-text mb-3">
               the shop
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
               <span className="font-black">Tools</span>{" "}
-              <em className="font-serif-italic font-light">that heal.</em>
+              <em className="playfair-italic font-light">that heal.</em>
             </h1>
-            <p className="font-serif text-base leading-[1.8] mt-6 text-gray-text max-w-2xl">
+            <p className="playfair text-base leading-[1.8] mt-6 text-gray-text max-w-2xl">
               Products and other free tools I actually use that have made a real
               difference in managing pain and healing.
             </p>
@@ -75,16 +67,16 @@ export default function ToolsPage() {
                 )}
 
                 <div className="p-8 flex flex-col flex-1">
-                  <span className="font-serif-italic text-xs text-gray-text">
+                  <span className="text-xs font-semibold text-gray-text uppercase tracking-wider">
                     {tool.company}
                   </span>
-                  <h3 className="font-serif text-xl leading-tight mt-3 mb-2">
+                  <h3 className="playfair text-xl leading-tight mt-3 mb-2">
                     {tool.name}
                   </h3>
-                  <p className="font-serif text-base text-blush mb-4">
+                  <p className="text-base text-blush mb-4">
                     {tool.price}
                   </p>
-                  <p className="font-serif text-sm leading-[1.8] text-gray-text mb-6 flex-1">
+                  <p className="playfair text-sm leading-[1.8] text-gray-text mb-6 flex-1">
                     {tool.description}
                   </p>
 
@@ -119,7 +111,7 @@ export default function ToolsPage() {
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-blush mb-4">
               Fragrance-Free Self Care
             </h2>
-            <p className="font-serif text-sm leading-[1.8] text-gray-text max-w-2xl mb-10">
+            <p className="playfair text-sm leading-[1.8] text-gray-text max-w-2xl mb-10">
               Fragrance is a known endocrine disruptor and can trigger inflammation. These are self care products I use that skip the fragrance entirely.
             </p>
           </RevealSection>
@@ -138,7 +130,7 @@ export default function ToolsPage() {
                   <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
-                  <span className="block font-serif-italic text-xs text-gray-text mt-1">
+                  <span className="block playfair-italic text-xs text-gray-text mt-1">
                     {group.products.length} {group.products.length === 1 ? "product" : "products"}
                   </span>
                 </Link>
@@ -170,7 +162,7 @@ export default function ToolsPage() {
                       &rarr;
                     </span>
                   </h3>
-                  <p className="font-serif text-sm leading-[1.8] text-gray-text">
+                  <p className="playfair text-sm leading-[1.8] text-gray-text">
                     {ft.description}
                   </p>
                 </a>
@@ -202,7 +194,7 @@ export default function ToolsPage() {
                       &rarr;
                     </span>
                   </h3>
-                  <p className="font-serif text-sm leading-[1.8] text-gray-text">
+                  <p className="playfair text-sm leading-[1.8] text-gray-text">
                     {ft.description}
                   </p>
                 </a>
