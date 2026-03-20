@@ -47,6 +47,9 @@ export function RevealSection({
 
 export function NewsletterPopup() {
   const [visible, setVisible] = useState(false);
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
   useEffect(() => {
     const dismissed = sessionStorage.getItem("newsletter-dismissed");
     if (dismissed) return;
@@ -59,6 +62,16 @@ export function NewsletterPopup() {
     sessionStorage.setItem("newsletter-dismissed", "1");
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    window.open(
+      `https://nocureclub.substack.com/subscribe?email=${encodeURIComponent(email)}`,
+      "_blank"
+    );
+    setSubmitted(true);
+    setTimeout(handleClose, 2000);
+  };
+
   if (!visible) return null;
 
   return (
@@ -68,27 +81,40 @@ export function NewsletterPopup() {
     >
       <button
         onClick={handleClose}
-        className="absolute top-3 right-6 text-xs font-semibold uppercase tracking-wider text-black hover:opacity-60 transition-opacity flex items-center gap-1"
+        className="absolute top-2 right-6 text-xs font-semibold uppercase tracking-wider text-black hover:opacity-60 transition-opacity flex items-center gap-1"
         aria-label="Close"
       >
         close
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M6 6l12 12M6 18L18 6" />
         </svg>
       </button>
 
-      <div className="max-w-5xl mx-auto flex items-center gap-6">
-        <p className="text-sm text-black/70" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-sm md:text-base font-black uppercase tracking-tight mb-1">
+          Join the <span className="ncc-logo" style={{ fontSize: "inherit", transform: "none" }}>No Cure Club</span>
+        </h2>
+        <p className="text-xs text-black/70 mb-3 text-center" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
           Your monthly dose of answers, resources, and proof you&apos;re not crazy.
         </p>
-        <a
-          href="https://nocureclub.substack.com/subscribe"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary text-xs !py-2 !px-5 whitespace-nowrap shrink-0"
-        >
-          join the club
-        </a>
+
+        {submitted ? (
+          <p className="text-xs font-semibold text-blush">you&apos;re in! check your inbox.</p>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 max-w-xl mx-auto">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="your@email.com"
+              required
+              className="flex-1 !bg-gray-light !border-gray-mid !rounded-none text-xs !py-1.5"
+            />
+            <button type="submit" className="btn-primary text-xs !py-1.5 !px-5 whitespace-nowrap">
+              join the club
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
