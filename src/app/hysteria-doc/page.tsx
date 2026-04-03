@@ -17,22 +17,22 @@ export default function HysteriaDoc() {
   return (
     <div className="min-h-screen bg-white text-foreground">
       {/* ====== NAV ====== */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-mid">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-chartreuse/90 backdrop-blur-sm border-b border-black/10">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link
             href="/"
-            className="text-sm text-gray-text hover:text-black transition-colors duration-300"
+            className="ncc-logo text-sm text-black hover:italic transition-all duration-300"
           >
             &larr; The No Cure Club
           </Link>
-          <span className="text-lg font-black tracking-tighter text-black uppercase">
+          <span className="hysteria-title text-lg text-black">
             HYSTERIA
           </span>
           <a
             href="#donate"
-            className="text-sm text-gray-text hover:text-black transition-colors duration-300"
+            className="text-sm text-black font-bold hover:italic transition-all duration-300"
           >
-            Support
+            support
           </a>
         </div>
       </nav>
@@ -52,24 +52,27 @@ export default function HysteriaDoc() {
 
         <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <RevealSection>
-            <p className="playfair-italic text-lg md:text-xl text-white/80 mb-6">
-              I went looking for a diagnosis.
-            </p>
-            <h1 className="text-[5rem] md:text-[9rem] lg:text-[12rem] font-black tracking-tighter text-white uppercase leading-[0.85]">
-              HYSTERIA
-            </h1>
-            <p className="playfair-italic text-lg md:text-xl text-white/80 mt-6">
-              I found a global crisis.
-            </p>
-            <div className="mt-10">
-              <span className="playfair-italic text-sm text-black border border-blush px-5 py-2 rounded-full inline-block">
+            <div className="flex justify-between items-center max-w-4xl mx-auto mb-16 md:mb-24">
+              <span className="font-bold text-sm text-chartreuse">
                 A Documentary Film
               </span>
+              <span className="font-bold text-sm text-chartreuse">
+                by Nancy Degnan
+              </span>
             </div>
+            <p className="font-bold italic text-lg md:text-xl text-chartreuse mb-16 md:mb-24">
+              I went looking for a diagnosis.
+            </p>
+            <h1 className="hysteria-title text-[5rem] md:text-[9rem] lg:text-[12rem] text-chartreuse leading-[0.85] animate-strobe">
+              HYSTERIA
+            </h1>
+            <p className="font-bold italic text-lg md:text-xl text-chartreuse mt-24 md:mt-36">
+              I found a global crisis.
+            </p>
             <div className="mt-12">
               <a
                 href="#about"
-                className="inline-block text-white/60 hover:text-white transition-colors duration-500"
+                className="inline-block text-chartreuse/60 hover:text-chartreuse transition-colors duration-500"
                 aria-label="Scroll to about section"
               >
                 <svg
@@ -89,20 +92,20 @@ export default function HysteriaDoc() {
       </section>
 
       {/* ====== QUOTE — THE HYSTERIC ARCHETYPE ====== */}
-      <section className="py-16 md:py-24 px-6 bg-gray-light">
+      <section className="py-16 md:py-24 px-6 bg-black">
         <div className="max-w-3xl mx-auto">
           <RevealSection>
-            <p className="section-label text-sm text-gray-text mb-6">
+            <p className="section-label text-sm text-chartreuse/60 mb-6">
               the hysteric archetype
             </p>
-            <blockquote className="border-l-2 border-blush pl-8">
-              <p className="playfair-italic text-xl md:text-2xl lg:text-3xl font-light leading-[1.4] text-black">
+            <blockquote className="border-l-2 border-chartreuse pl-8">
+              <p className="text-xl md:text-2xl lg:text-3xl font-bold italic leading-[1.1] text-chartreuse">
                 &ldquo;He is not a little mystified when he encounters in her
                 periodically recurring phases of hypersensitiveness,
                 unreasonableness, and loss of the sense of proportion.&rdquo;
               </p>
               <footer className="mt-4">
-                <p className="text-sm text-gray-text">
+                <p className="text-sm text-chartreuse/60">
                   20th-century medical commentary on women
                 </p>
               </footer>
@@ -112,18 +115,18 @@ export default function HysteriaDoc() {
       </section>
 
       {/* ====== ABOUT SECTION ====== */}
-      <section id="about" className="py-20 md:py-28 px-6">
+      <section id="about" className="py-20 md:py-28 px-6 bg-chartreuse">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
             <RevealSection>
-              <p className="section-label text-sm text-gray-text mb-4">
+              <p className="section-label text-sm text-black mb-4">
                 about the film
               </p>
-              <h2 className="text-3xl md:text-4xl tracking-tight mb-8">
+              <h2 className="text-3xl md:text-4xl tracking-tight mb-8 text-black">
                 <span className="font-black">No more</span>{" "}
                 <em className="playfair-italic font-light">breadcrumbs.</em>
               </h2>
-              <div className="space-y-5 playfair text-base text-gray-text leading-[1.85]">
+              <div className="space-y-5 font-['Helvetica','Arial',sans-serif] text-base text-black leading-[1.4] tracking-tight">
                 <p>
                   <strong className="text-black">HYSTERIA</strong> rips the
                   muffle off one of the most common yet criminally
@@ -159,19 +162,19 @@ export default function HysteriaDoc() {
 
             <RevealSection stagger>
               <div className="space-y-4">
-                <blockquote className="border-l-2 border-blush pl-6 py-4 bg-gray-light">
-                  <p className="playfair font-medium text-base leading-snug">
+                <blockquote className="border-l-2 border-black pl-6 py-4 bg-[#c8ff00]">
+                  <p className="font-['Helvetica','Arial',sans-serif] font-medium text-base text-black leading-[1.3] tracking-tight">
                     &ldquo;The global hormonal contraceptive market is worth $19
                     billion. The first-line treatment for endometriosis has been
                     the same since 1957.&rdquo;
                   </p>
                 </blockquote>
 
-                <div className="bg-gray-light p-8">
-                  <p className="text-4xl font-semibold tracking-tight">
+                <div className="bg-[#c8ff00] p-8">
+                  <p className="text-4xl font-semibold tracking-tight text-black">
                     7&ndash;10 years
                   </p>
-                  <p className="playfair text-sm text-gray-text mt-2">
+                  <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black mt-2 tracking-tight">
                     Average time to receive an endometriosis diagnosis.
                   </p>
                 </div>
@@ -182,17 +185,17 @@ export default function HysteriaDoc() {
                     <br />
                     per patient
                   </p>
-                  <p className="playfair text-sm text-white/60 mt-2">
+                  <p className="font-['Helvetica','Arial',sans-serif] text-sm text-white/60 mt-2 tracking-tight">
                     Amount of funding the NIH allocates to endometriosis
                     research and diagnostics.
                   </p>
                 </div>
 
-                <div className="bg-gray-light p-8 border-l-2 border-blush">
-                  <p className="text-4xl font-semibold tracking-tight">
+                <div className="bg-[#c8ff00] p-8 border-l-2 border-black">
+                  <p className="text-4xl font-semibold tracking-tight text-black">
                     $180B&ndash;$250B
                   </p>
-                  <p className="playfair text-sm text-gray-text mt-2">
+                  <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black mt-2 tracking-tight">
                     Global market opportunity if the &ldquo;unmet needs&rdquo; of
                     endometriosis were addressed.
                   </p>
@@ -204,15 +207,15 @@ export default function HysteriaDoc() {
       </section>
 
       {/* ====== QUOTE — STACY SIMS ====== */}
-      <section className="py-16 md:py-24 px-6 bg-gray-light">
+      <section className="py-16 md:py-24 px-6 bg-black">
         <div className="max-w-3xl mx-auto">
           <RevealSection>
-            <blockquote className="border-l-2 border-blush pl-8">
-              <p className="playfair-italic text-2xl md:text-3xl lg:text-4xl font-light leading-[1.4] text-black">
+            <blockquote className="border-l-2 border-chartreuse pl-8">
+              <p className="text-2xl md:text-3xl lg:text-4xl font-bold italic leading-[1.1] text-chartreuse">
                 &ldquo;Women are not small men.&rdquo;
               </p>
               <footer className="mt-4">
-                <p className="text-sm text-gray-text">Stacy Sims</p>
+                <p className="text-sm text-chartreuse/60">Stacy Sims</p>
               </footer>
             </blockquote>
           </RevealSection>
@@ -220,21 +223,18 @@ export default function HysteriaDoc() {
       </section>
 
       {/* ====== MY STORY ====== */}
-      <section id="my-story" className="py-20 md:py-28 px-6">
+      <section id="my-story" className="py-20 md:py-28 px-6 bg-chartreuse">
         <div className="max-w-6xl mx-auto">
-          <RevealSection>
-            <p className="section-label text-sm text-gray-text mb-4">
-              my story
-            </p>
-            <h2 className="text-3xl md:text-4xl tracking-tight mb-12">
-              <span className="font-black">How I</span>{" "}
-              <em className="playfair-italic font-light">got here.</em>
-            </h2>
-          </RevealSection>
-
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 lg:gap-16 items-start">
             <RevealSection>
-              <div className="space-y-5 playfair text-base text-gray-text leading-[1.85]">
+              <p className="section-label text-sm text-black mb-4">
+                my story
+              </p>
+              <h2 className="text-3xl md:text-4xl tracking-tight mb-12 text-black">
+                <span className="font-black">How I</span>{" "}
+                <em className="playfair-italic font-light">got here.</em>
+              </h2>
+              <div className="space-y-5 font-['Helvetica','Arial',sans-serif] text-base text-black leading-[1.4] tracking-tight">
                 <p>
                   In 2020, when the world was falling apart, so did my body. My
                   period became so painful I was vomiting and blacking out for
@@ -290,15 +290,7 @@ export default function HysteriaDoc() {
             </RevealSection>
 
             <RevealSection>
-              <div className="flex flex-col gap-6 lg:sticky lg:top-24">
-                <div className="overflow-hidden">
-                  <img
-                    src="/_MG_4378.jpg"
-                    alt="Nancy portrait"
-                    className="w-full h-[340px] object-cover"
-                    style={{ objectPosition: "center 80%" }}
-                  />
-                </div>
+              <div className="flex flex-col gap-6">
                 <div className="overflow-hidden">
                   <img
                     src="/IMG_1568 3.jpg"
@@ -321,17 +313,17 @@ export default function HysteriaDoc() {
       </section>
 
       {/* ====== QUOTE — ALISA VITTI ====== */}
-      <section className="py-16 md:py-24 px-6 bg-gray-light">
+      <section className="py-16 md:py-24 px-6 bg-black">
         <div className="max-w-3xl mx-auto">
           <RevealSection>
-            <blockquote className="border-l-2 border-blush pl-8">
-              <p className="playfair-italic text-xl md:text-2xl lg:text-3xl font-light leading-[1.4] text-black">
+            <blockquote className="border-l-2 border-chartreuse pl-8">
+              <p className="text-xl md:text-2xl lg:text-3xl font-bold italic leading-[1.1] text-chartreuse">
                 &ldquo;Women tend to get sucked into believing that our bodies
                 are wild, scary, shameful places that need to be managed by an
                 outside source, medicated, controlled, and sterilized.&rdquo;
               </p>
               <footer className="mt-4">
-                <p className="text-sm text-gray-text">Alisa Vitti</p>
+                <p className="text-sm text-chartreuse/60">Alisa Vitti</p>
               </footer>
             </blockquote>
           </RevealSection>
@@ -339,22 +331,22 @@ export default function HysteriaDoc() {
       </section>
 
       {/* ====== DONATION SECTION ====== */}
-      <section id="donate" className="py-20 md:py-28 px-6">
+      <section id="donate" className="py-20 md:py-28 px-6 bg-chartreuse">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <RevealSection>
-              <p className="section-label text-sm text-gray-text mb-4">
+              <p className="section-label text-sm text-black mb-4">
                 support
               </p>
-              <h2 className="text-3xl md:text-4xl tracking-tight mb-8">
+              <h2 className="text-3xl md:text-4xl tracking-tight mb-8 text-black">
                 <span className="font-black">Fund</span>{" "}
                 <em className="playfair-italic font-light">the film.</em>
               </h2>
-              <p className="playfair text-base text-gray-text leading-[1.85] mb-8">
-                Independent film doesn&apos;t fund itself. Your contribution goes
-                directly toward production, post-production, and distribution.
-                Getting this story in front of the people and policymakers who
-                need to see it.
+              <p className="font-['Helvetica','Arial',sans-serif] text-base text-black leading-[1.4] tracking-tight mb-8">
+                Be a part of the film! Make a tax-deductible donation today to
+                support the mission of bringing this film to audiences and
+                changing the public narrative of endometriosis. Art and media
+                must lead the way for real change.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
@@ -373,9 +365,9 @@ export default function HysteriaDoc() {
 
             <RevealSection stagger>
               <div className="space-y-4">
-                <div className="bg-gray-light p-8">
-                  <h3 className="text-lg font-medium mb-2">Tax-Deductible</h3>
-                  <p className="playfair text-sm text-gray-text leading-snug">
+                <div className="bg-[#c8ff00] p-8">
+                  <h3 className="text-lg font-medium mb-2 text-black">Tax-Deductible</h3>
+                  <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-[1.4] tracking-tight">
                     HYSTERIA is fiscally sponsored, so your donation is
                     tax-deductible to the fullest extent of the law.
                   </p>
@@ -384,16 +376,16 @@ export default function HysteriaDoc() {
                   <h3 className="text-lg font-medium mb-2">
                     100% Independent
                   </h3>
-                  <p className="playfair text-sm text-white/70 leading-snug">
+                  <p className="font-['Helvetica','Arial',sans-serif] text-sm text-white/70 leading-[1.4] tracking-tight">
                     No studio backing. No corporate agenda. This film is made by
                     patients, for everyone.
                   </p>
                 </div>
-                <div className="bg-gray-light p-8 border-l-2 border-blush">
-                  <h3 className="text-lg font-medium mb-2">
+                <div className="bg-[#c8ff00] p-8 border-l-2 border-black">
+                  <h3 className="text-lg font-medium mb-2 text-black">
                     Every Dollar Counts
                   </h3>
-                  <p className="playfair text-sm text-gray-text leading-snug">
+                  <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-[1.4] tracking-tight">
                     From $5 to $5,000 — every contribution fuels production,
                     research trips, and getting this story told.
                   </p>
@@ -405,24 +397,23 @@ export default function HysteriaDoc() {
       </section>
 
       {/* ====== TICKER ====== */}
-      <div className="overflow-hidden whitespace-nowrap py-3 border-y border-gray-mid">
+      <div className="overflow-hidden whitespace-nowrap py-3 bg-black border-y border-black">
         <div className="ticker-scroll inline-block">
           {Array.from({ length: 2 }).map((_, i) => (
             <span
               key={i}
-              className="text-sm tracking-[0.3em] uppercase text-gray-text mx-4"
+              className="text-sm tracking-[0.3em] uppercase text-chartreuse mx-4"
             >
-              HYSTERIA &bull; COMING SOON &bull; DEMAND BETTER &bull; BREAK THE
-              SILENCE &bull; END THE STIGMA &bull; HYSTERIA &bull; COMING SOON
-              &bull; DEMAND BETTER &bull; BREAK THE SILENCE &bull; END THE
-              STIGMA &bull;&nbsp;
+              WE ARE NOT HYSTERICAL &bull; WE ARE NOT SMALLER, WEAKER MEN &bull; WE HAVE ENDOMETRIOSIS &bull; 1 IN 10 OF ALL WOMEN DO TOO &bull;&nbsp;
             </span>
           ))}
         </div>
       </div>
 
       {/* ====== FOOTER ====== */}
-      <Footer />
+      <div className="[&_footer]:!bg-chartreuse [&_footer]:!border-black/10">
+        <Footer />
+      </div>
     </div>
   );
 }

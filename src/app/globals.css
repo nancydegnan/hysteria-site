@@ -231,6 +231,33 @@ body {
   color: var(--foreground);
 }
 
+/* === HYSTERIA STRETCHED POSTER FONT === */
+.hysteria-title {
+  font-family: 'Arial Black', 'Arial', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  transform: scaleY(2.4);
+  transform-origin: center;
+  letter-spacing: -0.05em;
+}
+
+/* === STROBE EFFECT === */
+@keyframes strobe {
+  0%, 100% { opacity: 1; }
+  10% { opacity: 0; }
+  20% { opacity: 1; }
+  30% { opacity: 0; }
+  40% { opacity: 1; }
+  50% { opacity: 0; }
+  60% { opacity: 1; }
+  70% { opacity: 0; }
+  80% { opacity: 1; }
+  90% { opacity: 0; }
+}
+.animate-strobe {
+  animation: strobe 0.4s linear infinite;
+}
+
 /* === FILM GRAIN OVERLAY (editorial photo texture) === */
 .film-grain::after {
   content: "";

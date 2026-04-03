@@ -127,7 +127,7 @@ export default function Home() {
       <header className="pt-4 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 md:gap-4">
               <a
                 href="https://www.instagram.com/jointhenocureclub/"
                 target="_blank"
@@ -135,7 +135,7 @@ export default function Home() {
                 className="text-black hover:opacity-60 transition-opacity"
                 aria-label="Instagram"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-3.5 h-3.5 md:w-[18px] md:h-[18px]" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                 </svg>
               </a>
@@ -146,19 +146,19 @@ export default function Home() {
                 className="text-black hover:opacity-60 transition-opacity"
                 aria-label="Substack"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-3.5 h-3.5 md:w-[18px] md:h-[18px]" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
                 </svg>
               </a>
             </div>
-            <Link href="/" className="ncc-logo text-[7vw] md:text-[5.5vw] lg:text-[4.5vw] text-black whitespace-nowrap leading-none">
+            <Link href="/" className="ncc-logo text-[5vw] md:text-[5.5vw] lg:text-[4.5vw] text-black whitespace-nowrap leading-none">
               The No Cure Club
             </Link>
             <a
               href="https://nocureclub.substack.com/subscribe"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary text-xs !py-2 !px-5"
+              className="btn-primary !text-[10px] !py-1.5 !px-3 md:!text-xs md:!py-2 md:!px-5"
             >
               join the club
             </a>
@@ -190,15 +190,45 @@ export default function Home() {
             )
           )}
         </div>
-        {/* Mobile: hamburger for hero nav */}
-        <div className="md:hidden flex justify-center">
+        {/* Mobile: dropdown menu */}
+        <div className="md:hidden flex flex-col items-center relative">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-sm text-black"
+            className="text-sm text-black font-bold hover:italic flex items-center gap-1 transition-all duration-300"
             aria-label="Toggle menu"
           >
             menu
+            <svg className={`w-3 h-3 transition-transform duration-300 ${mobileMenuOpen ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
           </button>
+          {mobileMenuOpen && (
+            <div className="flex flex-col items-center gap-3 mt-4 pb-2">
+              {navLinks.map((link) =>
+                link.href.startsWith("http") ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-black hover:italic transition-all duration-300"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm text-black hover:italic transition-all duration-300"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
+            </div>
+          )}
         </div>
       </nav>
 
@@ -211,7 +241,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Collage — left side */}
             <RevealSection>
-              <div className="relative w-full warm-tint" style={{ minHeight: "480px" }}>
+              <div className="relative w-full warm-tint aspect-[1/1] md:aspect-auto md:min-h-[480px]">
                 <img
                   src="/community.jpg"
                   alt="Community"
@@ -228,7 +258,7 @@ export default function Home() {
                   src="/community2.jpg"
                   alt="Community"
                   className="absolute w-[42%] aspect-square object-cover shadow-lg"
-                  style={{ zIndex: 3, bottom: "0", left: "8%" }}
+                  style={{ zIndex: 3, top: "45%", left: "8%" }}
                 />
               </div>
             </RevealSection>
@@ -415,8 +445,8 @@ export default function Home() {
                 style={{ zIndex: 2, top: "10%", left: "50%" }}
               />
               <img
-                src="/nancy 3.jpg"
-                alt="Nancy"
+                src="/nancy thermotex.JPG"
+                alt="Nancy with Thermotex"
                 className="absolute w-[40%] aspect-square object-cover shadow-lg"
                 style={{ zIndex: 3, bottom: "0", left: "5%" }}
               />

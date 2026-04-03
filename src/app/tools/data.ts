@@ -59,12 +59,23 @@ export const tools: Tool[] = [
     image: "/Kiwicollectionphoto_Editablebox_orange2-min.webp",
   },
   {
+    company: "Thermotex",
+    name: "Thermotex Platinum Far Infrared Heating Pad",
+    price: "$259",
+    description:
+      "Far infrared heating pad with 3 patented heat inserts that flex and wrap to relieve pain and inflammation. Penetrates up to 2.36 inches into the applied area after just 20 minutes, increasing blood flow to deliver nutrients, oxygen, and proteins for relief from muscle pain, arthritis, spasms, sprains, and inflammation. The most studied and versatile far infrared therapeutic device in the industry.",
+    shortDescription: "Far infrared heating pad for deep pain and inflammation relief.",
+    personalNote: "This infrared heating pad taught me how to relax my pelvis. I deal with constant chronic pain in my pelvis, hips, lower stomach - and this heating pad is the tool that is genuinely helping my pelvic guarding release. I use it at my desk, on the couch, in bed - I could not recommend this enough. Far-Infrared does more than a regular heating pad, it actually interrupts the inflammation cycle and activates anti-inflammatory signaling pathways. It's not just physical relief, on the chemical level this device is helping to heal the inflammation cycle.\nx, N",
+    website: "https://www.thermotex.com/products/thermotex-platinum-far-infrared-heating-pad-all-purpose",
+    image: "/thermotex.png",
+  },
+  {
     company: "OTO Fertility",
-    name: "OTO Fertility Tracker",
+    name: "OTO Fertility Program",
     price: "",
     description:
-      "Clinical-grade wearable biosensor and AI-powered app that tracks over 50 body signals to generate a personalized Fertility Index score \u2014 reflecting your body\u2019s readiness for conception with personalized recommendations. FDA-cleared and available through partner fertility clinics.",
-    shortDescription: "AI-powered biosensor for personalized fertility tracking.",
+      "AI-powered biosensor and exercise program for a personalized physical routine to increase the body\u2019s stress resilience and bring you back to homeostasis.",
+    shortDescription: "AI-powered biosensor for stress resilience and homeostasis.",
     personalNote: "temp text\nx, N",
     website: "https://otofertility.com/our-product/",
     image: "/OTO_Fertility_OTO_Fertility_Launches_World_s_First_AI_Powered_Pl.jpg",
