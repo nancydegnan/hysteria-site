@@ -431,7 +431,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Collage — left side */}
           <RevealSection>
-            <div className="relative w-full" style={{ minHeight: "520px" }}>
+            <div className="relative w-full aspect-[1/1] md:aspect-auto md:min-h-[520px]">
               <img
                 src="/nancy 2.jpg"
                 alt="Nancy"
@@ -448,7 +448,7 @@ export default function Home() {
                 src="/nancy thermotex.JPG"
                 alt="Nancy with Thermotex"
                 className="absolute w-[40%] aspect-square object-cover shadow-lg"
-                style={{ zIndex: 3, bottom: "0", left: "5%" }}
+                style={{ zIndex: 3, top: "45%", left: "5%" }}
               />
             </div>
           </RevealSection>
