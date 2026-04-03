@@ -257,8 +257,8 @@ export default function Home() {
                 <img
                   src="/community2.jpg"
                   alt="Community"
-                  className="absolute w-[42%] aspect-square object-cover shadow-lg"
-                  style={{ zIndex: 3, top: "45%", left: "8%" }}
+                  className="absolute w-[42%] aspect-square object-cover shadow-lg top-[45%] md:top-auto md:bottom-0 left-[8%]"
+                  style={{ zIndex: 3 }}
                 />
               </div>
             </RevealSection>
@@ -447,8 +447,8 @@ export default function Home() {
               <img
                 src="/nancy thermotex.JPG"
                 alt="Nancy with Thermotex"
-                className="absolute w-[40%] aspect-square object-cover shadow-lg"
-                style={{ zIndex: 3, top: "45%", left: "5%" }}
+                className="absolute w-[40%] aspect-square object-cover shadow-lg top-[45%] md:top-auto md:bottom-0 left-[5%]"
+                style={{ zIndex: 3 }}
               />
             </div>
           </RevealSection>
