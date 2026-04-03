@@ -12,72 +12,66 @@ export default function HomeCarePage() {
       <SubpageNav />
 
       <div className="border-b border-gray-mid">
-        <header className="px-6 pt-8 pb-12 md:pt-12 md:pb-16 max-w-6xl mx-auto">
+        <header className="px-6 pt-24 pb-4 md:pt-28 md:pb-6 max-w-6xl mx-auto">
           <RevealSection>
             <p className="section-label text-sm text-gray-text mb-3">
-              fragrance-free self care
+              fragrance-free self & home care
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight lowercase">
               {group.theme}
             </h1>
           </RevealSection>
         </header>
       </div>
 
-      <main className="px-6 pb-20 md:pb-28 max-w-6xl mx-auto pt-16 md:pt-24">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <main className="px-6 pb-20 md:pb-28 max-w-6xl mx-auto pt-6 md:pt-8">
+        <Link href="/tools" className="playfair-italic text-sm font-bold text-black hover:text-gray-text transition-colors duration-300 mb-10 inline-block">
+          &larr; back to shop
+        </Link>
+
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-12">
           {group.products.map((product) => (
             <RevealSection key={product.name}>
-              <div className="bg-gray-light border border-gray-mid hover:border-black transition-all duration-300 flex flex-col h-full card-hover">
+              <a
+                href={product.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block text-center"
+              >
                 {product.image ? (
-                  <div className="bg-gray-light overflow-hidden">
+                  <div className={`relative overflow-hidden bg-gray-light mb-5 ${product.imageFit === "contain" ? "aspect-square w-[75%] mx-auto" : "aspect-[3/4]"}`}>
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-[220px] object-cover"
+                      className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-[1.03] ${product.imageFit === "contain" ? "object-contain" : "object-cover"}`}
                     />
+                    {product.personalNote && (
+                      <div className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6">
+                        <p className="playfair-italic text-[var(--foreground)] text-xs leading-[1.4] whitespace-pre-line text-left font-bold">
+                          {product.personalNote}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 ) : (
-                  <div className="bg-gray-mid/30 flex items-center justify-center p-10">
-                    <span className="text-lg font-medium text-gray-text text-center">
-                      {product.name}
-                    </span>
+                  <div className="bg-gray-light flex items-center justify-center aspect-[3/4] mb-5">
+                    <span className="text-sm text-gray-text">{product.name}</span>
                   </div>
                 )}
 
-                <div className="p-8 flex flex-col flex-1">
-                  <span className="playfair-italic text-xs text-gray-text">
-                    {product.company}
-                  </span>
-                  <h3 className="playfair text-xl leading-tight mt-3 mb-2">
-                    {product.name}
-                  </h3>
-                  <p className="playfair text-base text-blush mb-4">
-                    {product.price}
-                  </p>
-                  <p className="playfair text-sm leading-[1.8] text-gray-text mb-6 flex-1">
-                    {product.description}
-                  </p>
-                  {product.discountCode && (
-                    <div className="border border-dashed border-blush/30 px-4 py-3 mb-6">
-                      <span className="playfair-italic text-xs text-gray-text">
-                        discount code
-                      </span>
-                      <p className="text-sm font-medium mt-1">
-                        {product.discountCode}
-                      </p>
-                    </div>
-                  )}
-                  <a
-                    href={product.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary inline-block text-center"
-                  >
-                    shop now
-                  </a>
-                </div>
-              </div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-text">
+                  {product.company}
+                </p>
+                <h3 className="playfair text-base leading-snug mt-1.5">
+                  {product.name}
+                </h3>
+                <p className="text-sm text-gray-text mt-1">
+                  {product.price}
+                </p>
+                <p className="text-xs text-gray-text mt-2 leading-[1.4]">
+                  {product.description}
+                </p>
+              </a>
             </RevealSection>
           ))}
         </div>

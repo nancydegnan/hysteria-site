@@ -12,7 +12,7 @@ export default function BooksSubsectionPage() {
       <SubpageNav />
 
       <div className="border-b border-gray-mid">
-        <header className="px-6 pt-8 pb-12 md:pt-12 md:pb-16 max-w-6xl mx-auto">
+        <header className="px-6 pt-24 pb-12 md:pt-28 md:pb-16 max-w-6xl mx-auto">
           <RevealSection>
             <p className="section-label text-sm text-gray-text mb-3">
               books
@@ -25,6 +25,9 @@ export default function BooksSubsectionPage() {
       </div>
 
       <main className="px-6 pb-20 md:pb-28 max-w-6xl mx-auto pt-16 md:pt-24">
+        <Link href="/reading" className="playfair-italic text-sm font-bold text-black hover:text-gray-text transition-colors duration-300 mb-10 inline-block">
+          &larr; back to read
+        </Link>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {group.books.map((book) => (
             <RevealSection key={book.title}>
@@ -35,14 +38,14 @@ export default function BooksSubsectionPage() {
                 <p className="playfair-italic text-xs text-gray-text mb-4">
                   {book.authors}
                 </p>
-                <p className="playfair text-sm leading-[1.8] text-gray-text mb-6">
+                <p className="playfair text-sm leading-[1.4] text-gray-text mb-6">
                   {book.description}
                 </p>
                 <a
                   href={book.buyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-black hover:text-blush transition-colors duration-300 mt-auto"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-black hover:text-black transition-colors duration-300 mt-auto"
                 >
                   {book.buyLabel || "Buy Book"}
                   <span>&rarr;</span>

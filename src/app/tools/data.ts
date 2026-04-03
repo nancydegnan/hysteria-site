@@ -4,15 +4,20 @@ export interface Tool {
   name: string;
   price: string;
   description: string;
+  shortDescription?: string;
+  personalNote?: string;
   website: string;
-  discountCode?: string;
   image?: string;
+  imageFit?: "contain" | "cover";
+  imagePosition?: string;
 }
 
 export interface FreeTool {
   name: string;
   url: string;
   description: string;
+  image?: string;
+  imagePosition?: string;
 }
 
 /* ── Products ── */
@@ -23,8 +28,10 @@ export const tools: Tool[] = [
     price: "$719",
     description:
       "Wearable earpiece that uses patented neurostimulation technology to simultaneously stimulate the vagus and trigeminal nerves — reducing period pain, lightening flow, and balancing your cycle. Drug-free, hormone-free relief.",
+    shortDescription: "Drug-free neurostimulation for period pain relief.",
+    personalNote: "This is helpful right before and during your cycle. It regulates the nervous system and gives that instant calm feeling to my pelvis when I switch it on. It\u2019s cumulative, so each time you use it, it helps more and more. This is a MUST for me when I get my period.\nx, N",
     website: "https://www.ohmbody.com",
-    discountCode: "PLACEHOLDER",
+
     image: "/Ohmbody-image-1.webp",
   },
   {
@@ -33,8 +40,10 @@ export const tools: Tool[] = [
     price: "$75",
     description:
       "Soft, stretchy, stackable rings that let you customize penetration depth — reducing pain during intimacy by preventing contact with tender pelvic structures.",
+    shortDescription: "Customizable rings for pain-free intimacy.",
+    personalNote: "temp text\nx, N",
     website: "https://thepelvicpeople.com",
-    discountCode: "PLACEHOLDER",
+
     image: "/Orange_Ohnut_Updated-resize-min.webp",
   },
   {
@@ -43,8 +52,10 @@ export const tools: Tool[] = [
     price: "$115",
     description:
       "A vibrating pelvic relaxation massager designed to release tight pelvic floor muscles. Non-phallic, gentle, and targeted — with different ends for shallow internal use and for massaging connected muscle groups.",
+    shortDescription: "Gentle pelvic floor massager for muscle release.",
+    personalNote: "temp text\nx, N",
     website: "https://thepelvicpeople.com/products/kiwi",
-    discountCode: "PLACEHOLDER",
+
     image: "/Kiwicollectionphoto_Editablebox_orange2-min.webp",
   },
   {
@@ -53,6 +64,8 @@ export const tools: Tool[] = [
     price: "",
     description:
       "Clinical-grade wearable biosensor and AI-powered app that tracks over 50 body signals to generate a personalized Fertility Index score \u2014 reflecting your body\u2019s readiness for conception with personalized recommendations. FDA-cleared and available through partner fertility clinics.",
+    shortDescription: "AI-powered biosensor for personalized fertility tracking.",
+    personalNote: "temp text\nx, N",
     website: "https://otofertility.com/our-product/",
     image: "/OTO_Fertility_OTO_Fertility_Launches_World_s_First_AI_Powered_Pl.jpg",
   },
@@ -62,6 +75,8 @@ export const tools: Tool[] = [
     price: "Free",
     description:
       "Cycle syncing app that aligns nutrition, movement, and lifestyle recommendations with your menstrual cycle phases. Provides daily phase-specific guidance on food, fitness, and productivity \u2014 users reported 83% reduction in PMS symptoms.",
+    shortDescription: "Cycle syncing app for nutrition, movement, and lifestyle.",
+    personalNote: "temp text\nx, N",
     website: "https://floliving.com/pages/official-cycle-syncing-app-myflo",
     image: "/myflo.png",
   },
@@ -71,16 +86,32 @@ export const tools: Tool[] = [
     price: "From $249",
     description:
       "Gold-standard deep shotgun gut microbiome testing that reveals the full picture of your gut health — including bacteria, fungi, parasites, and inflammation markers. I use the adult yearly membership, which includes two tests per year to track changes over time. Understanding your gut is a critical piece of the endometriosis puzzle, since gut dysbiosis is present in roughly 80% of endo cases.",
+    shortDescription: "Deep gut microbiome testing for the full picture.",
+    personalNote: "temp text\nx, N",
     website: "https://www.tinyhealth.com/store",
-    image: "/tiny health.jpg",
+    image: "/tiny health 2.png",
+    imageFit: "contain",
+  },
+  {
+    company: "Olive My Pickle",
+    name: "Olive My Pickle",
+    price: "From $10",
+    description:
+      "Small-batch, traditionally fermented probiotic foods — pickles, sauerkraut, kimchi, olives, and probiotic pickle juice. Raw, unpasteurized, and packed with live cultures for real gut health support. No vinegar, no preservatives, no shortcuts.",
+    shortDescription: "Raw fermented foods packed with live probiotics.",
+    personalNote: "With endo, you need to be careful about how many fermented foods you're eating, they can sometimes fuel more inflammation if eaten in too much volume. I'm obsessed with this brand because all I need is a couple olives a few times per day, and I feed my gut with plenty of probiotics. Personal faves: the Muffaletta and Greek Olives.\nx, N",
+    website: "https://www.olivemypickle.com",
+    image: "/olive my pickle.png",
+    imageFit: "contain",
   },
 ];
 
 /* ── Self Care (grouped by category) ── */
-export const selfCareGroups: { theme: string; slug: string; products: Tool[] }[] = [
+export const selfCareGroups: { theme: string; slug: string; image?: string; products: Tool[] }[] = [
   {
     theme: "Skincare",
     slug: "skincare",
+    image: "/skincare1.png",
     products: [
       {
         company: "Dieux",
@@ -88,8 +119,9 @@ export const selfCareGroups: { theme: string; slug: string; products: Tool[] }[]
         price: "$22–$78",
         description:
           "Incredible fragrance-free skincare backed by clinical research. Every product is formulated at clinically studied doses and tested for efficacy — vegan, non-comedogenic, and designed for sensitive and post-treatment skin. A great store to explore for fragrance-free options across cleansers, serums, moisturizers, and eye care.",
+        personalNote: "As someone who has dealt with hormonal breakouts and combination skin, I need my skincare to be effective without being pore-clogging. This is my go-to brand for daily moisture (I use the Air Angel) and I absolutely love their Baptism cleanser. Their re-useable eye patches are my morning dose of pampering :)\nx, N",
         website: "https://www.dieuxskin.com/collections/skincare",
-        image: "/dieux.jpeg",
+        image: "/dieux set1.jpeg",
       },
       {
         company: "Good Molecules",
@@ -97,6 +129,7 @@ export const selfCareGroups: { theme: string; slug: string; products: Tool[] }[]
         price: "$5–$26",
         description:
           "Affordable, fragrance-free skincare with best-in-class ingredients backed by research. By working directly with top labs, Good Molecules delivers effective formulations — targeting acne, redness, and hyperpigmentation — without the traditional retail markup. Vegan, cruelty-free, and made with simple, science-backed ingredients that are safe for you and the planet.",
+        personalNote: "This is a brand I reach for when I want some serums and more treatment oriented products. All fragrance-free (including essential oils), so I never have to worry about accidentally buying something I can't use. I love their Vitamin C serum, Sake Hydrating Essence, Glycolic Acid Toner, and their Squalene Oil can't be beat (neither can the price!)\nx, N",
         website: "https://www.goodmolecules.com/",
         image: "/good molecules.jpg",
       },
@@ -106,15 +139,132 @@ export const selfCareGroups: { theme: string; slug: string; products: Tool[] }[]
         price: "$4–$20",
         description:
           "Clinical skincare formulations with integrity — organized by active ingredients like retinoids, vitamin C, hyaluronic acid, and peptides rather than marketing narratives. Fragrance-free, cruelty-free, and transparently priced to remove luxury markup while maintaining clinical-grade quality. A great entry point for building an effective, science-backed skincare routine.",
+        personalNote: "I reach for this brand for specialty serums. I love the price point and guarantee that I won't receive a scented product. I love the Volufiline, Multi-Peptide + Copper Peptides, and can't wait to try their Retinal Emulsion when I run out of my current one!\nx, N",
         website: "https://theordinary.com/en-us",
         image: "/the ordinary.jpg",
+      },
+      {
+        company: "AKT",
+        name: "The Deodorant Balm, Fragrance Free",
+        price: "$26",
+        description: "",
+        personalNote: "I know a fragrance-free deodorant may seem counterintuitive, but believe me, this one WORKS! (Take it from a girl with bad stress sweat) This lives with me in my purse. This is a newer purchase, still making my way through the first tube, but she's lasting at least a few months.\nx, N",
+        website: "https://us.aktlondon.com/collections/the-deodorant-balms",
+        image: "/akt.jpeg",
+        imageFit: "contain",
+      },
+      {
+        company: "Nécessaire",
+        name: "The Deodorant, Fragrance Free",
+        price: "$24",
+        description: "",
+        personalNote: "This uses mandelic acid as the active ingredient, and it works great for neutralizing odor & exfoliating the skin. It stings if you use right after a shave, but it's always in my rotation, and the best option if you prefer a stick deod. One stick lasts me 3 months easily.\nx, N",
+        website: "https://necessaire.com",
+        image: "/deoderant.jpg",
+        imageFit: "contain",
+      },
+      {
+        company: "EltaMD",
+        name: "UV Skin Recovery SPF 50",
+        price: "$46",
+        description: "",
+        personalNote: "A light mineral sunscreen that doesn't make you breakout or leave a white cast, and layers beautifully under makeup. My go-to for warmer months when my skin doesn't need a thick extra layer of moisture.\nx, N",
+        website: "https://eltamd.com",
+        image: "/elta md.jpeg",
+        imageFit: "contain",
+      },
+      {
+        company: "Pipette",
+        name: "Mineral Sunscreen SPF 50",
+        price: "$14",
+        description: "",
+        personalNote: "My favorite sunscreen hands down. So gentle and I've never had a sunburn wearing this (even when out in the sun for a while, and I'm a pale girl!) It's a thicker one, so it's great for sealing in moisture, and does not clog pores. I always feel dewy and glowy when I wear her.\nx, N",
+        website: "https://pipettebaby.com",
+        image: "/pipette.png",
+        imageFit: "contain",
+      },
+      {
+        company: "Prequel",
+        name: "Precleanse Oil Cleanser",
+        price: "$20",
+        description:
+          "Fragrance-free oil cleanser that dissolves makeup, sunscreen, and impurities without stripping the skin.",
+        personalNote: "I absolutely love this as my step one in my nightly skincare ritual. No fragrance and helps dissolve all that mineral sunscreen (and LA smog) off before my gel cleanser.\nx, N",
+        website: "https://www.prfrequelskin.com",
+        image: "/prequel.png",
+        imageFit: "contain",
       },
     ],
   },
   {
-    theme: "Hair Care",
-    slug: "hair-care",
+    theme: "Make Up",
+    slug: "make-up",
+    image: "/makeup2.png",
     products: [
+      {
+        company: "Merit",
+        name: "Merit Beauty",
+        price: "$24–$40",
+        description:
+          "Minimalist, fragrance-free makeup designed for effortless beauty. Every product is clean, cruelty-free, and formulated without parabens, sulfates, phthalates, or synthetic fragrance. Known for their cult-favorite The Minimalist perfecting complexion stick and Day Glow highlighting balm.",
+        personalNote: "Always non-comedogenic (I can attest to this) and has one of everything I need. Personal faves are the blush (I use it for cheeks and lip) and the lip oil.\nx, N",
+        website: "https://www.meritbeauty.com",
+        image: "/merit.png",
+      },
+      {
+        company: "Saie",
+        name: "Saie Beauty",
+        price: "$16–$34",
+        description:
+          "Clean, high-performance makeup with no synthetic fragrance, parabens, sulfates, or phthalates. Every product is Leaping Bunny certified cruelty-free and formulated with skin-loving ingredients. Known for their best-selling Glowy Super Gel and Slip Tint dewy tinted moisturizer.",
+        personalNote: "The cleanest of the clean, and such a beautiful line. I LOVE their cool-toned bronzer (as a pale girl it's hard to find bronzers that don't make me look orange) and their glowy super gel illuminator. Never makes me break out either!\nx, N",
+        website: "https://www.saiehello.com",
+        image: "/saie.png",
+      },
+      {
+        company: "Seint",
+        name: "Seint Beauty",
+        price: "$12–$54",
+        description:
+          "Cream-based, fragrance-free makeup designed to simplify your routine with a customizable compact system. Every product is paraben-free, sulfate-free, and cruelty-free. Known for their IIID Foundation that combines highlight and contour in one palette for a natural, sculpted look.",
+        personalNote: "If you've ever heard of \"demi makeup,\" Seint's founder was the OG. It's precision makeup designed to harmonize with all the different skin undertones. I use this brand everyday and am obsessed with the waxy texture and tint rather than cream. It stays all day and helps keep my dark undereye circles looking cute. Fave products: Contour in Velvet, Lip+Cheek products. I carry this palette in my purse at all times.\nx, N",
+        website: "https://www.seintofficial.com",
+        image: "/seint2.jpg",
+      },
+    ],
+  },
+  {
+    theme: "In the Shower",
+    slug: "hair-care",
+    image: "/in the shower.png",
+    products: [
+      {
+        company: "Good Molecules",
+        name: "Hydrate & Cleanse Bar",
+        price: "$6",
+        description:
+          "Ultra-gentle, soap-free cleansing bar that purifies and hydrates skin with a pH-balanced blend of shea butter, macadamia seed oil, squalane, and honey. Washes away impurities from face and body while supporting a healthy moisture balance. Fragrance-free, paraben-free, sulfate-free, vegan, and Leaping Bunny certified cruelty-free.",
+        website: "https://www.goodmolecules.com/products/hydrate-cleanse-bar",
+        image: "/soap 1.jpg",
+      },
+      {
+        company: "Good Molecules",
+        name: "Clarify & Cleanse Bar",
+        price: "$6",
+        description:
+          "pH-balanced, soap-free cleansing bar with salicylic acid and tea tree oil to target breakouts, kaolin clay to balance excess sebum, and cocoa powder to soothe inflammation. Rosehip and grapeseed oils nourish and maintain moisture while promoting elasticity. Clears congestion from face and body without drying. Fragrance-free, paraben-free, sulfate-free, vegan, and Leaping Bunny certified cruelty-free.",
+        website: "https://www.goodmolecules.com/products/clarify-cleanse-bar",
+        image: "/soap 2.jpg",
+      },
+      {
+        company: "Earth Therapeutics",
+        name: "Organic Cotton Exfoliating Gloves",
+        price: "$8.99",
+        description:
+          "Gentle exfoliating gloves that buff away dry skin and unclog pores, cleansing away toxins and impurities to reveal skin\u2019s natural glow. Massages the body and stimulates circulation. Made with organic cotton, recycled polyester, nylon, and elastic yarn.",
+        website: "https://www.ulta.com/p/organic-cotton-exfoliating-gloves-pimprod2004281",
+        image: "/exfoliating gloves.png",
+      },
       {
         company: "SEEN",
         name: "Blow-Out Creme, Fragrance Free",
@@ -183,7 +333,17 @@ export const selfCareGroups: { theme: string; slug: string; products: Tool[] }[]
   {
     theme: "Home Care",
     slug: "home-care",
+    image: "/home care.png",
     products: [
+      {
+        company: "Branch Basics",
+        name: "Cleaning Essentials Kit (Glass)",
+        price: "$89",
+        description:
+          "All-in-one cleaning system with one plant and mineral-based concentrate that replaces every cleaner in your home. Kit includes a 33.8 oz concentrate (24 refills) and three refillable glass spray bottles for all-purpose, bathroom, and streak-free cleaning. Made with just seven ingredients including decyl glucoside and organic chamomile. Fragrance-free, free from harmful preservatives, dyes, bleach, and ammonia.",
+        website: "https://www.amazon.com/Branch-Basics-Cleaning-Essentials-Fragrance-Free/dp/B0D9WGSBK5",
+        image: "/branch basics.jpeg",
+      },
       {
         company: "Blueland",
         name: "Laundry Detergent & Toilet Bowl Cleaner Duo",
@@ -231,18 +391,22 @@ export const advocacyTools: FreeTool[] = [
     url: "https://nyulangone.org/locations/endometriosis-center/endometriosis-symptom-questionnaire",
     description:
       "Free screening tool from NYU Langone\u2019s Endometriosis Center. Asks about five key symptom areas \u2014 period pain, pain between periods, painful intercourse, avoidance of sex due to pain, and painful bowel movements \u2014 to help identify potential endometriosis and connect you with further evaluation.",
+    image: "/endo symptoms 2.jpg",
+    imagePosition: "center 70%",
   },
   {
     name: "Endometriosis Symptom Checker",
     url: "https://www.endometriosis-uk.org/symptom-checker",
     description:
       "Quick screening tool from Endometriosis UK that takes less than a minute. Identifies common endo symptoms and lets you generate a letter to share with your doctor \u2014 helping you walk in prepared.",
+    image: "/endo symptoms 3.jpg",
   },
   {
     name: "Pain Perception Project",
     url: "https://www.painperceptionproject.com/",
     description:
       "A patient-founded initiative producing tools for better understanding pain. Includes a Pelvic Pain Assessment that helps you effectively communicate with your doctor \u2014 because coming prepared is an element we\u2019ve never had.",
+    image: "/pain perception.jpg",
   },
 ];
 
@@ -252,11 +416,13 @@ export const healingTools: FreeTool[] = [
     url: "https://www.youtube.com/watch?v=vzzZVGc6VyQ",
     description:
       "Trauma recovery and deep healing music for restoration. A free sound bath designed to regulate your nervous system \u2014 helpful for managing pain, stress, and the emotional toll of chronic illness. I listen to this in the background while working or just around the house.",
+    image: "/nervous system reset.jpg",
   },
   {
     name: "Lower Your Cortisol Sound Bath",
     url: "https://www.youtube.com/watch?v=S3k6KArOs0A",
     description:
       "Crystal singing bowls for stress relief. A free sound bath designed to help lower cortisol levels \u2014 useful for calming the nervous system when chronic pain, inflammation, or stress keep your body in overdrive. I listen to this in the background while working or just around the house.",
+    image: "/lower your cortisol.jpg",
   },
 ];

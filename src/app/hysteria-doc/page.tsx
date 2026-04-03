@@ -23,7 +23,7 @@ export default function HysteriaDoc() {
             href="/"
             className="text-sm text-gray-text hover:text-black transition-colors duration-300"
           >
-            &larr; No Cure Club
+            &larr; The No Cure Club
           </Link>
           <span className="text-lg font-black tracking-tighter text-black uppercase">
             HYSTERIA
@@ -62,7 +62,7 @@ export default function HysteriaDoc() {
               I found a global crisis.
             </p>
             <div className="mt-10">
-              <span className="playfair-italic text-sm text-blush border border-blush px-5 py-2 rounded-full inline-block">
+              <span className="playfair-italic text-sm text-black border border-blush px-5 py-2 rounded-full inline-block">
                 A Documentary Film
               </span>
             </div>
@@ -140,7 +140,7 @@ export default function HysteriaDoc() {
                   Endo attractive. Systems such as this survive upon the fear,
                   confusion, and desperation of their subjects, who don&apos;t
                   know how to advocate for themselves.{" "}
-                  <strong className="text-blush">No more.</strong>
+                  <strong className="text-black">No more.</strong>
                 </p>
                 <p>
                   This film follows my journey to put my stage 3 endometriosis
@@ -160,7 +160,7 @@ export default function HysteriaDoc() {
             <RevealSection stagger>
               <div className="space-y-4">
                 <blockquote className="border-l-2 border-blush pl-6 py-4 bg-gray-light">
-                  <p className="playfair font-medium text-base leading-relaxed">
+                  <p className="playfair font-medium text-base leading-snug">
                     &ldquo;The global hormonal contraceptive market is worth $19
                     billion. The first-line treatment for endometriosis has been
                     the same since 1957.&rdquo;
@@ -281,7 +281,7 @@ export default function HysteriaDoc() {
                     I have set out to put my Endo into remission.
                   </strong>{" "}
                   Not less pain —{" "}
-                  <strong className="text-blush">no pain.</strong> To restore
+                  <strong className="text-black">no pain.</strong> To restore
                   health to my whole body, not just my uterus. I want my story to
                   bring hope to anyone suffering with chronic pain. There are
                   answers, and I am determined to bring them to the masses.
@@ -375,7 +375,7 @@ export default function HysteriaDoc() {
               <div className="space-y-4">
                 <div className="bg-gray-light p-8">
                   <h3 className="text-lg font-medium mb-2">Tax-Deductible</h3>
-                  <p className="playfair text-sm text-gray-text leading-relaxed">
+                  <p className="playfair text-sm text-gray-text leading-snug">
                     HYSTERIA is fiscally sponsored, so your donation is
                     tax-deductible to the fullest extent of the law.
                   </p>
@@ -384,7 +384,7 @@ export default function HysteriaDoc() {
                   <h3 className="text-lg font-medium mb-2">
                     100% Independent
                   </h3>
-                  <p className="playfair text-sm text-white/70 leading-relaxed">
+                  <p className="playfair text-sm text-white/70 leading-snug">
                     No studio backing. No corporate agenda. This film is made by
                     patients, for everyone.
                   </p>
@@ -393,7 +393,7 @@ export default function HysteriaDoc() {
                   <h3 className="text-lg font-medium mb-2">
                     Every Dollar Counts
                   </h3>
-                  <p className="playfair text-sm text-gray-text leading-relaxed">
+                  <p className="playfair text-sm text-gray-text leading-snug">
                     From $5 to $5,000 — every contribution fuels production,
                     research trips, and getting this story told.
                   </p>

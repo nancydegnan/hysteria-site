@@ -21,11 +21,11 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "No Cure Club — An Endometriosis Community & Curation Hub",
+  title: "The No Cure Club — An Endometriosis Community & Curation Hub",
   description:
-    "No Cure Club is a community and curation hub for people living with endometriosis. Resources, stories, advocacy, and the HYSTERIA documentary — because no one should fight alone.",
+    "The No Cure Club is a community and curation hub for people living with endometriosis. Resources, stories, advocacy, and the HYSTERIA documentary — because no one should fight alone.",
   openGraph: {
-    title: "No Cure Club — An Endometriosis Community & Curation Hub",
+    title: "The No Cure Club — An Endometriosis Community & Curation Hub",
     description:
       "Resources, stories, and solidarity for people living with endometriosis. No cure. No silence. No surrender.",
     type: "website",

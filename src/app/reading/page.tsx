@@ -11,187 +11,248 @@ export default function ReadingPage() {
       <SubpageNav />
 
       <div className="border-b border-gray-mid">
-        <header className="px-6 pt-8 pb-12 md:pt-12 md:pb-16 max-w-6xl mx-auto">
+        <header className="px-6 pt-24 pb-12 md:pt-28 md:pb-16 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-[1fr_220px] gap-8 items-start">
+            <RevealSection>
+              <p className="section-label text-sm text-gray-text mb-3">
+                resources
+              </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
+                <span className="font-black">Read, Watch,</span>{" "}
+                <em className="playfair-italic font-light">Listen</em>
+              </h1>
+              <p className="font-['Helvetica','Arial',sans-serif] text-base leading-[1.4] mt-1 text-charcoal max-w-2xl">
+                Books, films, podcasts, articles, and research worth your time. These are all resources that have shaped how I
+                understand my body, my pain, and how to embark upon healing.
+              </p>
+            </RevealSection>
+
+            <RevealSection className="md:text-right md:pt-6">
+              <blockquote>
+                <p className="playfair-italic text-sm leading-[1.5] text-charcoal">
+                  &ldquo;I&apos;m tired of being enclosed here. I&apos;m wearying
+                  to escape into that glorious world, and to be always there: not
+                  seeing it dimly through tears, and yearning for it through the
+                  walls of an aching heart.&rdquo;
+                </p>
+                <footer className="mt-2">
+                  <p className="playfair-italic text-xs text-charcoal">
+                    &mdash; Catherine Earnshaw, Wuthering Heights
+                  </p>
+                </footer>
+              </blockquote>
+            </RevealSection>
+          </div>
+
           <RevealSection>
-            <p className="section-label text-sm text-gray-text mb-3">
-              resources
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              <span className="font-black">Read, Watch,</span>{" "}
-              <em className="playfair-italic font-light">Listen</em>
-            </h1>
-            <p className="playfair text-base leading-[1.8] mt-6 text-gray-text max-w-2xl">
-              Books, films, podcasts, articles, and research worth your time. These are all resources that have shaped how I
-              understand my body, my pain, and how to embark upon healing.
-            </p>
+            {/* ── Section pills ── */}
+            <div className="flex flex-wrap gap-3 mt-8">
+              {[
+                { label: "books", id: "books" },
+                { label: "podcasts", id: "podcasts" },
+                { label: "articles", id: "articles" },
+                { label: "research", id: "research" },
+                { label: "films", id: "films" },
+              ].map((s) => (
+                <a
+                  key={s.id}
+                  href={`#${s.id}`}
+                  className="playfair-italic text-sm px-5 py-2 border-b-2 border-transparent text-charcoal hover:text-black hover:border-chartreuse transition-all duration-300"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
           </RevealSection>
         </header>
       </div>
 
-      {/* ── Quote ── */}
-      <section className="py-16 md:py-20 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <RevealSection>
-            <blockquote>
-              <p className="playfair-italic text-2xl md:text-3xl lg:text-4xl font-light leading-[1.4] text-black">
-                &ldquo;I&apos;m tired of being enclosed here. I&apos;m wearying
-                to escape into that glorious world, and to be always there: not
-                seeing it dimly through tears, and yearning for it through the
-                walls of an aching heart.&rdquo;
-              </p>
-              <footer className="mt-6">
-                <p className="playfair-italic text-sm text-black">
-                  Catherine Earnshaw, Wuthering Heights
-                </p>
-              </footer>
-            </blockquote>
-          </RevealSection>
-        </div>
-      </section>
-
-      <main className="px-6 pb-20 md:pb-28 max-w-6xl mx-auto">
+      <main className="px-6 pb-20 md:pb-28 max-w-6xl mx-auto pt-16 md:pt-24">
         {/* ── Books ── */}
-        <section className="mb-16 md:mb-24">
+        <section id="books" className="mb-20 md:mb-28 scroll-mt-24">
           <RevealSection>
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-blush mb-8">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-10">
               Books
             </h2>
           </RevealSection>
-          <RevealSection stagger>
-            <div className="grid gap-4">
-              {bookGroups.map((group) => (
-                <Link
-                  key={group.slug}
-                  href={`/reading/books/${group.slug}`}
-                  className="block bg-gray-light border border-gray-mid px-6 py-5 hover:border-black transition-all duration-300 group card-hover"
-                >
-                  <span className="text-lg font-medium">
-                    {group.theme}
-                  </span>
-                  <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                    &rarr;
-                  </span>
-                  <span className="block playfair-italic text-xs text-gray-text mt-1">
-                    {group.books.length} {group.books.length === 1 ? "book" : "books"}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </RevealSection>
+          <div className="flex flex-col gap-14">
+            {bookGroups.map((group) => (
+                <RevealSection key={group.slug}>
+                  <Link
+                    href={`/reading/books/${group.slug}`}
+                    className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center group"
+                  >
+                    <div className="w-64 md:w-80 aspect-[4/3] bg-[#e4e0d9] overflow-hidden">
+                      {group.image && (
+                        <img src={group.image} alt={group.theme} className="w-full h-full object-cover" />
+                      )}
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-charcoal mb-1.5">
+                        books
+                      </p>
+                      <h3 className="playfair text-xl md:text-2xl font-bold leading-snug">
+                        {group.theme}
+                      </h3>
+                      <p className="text-xs text-charcoal mt-2">
+                        {group.books.length} {group.books.length === 1 ? "book" : "books"}
+                      </p>
+                      <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
+                        explore &rarr;
+                      </span>
+                    </div>
+                  </Link>
+                </RevealSection>
+            ))}
+          </div>
         </section>
 
         {/* ── Podcasts ── */}
-        <section className="mb-16 md:mb-24">
+        <section id="podcasts" className="mb-20 md:mb-28 scroll-mt-24">
           <RevealSection>
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-blush mb-8">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-10">
               Podcast Episodes
             </h2>
           </RevealSection>
-          <RevealSection stagger>
-            <div className="grid gap-4">
-              {podcastGroups.map((group) => (
+          <div className="flex flex-col gap-14">
+            {podcastGroups.map((group) => (
+              <RevealSection key={group.slug}>
                 <Link
-                  key={group.slug}
                   href={`/reading/podcasts/${group.slug}`}
-                  className="block bg-gray-light border border-gray-mid px-6 py-5 hover:border-black transition-all duration-300 group card-hover"
+                  className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center group"
                 >
-                  <span className="text-lg font-medium">
-                    {group.theme}
-                  </span>
-                  <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                    &rarr;
-                  </span>
-                  <span className="block playfair-italic text-xs text-gray-text mt-1">
-                    {group.podcasts.length} {group.podcasts.length === 1 ? "episode" : "episodes"}
-                  </span>
+                  <div className="w-64 md:w-80 aspect-[4/3] bg-[#e4e0d9] overflow-hidden">
+                    {group.image && (
+                      <img src={group.image} alt={group.theme} className="w-full h-full object-cover" />
+                    )}
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-charcoal mb-1.5">
+                      podcasts
+                    </p>
+                    <h3 className="playfair text-xl md:text-2xl font-bold leading-snug">
+                      {group.theme}
+                    </h3>
+                    <p className="text-xs text-charcoal mt-2">
+                      {group.podcasts.length} {group.podcasts.length === 1 ? "episode" : "episodes"}
+                    </p>
+                    <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
+                      explore &rarr;
+                    </span>
+                  </div>
                 </Link>
-              ))}
-            </div>
+              </RevealSection>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Articles ── */}
+        <section id="articles" className="mb-20 md:mb-28 scroll-mt-24">
+          <RevealSection>
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-10">
+              Articles
+            </h2>
           </RevealSection>
+          <div className="flex flex-col gap-14">
+            {articleGroups.map((group) => (
+              <RevealSection key={group.slug}>
+                <Link
+                  href={`/reading/articles/${group.slug}`}
+                  className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center group"
+                >
+                  <div className="w-64 md:w-80 aspect-[4/3] bg-[#e4e0d9] overflow-hidden">
+                    {group.image && (
+                      <img src={group.image} alt={group.theme} className="w-full h-full object-cover" />
+                    )}
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-charcoal mb-1.5">
+                      articles
+                    </p>
+                    <h3 className="playfair text-xl md:text-2xl font-bold leading-snug">
+                      {group.theme}
+                    </h3>
+                    <p className="text-xs text-charcoal mt-2">
+                      {group.articles.length} {group.articles.length === 1 ? "article" : "articles"}
+                    </p>
+                    <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
+                      explore &rarr;
+                    </span>
+                  </div>
+                </Link>
+              </RevealSection>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Research ── */}
+        <section id="research" className="mb-20 md:mb-28 scroll-mt-24">
+          <RevealSection>
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-10">
+              Research
+            </h2>
+          </RevealSection>
+          <div className="flex flex-col gap-14">
+            {researchGroups.map((group) => (
+              <RevealSection key={group.slug}>
+                <Link
+                  href={`/reading/research/${group.slug}`}
+                  className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center group"
+                >
+                  <div className="w-64 md:w-80 aspect-[4/3] bg-[#e4e0d9] overflow-hidden">
+                    {group.image && (
+                      <img src={group.image} alt={group.theme} className="w-full h-full object-cover" />
+                    )}
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-charcoal mb-1.5">
+                      research
+                    </p>
+                    <h3 className="playfair text-xl md:text-2xl font-bold leading-snug">
+                      {group.theme}
+                    </h3>
+                    <p className="text-xs text-charcoal mt-2">
+                      {group.articles.length} {group.articles.length === 1 ? "paper" : "papers"}
+                    </p>
+                    <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
+                      explore &rarr;
+                    </span>
+                  </div>
+                </Link>
+              </RevealSection>
+            ))}
+          </div>
         </section>
 
         {/* ── Films ── */}
-        <section className="mb-16 md:mb-24">
+        <section id="films" className="scroll-mt-24">
           <RevealSection>
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-blush mb-8">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-10">
               Films
             </h2>
           </RevealSection>
           <RevealSection>
             <Link
               href="/reading/films"
-              className="block bg-gray-light border border-gray-mid px-6 py-5 hover:border-black transition-all duration-300 group card-hover"
+              className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center group"
             >
-              <span className="text-lg font-medium">
-                Documentaries
-              </span>
-              <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                &rarr;
-              </span>
-              <span className="block playfair-italic text-xs text-gray-text mt-1">
-                3 films
-              </span>
+              <div className="w-64 md:w-80 aspect-[4/3] bg-[#e4e0d9] overflow-hidden">
+              </div>
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-charcoal mb-1.5">
+                  films
+                </p>
+                <h3 className="playfair text-xl md:text-2xl font-bold leading-snug">
+                  Documentaries
+                </h3>
+                <p className="text-xs text-charcoal mt-2">
+                  3 films
+                </p>
+                <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
+                  explore &rarr;
+                </span>
+              </div>
             </Link>
-          </RevealSection>
-        </section>
-
-        {/* ── Articles ── */}
-        <section className="mb-16 md:mb-24">
-          <RevealSection>
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-blush mb-8">
-              Articles
-            </h2>
-          </RevealSection>
-          <RevealSection stagger>
-            <div className="grid gap-4">
-              {articleGroups.map((group) => (
-                <Link
-                  key={group.slug}
-                  href={`/reading/articles/${group.slug}`}
-                  className="block bg-gray-light border border-gray-mid px-6 py-5 hover:border-black transition-all duration-300 group card-hover"
-                >
-                  <span className="text-lg font-medium">
-                    {group.theme}
-                  </span>
-                  <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                    &rarr;
-                  </span>
-                  <span className="block playfair-italic text-xs text-gray-text mt-1">
-                    {group.articles.length} {group.articles.length === 1 ? "article" : "articles"}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </RevealSection>
-        </section>
-
-        {/* ── Research ── */}
-        <section>
-          <RevealSection>
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-blush mb-8">
-              Research
-            </h2>
-          </RevealSection>
-          <RevealSection stagger>
-            <div className="grid gap-4">
-              {researchGroups.map((group) => (
-                <Link
-                  key={group.slug}
-                  href={`/reading/research/${group.slug}`}
-                  className="block bg-gray-light border border-gray-mid px-6 py-5 hover:border-black transition-all duration-300 group card-hover"
-                >
-                  <span className="text-lg font-medium">
-                    {group.theme}
-                  </span>
-                  <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                    &rarr;
-                  </span>
-                  <span className="block playfair-italic text-xs text-gray-text mt-1">
-                    {group.articles.length} {group.articles.length === 1 ? "paper" : "papers"}
-                  </span>
-                </Link>
-              ))}
-            </div>
           </RevealSection>
         </section>
       </main>

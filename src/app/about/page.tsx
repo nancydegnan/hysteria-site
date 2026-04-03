@@ -10,7 +10,7 @@ export default function AboutPage() {
       <SubpageNav />
 
       <div className="border-b border-gray-mid">
-        <header className="px-6 pt-8 pb-12 md:pt-12 md:pb-16 max-w-6xl mx-auto">
+        <header className="px-6 pt-24 pb-12 md:pt-28 md:pb-16 max-w-6xl mx-auto">
           <RevealSection>
             <p className="section-label text-sm text-gray-text mb-3">
               about
@@ -26,16 +26,19 @@ export default function AboutPage() {
       {/* ====== MY STORY ====== */}
       <section id="my-story" className="py-20 md:py-28 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_350px] gap-12 md:gap-20 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_450px] gap-12 md:gap-20 items-start">
             <RevealSection>
               <p className="section-label text-sm text-black mb-4">
-                my story
+                hi, I'm Nancy
               </p>
               <h2 className="text-3xl md:text-4xl tracking-tight mb-8">
-                <span className="font-black">How I</span>{" "}
-                <em className="playfair-italic font-normal">got here.</em>
+                <span className="font-black">I have</span>{" "}
+                <em className="playfair-italic font-normal">stage 3 endo.</em>
               </h2>
-              <div className="space-y-5 playfair text-base text-black leading-[1.85]">
+              <div className="space-y-5 text-base text-black leading-[1.85]">
+                <p>
+                  And let me tell you, she&apos;s a real b!tch.
+                </p>
                 <p>
                   In 2020, when the world was falling apart, so did my body. My
                   period became so painful I was vomiting and blacking out for
@@ -62,15 +65,12 @@ export default function AboutPage() {
             </RevealSection>
 
             <RevealSection>
-              <div className="relative">
-                <div className="absolute inset-0 bg-blush/20 rounded-sm" />
-                <img
-                  src="/_MG_4378.jpg"
-                  alt="Nancy portrait"
-                  className="relative w-full aspect-[3/4] object-cover torn-image"
-                  style={{ objectPosition: "center 80%" }}
-                />
-              </div>
+              <img
+                src="/nancy5*.png"
+                alt="Nancy portrait"
+                className="w-full aspect-[3/4] object-cover"
+                style={{ objectPosition: "center 80%" }}
+              />
             </RevealSection>
           </div>
         </div>

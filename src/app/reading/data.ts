@@ -31,7 +31,7 @@ export interface Article {
 }
 
 /* ── Books ── */
-export const bookGroups: { theme: string; slug: string; books: Book[] }[] = [
+export const bookGroups: { theme: string; slug: string; image?: string; books: Book[] }[] = [
   {
     theme: "Endometriosis & Diagnosis",
     slug: "endometriosis-and-diagnosis",
@@ -146,7 +146,7 @@ export const bookGroups: { theme: string; slug: string; books: Book[] }[] = [
 ];
 
 /* ── Podcasts ── */
-export const podcastGroups: { theme: string; slug: string; podcasts: Podcast[] }[] = [
+export const podcastGroups: { theme: string; slug: string; image?: string; podcasts: Podcast[] }[] = [
   {
     theme: "Endometriosis & Diagnosis",
     slug: "endometriosis-and-diagnosis",
@@ -204,6 +204,13 @@ export const podcastGroups: { theme: string; slug: string; podcasts: Podcast[] }
         description:
           "Functional nutritionist Khush Sra shares how she went from stage 4 endometriosis and five surgeries to living pain-free for 20 years through nutritional intervention. Covers the role of gut dysbiosis in endo, anti-inflammatory foods for estrogen clearance, the connection between histamine intolerance and estrogen dominance, endo belly management, and why nervous system regulation comes before dietary changes.",
       },
+      {
+        title: "Breaking Up With Caffeine",
+        host: "Olivia Amitrano",
+        url: "https://whatsthejuice.libsyn.com/s3e20-caffine-solo",
+        description:
+          "Clinical herbalist and founder of Organic Olivia shares why she decided to break up with caffeine, how it impacts your body from a Traditional Chinese Medicine standpoint, and the benefits she\u2019s experienced \u2014 better sleep, higher libido, and more stable moods. She also covers how to counter withdrawal with minerals, vitamins, protein, and herbs.",
+      },
     ],
   },
   {
@@ -248,7 +255,7 @@ export const films: Film[] = [
 ];
 
 /* ── Articles ── */
-export const articleGroups: { theme: string; slug: string; articles: Article[] }[] = [
+export const articleGroups: { theme: string; slug: string; image?: string; articles: Article[] }[] = [
   {
     theme: "Endometriosis",
     slug: "endometriosis",
@@ -305,7 +312,7 @@ export const articleGroups: { theme: string; slug: string; articles: Article[] }
 ];
 
 /* ── Research ── */
-export const researchGroups: { theme: string; slug: string; articles: Article[] }[] = [
+export const researchGroups: { theme: string; slug: string; image?: string; articles: Article[] }[] = [
   {
     theme: "Gender Bias in Medicine",
     slug: "gender-bias-in-medicine",

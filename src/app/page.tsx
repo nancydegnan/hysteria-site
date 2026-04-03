@@ -1,28 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { RevealSection, Footer, NewsletterPopup } from "./components";
 import { tools } from "./tools/data";
 
 export default function Home() {
-  const [copied, setCopied] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
+  const [showStickyNav, setShowStickyNav] = useState(false);
 
   const navLinks = [
     { href: "/about", label: "about" },
     { href: "/tools", label: "shop" },
-    { href: "/reading", label: "read" },
-    { href: "#community", label: "community" },
+    { href: "/reading", label: "read/watch/listen" },
+    { href: "/community", label: "community" },
     { href: "/hysteria-doc", label: "the documentary" },
+    { href: "https://substack.com/@thenocureclub", label: "the newsletter" },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowStickyNav(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white text-foreground">
@@ -37,22 +39,25 @@ export default function Home() {
         </defs>
       </svg>
 
-      {/* ====== STICKY NAV ====== */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b-2 border-black">
+      {/* ====== STICKY NAV (appears on scroll) ====== */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b-2 border-black transition-transform duration-300 ${
+          showStickyNav ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link
-            href="/"
-            className="text-xl ncc-logo text-black"
-          >
-            No Cure Club
+          <Link href="/" className="ncc-logo text-lg text-black">
+            The No Cure Club
           </Link>
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) =>
-              link.href.startsWith("#") ? (
+              link.href.startsWith("http") ? (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-black hover:text-black transition-colors duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-black hover:italic transition-all duration-300"
                 >
                   {link.label}
                 </a>
@@ -60,7 +65,7 @@ export default function Home() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-black hover:text-black transition-colors duration-300"
+                  className="text-sm text-black hover:italic transition-all duration-300"
                 >
                   {link.label}
                 </Link>
@@ -75,7 +80,6 @@ export default function Home() {
               join the club
             </a>
           </div>
-          {/* Mobile menu button */}
           <button
             className="md:hidden text-black"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -90,15 +94,16 @@ export default function Home() {
             </svg>
           </button>
         </div>
-        {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-gray-mid bg-white px-6 py-4 flex flex-col gap-3">
             {navLinks.map((link) =>
-              link.href.startsWith("#") ? (
+              link.href.startsWith("http") ? (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-black hover:text-black transition-colors duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-black hover:italic transition-all duration-300"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
@@ -107,7 +112,7 @@ export default function Home() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-black hover:text-black transition-colors duration-300"
+                  className="text-sm text-black hover:italic transition-all duration-300"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
@@ -118,46 +123,165 @@ export default function Home() {
         )}
       </nav>
 
-      {/* ====== HERO ====== */}
-      <section className="min-h-[90vh] flex items-center justify-center px-6 pt-24 grain-bg">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-8 items-center">
-          {/* Left image */}
-          <div className="hidden md:block">
-            <img
-              src="/carla sutera.webp"
-              alt="Carla Sutera"
-              className="w-full object-cover aspect-[3/4] rounded-2xl"
-            />
-          </div>
-
-          {/* Center text */}
-          <div className="text-center">
-          <RevealSection>
-            <h1 className="playfair-italic text-xl md:text-2xl lg:text-3xl text-black font-light tracking-tighter">
-              welcome to the{" "}<span className="ncc-logo text-black not-italic ml-2">No Cure Club</span>
-            </h1>
-            <p className="text-base md:text-lg font-bold text-black -mt-1">*curation for endometriosis</p>
-            <p className="text-sm font-semibold text-black mt-8 max-w-2xl mx-auto leading-relaxed tracking-wider">
-              Welcome to the club nobody wanted to join. I&apos;m so glad you&apos;re here.
-              <br />
-              <em className="font-normal">Started by someone going through it, for everyone going through it.</em>
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
-              <a href="#our-resources" className="btn-primary" style={{ background: 'var(--white)', borderColor: 'var(--black)', borderWidth: '2px', color: 'var(--black)' }}>
-                explore resources
+      {/* ====== RUSSH-STYLE HERO HEADER ====== */}
+      <header className="pt-4 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.instagram.com/jointhenocureclub/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black hover:opacity-60 transition-opacity"
+                aria-label="Instagram"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+              </a>
+              <a
+                href="https://substack.com/@thenocureclub"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black hover:opacity-60 transition-opacity"
+                aria-label="Substack"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+                </svg>
               </a>
             </div>
-          </RevealSection>
+            <Link href="/" className="ncc-logo text-[7vw] md:text-[5.5vw] lg:text-[4.5vw] text-black whitespace-nowrap leading-none">
+              The No Cure Club
+            </Link>
+            <a
+              href="https://nocureclub.substack.com/subscribe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary text-xs !py-2 !px-5"
+            >
+              join the club
+            </a>
           </div>
+          <div className="pb-24 md:pb-32"></div>
+        </div>
+      </header>
+      <nav className="border-b-2 border-black px-6 pb-5">
+        <div className="max-w-5xl mx-auto hidden md:flex items-center justify-center gap-10 lg:gap-14">
+          {navLinks.map((link) =>
+            link.href.startsWith("http") ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-black hover:italic transition-all duration-300"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-black hover:italic transition-all duration-300"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
+        </div>
+        {/* Mobile: hamburger for hero nav */}
+        <div className="md:hidden flex justify-center">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-sm text-black"
+            aria-label="Toggle menu"
+          >
+            menu
+          </button>
+        </div>
+      </nav>
 
-          {/* Right image */}
-          <div className="hidden md:block">
-            <img
-              src="/braiding.jpg"
-              alt="Braiding"
-              className="w-full object-cover aspect-[3/4] rounded-xl"
-            />
+      {/* ====== JOIN THE CLUB (HERO) ====== */}
+      <section
+        id="community"
+        className="min-h-[80vh] flex items-center px-6 pt-12 pb-20"
+      >
+        <div className="max-w-6xl mx-auto text-black">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Collage — left side */}
+            <RevealSection>
+              <div className="relative w-full warm-tint" style={{ minHeight: "480px" }}>
+                <img
+                  src="/community.jpg"
+                  alt="Community"
+                  className="absolute top-0 left-0 w-[58%] aspect-[3/4] object-cover shadow-lg"
+                  style={{ zIndex: 1 }}
+                />
+                <img
+                  src="/braiding.jpg"
+                  alt="Braiding"
+                  className="absolute w-[45%] aspect-[4/5] object-cover shadow-lg"
+                  style={{ zIndex: 2, top: "10%", left: "50%" }}
+                />
+                <img
+                  src="/community2.jpg"
+                  alt="Community"
+                  className="absolute w-[42%] aspect-square object-cover shadow-lg"
+                  style={{ zIndex: 3, bottom: "0", left: "8%" }}
+                />
+              </div>
+            </RevealSection>
+
+            {/* Text — right side */}
+            <div className="text-center md:text-left">
+              <RevealSection>
+                <h2 className="text-4xl md:text-5xl tracking-tight mb-3">
+                  <span className="font-black">Join</span>{" "}
+                  <em className="playfair-italic font-light">the club.</em>
+                </h2>
+                <p className="playfair text-base text-black leading-snug mb-4">
+                  I spent years thinking I was the only person I knew with endometriosis and chronic pelvic pain. Turns out I just didn&apos;t know where to look. This is the space I wish existed when I first searched &ldquo;what do I do if I have endometriosis.&rdquo; Created by one of us, for all of us.
+                </p>
+              </RevealSection>
+
+              <RevealSection>
+                <form
+                  className="flex flex-col sm:flex-row gap-3"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const email = (e.currentTarget.elements.namedItem("email") as HTMLInputElement).value;
+                    window.open(
+                      `https://nocureclub.substack.com/subscribe?email=${encodeURIComponent(email)}`,
+                      "_blank"
+                    );
+                  }}
+                >
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="your@email.com"
+                    required
+                    className="flex-1 !bg-black/10 !border-charcoal/30 text-black placeholder-black/40 !rounded-full"
+                  />
+                  <button type="submit" className="btn-blush whitespace-nowrap">
+                    <span className="playfair-italic font-bold">join</span>{" "}<span className="ncc-logo">The No Cure Club</span>
+                  </button>
+                </form>
+                <p className="text-xs text-black mt-4">Drop your email to get our monthly newsletter and we&apos;ll let you know when the next gathering is.</p>
+              </RevealSection>
+            </div>
           </div>
+          <RevealSection>
+            <a href="#our-resources" className="flex items-center justify-center gap-2 mt-12 group">
+              <p className="playfair-italic text-lg md:text-xl text-black font-light tracking-tight">
+                explore our curated resources
+              </p>
+              <svg className="text-black group-hover:translate-x-1 transition-transform duration-300" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </RevealSection>
         </div>
       </section>
 
@@ -166,14 +290,14 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <RevealSection>
             <div className="flex items-end justify-between mb-2">
-              <h2 className="playfair text-base md:text-lg tracking-tight">
-                tools <em>we love.</em>
+              <h2 className="playfair-italic text-xl md:text-2xl tracking-tight">
+                tools we love
               </h2>
               <Link
                 href="/tools"
-                className="playfair-italic text-sm text-black hover:text-black transition-colors"
+                className="text-xs text-black hover:text-black transition-colors border border-black rounded-full px-4 py-1.5 whitespace-nowrap"
               >
-                see all &rarr;
+                see all
               </Link>
             </div>
           </RevealSection>
@@ -194,7 +318,7 @@ export default function Home() {
                     style={{ width: isTall ? "min(300px, 55vw)" : "min(240px, 45vw)" }}
                   >
                     <div
-                      className={`bg-gray-light overflow-hidden relative film-grain rounded-xl ${
+                      className={`bg-gray-light overflow-hidden relative rounded-none ${
                         isTall ? "aspect-[2/3]" : "aspect-[4/5]"
                       }`}
                     >
@@ -208,7 +332,7 @@ export default function Home() {
                     </div>
                     <div className="pt-3 flex items-center justify-between">
                       <p className="text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 bg-blush inline-block" />
+                        <span className="w-1.5 h-1.5 bg-brown inline-block" />
                         {tool.company}
                       </p>
                       <span className="text-xs underline opacity-0 group-hover:opacity-100 transition-opacity">
@@ -226,144 +350,243 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ====== OUR APPROACH (Rhode 3 style: text left, image right) ====== */}
-      <section id="our-approach" className="py-20 md:py-28 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      {/* ====== COMMUNITY MEETUPS ====== */}
+      <section id="meetups" className="py-20 md:py-28 px-6">
+        <div className="max-w-6xl mx-auto text-black">
+          <div className="w-[80%] mx-auto border-t-2 border-foreground/40 mb-12" />
           <RevealSection>
-            <p className="section-label text-sm text-black mb-2 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-blush inline-block" />
-              our approach
-            </p>
-            <h2 className="playfair text-lg md:text-xl tracking-tight mb-3 font-bold">
-              disease, or <em className="playfair-italic">lifestyle?</em>
-            </h2>
-            <div className="space-y-5 text-base text-black leading-[1.85] font-normal tracking-tight">
-              <p>
-                If you&apos;ve got endo, or think you might, you&apos;re in the right place.
-                Most of us spend years trying to be heard, believed, and desperate
-                for answers. <strong className="text-black">Not here.</strong>
+            <div className="max-w-2xl mx-auto">
+              <p className="section-label text-sm text-charcoal mb-1 flex items-center gap-2">
+                <span className="w-2.5 h-2.5 bg-brown inline-block" />
+                community
               </p>
-              <p>
-                <span className="ncc-logo text-black" style={{ fontSize: 'inherit', transform: 'none' }}>No Cure Club</span> is
-                the spot where endo gets embraced, supported, and where we get
-                celebrated as the badass people we are. Here, you don&apos;t need to
-                fight anymore. We&apos;ve got you covered.
-              </p>
-              <p>
-                From great doctors, to vetted courses, genuinely helpful products,
-                self-care that won&apos;t flare your symptoms, and books that can
-                change your life. This is the one-stop shop for everything endo.
-                We&apos;re always growing and adding to our list of resources, and
-                community is at the center of everything we do.
-              </p>
-              <p>
-                The world tells us there&apos;s no solution. Here is your bff resource
-                for living and loving yourself with endo. We see you, we know
-                it&apos;s not easy, and we&apos;re here to help take the edge off.
+              <h2 className="playfair-italic text-xl md:text-2xl lg:text-3xl text-black font-light tracking-tighter mb-2">
+                welcome to{" "}<span className="ncc-logo text-black not-italic ml-2">The No Cure Club</span>
+              </h2>
+              <p className="text-sm font-semibold text-black leading-snug tracking-wider mb-8 mt-4">
+                Welcome to the club nobody wanted to join. I&apos;m so glad you&apos;re here.
+                <br />
+                <em className="font-normal">Started by someone going through it, for everyone going through it. Come find your people.</em>
               </p>
             </div>
-            <div className="mt-10">
-              <a
-                href="mailto:hello@nocureclub.com?subject=Resource%20Suggestion"
-                className="btn-primary"
-                style={{ background: 'var(--white)', borderColor: 'var(--black)', borderWidth: '2px', color: 'var(--black)' }}
+            <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center max-w-2xl mx-auto">
+              <div className="w-48 md:w-56 aspect-[4/3] bg-[#e4e0d9] overflow-hidden">
+                <img src="/community1.jpg" alt="Afternoon Tea Gathering" className="w-full h-full object-cover" />
+              </div>
+              <Link
+                href="/community#la-meetups"
+                className="border border-charcoal/30 rounded-none p-6 text-left group hover:bg-chartreuse hover:border-charcoal/30 transition-all duration-300"
               >
-                share a resource with us
-              </a>
+                <p className="text-xs font-semibold mb-1 uppercase tracking-wider">
+                  los angeles
+                </p>
+                <h3 className="playfair-italic text-base mb-1">
+                  in-person meetups
+                </h3>
+                <p className="playfair text-xs leading-snug">
+                  Intimate live gatherings to bring the LA endo community together. Dates go out to the mailing list first.
+                </p>
+                <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
+                  see events &rarr;
+                </span>
+              </Link>
+            </div>
+          </RevealSection>
+          <div className="w-[80%] mx-auto border-t-2 border-foreground/40 mt-12" />
+        </div>
+      </section>
+
+      {/* ====== OUR APPROACH ====== */}
+      <section id="our-approach" className="py-20 md:py-28 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          {/* Collage — left side */}
+          <RevealSection>
+            <div className="relative w-full" style={{ minHeight: "520px" }}>
+              <img
+                src="/nancy 2.jpg"
+                alt="Nancy"
+                className="absolute top-0 left-0 w-[60%] aspect-[3/4] object-cover shadow-lg"
+                style={{ zIndex: 1 }}
+              />
+              <img
+                src="/nancy5*.png"
+                alt="Nancy"
+                className="absolute w-[45%] aspect-[4/5] object-cover"
+                style={{ zIndex: 2, top: "10%", left: "50%" }}
+              />
+              <img
+                src="/nancy 3.jpg"
+                alt="Nancy"
+                className="absolute w-[40%] aspect-square object-cover shadow-lg"
+                style={{ zIndex: 3, bottom: "0", left: "5%" }}
+              />
             </div>
           </RevealSection>
 
+          {/* Editorial text — right side */}
           <RevealSection>
-            <img
-              src="/girl group.jpg"
-              alt="Girl group"
-              className="w-full object-cover aspect-[4/5] rounded-2xl"
-            />
+            <p className="section-label text-sm text-charcoal mb-2 flex items-center gap-2">
+              <span className="w-2.5 h-2.5 bg-brown inline-block" />
+              from Nancy
+            </p>
+            <h2 className="playfair text-lg md:text-xl tracking-tight mb-3 font-bold">
+              a letter <em className="playfair-italic">to you.</em>
+            </h2>
+            <div className="space-y-5 text-base text-black leading-snug font-normal tracking-tight">
+              <p>
+                If you&apos;ve got endo, or think you might, or if you have pelvic pain, you&apos;re in the right place. Most of us spend years trying to be heard, believed, and desperate for answers. <strong className="text-black">Not here.</strong>
+              </p>
+              <p>
+                <span className="ncc-logo text-black" style={{ fontSize: 'inherit', transform: 'none' }}>The No Cure Club</span> is the community-centered spot where endo and pelvic pain are embraced and supported. I&apos;ve spent years on my own healing journey to put my stage 3 endometriosis and chronic pain into remission. Over those years, I&apos;ve been astounded that there wasn&apos;t a single resource hub that brought together incredible tools, practitioners, courses, books, etc, to the people who need them.
+              </p>
+              <p>
+                This club is my solution. Here, you will find the curated resources that have helped me, or friends I know and trust. We are always growing, so please send us resources to check out! This is truly a community space, built by one of us, for all of us.
+              </p>
+              <p>
+                From great doctors, to vetted courses, genuinely helpful products, self-care that won&apos;t flare your symptoms, and books that can change your life. This is the one-stop shop for everything endo and pelvic pain.
+              </p>
+              <p>
+                I also want to build out the Los Angeles community in person. We&apos;re hosting monthly meet-ups where we will bring a specialist guest and do activities that create nervous system regulation and connection with each other and ourselves.
+              </p>
+              <p>
+                We&apos;d love to have you in our club, you&apos;re always welcome.
+              </p>
+              <p className="playfair-italic">
+                xo, Nancy
+              </p>
+            </div>
           </RevealSection>
         </div>
       </section>
 
       {/* ====== QUIZ + FEATURED ====== */}
       <section className="py-20 md:py-28 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-          {/* Endo questionnaire box */}
+        <div className="max-w-6xl mx-auto">
           <RevealSection>
-            <div className="bg-gray-light rounded-2xl px-8 pt-8 pb-12 md:px-10 md:pt-10 md:pb-14 flex flex-col justify-between h-full">
-              <div>
-                <h2 className="playfair text-lg md:text-xl tracking-tight mb-3 font-bold">
-                  think you might have <em className="playfair-italic">endo?</em>
-                </h2>
-                <p className="text-base text-black leading-relaxed">
-                  take the endo symptom questionnaire
-                </p>
+            <h2 className="playfair-italic text-xl md:text-2xl tracking-tight mb-2">
+              featured
+            </h2>
+            <div className="flex gap-3 md:gap-4 overflow-x-auto pb-4 scrollbar-hide items-stretch -mx-6 px-6">
+              {/* Endo questionnaire box */}
+              <div className="shrink-0" style={{ width: "min(280px, 70vw)" }}>
+                <div className="rounded-none p-6 md:p-8 flex flex-col justify-between h-full" style={{ background: '#e4e0d9' }}>
+                  <div>
+                    <h2 className="playfair text-base md:text-lg tracking-tight mb-2 font-bold">
+                      think you might have <em className="playfair-italic">endo?</em>
+                    </h2>
+                    <p className="text-sm text-black leading-snug">
+                      take the endo symptom questionnaire
+                    </p>
+                  </div>
+                  <div className="mt-6">
+                    <a
+                      href="https://nyulangone.org/locations/endometriosis-center/endometriosis-symptom-questionnaire"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary text-xs"
+                    >
+                      take the quiz
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="mt-8">
-                <a
-                  href="https://nyulangone.org/locations/endometriosis-center/endometriosis-symptom-questionnaire"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  take the quiz
-                </a>
-              </div>
+
+              {/* Featured reading */}
+              <a
+                href="https://www.amazon.com/FLO-Unlock-Hormonal-Advantage-Revolutionize/dp/0062870491"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 group"
+                style={{ width: "min(280px, 70vw)" }}
+              >
+                <div className="rounded-none p-5 pb-6 h-full flex flex-col" style={{ background: '#f5f3f0' }}>
+                  <div className="w-full aspect-square rounded-none overflow-hidden mb-4">
+                    <img
+                      src="/in the flo.jpg"
+                      alt="In the FLO by Alisa Vitti"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
+                    featured reading
+                  </p>
+                  <h3 className="playfair text-base tracking-tight mb-1 font-bold">
+                    In the FLO
+                  </h3>
+                  <p className="text-xs text-charcoal mb-2">Alisa Vitti</p>
+                  <p className="text-xs text-black leading-[1.4]">
+                    A guide to optimizing your cycle through food, exercise, and lifestyle so your hormones work for you, not against you.
+                  </p>
+                  <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
+                    shop now &rarr;
+                  </span>
+                </div>
+              </a>
+
+              {/* Featured podcast */}
+              <a
+                href="https://www.youregreat.com/blog/2025/6/20/podcast-56-the-fundamentals-of-great-health-with-dr-karen-hurd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 group"
+                style={{ width: "min(280px, 70vw)" }}
+              >
+                <div className="rounded-none p-5 pb-6 h-full flex flex-col" style={{ background: '#f5f3f0' }}>
+                  <div className="w-full aspect-square rounded-none overflow-hidden mb-4">
+                    <img
+                      src="/you're great.webp"
+                      alt="You're Great Podcast"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
+                    featured podcast
+                  </p>
+                  <h3 className="playfair text-base tracking-tight mb-1 font-bold">
+                    The Fundamentals of Great Health
+                  </h3>
+                  <p className="text-xs text-charcoal mb-2">Unique Hammond</p>
+                  <p className="text-xs text-black leading-[1.4]">
+                    Dr. Karen Hurd breaks down the building blocks of health, from beans to blood sugar, in this must-listen episode.
+                  </p>
+                  <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
+                    listen now &rarr;
+                  </span>
+                </div>
+              </a>
+
+              {/* Featured watching */}
+              <a
+                href="https://www.bbc.co.uk/programmes/p0cvfrj5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 group"
+                style={{ width: "min(280px, 70vw)" }}
+              >
+                <div className="rounded-none p-5 pb-6 h-full flex flex-col" style={{ background: '#f5f3f0' }}>
+                  <div className="w-full aspect-square rounded-none overflow-hidden mb-4">
+                    <img
+                      src="/this is endometriosis.jpg"
+                      alt="This Is Endometriosis"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
+                    featured watching
+                  </p>
+                  <h3 className="playfair text-base tracking-tight mb-1 font-bold">
+                    This Is Endometriosis
+                  </h3>
+                  <p className="text-xs text-charcoal mb-2">BAFTA-winning short film</p>
+                  <p className="text-xs text-black leading-[1.4]">
+                    A powerful, intimate look at what it really means to live with endometriosis, told by the people who know it best.
+                  </p>
+                  <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
+                    watch now &rarr;
+                  </span>
+                </div>
+              </a>
             </div>
-          </RevealSection>
-
-          {/* Featured reading */}
-          <RevealSection>
-            <a
-              href="https://www.amazon.com/FLO-Unlock-Hormonal-Advantage-Revolutionize/dp/0062870491"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col gap-4 group h-full"
-            >
-              <img
-                src="/in the flo.jpg"
-                alt="In the FLO by Alisa Vitti"
-                className="w-full object-cover aspect-square !rounded-none"
-              />
-              <div>
-                <p className="text-xs font-semibold text-blush mb-2 uppercase tracking-wider">
-                  featured reading
-                </p>
-                <h3 className="playfair text-base tracking-tight mb-1 font-bold">
-                  In the FLO
-                </h3>
-                <p className="text-xs text-black/60">Alisa Vitti</p>
-                <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
-                  shop now &rarr;
-                </span>
-              </div>
-            </a>
-          </RevealSection>
-
-          {/* Featured podcast */}
-          <RevealSection>
-            <a
-              href="https://www.youregreat.com/blog/2025/6/20/podcast-56-the-fundamentals-of-great-health-with-dr-karen-hurd"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col gap-4 group h-full"
-            >
-              <img
-                src="/you're great.webp"
-                alt="You're Great Podcast"
-                className="w-full object-cover aspect-square !rounded-none"
-              />
-              <div>
-                <p className="text-xs font-semibold text-blush mb-2 uppercase tracking-wider">
-                  featured podcast
-                </p>
-                <h3 className="playfair text-base tracking-tight mb-1 font-bold">
-                  The Fundamentals of Great Health
-                </h3>
-                <p className="text-xs text-black/60">Unique Hammond</p>
-                <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
-                  listen now &rarr;
-                </span>
-              </div>
-            </a>
           </RevealSection>
         </div>
       </section>
@@ -373,14 +596,14 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <RevealSection>
             <div className="flex items-end justify-between mb-2">
-              <h2 className="playfair text-base md:text-lg tracking-tight">
-                our <em>resource center.</em>
+              <h2 className="playfair-italic text-xl md:text-2xl tracking-tight">
+                our resource center
               </h2>
               <Link
                 href="/reading"
-                className="playfair-italic text-sm text-black hover:text-black transition-colors"
+                className="text-xs text-black hover:text-black transition-colors border border-black rounded-full px-4 py-1.5 whitespace-nowrap"
               >
-                see all &rarr;
+                see all
               </Link>
             </div>
           </RevealSection>
@@ -389,22 +612,22 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-6">
               <Link
                 href="/practitioners"
-                className="group border border-black rounded-2xl overflow-hidden card-hover-pink"
+                className="group border border-[#665e4c] rounded-none overflow-hidden hover:bg-chartreuse transition-all duration-300"
               >
                 <div className="overflow-hidden">
-                  <img src="/doctor.jpg" alt="Practitioners" className="w-full object-cover aspect-[4/3] !rounded-none group-hover:scale-[1.03] transition-transform duration-500" />
+                  <img src="/dr yang.jpg" alt="Practitioners" className="w-full object-cover aspect-[4/3] !rounded-none group-hover:scale-[1.03] transition-transform duration-500" />
                 </div>
-                <div className="p-8">
-                  <p className="text-xs font-semibold text-blush mb-3 uppercase tracking-wider">
+                <div className="px-8 pt-4 pb-6 text-left">
+                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
                     practitioners
                   </p>
-                  <h3 className="playfair text-xl mb-3">
+                  <h3 className="playfair text-xl mb-1">
                     doctors <em className="playfair-italic">who listen.</em>
                   </h3>
-                  <p className="playfair text-sm text-black leading-relaxed">
+                  <p className="playfair text-sm text-black leading-snug">
                     Vetted specialists and practitioners across the country.
                   </p>
-                  <span className="text-sm font-medium inline-block mt-4 text-black group-hover:translate-x-1 transition-transform duration-300">
+                  <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
                     explore &rarr;
                   </span>
                 </div>
@@ -412,22 +635,22 @@ export default function Home() {
 
               <Link
                 href="/tools"
-                className="group border border-black rounded-2xl overflow-hidden card-hover-pink"
+                className="group border border-[#665e4c] rounded-none overflow-hidden hover:bg-chartreuse transition-all duration-300"
               >
                 <div className="overflow-hidden">
                   <img src="/tools.jpg" alt="Tools" className="w-full object-cover aspect-[4/3] !rounded-none group-hover:scale-[1.03] transition-transform duration-500" />
                 </div>
-                <div className="p-8">
-                  <p className="text-xs font-semibold text-blush mb-3 uppercase tracking-wider">
+                <div className="px-8 pt-4 pb-6 text-left">
+                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
                     tools
                   </p>
-                  <h3 className="playfair text-xl mb-3">
+                  <h3 className="playfair text-xl mb-1">
                     products <em className="playfair-italic">that help.</em>
                   </h3>
-                  <p className="playfair text-sm text-black leading-relaxed">
+                  <p className="playfair text-sm text-black leading-snug">
                     Curated tools for managing daily life with endo.
                   </p>
-                  <span className="text-sm font-medium inline-block mt-4 text-black group-hover:translate-x-1 transition-transform duration-300">
+                  <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
                     explore &rarr;
                   </span>
                 </div>
@@ -435,22 +658,22 @@ export default function Home() {
 
               <Link
                 href="/reading"
-                className="group border border-black rounded-2xl overflow-hidden card-hover-pink"
+                className="group border border-[#665e4c] rounded-none overflow-hidden hover:bg-chartreuse transition-all duration-300"
               >
                 <div className="overflow-hidden">
                   <img src="/read 2.jpg" alt="Reading" className="w-full object-cover aspect-[4/3] !rounded-none group-hover:scale-[1.03] transition-transform duration-500" style={{ objectPosition: "center 80%" }} />
                 </div>
-                <div className="p-8">
-                  <p className="text-xs font-semibold text-blush mb-3 uppercase tracking-wider">
+                <div className="px-8 pt-4 pb-6 text-left">
+                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
                     reading
                   </p>
-                  <h3 className="playfair text-xl mb-3">
+                  <h3 className="playfair text-xl mb-1">
                     knowledge <em className="playfair-italic">is power.</em>
                   </h3>
-                  <p className="playfair text-sm text-black leading-relaxed">
+                  <p className="playfair text-sm text-black leading-snug">
                     Books, podcasts, films, and research worth your time.
                   </p>
-                  <span className="text-sm font-medium inline-block mt-4 text-black group-hover:translate-x-1 transition-transform duration-300">
+                  <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
                     explore &rarr;
                   </span>
                 </div>
@@ -460,120 +683,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ====== COMMUNITY ====== */}
-      <section
-        id="community"
-        className="py-20 md:py-28 px-6"
-      >
-        <div
-          className="max-w-3xl mx-auto rounded-2xl p-10 md:p-14 text-center text-black"
-          style={{ backgroundColor: "#d1e2ff" }}
-        >
-          <RevealSection>
-            <p className="section-label text-sm text-black mb-4">
-              community
-            </p>
-            <h2 className="text-4xl md:text-5xl tracking-tight mb-6">
-              <span className="font-black">Join</span>{" "}
-              <em className="playfair-italic font-light">the movement.</em>
-            </h2>
-            <p className="playfair text-base text-black/70 leading-relaxed mb-4 max-w-xl mx-auto">
-              We&apos;re building a community of people who refuse to suffer in
-              silence. Sign up for updates on gatherings, resources, and ways to
-              get involved.
-            </p>
-          </RevealSection>
-
-          <RevealSection id="meetups">
-            <div className="my-10 border border-black/20 rounded-xl p-8 max-w-lg mx-auto text-left">
-              <p className="text-xs font-semibold text-black mb-3 uppercase tracking-wider">
-                los angeles
-              </p>
-              <h3 className="playfair text-xl mb-3">
-                endo community meetups
-              </h3>
-              <p className="playfair text-sm text-black/60 leading-relaxed">
-                Live events to bring the endo community together. Dates go out
-                to the mailing list first.
-              </p>
-            </div>
-          </RevealSection>
-
-          <RevealSection>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                name="email"
-                placeholder="your@email.com"
-                required
-                className="flex-1 !bg-black/10 !border-black/20 text-black placeholder-black/40 !rounded-full"
-              />
-              <button type="submit" className="btn-blush whitespace-nowrap">
-                subscribe
-              </button>
-            </form>
-            <p className="text-xs text-black/40 mt-4">no spam. just updates.</p>
-          </RevealSection>
-        </div>
-      </section>
-
-      {/* ====== DONATION ====== */}
-      <section id="donate" className="py-20 md:py-28 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-start">
-            <RevealSection>
-              <p className="section-label text-sm text-black mb-4">
-                support
-              </p>
-              <h2 className="text-3xl md:text-4xl tracking-tight mb-8">
-                <span className="font-black">Fund</span>{" "}
-                <em className="playfair-italic font-normal">the fight.</em>
-              </h2>
-              <p className="playfair text-base text-black leading-[1.85] mb-8">
-                Your contribution goes toward resources, community events,
-                advocacy, and getting the HYSTERIA documentary in front of the
-                people and policymakers who need to see it.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://donate.mazloweb.com/donate/hysteria-documentary-production-fund"
-                  className="btn-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  donate now
-                </a>
-                <button onClick={handleCopyLink} className="btn-secondary">
-                  {copied ? "copied!" : "share"}
-                </button>
-              </div>
-            </RevealSection>
-
-            <RevealSection stagger>
-              <div className="space-y-4">
-                <div className="bg-gray-light p-8">
-                  <h3 className="text-lg font-semibold mb-2">tax-deductible</h3>
-                  <p className="playfair text-sm text-black leading-relaxed">
-                    Fiscally sponsored and tax-deductible to the fullest extent
-                    of the law.
-                  </p>
-                </div>
-                <div className="bg-gray-light p-8">
-                  <h3 className="text-lg font-semibold mb-2">
-                    community-powered
-                  </h3>
-                  <p className="playfair text-sm text-black leading-relaxed">
-                    Built by patients, for everyone. Every dollar fuels
-                    advocacy, community gatherings, and getting this story told.
-                  </p>
-                </div>
-              </div>
-            </RevealSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ====== FOOTER ====== */}
+{/* ====== FOOTER ====== */}
       <div className="pb-12">
         <Footer />
       </div>
@@ -586,9 +696,7 @@ export default function Home() {
               key={i}
               className="text-xs font-black tracking-[0.3em] uppercase text-black mx-4"
             >
-              NO CURE CLUB &bull; YOU ARE NOT ALONE &bull; 190 MILLION WORLDWIDE
-              &bull; DEMAND BETTER &bull; NO CURE CLUB &bull; YOU ARE NOT ALONE
-              &bull; 190 MILLION WORLDWIDE &bull; DEMAND BETTER &bull;&nbsp;
+              THERE ARE OVER 190 MILLION OF US WORLDWIDE &bull; THE NO CURE CLUB &bull; YOU ARE UNDERSTOOD HERE &bull; YOUR PAIN MATTERS TO US &bull;&nbsp;
             </span>
           ))}
         </div>

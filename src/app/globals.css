@@ -1,23 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --black: #0A0A0A;
+  --black: #1a1c19;
   --white: #FFFDF5;
   --blush: #E8788A;
-  --gray-light: #F5F5F5;
-  --gray-mid: #E5E5E5;
-  --gray-text: #6B6B6B;
+  --gray-light: #e4e0d9;
+  --gray-mid: #d3d1c6;
+  --gray-text: #9c9283;
+  --brown: #7d6a4c;
+  --chartreuse: #fdffaf;
+  --charcoal: #50514c;
+  --foreground: #332e24;
 }
 
 @theme {
   --color-background: #FFFDF5;
-  --color-foreground: #0A0A0A;
-  --color-black: #0A0A0A;
+  --color-foreground: #332e24;
+  --color-black: #1a1c19;
   --color-white: #FFFDF5;
   --color-blush: #E8788A;
-  --color-gray-light: #F5F5F5;
-  --color-gray-mid: #E5E5E5;
-  --color-gray-text: #6B6B6B;
+  --color-gray-light: #e4e0d9;
+  --color-gray-mid: #d3d1c6;
+  --color-gray-text: #9c9283;
+  --color-brown: #7d6a4c;
+  --color-chartreuse: #fdffaf;
+  --color-charcoal: #50514c;
   --color-cream-dark: #FDEEF1;
   --font-heading: 'Helvetica', 'Arial', sans-serif;
   --font-body: 'Helvetica', 'Arial', sans-serif;
@@ -30,7 +37,7 @@ html {
 
 body {
   background: #FFFDF5;
-  color: var(--black);
+  color: #332e24;
   font-family: var(--font-body), sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -38,15 +45,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* === ROUNDED IMAGES === */
-img {
-  border-radius: 0.75rem;
-}
-
 /* === SELECTION === */
 ::selection {
-  background: var(--blush);
-  color: var(--white);
+  background: var(--chartreuse);
+  color: var(--foreground);
 }
 
 /* === PRINT GRAIN (subtle texture) === */
@@ -81,7 +83,7 @@ img {
   left: 0;
   right: 0;
   z-index: 40;
-  background: var(--white);
+  background: var(--chartreuse);
 }
 
 /* === HIDE SCROLLBAR (editorial scroll strips) === */
@@ -140,7 +142,7 @@ img {
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(10, 10, 10, 0.08);
+  box-shadow: 0 12px 32px rgba(26, 28, 25, 0.08);
 }
 
 /* === TEXT REVEAL LINK === */
@@ -168,7 +170,7 @@ img {
 /* === PILL BUTTONS (goop style) === */
 .btn-primary {
   display: inline-block;
-  background: var(--black);
+  background: var(--foreground);
   color: var(--white);
   padding: 0.7rem 1.75rem;
   font-family: var(--font-playfair), Georgia, 'Times New Roman', serif;
@@ -178,19 +180,19 @@ img {
   letter-spacing: 0.01em;
   cursor: pointer;
   text-decoration: none;
-  border: 1px solid var(--black);
+  border: 1px solid var(--foreground);
   border-radius: 9999px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 .btn-primary:hover {
-  background: transparent;
-  color: var(--black);
+  background: var(--chartreuse);
+  color: var(--foreground);
 }
 
 .btn-secondary {
   display: inline-block;
   background: transparent;
-  color: var(--black);
+  color: var(--foreground);
   padding: 0.7rem 1.75rem;
   font-family: var(--font-playfair), Georgia, 'Times New Roman', serif;
   font-size: 0.9rem;
@@ -199,18 +201,18 @@ img {
   letter-spacing: 0.01em;
   cursor: pointer;
   text-decoration: none;
-  border: 1px solid var(--black);
+  border: 1px solid var(--foreground);
   border-radius: 9999px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 .btn-secondary:hover {
-  background: var(--black);
-  color: var(--white);
+  background: var(--chartreuse);
+  color: var(--foreground);
 }
 
 .btn-blush {
   display: inline-block;
-  background: var(--black);
+  background: var(--foreground);
   color: var(--white);
   padding: 0.7rem 1.75rem;
   font-family: var(--font-playfair), Georgia, 'Times New Roman', serif;
@@ -220,13 +222,13 @@ img {
   letter-spacing: 0.01em;
   cursor: pointer;
   text-decoration: none;
-  border: 1px solid var(--black);
+  border: 1px solid var(--foreground);
   border-radius: 9999px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 .btn-blush:hover {
-  background: transparent;
-  color: var(--black);
+  background: var(--chartreuse);
+  color: var(--foreground);
 }
 
 /* === FILM GRAIN OVERLAY (editorial photo texture) === */
@@ -378,6 +380,11 @@ input[type="email"]::placeholder {
     92% 2%, 85% 0%, 75% 1%, 65% 0%, 55% 2%,
     45% 0%, 35% 1%, 25% 0%, 15% 2%, 8% 0%
   );
+}
+
+/* === WARM YELLOW TINT (editorial photo overlay) === */
+.warm-tint img {
+  filter: sepia(0.12) saturate(1.1) brightness(1.02);
 }
 
 /* === NEWSLETTER POPUP === */

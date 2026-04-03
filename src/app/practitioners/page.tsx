@@ -174,22 +174,22 @@ function PractitionerCard({ p }: { p: Practitioner }) {
             </span>
           )}
           {p.remote && (
-            <span className="inline-flex items-center gap-1.5 text-xs tracking-wide uppercase bg-blush/10 text-blush px-3 py-1">
+            <span className="inline-flex items-center gap-1.5 text-xs tracking-wide uppercase bg-blush/10 text-black px-3 py-1">
               Available Remotely
             </span>
           )}
         </div>
       </div>
 
-      <p className="playfair text-sm leading-[1.8] text-gray-text mb-6">
+      <p className="playfair text-sm leading-[1.4] text-gray-text mb-6">
         {p.description}
       </p>
 
       <div className="mb-6">
-        <span className="text-xs font-semibold text-blush uppercase tracking-wider">
+        <span className="text-xs font-semibold text-black uppercase tracking-wider">
           best fit for
         </span>
-        <p className="playfair text-sm leading-[1.8] text-gray-text mt-1">
+        <p className="playfair text-sm leading-[1.4] text-gray-text mt-1">
           {p.bestFor}
         </p>
       </div>
@@ -213,7 +213,7 @@ function PractitionerCard({ p }: { p: Practitioner }) {
             href={p.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-black hover:text-blush transition-colors duration-300"
+            className="inline-flex items-center gap-2 text-sm font-medium text-black hover:text-black transition-colors duration-300"
           >
             Visit Website &rarr;
           </a>
@@ -233,7 +233,7 @@ export default function PractitionersPage() {
       <SubpageNav />
 
       <div className="border-b border-gray-mid">
-        <header className="px-6 pt-8 pb-12 md:pt-12 md:pb-16 max-w-6xl mx-auto">
+        <header className="px-6 pt-24 pb-12 md:pt-28 md:pb-16 max-w-6xl mx-auto">
           <RevealSection>
             <p className="section-label text-sm text-gray-text mb-3">
               vetted &amp; trusted
@@ -242,7 +242,7 @@ export default function PractitionersPage() {
               <span className="font-black">Practitioners</span>{" "}
               <em className="playfair-italic font-light">who care.</em>
             </h1>
-            <p className="playfair text-base leading-[1.8] mt-6 text-gray-text max-w-2xl">
+            <p className="playfair text-base leading-[1.4] mt-6 text-gray-text max-w-2xl">
               Every person listed here has been personally vetted or recommended
               by someone I trust. This is not an ad — it&apos;s a shortcut through
               the maze I had to navigate alone.
@@ -275,7 +275,7 @@ export default function PractitionersPage() {
         {/* ── Available Remotely ── */}
         <section className="mb-16 md:mb-24">
           <RevealSection>
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-blush mb-8 md:mb-10">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-8 md:mb-10">
               Available Remotely
             </h2>
           </RevealSection>
@@ -292,7 +292,7 @@ export default function PractitionersPage() {
         {grouped.map(([state, list]) => (
           <section key={state} className="mb-16 md:mb-24 last:mb-0">
             <RevealSection>
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-blush mb-8 md:mb-10">
+              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-8 md:mb-10">
                 {state}
               </h2>
             </RevealSection>
@@ -314,7 +314,7 @@ export default function PractitionersPage() {
           <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
             Instagram Accounts
           </h2>
-          <p className="playfair text-sm leading-[1.8] text-gray-text mb-10 max-w-2xl">
+          <p className="playfair text-sm leading-[1.4] text-gray-text mb-10 max-w-2xl">
             Accounts I follow that consistently share helpful, honest content
             about endo, women&apos;s health, and hormonal health.
           </p>
@@ -330,11 +330,11 @@ export default function PractitionersPage() {
                 className="group block bg-gray-light border border-gray-mid p-8 hover:border-black transition-all duration-300 h-full card-hover"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-sm font-medium group-hover:text-blush transition-colors duration-300 break-all">
+                  <span className="text-sm font-medium group-hover:text-black transition-colors duration-300 break-all">
                     {acct.handle}
                   </span>
                 </div>
-                <p className="playfair text-sm leading-[1.8] text-gray-text">
+                <p className="playfair text-sm leading-[1.4] text-gray-text">
                   {acct.description}
                 </p>
               </a>
