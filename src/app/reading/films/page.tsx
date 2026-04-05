@@ -16,7 +16,7 @@ export default function FilmsPage() {
               films
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
-              Documentaries
+              documentaries
             </h1>
           </RevealSection>
         </header>

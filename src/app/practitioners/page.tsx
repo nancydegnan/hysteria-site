@@ -175,7 +175,7 @@ function PractitionerCard({ p }: { p: Practitioner }) {
           )}
           {p.remote && (
             <span className="inline-flex items-center gap-1.5 text-xs tracking-wide uppercase bg-blush/10 text-black px-3 py-1">
-              Available Remotely
+              available remotely
             </span>
           )}
         </div>
@@ -263,7 +263,7 @@ export default function PractitionersPage() {
                 }
                 className="text-sm uppercase tracking-[0.15em] border border-gray-mid px-5 py-2 hover:border-black hover:text-black transition-colors duration-300 text-gray-text"
               >
-                Instagram Accounts
+                instagram accounts
               </button>
             </div>
           </RevealSection>
@@ -276,7 +276,7 @@ export default function PractitionersPage() {
         <section className="mb-16 md:mb-24">
           <RevealSection>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-8 md:mb-10">
-              Available Remotely
+              available remotely
             </h2>
           </RevealSection>
 
@@ -312,7 +312,7 @@ export default function PractitionersPage() {
       <section id="instagram" className="px-6 pb-20 md:pb-28 max-w-6xl mx-auto scroll-mt-8">
         <RevealSection>
           <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
-            Instagram Accounts
+            instagram accounts
           </h2>
           <p className="playfair text-sm leading-[1.4] text-gray-text mb-10 max-w-2xl">
             Accounts I follow that consistently share helpful, honest content

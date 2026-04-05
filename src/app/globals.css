@@ -441,3 +441,84 @@ input[type="email"]::placeholder {
   z-index: -1;
   transform: skewX(-2deg);
 }
+
+/* === ROADMAP TIMELINE === */
+.roadmap-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding-top: 3.5rem;
+}
+
+/* Horizontal line running through the dots */
+.roadmap-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(3.5rem + 5px);
+  height: 2px;
+  background: var(--black);
+}
+
+.roadmap-stop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Dot sitting on the horizontal line */
+.roadmap-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: var(--black);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1rem;
+}
+
+/* "I am here" arrow label above a dot */
+.roadmap-here-label {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+/* Mobile: vertical layout with left-side line */
+@media (max-width: 767px) {
+  .roadmap-timeline {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-left: 1.5rem;
+  }
+
+  .roadmap-timeline::before {
+    left: 4px;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    height: auto;
+    width: 2px;
+  }
+
+  .roadmap-stop {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .roadmap-dot {
+    margin-bottom: 0;
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+  }
+}

@@ -206,6 +206,108 @@ export default function HysteriaDoc() {
         </div>
       </section>
 
+      <div className="bg-chartreuse px-6">
+        <div className="max-w-5xl mx-auto">
+          <hr className="border-t-2 border-black" />
+        </div>
+      </div>
+
+      {/* ====== THE ROADMAP ====== */}
+      <section className="py-20 md:py-28 px-6 bg-chartreuse">
+        <div className="max-w-5xl mx-auto">
+          <RevealSection>
+            <p className="section-label text-sm text-black mb-4">
+              my experiment
+            </p>
+            <h2 className="text-3xl md:text-4xl tracking-tight mb-6 text-black">
+              <span className="font-black">The</span>{" "}
+              <em className="playfair-italic font-light">Roadmap.</em>
+            </h2>
+            <p className="font-['Helvetica','Arial',sans-serif] text-sm md:text-base text-black leading-[1.5] tracking-tight max-w-3xl mb-12">
+              The core experiment of the film is whether I can put my stage 3 endometriosis into remission. Using a mixture of holistic and modern fem tech and medical approaches, my goal is to prove that while endometriosis may not be &ldquo;cure-able&rdquo; it certainly is treatable with a multi-modal approach, and that it doesn&rsquo;t need to cost a fortune to do it.
+            </p>
+          </RevealSection>
+
+          <div className="roadmap-timeline">
+            {/* Stop 1 — Nutrition */}
+            <div className="roadmap-stop">
+              <div className="roadmap-dot" />
+              <RevealSection>
+                <div className="bg-[#c8ff00] p-6 md:p-8">
+                  <h3 className="font-['Helvetica','Arial',sans-serif] text-lg font-bold tracking-tight text-black mb-2">
+                    Nutrition
+                  </h3>
+                  <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-[1.4] tracking-tight">
+                    <a href="https://www.youregreat.com/" target="_blank" rel="noopener noreferrer" className="underline">The Bean Protocol</a> endometriosis protocol with{" "}
+                    <a href="https://www.youregreat.com/blog/2025/6/20/podcast-56-the-fundamentals-of-great-health-with-dr-karen-hurd" target="_blank" rel="noopener noreferrer" className="underline">Karen Hurd and
+                    Unique Hammond</a> — using soluble fiber to bind and eliminate
+                    excess estrogen and toxins.
+                  </p>
+                </div>
+              </RevealSection>
+            </div>
+
+            {/* Stop 2 — Mind-Body Connection */}
+            <div className="roadmap-stop">
+              <div className="roadmap-dot" />
+              <RevealSection>
+                <div className="bg-[#c8ff00] p-6 md:p-8">
+                  <h3 className="font-['Helvetica','Arial',sans-serif] text-base font-bold tracking-tight text-black mb-2">
+                    Mind-Body Connection
+                  </h3>
+                  <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-[1.4] tracking-tight">
+                    <a href="https://www.amazon.com/Mind-Your-Body-Revolutionary-Program/dp/0593716930" target="_blank" rel="noopener noreferrer" className="underline">The Journal Speak method</a> to address the psycho-physical
+                    connection between chronic pain, endometriosis, and stored
+                    trauma.
+                  </p>
+                </div>
+              </RevealSection>
+            </div>
+
+            {/* Stop 3 — Physical */}
+            <div className="roadmap-stop">
+              <div className="relative">
+                <div className="roadmap-here-label">
+                  <span className="font-['Helvetica','Arial',sans-serif] text-sm font-black tracking-tight text-black uppercase">I am here</span>
+                  <svg width="20" height="26" viewBox="0 0 18 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 24L0 14H6V0H12V14H18L9 24Z" fill="black" />
+                  </svg>
+                </div>
+                <div className="roadmap-dot" />
+              </div>
+              <RevealSection>
+                <div className="bg-[#c8ff00] p-6 md:p-8">
+                  <h3 className="font-['Helvetica','Arial',sans-serif] text-lg font-bold tracking-tight text-black mb-2">
+                    Physical
+                  </h3>
+                  <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-[1.4] tracking-tight">
+                    Working with <a href="https://otofertility.com/" target="_blank" rel="noopener noreferrer" className="underline">OTO Fertility</a> for exercise and movement to
+                    increase stress resilience, then acupuncture, rolfing, and
+                    pelvic floor physical therapy.
+                  </p>
+                </div>
+              </RevealSection>
+            </div>
+
+            {/* Stop 4 — Medical */}
+            <div className="roadmap-stop">
+              <div className="roadmap-dot" />
+              <RevealSection>
+                <div className="bg-[#c8ff00] p-6 md:p-8">
+                  <h3 className="font-['Helvetica','Arial',sans-serif] text-lg font-bold tracking-tight text-black mb-2">
+                    Medical
+                  </h3>
+                  <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-[1.4] tracking-tight">
+                    Removing the hormonal IUD and considering whether surgery is
+                    a necessary next step.
+                  </p>
+                </div>
+              </RevealSection>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ====== QUOTE — STACY SIMS ====== */}
       <section className="py-16 md:py-24 px-6 bg-black">
         <div className="max-w-3xl mx-auto">
@@ -366,7 +468,7 @@ export default function HysteriaDoc() {
             <RevealSection stagger>
               <div className="space-y-4">
                 <div className="bg-[#c8ff00] p-8">
-                  <h3 className="text-lg font-medium mb-2 text-black">Tax-Deductible</h3>
+                  <h3 className="text-lg font-medium mb-2 text-black">tax-deductible</h3>
                   <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-[1.4] tracking-tight">
                     HYSTERIA is fiscally sponsored, so your donation is
                     tax-deductible to the fullest extent of the law.

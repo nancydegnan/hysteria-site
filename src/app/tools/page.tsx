@@ -14,6 +14,8 @@ const categoryMap: Record<string, Filter> = {
   "Ohnut": "pain relief",
   "Kiwi": "pain relief",
   "Thermotex Platinum Far Infrared Heating Pad": "pain relief",
+  "Krampz Menstrual Pain Relief Patches": "pain relief",
+  "Pinmoco Ergonomic Cross-Legged Swivel Chair": "pain relief",
   "OTO Fertility Program": "wellness",
   "MyFLO App": "wellness",
   "Tiny Health Gut Microbiome Testing": "gut health",
@@ -140,7 +142,7 @@ export default function ToolsPage() {
           <section className={active === "all" ? "mt-10 md:mt-14" : ""}>
             <RevealSection>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-black text-center mb-4">
-                Fragrance-Free Self & Home Care
+                fragrance-free self & home care
               </h2>
               <p className="font-['Helvetica','Arial',sans-serif] text-sm leading-[1.4] text-gray-text max-w-2xl mx-auto text-center mb-16">
                 Fragrance is a known endocrine disruptor and can trigger inflammation. These are self & home care products I use that skip the fragrance entirely, so you can skip the guess work.

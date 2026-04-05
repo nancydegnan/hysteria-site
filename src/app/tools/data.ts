@@ -70,13 +70,35 @@ export const tools: Tool[] = [
     image: "/thermotex.png",
   },
   {
+    company: "Krampz Wellness",
+    name: "Krampz Menstrual Pain Relief Patches",
+    price: "$19.99",
+    description:
+      "100% drug-free, non-toxic menstrual pain relief patches with far-infrared technology. Mineral-infused fabric with tourmaline and ceramic powder converts body heat into infrared energy for continuous relief. Lightweight, stretchable, water and sweat resistant — wear for up to 72 hours through workouts, workdays, or rest. Informed Choice Certified and clinically tested to increase blood circulation at the application site.",
+    shortDescription: "Drug-free far-infrared patches for menstrual pain relief.",
+    personalNote: "This is not a miracle patch, but it does take the edge off cramps and the pelvic \u201Cheaviness\u201D I experience every cycle before, during, and right after my period. I also use them on my back when that becomes inflamed around my cycle. While they don\u2019t entirely get rid of pain, they do certainly help. I recommend as a part of a treatment routine for chronic and acute onset pain.\nx, N",
+    website: "https://www.krampzwellness.com/products/menstrual-pain-relief-patches",
+    image: "/krampz.jpeg",
+  },
+  {
+    company: "Pinmoco",
+    name: "Pinmoco Ergonomic Cross-Legged Swivel Chair",
+    price: "",
+    description:
+      "Ergonomic swivel chair designed for cross-legged sitting — adjustable height stool for home and office use that supports comfortable, pressure-free positioning for those dealing with pelvic pain.",
+    shortDescription: "Ergonomic cross-legged swivel chair for home and office.",
+    personalNote: "This chair has changed my life. I have bad pelvic pain that radiates up my back, shoulder, and neck on the right side, and this chair helps me sit comfortably and allows me to change the angle of my pelvis in a supported way. I often sit in a \u201Chappy baby\u201D type of posture, which relieves the hip and pelvis tension.\nx, N",
+    website: "https://www.walmart.com/ip/Pinmoco-Ergonomic-Cross-Legged-Swivel-Chair-Adjustable-Stool-for-Home-and-Office-White/14257963234",
+    image: "/pinmoco chair.jpeg",
+  },
+  {
     company: "OTO Fertility",
     name: "OTO Fertility Program",
     price: "",
     description:
       "AI-powered biosensor and exercise program for a personalized physical routine to increase the body\u2019s stress resilience and bring you back to homeostasis.",
     shortDescription: "AI-powered biosensor for stress resilience and homeostasis.",
-    personalNote: "temp text\nx, N",
+    personalNote: "I am in the midst of using this program as a part of my experiment to put my endo into remission, and I am loving tracking my body\u2019s stress resilience through my cycle and having a tailored movement protocol that adapts to where I\u2019m at. It allows me to relax and know that I\u2019m not going to push too hard if my body is giving the signal to rest, while also giving me the confidence to push through the mental exhaustion of chronic pain and experience relief on the other side of a workout or recovery session. This is technically a fertility program, but it\u2019s really about hormonal and full body homeostasis.\nx, N",
     website: "https://otofertility.com/our-product/",
     image: "/OTO_Fertility_OTO_Fertility_Launches_World_s_First_AI_Powered_Pl.jpg",
   },
@@ -120,7 +142,7 @@ export const tools: Tool[] = [
 /* ── Self Care (grouped by category) ── */
 export const selfCareGroups: { theme: string; slug: string; image?: string; products: Tool[] }[] = [
   {
-    theme: "Skincare",
+    theme: "skincare",
     slug: "skincare",
     image: "/skincare1.png",
     products: [
@@ -208,7 +230,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
     ],
   },
   {
-    theme: "Make Up",
+    theme: "make up",
     slug: "make-up",
     image: "/makeup2.png",
     products: [
@@ -245,7 +267,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
     ],
   },
   {
-    theme: "In the Shower",
+    theme: "in the shower",
     slug: "hair-care",
     image: "/in the shower.png",
     products: [
@@ -342,7 +364,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
     ],
   },
   {
-    theme: "Home Care",
+    theme: "home care",
     slug: "home-care",
     image: "/home care.png",
     products: [

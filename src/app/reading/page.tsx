@@ -72,7 +72,7 @@ export default function ReadingPage() {
         <section id="books" className="mb-20 md:mb-28 scroll-mt-24">
           <RevealSection>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-10">
-              Books
+              books
             </h2>
           </RevealSection>
           <div className="flex flex-col gap-14">
@@ -111,7 +111,7 @@ export default function ReadingPage() {
         <section id="podcasts" className="mb-20 md:mb-28 scroll-mt-24">
           <RevealSection>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-10">
-              Podcast Episodes
+              podcast episodes
             </h2>
           </RevealSection>
           <div className="flex flex-col gap-14">
@@ -150,7 +150,7 @@ export default function ReadingPage() {
         <section id="articles" className="mb-20 md:mb-28 scroll-mt-24">
           <RevealSection>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-10">
-              Articles
+              articles
             </h2>
           </RevealSection>
           <div className="flex flex-col gap-14">
@@ -189,7 +189,7 @@ export default function ReadingPage() {
         <section id="research" className="mb-20 md:mb-28 scroll-mt-24">
           <RevealSection>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-10">
-              Research
+              research
             </h2>
           </RevealSection>
           <div className="flex flex-col gap-14">
@@ -228,7 +228,7 @@ export default function ReadingPage() {
         <section id="films" className="scroll-mt-24">
           <RevealSection>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-10">
-              Films
+              films
             </h2>
           </RevealSection>
           <RevealSection>

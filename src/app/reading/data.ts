@@ -33,7 +33,7 @@ export interface Article {
 /* ── Books ── */
 export const bookGroups: { theme: string; slug: string; image?: string; books: Book[] }[] = [
   {
-    theme: "Endometriosis & Diagnosis",
+    theme: "endometriosis & diagnosis",
     slug: "endometriosis-and-diagnosis",
     books: [
       {
@@ -64,7 +64,7 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
     ],
   },
   {
-    theme: "Hormonal Health & Cycle Syncing",
+    theme: "hormonal health & cycle syncing",
     slug: "hormonal-health-and-cycle-syncing",
     books: [
       {
@@ -94,7 +94,7 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
     ],
   },
   {
-    theme: "Nutrition & Gut Health",
+    theme: "nutrition & gut health",
     slug: "nutrition-and-gut-health",
     books: [
       {
@@ -108,7 +108,7 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
     ],
   },
   {
-    theme: "Mind-Body & Trauma",
+    theme: "mind-body & trauma",
     slug: "mind-body-and-trauma",
     books: [
       {
@@ -130,7 +130,7 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
     ],
   },
   {
-    theme: "Medical History & Advocacy",
+    theme: "medical history & advocacy",
     slug: "medical-history-and-advocacy",
     books: [
       {
@@ -148,7 +148,7 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
 /* ── Podcasts ── */
 export const podcastGroups: { theme: string; slug: string; image?: string; podcasts: Podcast[] }[] = [
   {
-    theme: "Endometriosis & Diagnosis",
+    theme: "endometriosis & diagnosis",
     slug: "endometriosis-and-diagnosis",
     podcasts: [
       {
@@ -177,7 +177,7 @@ export const podcastGroups: { theme: string; slug: string; image?: string; podca
     ],
   },
   {
-    theme: "Nutrition & Foundations",
+    theme: "nutrition & foundations",
     slug: "nutrition-and-foundations",
     podcasts: [
       {
@@ -214,7 +214,7 @@ export const podcastGroups: { theme: string; slug: string; image?: string; podca
     ],
   },
   {
-    theme: "Nervous System, Trauma & Pain",
+    theme: "nervous system, trauma & pain",
     slug: "nervous-system-trauma-and-pain",
     podcasts: [
       {
@@ -257,7 +257,7 @@ export const films: Film[] = [
 /* ── Articles ── */
 export const articleGroups: { theme: string; slug: string; image?: string; articles: Article[] }[] = [
   {
-    theme: "Endometriosis",
+    theme: "endometriosis",
     slug: "endometriosis",
     articles: [
       {
@@ -277,7 +277,7 @@ export const articleGroups: { theme: string; slug: string; image?: string; artic
     ],
   },
   {
-    theme: "Nutrition & Product Safety",
+    theme: "nutrition & product safety",
     slug: "nutrition-and-product-safety",
     articles: [
       {
@@ -297,7 +297,7 @@ export const articleGroups: { theme: string; slug: string; image?: string; artic
     ],
   },
   {
-    theme: "Innovation",
+    theme: "innovation",
     slug: "innovation",
     articles: [
       {
@@ -314,7 +314,7 @@ export const articleGroups: { theme: string; slug: string; image?: string; artic
 /* ── Research ── */
 export const researchGroups: { theme: string; slug: string; image?: string; articles: Article[] }[] = [
   {
-    theme: "Gender Bias in Medicine",
+    theme: "gender bias in medicine",
     slug: "gender-bias-in-medicine",
     articles: [
       {
@@ -334,7 +334,7 @@ export const researchGroups: { theme: string; slug: string; image?: string; arti
     ],
   },
   {
-    theme: "Endometriosis Science",
+    theme: "endometriosis science",
     slug: "endometriosis-science",
     articles: [
       {
@@ -347,7 +347,7 @@ export const researchGroups: { theme: string; slug: string; image?: string; arti
     ],
   },
   {
-    theme: "Product Safety",
+    theme: "product safety",
     slug: "product-safety",
     articles: [
       {
