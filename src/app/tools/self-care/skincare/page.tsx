@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { selfCareGroups } from "../../data";
-import { RevealSection, Footer, SubpageNav } from "../../../components";
+import { RevealSection, Footer, SubpageNav, SelfCareCard } from "../../../components";
 
 const group = selfCareGroups.find((g) => g.slug === "skincare")!;
 
@@ -35,46 +35,7 @@ export default function SkincarePage() {
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-12">
           {group.products.map((product) => (
             <RevealSection key={product.name}>
-              <a
-                href={product.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block text-center"
-              >
-                {product.image ? (
-                  <div className={`relative overflow-hidden bg-gray-light mb-5 ${product.imageFit === "contain" ? "aspect-square w-[65%] mx-auto p-4" : "aspect-[3/4]"}`}>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-[1.03] ${product.imageFit === "contain" ? "object-contain" : "object-cover"}`}
-                    />
-                    {product.personalNote && (
-                      <div className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6">
-                        <p className="playfair-italic text-[var(--foreground)] text-xs leading-[1.4] whitespace-pre-line text-left font-bold">
-                          {product.personalNote}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className="bg-gray-light flex items-center justify-center aspect-[3/4] mb-5">
-                    <span className="text-sm text-gray-text">{product.name}</span>
-                  </div>
-                )}
-
-                <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-text">
-                  {product.company}
-                </p>
-                <h3 className="playfair text-base leading-snug mt-1.5">
-                  {product.name}
-                </h3>
-                <p className="text-sm text-gray-text mt-1">
-                  {product.price}
-                </p>
-                <p className="text-xs text-gray-text mt-2 leading-[1.4]">
-                  {product.description}
-                </p>
-              </a>
+              <SelfCareCard product={product} />
             </RevealSection>
           ))}
         </div>

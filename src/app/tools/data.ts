@@ -35,30 +35,6 @@ export const tools: Tool[] = [
     image: "/Ohmbody-image-1.webp",
   },
   {
-    company: "The Pelvic People",
-    name: "Ohnut",
-    price: "$75",
-    description:
-      "Soft, stretchy, stackable rings that let you customize penetration depth — reducing pain during intimacy by preventing contact with tender pelvic structures.",
-    shortDescription: "Customizable rings for pain-free intimacy.",
-    personalNote: "temp text\nx, N",
-    website: "https://thepelvicpeople.com",
-
-    image: "/Orange_Ohnut_Updated-resize-min.webp",
-  },
-  {
-    company: "The Pelvic People",
-    name: "Kiwi",
-    price: "$115",
-    description:
-      "A vibrating pelvic relaxation massager designed to release tight pelvic floor muscles. Non-phallic, gentle, and targeted — with different ends for shallow internal use and for massaging connected muscle groups.",
-    shortDescription: "Gentle pelvic floor massager for muscle release.",
-    personalNote: "temp text\nx, N",
-    website: "https://thepelvicpeople.com/products/kiwi",
-
-    image: "/Kiwicollectionphoto_Editablebox_orange2-min.webp",
-  },
-  {
     company: "Thermotex",
     name: "Thermotex Platinum Far Infrared Heating Pad",
     price: "$259",
@@ -79,6 +55,28 @@ export const tools: Tool[] = [
     personalNote: "This is not a miracle patch, but it does take the edge off cramps and the pelvic \u201Cheaviness\u201D I experience every cycle before, during, and right after my period. I also use them on my back when that becomes inflamed around my cycle. While they don\u2019t entirely get rid of pain, they do certainly help. I recommend as a part of a treatment routine for chronic and acute onset pain.\nx, N",
     website: "https://www.krampzwellness.com/products/menstrual-pain-relief-patches",
     image: "/krampz.jpeg",
+  },
+  {
+    company: "The Pelvic People",
+    name: "Ohnut",
+    price: "$75",
+    description:
+      "Soft, stretchy, stackable rings that let you customize penetration depth — reducing pain during intimacy by preventing contact with tender pelvic structures.",
+    shortDescription: "Customizable rings for pain-free intimacy.",
+    personalNote: "temp text\nx, N",
+    website: "https://thepelvicpeople.com",
+    image: "/Orange_Ohnut_Updated-resize-min.webp",
+  },
+  {
+    company: "The Pelvic People",
+    name: "Kiwi",
+    price: "$115",
+    description:
+      "A vibrating pelvic relaxation massager designed to release tight pelvic floor muscles. Non-phallic, gentle, and targeted — with different ends for shallow internal use and for massaging connected muscle groups.",
+    shortDescription: "Gentle pelvic floor massager for muscle release.",
+    personalNote: "temp text\nx, N",
+    website: "https://thepelvicpeople.com/products/kiwi",
+    image: "/Kiwicollectionphoto_Editablebox_orange2-min.webp",
   },
   {
     company: "Pinmoco",

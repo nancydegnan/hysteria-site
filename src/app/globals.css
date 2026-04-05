@@ -521,4 +521,25 @@ input[type="email"]::placeholder {
     margin-top: 0.35rem;
     flex-shrink: 0;
   }
+
+  .roadmap-timeline {
+    padding-top: 0;
+  }
+
+  .roadmap-timeline::before {
+    top: 0;
+  }
+
+  .roadmap-here-label {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .roadmap-here-label svg {
+    transform: rotate(-90deg);
+  }
 }

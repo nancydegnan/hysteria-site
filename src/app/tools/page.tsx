@@ -27,12 +27,23 @@ function getCategory(tool: Tool): Filter {
 }
 
 function ProductCard({ tool }: { tool: Tool }) {
+  const [noteVisible, setNoteVisible] = useState(false);
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (tool.personalNote && !noteVisible) {
+      e.preventDefault();
+      setNoteVisible(true);
+    }
+  };
+
   return (
     <a
       href={tool.website}
       target="_blank"
       rel="noopener noreferrer"
       className="group block text-center"
+      onClick={handleClick}
+      onMouseLeave={() => setNoteVisible(false)}
     >
       {tool.image ? (
         <div className={`relative overflow-hidden mb-5 ${tool.imageFit === "contain" ? "bg-[#FAF8F5]" : "bg-gray-light"}`}>
@@ -42,7 +53,7 @@ function ProductCard({ tool }: { tool: Tool }) {
             className={`w-full aspect-square transition-transform duration-700 ease-out group-hover:scale-[1.03] ${tool.imageFit === "contain" ? "object-contain" : "object-cover"} ${tool.imagePosition === "bottom" ? "object-bottom" : ""}`}
           />
           {tool.personalNote && (
-            <div className="absolute inset-0 bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6">
+            <div className={`absolute inset-0 bg-background/90 transition-opacity duration-500 flex items-center justify-center p-6 ${noteVisible ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
               <p className="playfair-italic text-[var(--foreground)] text-xs leading-[1.4] whitespace-pre-line text-left font-bold">
                 {tool.personalNote}
               </p>
