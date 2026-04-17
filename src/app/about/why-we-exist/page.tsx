@@ -15,7 +15,7 @@ export default function WhyWeExistPage() {
               about
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              <span className="font-black">Why</span>{" "}
+              <span className="font-black">why</span>{" "}
               <em className="playfair-italic font-light">we exist.</em>
             </h1>
           </RevealSection>

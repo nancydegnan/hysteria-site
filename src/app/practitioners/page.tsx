@@ -215,7 +215,7 @@ function PractitionerCard({ p }: { p: Practitioner }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-medium text-black hover:text-black transition-colors duration-300"
           >
-            Visit Website &rarr;
+            visit website &rarr;
           </a>
         )}
       </div>
@@ -239,7 +239,7 @@ export default function PractitionersPage() {
               vetted &amp; trusted
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              <span className="font-black">Practitioners</span>{" "}
+              <span className="font-black">practitioners</span>{" "}
               <em className="playfair-italic font-light">who care.</em>
             </h1>
             <p className="playfair text-base leading-[1.4] mt-6 text-gray-text max-w-2xl">
@@ -255,7 +255,7 @@ export default function PractitionersPage() {
                 }
                 className="text-sm uppercase tracking-[0.15em] border border-gray-mid px-5 py-2 hover:border-black hover:text-black transition-colors duration-300 text-gray-text"
               >
-                Practitioners
+                practitioners
               </button>
               <button
                 onClick={() =>

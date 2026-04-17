@@ -15,7 +15,7 @@ export default function AboutNancyPage() {
               hi, I&apos;m Nancy
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              <span className="font-black">I have</span>{" "}
+              <span className="font-black">i have</span>{" "}
               <em className="playfair-italic font-light">stage 3 endo.</em>
             </h1>
           </RevealSection>

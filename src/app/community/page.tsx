@@ -1,8 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { RevealSection, Footer, SubpageNav } from "../components";
 import { advocacyTools, healingTools } from "../tools/data";
+
+const filters = ["all", "gatherings", "free tools: heal", "free tools: advocate"] as const;
+type Filter = (typeof filters)[number];
 
 interface Event {
   date: string;
@@ -16,15 +20,15 @@ interface Event {
 const laEvents: Event[] = [
   {
     date: "May 2, 2026",
-    title: "Afternoon Tea Gathering",
+    title: "afternoon tea gathering",
     description:
       "Our first event. An afternoon tea (caffeine free of course) gathering to connect, share, and support each other. Special guest, an incredible Pelvic Floor Physical Therapist located in LA.",
     image: "/community1.jpg",
-    link: "https://partiful.com/e/AUpOin8g6k6GEKPjdxvX?c=Lcwfkcd1",
+    link: "https://www.eventbrite.com/e/the-no-cure-club-afternoon-tea-gathering-tickets-1986841219572?aff=oddtdtcreator",
   },
   {
     date: "May 30, 2026",
-    title: "Backyard Sessions",
+    title: "backyard sessions",
     description:
       "Hosted at Nancy\u2019s home in Echo Park. An intimate gathering to ground, connect, and go deeper. Bean Protocol friendly light bites and Nancy\u2019s signature sugar free electrolyte drink to be provided for a nourishing evening.",
     image: "/community2.jpg",
@@ -33,6 +37,8 @@ const laEvents: Event[] = [
 ];
 
 export default function CommunityPage() {
+  const [active, setActive] = useState<Filter>("all");
+
   return (
     <div className="min-h-screen bg-white text-black">
       <SubpageNav />
@@ -44,53 +50,36 @@ export default function CommunityPage() {
               community
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              <span className="font-black">Find</span>{" "}
+              <span className="font-black">find</span>{" "}
               <em className="playfair-italic font-light">your people.</em>
             </h1>
-            <p className="playfair text-base leading-[1.4] mt-6 text-gray-text max-w-2xl">
+            <p className="font-['Helvetica','Arial',sans-serif] text-base leading-[1.4] tracking-tight mt-6 text-charcoal max-w-2xl">
               Monthly gatherings in LA. Come as you are — no
               pressure, no agenda, just a room full of people who get it.
               Dates go out to the mailing list first.
             </p>
 
             <div className="flex flex-wrap gap-3 mt-8">
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("la-meetups")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="text-sm uppercase tracking-[0.15em] border border-gray-mid px-5 py-2 hover:border-black hover:text-black transition-colors duration-300 text-gray-text"
-              >
-                Los Angeles
-              </button>
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("free-tools-heal")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="text-sm uppercase tracking-[0.15em] border border-gray-mid px-5 py-2 hover:border-black hover:text-black transition-colors duration-300 text-gray-text"
-              >
-                Free Tools: Heal
-              </button>
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("free-tools-advocate")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="text-sm uppercase tracking-[0.15em] border border-gray-mid px-5 py-2 hover:border-black hover:text-black transition-colors duration-300 text-gray-text"
-              >
-                Free Tools: Advocate
-              </button>
+              {filters.map((f) => (
+                <button
+                  key={f}
+                  onClick={() => setActive(f)}
+                  className={`playfair-italic text-sm px-5 py-2 border-b-2 transition-all duration-300 cursor-pointer ${
+                    active === f
+                      ? "border-black text-black"
+                      : "border-transparent text-charcoal hover:text-black hover:border-chartreuse"
+                  }`}
+                >
+                  {f}
+                </button>
+              ))}
             </div>
           </RevealSection>
         </header>
       </div>
 
       {/* ── Los Angeles In-Person Meetups ── */}
-      <section id="la-meetups" className="pt-10 md:pt-14 pb-20 md:pb-28 px-6">
+      {(active === "all" || active === "gatherings") && <section id="la-meetups" className="pt-10 md:pt-14 pb-20 md:pb-28 px-6">
         <div className="max-w-6xl mx-auto">
           <RevealSection>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-black mb-10 lowercase">
@@ -112,7 +101,7 @@ export default function CommunityPage() {
                     <h3 className="playfair text-xl md:text-2xl font-bold leading-snug">
                       {event.title}
                     </h3>
-                    <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-snug mt-2">
+                    <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-snug tracking-tight mt-2">
                       {event.description}
                       {event.extra && <> {event.extra}</>}
                     </p>
@@ -132,11 +121,10 @@ export default function CommunityPage() {
             ))}
           </div>
         </div>
-      </section>
-
+      </section>}
 
       {/* ── Free Tools: Heal ── */}
-      <section id="free-tools-heal" className="py-20 md:py-28 px-6">
+      {(active === "all" || active === "free tools: heal") && <section id="free-tools-heal" className="py-20 md:py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <RevealSection>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-black mb-10 lowercase">
@@ -165,7 +153,7 @@ export default function CommunityPage() {
                     <h3 className="playfair text-xl md:text-2xl font-bold leading-snug">
                       {ft.name}
                     </h3>
-                    <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-snug mt-2">
+                    <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-snug tracking-tight mt-2">
                       {ft.description}
                     </p>
                     <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
@@ -177,10 +165,10 @@ export default function CommunityPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* ── Free Tools: Advocate ── */}
-      <section id="free-tools-advocate" className="py-20 md:py-28 px-6">
+      {(active === "all" || active === "free tools: advocate") && <section id="free-tools-advocate" className="py-20 md:py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <RevealSection>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-black mb-10 lowercase">
@@ -209,7 +197,7 @@ export default function CommunityPage() {
                     <h3 className="playfair text-xl md:text-2xl font-bold leading-snug">
                       {ft.name}
                     </h3>
-                    <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-snug mt-2">
+                    <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-snug tracking-tight mt-2">
                       {ft.description}
                     </p>
                     <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
@@ -221,7 +209,7 @@ export default function CommunityPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       <Footer />
     </div>

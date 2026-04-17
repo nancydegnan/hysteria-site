@@ -5,21 +5,21 @@ import Link from "next/link";
 import { tools, selfCareGroups, type Tool } from "./data";
 import { RevealSection, Footer, SubpageNav } from "../components";
 
-const filters = ["all", "pain relief", "self & home care", "wellness", "gut health"] as const;
+const filters = ["all", "pain relief", "self care", "home care", "wellness", "gut health", "courses"] as const;
 type Filter = (typeof filters)[number];
 
 /* Map each product to a filter category */
 const categoryMap: Record<string, Filter> = {
-  "OhmBody Starter Kit": "pain relief",
-  "Ohnut": "pain relief",
-  "Kiwi": "pain relief",
-  "Thermotex Platinum Far Infrared Heating Pad": "pain relief",
-  "Krampz Menstrual Pain Relief Patches": "pain relief",
-  "Pinmoco Ergonomic Cross-Legged Swivel Chair": "pain relief",
-  "OTO Fertility Program": "wellness",
-  "MyFLO App": "wellness",
-  "Tiny Health Gut Microbiome Testing": "gut health",
-  "Olive My Pickle": "gut health",
+  "ohmBody starter kit": "pain relief",
+  "ohnut": "pain relief",
+  "kiwi": "pain relief",
+  "thermotex platinum far infrared heating pad": "pain relief",
+  "krampz menstrual pain relief patches": "pain relief",
+  "pinmoco ergonomic cross-legged swivel chair": "pain relief",
+  "OTO fertility program": "wellness",
+  "myFLO app": "wellness",
+  "tiny health gut microbiome testing": "gut health",
+  "olive my pickle": "gut health",
 };
 
 function getCategory(tool: Tool): Filter {
@@ -87,12 +87,16 @@ function ProductCard({ tool }: { tool: Tool }) {
 export default function ToolsPage() {
   const [active, setActive] = useState<Filter>("all");
 
-  const filteredTools = active === "all" || active === "self & home care"
+  const filteredTools = active === "all" || active === "self care" || active === "home care"
     ? tools
     : tools.filter((t) => getCategory(t) === active);
 
-  const showProducts = active !== "self & home care";
-  const showSelfCare = active === "all" || active === "self & home care";
+  const showProducts = active !== "self care" && active !== "home care";
+  const showSelfCare = active === "all" || active === "self care";
+  const showHomeCare = active === "all" || active === "home care";
+
+  const selfCareOnly = selfCareGroups.filter((g) => g.slug !== "home-care");
+  const homeCareOnly = selfCareGroups.filter((g) => g.slug === "home-care");
 
   return (
     <div className="min-h-screen bg-white text-black">
@@ -105,10 +109,10 @@ export default function ToolsPage() {
               the shop
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              <span className="font-black">Tools</span>{" "}
+              <span className="font-black">tools</span>{" "}
               <em className="playfair-italic font-light">that heal.</em>
             </h1>
-            <p className="font-['Helvetica','Arial',sans-serif] text-base leading-[1.4] mt-1 text-charcoal max-w-2xl">
+            <p className="font-['Helvetica','Arial',sans-serif] text-base leading-[1.4] tracking-tight mt-1 text-charcoal max-w-2xl">
               Products I actually use that have made a real difference in managing pain and healing.
             </p>
 
@@ -148,20 +152,72 @@ export default function ToolsPage() {
           </section>
         )}
 
-        {/* ── Fragrance-Free Self Care (Russh editorial grid) ── */}
+        {/* ── Fragrance-Free Self Care ── */}
         {showSelfCare && (
           <section className={active === "all" ? "mt-10 md:mt-14" : ""}>
             <RevealSection>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-black text-center mb-4">
-                fragrance-free self & home care
+                fragrance-free self care
               </h2>
-              <p className="font-['Helvetica','Arial',sans-serif] text-sm leading-[1.4] text-gray-text max-w-2xl mx-auto text-center mb-16">
-                Fragrance is a known endocrine disruptor and can trigger inflammation. These are self & home care products I use that skip the fragrance entirely, so you can skip the guess work.
+              <p className="font-['Helvetica','Arial',sans-serif] text-sm leading-[1.4] tracking-tight text-gray-text max-w-2xl mx-auto text-center mb-16">
+                Fragrance is a known endocrine disruptor and can trigger inflammation. These are self care products I use that skip the fragrance entirely, so you can skip the guess work.
               </p>
             </RevealSection>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-16 max-w-5xl mx-auto">
-              {selfCareGroups.map((group) => (
+              {selfCareOnly.map((group) => (
+                <RevealSection key={group.slug}>
+                  <Link
+                    href={`/tools/self-care/${group.slug}`}
+                    className="block group"
+                  >
+                    {group.image ? (
+                      <div className="overflow-hidden bg-background">
+                        <img
+                          src={group.image}
+                          alt={group.theme}
+                          className="w-full aspect-[4/3] object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex gap-1.5 justify-center">
+                        <div className="bg-gray-light border border-gray-mid w-1/2 aspect-[3/4] flex items-center justify-center">
+                          <span className="text-xs text-gray-text/50">image</span>
+                        </div>
+                        <div className="bg-gray-light border border-gray-mid w-1/2 aspect-[3/4] flex items-center justify-center">
+                          <span className="text-xs text-gray-text/50">image</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Caption */}
+                    <p className="playfair text-base md:text-lg font-bold leading-snug text-center mt-6 group-hover:italic transition-all duration-300">
+                      {group.theme}
+                    </p>
+                    <p className="text-xs text-gray-text text-center mt-1.5 tracking-wide">
+                      {group.products.length} {group.products.length === 1 ? "product" : "products"} &rarr;
+                    </p>
+                  </Link>
+                </RevealSection>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Fragrance-Free Home Care ── */}
+        {showHomeCare && (
+          <section className={active === "all" ? "mt-10 md:mt-14" : ""}>
+            <RevealSection>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-black text-center mb-4">
+                fragrance-free home care
+              </h2>
+              <p className="font-['Helvetica','Arial',sans-serif] text-sm leading-[1.4] tracking-tight text-gray-text max-w-2xl mx-auto text-center mb-16">
+                Fragrance is a known endocrine disruptor and can trigger inflammation. These are home care products I use that skip the fragrance entirely, so you can skip the guess work.
+              </p>
+            </RevealSection>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-16 max-w-5xl mx-auto">
+              {homeCareOnly.map((group) => (
                 <RevealSection key={group.slug}>
                   <Link
                     href={`/tools/self-care/${group.slug}`}

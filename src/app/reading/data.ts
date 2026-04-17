@@ -28,12 +28,14 @@ export interface Article {
   author?: string;
   url: string;
   description: string;
+  image?: string;
+  slug?: string;
 }
 
 /* ── Books ── */
 export const bookGroups: { theme: string; slug: string; image?: string; books: Book[] }[] = [
   {
-    theme: "endometriosis & diagnosis",
+    theme: "endometriosis",
     slug: "endometriosis-and-diagnosis",
     books: [
       {
@@ -42,7 +44,7 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
         description:
           "A comprehensive guide from a laparoscopic surgeon and pelvic floor physical therapist offering a multi-disciplinary treatment plan that addresses surgery, physical therapy, nutrition, and mental health for managing endometriosis.",
         buyUrl: "https://www.amazon.com/Beating-Endo-Holistic-Treatment-Endometriosis/dp/0062861832",
-        cover: "/covers/beating-endo.jpg",
+        cover: "/beating endo.jpg",
       },
       {
         title: "It\u2019s Not Hysteria",
@@ -50,7 +52,15 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
         description:
           "A board-certified gynecologist covers the full spectrum of reproductive health conditions \u2014 endometriosis, adenomyosis, PCOS, fibroids, and pelvic pain \u2014 providing clear, evidence-based information that patients are rarely given.",
         buyUrl: "https://www.amazon.com/Its-Not-Hysteria-Everything-Reproductive/dp/1250894158",
-        cover: "/covers/its-not-hysteria.jpg",
+        cover: "/its not hysteria.jpg",
+      },
+      {
+        title: "Heal Endo",
+        authors: "Katie Edmonds, NTP",
+        description:
+          "The #1 best-selling book on endometriosis takes an anti-inflammatory approach to healing, covering how the disease develops, dietary and lifestyle factors that impact symptom severity, the role of gut bacteria as an endo trigger, hormonal health, chemical exposures linked to endometriosis, and how to build a comprehensive treatment plan including surgery.",
+        buyUrl: "https://www.amazon.com/Heal-Endo-Anti-Inflammatory-Approach-Endometriosis/dp/1792389485",
+        cover: "/heal endo.jpg",
       },
       {
         title: "Endometriosis & PCOS: A Whole-Body Guide",
@@ -58,13 +68,13 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
         description:
           "A 50-page guide covering hormone changes across the lifespan, anti-inflammatory nutrition, evidence-based supplementation, symptom tracking, lab work recommendations, and medical advocacy strategies. The quick guide that everyone with endo would benefit from.",
         buyUrl: "https://savannahregensburger.substack.com/p/endometriosis-and-pcos-e-book-2499",
-        cover: "",
+        cover: "/savannah book.jpg",
         buyLabel: "Buy E-Book",
       },
     ],
   },
   {
-    theme: "hormonal health & cycle syncing",
+    theme: "hormonal health",
     slug: "hormonal-health-and-cycle-syncing",
     books: [
       {
@@ -73,7 +83,7 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
         description:
           "A 30-day program addressing hormone imbalances caused by hormonal contraception \u2014 covering post-birth-control syndrome, gut health, and hormone rebalancing. Directly relevant to endo patients prescribed hormonal birth control as a frontline treatment.",
         buyUrl: "https://www.amazon.com/Beyond-Pill-Program-Hormones-Dangerous/dp/0062847058",
-        cover: "/covers/beyond-the-pill.jpg",
+        cover: "/beyond the pill.jpg",
       },
       {
         title: "WomanCode",
@@ -81,7 +91,7 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
         description:
           "A holistic approach to hormone balance through functional nutrition and lifestyle changes. Addresses hormonal imbalances including endometriosis with a five-step protocol involving diet, stress management, and cycle-syncing to achieve pain-free periods.",
         buyUrl: "https://www.amazon.com/WomanCode-Perfect-Amplify-Fertility-Supercharge/dp/006213079X",
-        cover: "/covers/womancode.jpg",
+        cover: "/woman code.jpg",
       },
       {
         title: "In the FLO",
@@ -89,12 +99,12 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
         description:
           "Introduces the Cycle Syncing Method \u2014 a female-centric approach to diet and lifestyle that leverages the 28-day menstrual cycle for optimal health. Specifically addresses how women with endometriosis can work with their natural hormonal rhythms to reduce symptoms.",
         buyUrl: "https://www.amazon.com/FLO-Unlock-Hormonal-Advantage-Revolutionize/dp/0062870491",
-        cover: "/covers/in-the-flo.jpg",
+        cover: "/in the flo copy.jpg",
       },
     ],
   },
   {
-    theme: "nutrition & gut health",
+    theme: "nutrition",
     slug: "nutrition-and-gut-health",
     books: [
       {
@@ -103,12 +113,12 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
         description:
           "A personal account of healing from Crohn's disease and endometriosis through dietary transformation, by the founder of The Bean Protocol. Relevant to the endo community because anti-inflammatory nutrition and gut health are increasingly recognized as key factors in managing symptoms and flares.",
         buyUrl: "https://www.amazon.com/Your-Tastebuds-Are-holes-Trained/dp/1544510225",
-        cover: "/covers/tastebuds.jpg",
+        cover: "/your tastebuds are assholes.jpg",
       },
     ],
   },
   {
-    theme: "mind-body & trauma",
+    theme: "mind-body",
     slug: "mind-body-and-trauma",
     books: [
       {
@@ -117,20 +127,12 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
         description:
           "Introduces the JournalSpeak method, a mind-body approach that addresses how stored trauma and repressed emotions can fuel chronic pain conditions including pelvic pain, IBS, and migraines.",
         buyUrl: "https://www.amazon.com/Mind-Your-Body-Revolutionary-Program/dp/0593716930",
-        cover: "/covers/mind-your-body.jpg",
-      },
-      {
-        title: "The Body Keeps the Score",
-        authors: "Bessel van der Kolk, MD",
-        description:
-          "A landmark work on how trauma reshapes the body and brain, explaining why traumatic stress manifests as physical symptoms and chronic pain. Essential reading for anyone with endometriosis or chronic pelvic pain.",
-        buyUrl: "https://www.amazon.com/Body-Keeps-Score-Healing-Trauma/dp/0143127748",
-        cover: "/covers/body-keeps-the-score.jpg",
+        cover: "/mind your body.jpg",
       },
     ],
   },
   {
-    theme: "medical history & advocacy",
+    theme: "self-advocacy",
     slug: "medical-history-and-advocacy",
     books: [
       {
@@ -139,7 +141,7 @@ export const bookGroups: { theme: string; slug: string; image?: string; books: B
         description:
           "A medical oncologist traces the history of how medicine has dismissed, misunderstood, and mistreated women\u2019s bodies \u2014 documenting the systemic medical dismissal that leads to an average 7\u201310 year delay in endometriosis diagnosis.",
         buyUrl: "https://www.amazon.com/All-Her-Head-Medicine-Matters/dp/0063293013",
-        cover: "/covers/all-in-her-head.jpg",
+        cover: "/it's all in her head.jpeg",
       },
     ],
   },
@@ -173,6 +175,13 @@ export const podcastGroups: { theme: string; slug: string; image?: string; podca
         url: "https://drbrighten.com/podcasts/period-pain-relief/",
         description:
           "Dr. Brighten challenges the notion that severe menstrual pain is normal and explores three primary causes of period pain: problematic prostaglandins, structural issues like endometriosis and adenomyosis, and hormonal imbalances. Offers actionable strategies for reducing pain through nutrition, supplements, and lifestyle \u2014 alternatives beyond birth control and hysterectomy.",
+      },
+      {
+        title: "Can Ozempic and GLP-1\u2019s Help Treat Endometriosis",
+        host: "Dr. Jolene Brighten",
+        url: "https://drbrighten.com/podcasts/glp-1-and-endometriosis/",
+        description:
+          "Dr. Brighten examines whether GLP-1 receptor agonist medications \u2014 including Ozempic, semaglutide, tirzepatide, and liraglutide \u2014 may help manage endometriosis symptoms. Covers emerging research on how these drugs might reduce inflammation, improve blood sugar stability, decrease pelvic pain, and address fatigue and endo belly. Emphasizes that while some women report symptom improvement, GLP-1 medications are not a cure for endometriosis but represent one potential tool within a comprehensive treatment strategy.",
       },
     ],
   },
@@ -274,6 +283,13 @@ export const articleGroups: { theme: string; slug: string; image?: string; artic
         description:
           "A look at how what Freud diagnosed as \u201Chysteria\u201D was likely unrecognized endometriosis. Chronicles the barbaric treatments women endured throughout history \u2014 from being hung upside-down to diagnoses of witchcraft and demonic possession \u2014 and how millions still await better care today.",
       },
+      {
+        title: "Endo Belly Hot Spot: Do You Have Ileocecal Valve Pain?",
+        author: "Katie Edmonds",
+        url: "https://www.healendo.com/blog-1/2023/1/10/endo-belly-hot-spot",
+        description:
+          "Explains the ileocecal valve \u2014 a small flap between the small and large intestine that can become inflamed in people with endometriosis \u2014 and offers practical strategies including dietary modifications and massage techniques to help rehabilitate this common pain point.",
+      },
     ],
   },
   {
@@ -314,7 +330,7 @@ export const articleGroups: { theme: string; slug: string; image?: string; artic
 /* ── Research ── */
 export const researchGroups: { theme: string; slug: string; image?: string; articles: Article[] }[] = [
   {
-    theme: "gender bias in medicine",
+    theme: "gender bias",
     slug: "gender-bias-in-medicine",
     articles: [
       {
@@ -323,6 +339,7 @@ export const researchGroups: { theme: string; slug: string; image?: string; arti
         url: "https://www.health.harvard.edu/pain/the-dangerous-dismissal-of-womens-pain",
         description:
           "Harvard Health examines how women\u2019s pain is systematically underestimated and undertreated \u2014 women wait 30 minutes longer than men for hospital care and receive fewer pain medications for identical complaints. Traces this bias from its historical roots in \u201Chysteria\u201D to modern contributing factors.",
+        slug: "dangerous-dismissal-of-womens-pain",
       },
       {
         title: "Women Exaggerate, Men Downplay: Gendered Endorsement of Emotional Dramatization Stereotypes Contributes to Gender Bias in Pain Expectations",
@@ -330,11 +347,12 @@ export const researchGroups: { theme: string; slug: string; image?: string; arti
         url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10688448/",
         description:
           "Study proving what many women already know: people assume women exaggerate their pain while men understate theirs. Across four experiments, researchers found that stereotypes about women being \u201Cwhiny\u201D or \u201Ccomplaining\u201D lead others to dismiss their pain as dramatization \u2014 a bias with serious consequences in healthcare, where it can cause doctors to minimize women\u2019s symptoms instead of taking them seriously.",
+        slug: "gendered-pain-bias",
       },
     ],
   },
   {
-    theme: "endometriosis science",
+    theme: "endometriosis",
     slug: "endometriosis-science",
     articles: [
       {
@@ -343,6 +361,15 @@ export const researchGroups: { theme: string; slug: string; image?: string; arti
         url: "https://www.sciencedirect.com/science/article/pii/S1471491424001667",
         description:
           "New research is making it easier to diagnose endo faster and treat it better. This paper breaks down improvements in imaging so doctors can spot it without surgery, new drugs being tested that target the inflammation and pain at their source, better understanding of why endo causes infertility, and an emerging connection between gut health and endo symptoms that could open the door to self-management strategies.",
+        slug: "recent-advances-diagnosis-care",
+      },
+      {
+        title: "Two Important Pieces of Research About GLP-1\u2019s and Endo",
+        author: "Krasnyi et al., 2022 & Sola-Leyva et al., 2025",
+        url: "",
+        description:
+          "Two foundational papers reveal that endometriosis patients have significantly reduced GLP-1 levels in their pelvic environment \u2014 a deficit linked to immune dysfunction that allows lesions to take hold \u2014 and that GLP-1 receptor agonists could theoretically restore that balance, positioning these metabolic drugs as potential immunometabolic modulators for endometriosis.",
+        slug: "glp-1-and-endo",
       },
     ],
   },
@@ -356,6 +383,7 @@ export const researchGroups: { theme: string; slug: string; image?: string; arti
         url: "https://www.npr.org/2024/07/11/nx-s1-5036484/tampons-heavy-metals-study",
         description:
           "Researchers found lead, arsenic, and other toxic metals in tampons across 14 popular brands \u2014 the first study to measure metallic contaminants in menstrual products. The FDA currently has no requirements for manufacturers to test for chemical contaminants. Experts recommend choosing products without plastic, fragrances, or colorants.",
+        slug: "toxic-metals-in-tampons",
       },
     ],
   },

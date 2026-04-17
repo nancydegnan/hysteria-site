@@ -13,6 +13,7 @@ export default function Home() {
     { href: "/about", label: "about" },
     { href: "/tools", label: "shop" },
     { href: "/reading", label: "read/watch/listen" },
+    { href: "/move", label: "move" },
     { href: "/community", label: "community" },
     { href: "/hysteria-doc", label: "the documentary" },
     { href: "https://substack.com/@thenocureclub", label: "the newsletter" },
@@ -49,7 +50,7 @@ export default function Home() {
           <Link href="/" className="ncc-logo text-lg text-black">
             The No Cure Club
           </Link>
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-5">
             {navLinks.map((link) =>
               link.href.startsWith("http") ? (
                 <a
@@ -167,7 +168,7 @@ export default function Home() {
         </div>
       </header>
       <nav className="border-b-2 border-black px-6 pb-5">
-        <div className="max-w-5xl mx-auto hidden md:flex items-center justify-center gap-10 lg:gap-14">
+        <div className="max-w-5xl mx-auto hidden md:flex items-center justify-center gap-6 lg:gap-8">
           {navLinks.map((link) =>
             link.href.startsWith("http") ? (
               <a
@@ -267,7 +268,7 @@ export default function Home() {
             <div className="text-center md:text-left">
               <RevealSection>
                 <h2 className="text-4xl md:text-5xl tracking-tight mb-3">
-                  <span className="font-black">Join</span>{" "}
+                  <span className="font-black">join</span>{" "}
                   <em className="playfair-italic font-light">the club.</em>
                 </h2>
                 <p className="playfair text-base text-black leading-snug mb-4">
@@ -467,16 +468,19 @@ export default function Home() {
                 If you&apos;ve got endo, or think you might, or if you have pelvic pain, you&apos;re in the right place. Most of us spend years trying to be heard, believed, and desperate for answers. <strong className="text-black">Not here.</strong>
               </p>
               <p>
-                <span className="ncc-logo text-black" style={{ fontSize: 'inherit', transform: 'none' }}>The No Cure Club</span> is the community-centered spot where endo and pelvic pain are embraced and supported. I&apos;ve spent years on my own healing journey to put my stage 3 endometriosis and chronic pain into remission. Over those years, I&apos;ve been astounded that there wasn&apos;t a single resource hub that brought together incredible tools, practitioners, courses, books, etc, to the people who need them.
+                <span className="ncc-logo text-black" style={{ fontSize: 'inherit', transform: 'none' }}>The No Cure Club</span> is the community-centered spot where endo and pelvic pain are embraced and supported. I&apos;ve spent years on my own healing journey to put my stage 3 endometriosis and chronic pain into remission and am making a <Link href="/hysteria-doc" className="underline hover:opacity-60 transition-opacity">documentary</Link> about the interdisciplinary approach I&apos;m experimenting with.
               </p>
               <p>
-                This club is my solution. Here, you will find the curated resources that have helped me, or friends I know and trust. We are always growing, so please send us resources to check out! This is truly a community space, built by one of us, for all of us.
+                Over those years, I&apos;ve been astounded by how complicated finding the best tools, practitioners, books, courses, exercises, etc (<em>all the things</em>) to support my healing and living well with endo has been. I wanted a single resource hub that brought together all of it in one spot and was easy to navigate.
               </p>
               <p>
-                From great doctors, to vetted courses, genuinely helpful products, self-care that won&apos;t flare your symptoms, and books that can change your life. This is the one-stop shop for everything endo and pelvic pain.
+                I&apos;m not an expert, but I&apos;m a busy girl who&apos;s been trying to live a big life with endo, and I want to simplify things.
               </p>
               <p>
-                I also want to build out the Los Angeles community in person. We&apos;re hosting monthly meet-ups where we will bring a specialist guest and do activities that create nervous system regulation and connection with each other and ourselves.
+                This club is my solution. Here, you will find the curated resources that have helped me, or friends I know and trust. We are always growing, so please send us resources to check out!
+              </p>
+              <p>
+                We will be hosting gatherings for the Los Angeles community to meet in person, so check out our <Link href="/community" className="underline hover:opacity-60 transition-opacity">community page</Link> to see the latest events and grab your spot. We will often bring a specialist guest, and always do activities that create nervous system regulation and connection with each other and ourselves.
               </p>
               <p>
                 We&apos;d love to have you in our club, you&apos;re always welcome.
@@ -537,11 +541,12 @@ export default function Home() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
+                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 bg-brown inline-block" />
                     featured reading
                   </p>
                   <h3 className="playfair text-base tracking-tight mb-1 font-bold">
-                    In the FLO
+                    in the flo
                   </h3>
                   <p className="text-xs text-charcoal mb-2">Alisa Vitti</p>
                   <p className="text-xs text-black leading-[1.4]">
@@ -569,11 +574,12 @@ export default function Home() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
+                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 bg-brown inline-block" />
                     featured podcast
                   </p>
                   <h3 className="playfair text-base tracking-tight mb-1 font-bold">
-                    The Fundamentals of Great Health
+                    the fundamentals of great health
                   </h3>
                   <p className="text-xs text-charcoal mb-2">Unique Hammond</p>
                   <p className="text-xs text-black leading-[1.4]">
@@ -601,11 +607,12 @@ export default function Home() {
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
-                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
+                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 bg-brown inline-block" />
                     featured watching
                   </p>
                   <h3 className="playfair text-base tracking-tight mb-1 font-bold">
-                    This Is Endometriosis
+                    this is endometriosis
                   </h3>
                   <p className="text-xs text-charcoal mb-2">BAFTA-winning short film</p>
                   <p className="text-xs text-black leading-[1.4]">
@@ -655,7 +662,7 @@ export default function Home() {
                     doctors <em className="playfair-italic">who listen.</em>
                   </h3>
                   <p className="playfair text-sm text-black leading-snug">
-                    Vetted specialists and practitioners across the country.
+                    vetted specialists and practitioners across the country.
                   </p>
                   <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
                     explore &rarr;
@@ -678,7 +685,7 @@ export default function Home() {
                     products <em className="playfair-italic">that help.</em>
                   </h3>
                   <p className="playfair text-sm text-black leading-snug">
-                    Curated tools for managing daily life with endo.
+                    curated tools for managing daily life with endo.
                   </p>
                   <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
                     explore &rarr;
@@ -701,7 +708,7 @@ export default function Home() {
                     knowledge <em className="playfair-italic">is power.</em>
                   </h3>
                   <p className="playfair text-sm text-black leading-snug">
-                    Books, podcasts, films, and research worth your time.
+                    books, podcasts, films, and research worth your time.
                   </p>
                   <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
                     explore &rarr;

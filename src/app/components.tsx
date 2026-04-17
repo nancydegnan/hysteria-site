@@ -143,7 +143,7 @@ export function SubpageNav() {
         >
           The No Cure Club
         </Link>
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-5">
           {navLinks.map((link) =>
             link.href.startsWith("http") ? (
               <a

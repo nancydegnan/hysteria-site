@@ -39,7 +39,7 @@ export default function AboutPage() {
               about
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              <span className="font-black">The story</span>{" "}
+              <span className="font-black">the story</span>{" "}
               <em className="playfair-italic font-light">behind the club.</em>
             </h1>
           </RevealSection>
@@ -76,7 +76,7 @@ export default function AboutPage() {
                   <h3 className="text-2xl md:text-3xl tracking-tight mb-3">
                     <span className="font-black">{item.title}</span>
                   </h3>
-                  <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-[1.6] max-w-md">
+                  <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-[1.6] tracking-tight max-w-md">
                     {item.description}
                   </p>
                   <span className="text-sm font-medium inline-block mt-4 group-hover:translate-x-1 transition-transform duration-300">

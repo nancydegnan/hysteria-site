@@ -12,10 +12,10 @@ export default function FilmsPage() {
       <div className="border-b border-gray-mid">
         <header className="px-6 pt-24 pb-12 md:pt-28 md:pb-16 max-w-6xl mx-auto">
           <RevealSection>
-            <p className="section-label text-sm text-gray-text mb-3">
+            <p className="section-label text-sm text-black mb-3">
               films
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
+            <h1 className="playfair text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
               documentaries
             </h1>
           </RevealSection>
@@ -23,7 +23,7 @@ export default function FilmsPage() {
       </div>
 
       <main className="px-6 pb-20 md:pb-28 max-w-6xl mx-auto pt-16 md:pt-24">
-        <Link href="/reading" className="playfair-italic text-sm font-bold text-black hover:text-gray-text transition-colors duration-300 mb-10 inline-block">
+        <Link href="/reading" className="font-['Helvetica','Arial',sans-serif] italic tracking-tight text-sm font-bold text-black hover:text-gray-text transition-colors duration-300 mb-10 inline-block">
           &larr; back to read
         </Link>
         <div className="grid gap-6">
@@ -35,18 +35,18 @@ export default function FilmsPage() {
                 rel="noopener noreferrer"
                 className="block bg-gray-light border border-gray-mid p-8 hover:border-black transition-all duration-300 group card-hover"
               >
-                <h3 className="playfair text-lg md:text-xl leading-tight mb-2 group-hover:text-black transition-colors duration-300">
+                <h3 className="font-['Helvetica','Arial',sans-serif] tracking-tight text-lg md:text-xl leading-tight mb-2 group-hover:text-black transition-colors duration-300">
                   {film.title}
                   <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
                 </h3>
                 {film.director && (
-                  <p className="playfair-italic text-xs text-gray-text mb-3">
+                  <p className="font-['Helvetica','Arial',sans-serif] italic tracking-tight text-xs text-black mb-3">
                     Directed by {film.director}
                   </p>
                 )}
-                <p className="playfair text-sm leading-[1.4] text-gray-text">
+                <p className="font-['Helvetica','Arial',sans-serif] tracking-tight text-sm leading-[1.4] text-black">
                   {film.description}
                 </p>
               </a>

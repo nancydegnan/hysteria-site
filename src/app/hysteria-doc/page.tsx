@@ -123,7 +123,7 @@ export default function HysteriaDoc() {
                 about the film
               </p>
               <h2 className="text-3xl md:text-4xl tracking-tight mb-8 text-black">
-                <span className="font-black">No more</span>{" "}
+                <span className="font-black">no more</span>{" "}
                 <em className="playfair-italic font-light">breadcrumbs.</em>
               </h2>
               <div className="space-y-5 font-['Helvetica','Arial',sans-serif] text-base text-black leading-[1.4] tracking-tight">
@@ -220,8 +220,8 @@ export default function HysteriaDoc() {
               my experiment
             </p>
             <h2 className="text-3xl md:text-4xl tracking-tight mb-6 text-black">
-              <span className="font-black">The</span>{" "}
-              <em className="playfair-italic font-light">Roadmap.</em>
+              <span className="font-black">the</span>{" "}
+              <em className="playfair-italic font-light">roadmap.</em>
             </h2>
             <p className="font-['Helvetica','Arial',sans-serif] text-sm md:text-base text-black leading-[1.5] tracking-tight max-w-3xl mb-12">
               The core experiment of the film is whether I can put my stage 3 endometriosis into remission. Using a mixture of holistic and modern fem tech and medical approaches, my goal is to prove that while endometriosis may not be &ldquo;cure-able&rdquo; it certainly is treatable with a multi-modal approach, and that it doesn&rsquo;t need to cost a fortune to do it.
@@ -333,7 +333,7 @@ export default function HysteriaDoc() {
                 my story
               </p>
               <h2 className="text-3xl md:text-4xl tracking-tight mb-12 text-black">
-                <span className="font-black">How I</span>{" "}
+                <span className="font-black">how i</span>{" "}
                 <em className="playfair-italic font-light">got here.</em>
               </h2>
               <div className="space-y-5 font-['Helvetica','Arial',sans-serif] text-base text-black leading-[1.4] tracking-tight">
@@ -441,7 +441,7 @@ export default function HysteriaDoc() {
                 support
               </p>
               <h2 className="text-3xl md:text-4xl tracking-tight mb-8 text-black">
-                <span className="font-black">Fund</span>{" "}
+                <span className="font-black">fund</span>{" "}
                 <em className="playfair-italic font-light">the film.</em>
               </h2>
               <p className="font-['Helvetica','Arial',sans-serif] text-base text-black leading-[1.4] tracking-tight mb-8">
