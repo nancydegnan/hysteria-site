@@ -239,27 +239,14 @@ export default function Home() {
         className="min-h-[80vh] flex items-center px-6 pt-12 pb-20"
       >
         <div className="max-w-6xl mx-auto text-black">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Collage — left side */}
+          <div className="grid md:grid-cols-[3fr_2fr] gap-12 items-center">
+            {/* Image — left side */}
             <RevealSection>
-              <div className="relative w-full warm-tint aspect-[1/1] md:aspect-auto md:min-h-[480px]">
+              <div className="w-full aspect-[16/9] overflow-hidden">
                 <img
-                  src="/community.jpg"
-                  alt="Community"
-                  className="absolute top-0 left-0 w-[58%] aspect-[3/4] object-cover shadow-lg"
-                  style={{ zIndex: 1 }}
-                />
-                <img
-                  src="/braiding.jpg"
-                  alt="Braiding"
-                  className="absolute w-[45%] aspect-[4/5] object-cover shadow-lg"
-                  style={{ zIndex: 2, top: "10%", left: "50%" }}
-                />
-                <img
-                  src="/community2.jpg"
-                  alt="Community"
-                  className="absolute w-[42%] aspect-square object-cover shadow-lg top-[55%] md:top-auto md:bottom-0 left-[8%]"
-                  style={{ zIndex: 3 }}
+                  src="/NANCY/nancy gallery.png"
+                  alt="Nancy"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </RevealSection>
@@ -400,10 +387,7 @@ export default function Home() {
                 <em className="font-normal">Started by someone going through it, for everyone going through it. Come find your people.</em>
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center max-w-2xl mx-auto">
-              <div className="w-48 md:w-56 aspect-[4/3] bg-[#e4e0d9] overflow-hidden">
-                <img src="/community1.jpg" alt="Afternoon Tea Gathering" className="w-full h-full object-cover" />
-              </div>
+            <div className="max-w-2xl mx-auto">
               <Link
                 href="/community#la-meetups"
                 className="border border-charcoal/30 rounded-none p-6 text-left group hover:bg-chartreuse hover:border-charcoal/30 transition-all duration-300"
@@ -430,26 +414,13 @@ export default function Home() {
       {/* ====== OUR APPROACH ====== */}
       <section id="our-approach" className="py-20 md:py-28 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          {/* Collage — left side */}
+          {/* Portrait — left side */}
           <RevealSection>
-            <div className="relative w-full aspect-[1/1] md:aspect-auto md:min-h-[520px]">
+            <div className="w-full aspect-[3/4] overflow-hidden">
               <img
-                src="/nancy 2.jpg"
+                src="/NANCY/nancy backyard.JPG"
                 alt="Nancy"
-                className="absolute top-0 left-0 w-[60%] aspect-[3/4] object-cover shadow-lg"
-                style={{ zIndex: 1 }}
-              />
-              <img
-                src="/nancy5*.png"
-                alt="Nancy"
-                className="absolute w-[45%] aspect-[4/5] object-cover"
-                style={{ zIndex: 2, top: "10%", left: "50%" }}
-              />
-              <img
-                src="/nancy thermotex.JPG"
-                alt="Nancy with Thermotex"
-                className="absolute w-[40%] aspect-square object-cover shadow-lg top-[55%] md:top-auto md:bottom-0 left-[5%]"
-                style={{ zIndex: 3 }}
+                className="w-full h-full object-cover"
               />
             </div>
           </RevealSection>

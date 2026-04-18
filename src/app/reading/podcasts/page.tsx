@@ -71,7 +71,11 @@ export default function PodcastsPage() {
                   className="block group"
                 >
                   {/* Image */}
-                  <div className={`${isLarge ? "aspect-[16/9]" : "aspect-[3/2]"} bg-[#e4e0d9] mb-4 overflow-hidden`} />
+                  <div className="aspect-square bg-[#e4e0d9] mb-4 overflow-hidden">
+                    {ep.image && (
+                      <img src={ep.image} alt={ep.title} className="w-full h-full object-cover" />
+                    )}
+                  </div>
 
                   {/* Section tag */}
                   <div className="flex items-center gap-2 mb-2">
@@ -85,6 +89,11 @@ export default function PodcastsPage() {
                   <h4 className={`playfair font-bold leading-tight mb-1 group-hover:text-charcoal transition-colors duration-300 ${isLarge ? "text-xl md:text-2xl" : "text-lg"}`}>
                     {ep.title}
                   </h4>
+                  {ep.show && (
+                    <p className="font-['Helvetica','Arial',sans-serif] tracking-tight text-xs font-semibold text-black mb-0.5">
+                      {ep.show}
+                    </p>
+                  )}
                   <p className="font-['Helvetica','Arial',sans-serif] italic tracking-tight text-xs text-black mb-2">
                     {ep.host}{ep.guest && ` \u00B7 ${ep.guest}`}
                   </p>

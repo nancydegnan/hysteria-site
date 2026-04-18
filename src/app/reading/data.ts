@@ -10,10 +10,12 @@ export interface Book {
 
 export interface Podcast {
   title: string;
+  show?: string;
   host: string;
   guest?: string;
   url: string;
   description: string;
+  image?: string;
 }
 
 export interface Film {
@@ -155,33 +157,41 @@ export const podcastGroups: { theme: string; slug: string; image?: string; podca
     podcasts: [
       {
         title: "How to Tell If You Have Endometriosis. Painful Menstruation, Symptoms, and Treatment",
+        show: "Dr. Brighten",
         host: "Dr. Jolene Brighten",
         guest: "Dr. Ramiro Cabrera Carranco",
         url: "https://www.youtube.com/watch?v=FBGUk49BpU4",
         description:
           "If you\u2019ve ever been told that period pain is \u201Cnormal\u201D or feel like you\u2019ve been gaslit by your symptoms, this episode is for you. Dr. Jolene Brighten and world-renowned endometriosis expert Dr. Ramiro Cabrera Carranco dive into the latest breakthroughs in diagnosing and managing this multisystemic inflammatory disease.",
+        image: "/dr brighten podcast.jpeg",
       },
       {
         title: "Female Hormone Health, PCOS, Endometriosis, Fertility & Breast Cancer",
+        show: "Huberman Lab",
         host: "Andrew Huberman",
         guest: "Dr. Tha\u00EFs Aliabadi",
         url: "https://www.youtube.com/watch?v=hMzfGZnaPN8&t=516s",
         description:
           "Discussion of PCOS and endometriosis \u2014 two very common yet frequently undiagnosed causes of female infertility. Covers symptoms, underlying causes, evidence-based treatments including supplement and lifestyle interventions, breast cancer risk and screening, pregnancy, perimenopause and menopause, and the hormone tests women should request.",
+        image: "/huberman podcast.jpeg",
       },
       {
         title: "Period Pain Relief for Endometriosis, Adenomyosis, and Hormonal Imbalances",
+        show: "Dr. Brighten",
         host: "Dr. Jolene Brighten",
         url: "https://drbrighten.com/podcasts/period-pain-relief/",
         description:
           "Dr. Brighten challenges the notion that severe menstrual pain is normal and explores three primary causes of period pain: problematic prostaglandins, structural issues like endometriosis and adenomyosis, and hormonal imbalances. Offers actionable strategies for reducing pain through nutrition, supplements, and lifestyle \u2014 alternatives beyond birth control and hysterectomy.",
+        image: "/dr brighten podcast.jpeg",
       },
       {
         title: "Can Ozempic and GLP-1\u2019s Help Treat Endometriosis",
+        show: "Dr. Brighten",
         host: "Dr. Jolene Brighten",
         url: "https://drbrighten.com/podcasts/glp-1-and-endometriosis/",
         description:
           "Dr. Brighten examines whether GLP-1 receptor agonist medications \u2014 including Ozempic, semaglutide, tirzepatide, and liraglutide \u2014 may help manage endometriosis symptoms. Covers emerging research on how these drugs might reduce inflammation, improve blood sugar stability, decrease pelvic pain, and address fatigue and endo belly. Emphasizes that while some women report symptom improvement, GLP-1 medications are not a cure for endometriosis but represent one potential tool within a comprehensive treatment strategy.",
+        image: "/dr brighten podcast.jpeg",
       },
     ],
   },
@@ -191,34 +201,42 @@ export const podcastGroups: { theme: string; slug: string; image?: string; podca
     podcasts: [
       {
         title: "The Luteal Truth Serum: Why Your Period is a Monthly Report Card",
+        show: "You're Great",
         host: "Unique Hammond",
         guest: "Dr. Hannah Lawler",
         url: "https://www.youregreat.com/blog/2026/1/8/podcast-62-the-luteal-truth-serum-why-your-period-is-a-monthly-report-card-with-dr-hannah-lawler",
         description:
           "Explores how the luteal phase reveals deeper truths about your body\u2019s needs, the role of soluble fiber in managing estrogen, and why mastering basics like fiber, minerals, protein, and rest matters before pursuing advanced interventions.",
+        image: "/you're great podcast.jpeg",
       },
       {
         title: "The Fundamentals of Great Health",
+        show: "You're Great",
         host: "Unique Hammond",
         guest: "Dr. Karen Hurd",
         url: "https://www.youregreat.com/blog/2025/6/20/podcast-56-the-fundamentals-of-great-health-with-dr-karen-hurd",
         description:
           "Dr. Karen Hurd breaks down the five essential pillars of optimal health \u2014 soluble fiber, water, complete protein, healthy fats, and nutrient-dense vegetables \u2014 and explains how the body\u2019s natural processes support healing and disease prevention through these fundamentals.",
+        image: "/you're great podcast.jpeg",
       },
       {
         title: "Endometriosis Diet That Stopped 20 Years of Pain",
+        show: "Dr. Brighten",
         host: "Dr. Jolene Brighten",
         guest: "Khush Sra",
         url: "https://drbrighten.com/podcasts/endometriosis-diet/",
         description:
           "Functional nutritionist Khush Sra shares how she went from stage 4 endometriosis and five surgeries to living pain-free for 20 years through nutritional intervention. Covers the role of gut dysbiosis in endo, anti-inflammatory foods for estrogen clearance, the connection between histamine intolerance and estrogen dominance, endo belly management, and why nervous system regulation comes before dietary changes.",
+        image: "/dr brighten podcast.jpeg",
       },
       {
         title: "Breaking Up With Caffeine",
+        show: "What's the Juice",
         host: "Olivia Amitrano",
         url: "https://whatsthejuice.libsyn.com/s3e20-caffine-solo",
         description:
           "Clinical herbalist and founder of Organic Olivia shares why she decided to break up with caffeine, how it impacts your body from a Traditional Chinese Medicine standpoint, and the benefits she\u2019s experienced \u2014 better sleep, higher libido, and more stable moods. She also covers how to counter withdrawal with minerals, vitamins, protein, and herbs.",
+        image: "/what's the juice podcast.jpeg",
       },
     ],
   },
@@ -227,12 +245,43 @@ export const podcastGroups: { theme: string; slug: string; image?: string; podca
     slug: "nervous-system-trauma-and-pain",
     podcasts: [
       {
+        title: "Healing Your Chronic Pain & Conditions Once And For All",
+        show: "The Wellness Process",
+        host: "Elizabeth",
+        guest: "Nicole Sachs",
+        url: "https://podcasts.apple.com/us/podcast/48-healing-your-chronic-pain-conditions-once-and-for/id1735161262?i=1000691038022",
+        description:
+          "Nicole Sachs, creator of JournalSpeak Therapy and author of Mind Your Body, shares how she has helped thousands address chronic pain and autoimmune conditions without medication. Explores the science behind the mind-body connection and strategies for breaking cycles of persistent symptoms.",
+        image: "/the wellness podcast.jpeg",
+      },
+      {
+        title: "Chronic Pelvic Pain, Foot Pain, Anxiety, and IBS with Alex",
+        show: "The Cure for Chronic Pain with Nicole Sachs, LCSW",
+        host: "Nicole Sachs, LCSW",
+        guest: "Alex",
+        url: "https://www.yourbreakawake.com/podcasts/the-cure-for-chronic-pain-with-nicole-sachs-lcsw-2/episodes/2149013835",
+        description:
+          "Alex shares her journey of discovering that her chronic anxiety, depression, pelvic pain, foot pain, and bloating stemmed from nervous system dysregulation. A serendipitous connection led her to Nicole\u2019s work and ultimately transformed her health \u2014 exploring how recognizing the root cause of multiple symptoms enabled her to heal completely.",
+        image: "/nicole sachs podcast.jpeg",
+      },
+      {
+        title: "How Your Nervous System Creates Your Entire Experience",
+        show: "You Make Sense with Sarah Baldwin",
+        host: "Sarah Baldwin",
+        url: "https://www.youtube.com/watch?v=UzRsDQB3tHU",
+        description:
+          "Sarah dives into the foundation of all healing: nervous system regulation. She explains how your Autonomic Nervous System creates every sensation, feeling, and behavior you\u2019ve ever experienced \u2014 from anxiety and depression to joy and flow \u2014 and shares her own journey through chronic dysregulation, panic attacks, and chronic illness toward transformation through somatic healing work.",
+        image: "/you make sense podcast.jpeg",
+      },
+      {
         title: "Nervous System Regulation",
+        show: "In Sixteen Years of Endo",
         host: "Amy Corfeli",
         guest: "Tanner Murtagh, MSW, RSW",
         url: "https://insixteenyears.com/episode155/",
         description:
           "Tanner Murtagh explains the link between nervous system dysregulation and chronic pain, breaking down polyvagal theory and how trauma and stress keep the body stuck in survival mode. Offers practical strategies for regulating your nervous system \u2014 essential listening for anyone navigating endometriosis and chronic pelvic pain.",
+        image: "/in 16 years of endo podcast.jpeg",
       },
     ],
   },

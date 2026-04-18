@@ -17,7 +17,7 @@ const sections = [
     href: "/reading/podcasts",
     count: podcastGroups.reduce((n, g) => n + g.podcasts.length, 0),
     unit: "episodes",
-    image: podcastGroups[0]?.image,
+    image: "/podcast image.png",
   },
   {
     label: "articles",
