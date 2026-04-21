@@ -10,11 +10,10 @@ export default function Home() {
   const [showStickyNav, setShowStickyNav] = useState(false);
 
   const navLinks = [
-    { href: "/about", label: "about" },
-    { href: "/tools", label: "shop" },
-    { href: "/reading", label: "read/watch/listen" },
-    { href: "/move", label: "move" },
-    { href: "/community", label: "community" },
+    { href: "/about", label: "the origin" },
+    { href: "/tools", label: "the outfitter" },
+    { href: "/reading", label: "the library" },
+    { href: "/community", label: "the chapter" },
     { href: "/hysteria-doc", label: "the documentary" },
     { href: "https://substack.com/@thenocureclub", label: "the newsletter" },
   ];
@@ -309,7 +308,7 @@ export default function Home() {
           <RevealSection>
             <div className="flex items-end justify-between mb-2">
               <h2 className="playfair-italic text-xl md:text-2xl tracking-tight">
-                tools we love
+                the outfitter
               </h2>
               <Link
                 href="/tools"
@@ -373,38 +372,45 @@ export default function Home() {
         <div className="max-w-6xl mx-auto text-black">
           <div className="w-[80%] mx-auto border-t-2 border-foreground/40 mb-12" />
           <RevealSection>
-            <div className="max-w-2xl mx-auto">
-              <p className="section-label text-sm text-charcoal mb-1 flex items-center gap-2">
-                <span className="w-2.5 h-2.5 bg-brown inline-block" />
-                community
-              </p>
-              <h2 className="playfair-italic text-xl md:text-2xl lg:text-3xl text-black font-light tracking-tighter mb-2">
-                welcome to{" "}<span className="ncc-logo text-black not-italic ml-2">The No Cure Club</span>
-              </h2>
-              <p className="text-sm font-semibold text-black leading-snug tracking-wider mb-8 mt-4">
-                Welcome to the club nobody wanted to join. I&apos;m so glad you&apos;re here.
-                <br />
-                <em className="font-normal">Started by someone going through it, for everyone going through it. Come find your people.</em>
-              </p>
-            </div>
-            <div className="max-w-2xl mx-auto">
-              <Link
-                href="/community#la-meetups"
-                className="border border-charcoal/30 rounded-none p-6 text-left group hover:bg-chartreuse hover:border-charcoal/30 transition-all duration-300"
-              >
-                <p className="text-xs font-semibold mb-1 uppercase tracking-wider">
-                  los angeles
+            <div className="grid md:grid-cols-[1fr_2fr] gap-8 items-start">
+              <div className="w-[70%] ml-auto aspect-[3/4] overflow-hidden">
+                <img
+                  src="/the chapter/DTS_Quiet_Glamour_DTS_Studio_Photos_ID8368.jpg"
+                  alt="The Chapter"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <p className="section-label text-sm text-charcoal mb-1 flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 bg-brown inline-block" />
+                  the chapter
                 </p>
-                <h3 className="playfair-italic text-base mb-1">
-                  in-person meetups
-                </h3>
-                <p className="playfair text-xs leading-snug">
-                  Intimate live gatherings to bring the LA endo community together. Dates go out to the mailing list first.
+                <h2 className="playfair-italic text-xl md:text-2xl lg:text-3xl text-black font-light tracking-tighter mb-2">
+                  welcome to{" "}<span className="ncc-logo text-black not-italic ml-2">The No Cure Club</span>
+                </h2>
+                <p className="text-sm font-semibold text-black leading-snug tracking-wider mb-6 mt-4">
+                  Welcome to the club nobody wanted to join. I&apos;m so glad you&apos;re here.
+                  <br />
+                  <em className="font-normal">Started by someone going through it, for everyone going through it. Come find your people.</em>
                 </p>
-                <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
-                  see events &rarr;
-                </span>
-              </Link>
+                <Link
+                  href="/community#la-meetups"
+                  className="inline-block border border-charcoal/30 rounded-none p-6 text-left group hover:bg-chartreuse hover:border-charcoal/30 transition-all duration-300"
+                >
+                  <p className="text-xs font-semibold mb-1 uppercase tracking-wider">
+                    los angeles
+                  </p>
+                  <h3 className="playfair-italic text-base mb-1">
+                    in-person meetups
+                  </h3>
+                  <p className="playfair text-xs leading-snug">
+                    Intimate live gatherings to bring the LA endo community together. Dates go out to the mailing list first.
+                  </p>
+                  <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
+                    see events &rarr;
+                  </span>
+                </Link>
+              </div>
             </div>
           </RevealSection>
           <div className="w-[80%] mx-auto border-t-2 border-foreground/40 mt-12" />
@@ -620,20 +626,26 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-6">
               <Link
                 href="/practitioners"
-                className="group border border-[#665e4c] rounded-none overflow-hidden hover:bg-chartreuse transition-all duration-300"
+                className="group relative border border-[#665e4c] rounded-none overflow-hidden transition-all duration-300"
               >
+                <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  <h3 className="text-white text-2xl md:text-3xl tracking-tight">
+                    <span className="font-black">coming</span>{" "}
+                    <em className="playfair-italic font-light">soon.</em>
+                  </h3>
+                </div>
                 <div className="overflow-hidden">
-                  <img src="/dr yang.jpg" alt="Practitioners" className="w-full object-cover aspect-[4/3] !rounded-none group-hover:scale-[1.03] transition-transform duration-500" />
+                  <img src="/the rolodex/793C77C8-7F98-4AAF-874C-3D7598BCCC0E-labbet-app.JPG" alt="The Rolodex" className="w-full object-cover aspect-[4/3] !rounded-none group-hover:scale-[1.03] transition-transform duration-500" style={{ objectPosition: "center bottom" }} />
                 </div>
                 <div className="px-8 pt-4 pb-6 text-left">
                   <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
-                    practitioners
+                    the rolodex
                   </p>
                   <h3 className="playfair text-xl mb-1">
-                    doctors <em className="playfair-italic">who listen.</em>
+                    tested <em className="playfair-italic">allies.</em>
                   </h3>
                   <p className="playfair text-sm text-black leading-snug">
-                    vetted specialists and practitioners across the country.
+                    a growing list of practitioners who actually believe you.
                   </p>
                   <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
                     explore &rarr;
@@ -646,17 +658,17 @@ export default function Home() {
                 className="group border border-[#665e4c] rounded-none overflow-hidden hover:bg-chartreuse transition-all duration-300"
               >
                 <div className="overflow-hidden">
-                  <img src="/tools.jpg" alt="Tools" className="w-full object-cover aspect-[4/3] !rounded-none group-hover:scale-[1.03] transition-transform duration-500" />
+                  <img src="/the outfitter/D0427016-083C-46A2-90CD-D23596D24819-labbet-app.JPG" alt="The Outfitter" className="w-full object-cover aspect-[4/3] !rounded-none group-hover:scale-[1.03] transition-transform duration-500" />
                 </div>
                 <div className="px-8 pt-4 pb-6 text-left">
                   <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
-                    tools
+                    the outfitter
                   </p>
                   <h3 className="playfair text-xl mb-1">
-                    products <em className="playfair-italic">that help.</em>
+                    survival <em className="playfair-italic">gear.</em>
                   </h3>
                   <p className="playfair text-sm text-black leading-snug">
-                    curated tools for managing daily life with endo.
+                    the stuff that actually makes a difference, tested by one of us.
                   </p>
                   <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
                     explore &rarr;
@@ -669,17 +681,17 @@ export default function Home() {
                 className="group border border-[#665e4c] rounded-none overflow-hidden hover:bg-chartreuse transition-all duration-300"
               >
                 <div className="overflow-hidden">
-                  <img src="/read 2.jpg" alt="Reading" className="w-full object-cover aspect-[4/3] !rounded-none group-hover:scale-[1.03] transition-transform duration-500" style={{ objectPosition: "center 80%" }} />
+                  <img src="/the library/470541CE-05C0-4BD3-A9A9-DD9106913813-labbet-app.JPG" alt="The Library" className="w-full object-cover aspect-[4/3] !rounded-none group-hover:scale-[1.03] transition-transform duration-500" style={{ objectPosition: "center 80%" }} />
                 </div>
                 <div className="px-8 pt-4 pb-6 text-left">
                   <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
-                    reading
+                    the library
                   </p>
                   <h3 className="playfair text-xl mb-1">
-                    knowledge <em className="playfair-italic">is power.</em>
+                    required <em className="playfair-italic">reading.</em>
                   </h3>
                   <p className="playfair text-sm text-black leading-snug">
-                    books, podcasts, films, and research worth your time.
+                    consider this your club curriculum.
                   </p>
                   <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
                     explore &rarr;

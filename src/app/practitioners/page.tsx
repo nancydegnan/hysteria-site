@@ -1,7 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { RevealSection, Footer, SubpageNav } from "../components";
+
+/* ══════════════════════════════════════════════
+   SAVED PRACTITIONER DATA — not yet public
+   ══════════════════════════════════════════════ */
 
 /* ── Practitioner data ── */
 interface Practitioner {
@@ -22,7 +25,7 @@ interface InstagramAccount {
   description: string;
 }
 
-const instagramAccounts: InstagramAccount[] = [
+const _instagramAccounts: InstagramAccount[] = [
   {
     handle: "@savannahregensburger",
     url: "https://www.instagram.com/savannahregensburger/",
@@ -67,7 +70,7 @@ const instagramAccounts: InstagramAccount[] = [
   },
 ];
 
-const practitioners: Practitioner[] = [
+const _practitioners: Practitioner[] = [
   {
     name: "Dr. Iris Orbuch",
     city: "Los Angeles",
@@ -115,7 +118,7 @@ const practitioners: Practitioner[] = [
   },
 ];
 
-const remotePractitioners: Practitioner[] = [
+const _remotePractitioners: Practitioner[] = [
   {
     name: "Dr. Jolene Brighten",
     city: "",
@@ -151,197 +154,47 @@ const remotePractitioners: Practitioner[] = [
   },
 ];
 
-/* Group by state */
-function groupByState(list: Practitioner[]) {
-  const map: Record<string, Practitioner[]> = {};
-  for (const p of list) {
-    (map[p.state] ??= []).push(p);
-  }
-  return Object.entries(map).sort(([a], [b]) => a.localeCompare(b));
-}
+/* suppress unused warnings — data preserved for future use */
+void _instagramAccounts;
+void _practitioners;
+void _remotePractitioners;
 
-function PractitionerCard({ p }: { p: Practitioner }) {
-  return (
-    <div className="bg-gray-light border border-gray-mid p-8 md:p-10 hover:border-black transition-all duration-300 card-hover">
-      <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
-        <h3 className="text-xl md:text-2xl font-semibold leading-tight">
-          {p.name}
-        </h3>
-        <div className="flex flex-wrap gap-2">
-          {p.city && (
-            <span className="inline-flex items-center gap-1.5 text-xs tracking-wide uppercase bg-gray-mid/50 px-3 py-1">
-              {p.city}, {p.state}
-            </span>
-          )}
-          {p.remote && (
-            <span className="inline-flex items-center gap-1.5 text-xs tracking-wide uppercase bg-blush/10 text-black px-3 py-1">
-              available remotely
-            </span>
-          )}
-        </div>
-      </div>
+/* ���═════════════════════════════════════════════
+   PUBLIC PAGE — coming soon
+   ══════════════════════════��═══════════════════ */
 
-      <p className="playfair text-sm leading-[1.4] text-gray-text mb-6">
-        {p.description}
-      </p>
-
-      <div className="mb-6">
-        <span className="text-xs font-semibold text-black uppercase tracking-wider">
-          best fit for
-        </span>
-        <p className="playfair text-sm leading-[1.4] text-gray-text mt-1">
-          {p.bestFor}
-        </p>
-      </div>
-
-      <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-gray-mid">
-        {p.contact && (
-          <a
-            href={
-              p.contact.type === "phone"
-                ? `tel:${p.contact.value}`
-                : `mailto:${p.contact.value}`
-            }
-            className="inline-flex items-center gap-2 text-sm text-gray-text hover:text-black transition-colors duration-300"
-          >
-            {p.contact.value}
-          </a>
-        )}
-
-        {p.website && (
-          <a
-            href={p.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-black hover:text-black transition-colors duration-300"
-          >
-            visit website &rarr;
-          </a>
-        )}
-      </div>
-    </div>
-  );
-}
-
-/* ── Page ── */
 export default function PractitionersPage() {
-  const grouped = groupByState(practitioners);
-
   return (
     <div className="min-h-screen bg-white text-black">
-      {/* ── Header ── */}
       <SubpageNav />
 
-      <div className="border-b border-gray-mid">
-        <header className="px-6 pt-24 pb-12 md:pt-28 md:pb-16 max-w-6xl mx-auto">
-          <RevealSection>
-            <p className="section-label text-sm text-gray-text mb-3">
-              vetted &amp; trusted
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
-              <span className="font-black">practitioners</span>{" "}
-              <em className="playfair-italic font-light">who care.</em>
-            </h1>
-            <p className="playfair text-base leading-[1.4] mt-6 text-gray-text max-w-2xl">
-              Every person listed here has been personally vetted or recommended
-              by someone I trust. This is not an ad — it&apos;s a shortcut through
-              the maze I had to navigate alone.
-            </p>
-
-            <div className="flex flex-wrap gap-3 mt-8">
-              <button
-                onClick={() =>
-                  document.getElementById("practitioners")?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="text-sm uppercase tracking-[0.15em] border border-gray-mid px-5 py-2 hover:border-black hover:text-black transition-colors duration-300 text-gray-text"
-              >
-                practitioners
-              </button>
-              <button
-                onClick={() =>
-                  document.getElementById("instagram")?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="text-sm uppercase tracking-[0.15em] border border-gray-mid px-5 py-2 hover:border-black hover:text-black transition-colors duration-300 text-gray-text"
-              >
-                instagram accounts
-              </button>
-            </div>
-          </RevealSection>
-        </header>
-      </div>
-
-      {/* ── Practitioner listings ── */}
-      <main id="practitioners" className="px-6 pb-20 md:pb-28 max-w-6xl mx-auto scroll-mt-8 pt-16 md:pt-24">
-        {/* ── Available Remotely ── */}
-        <section className="mb-16 md:mb-24">
-          <RevealSection>
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-8 md:mb-10">
-              available remotely
-            </h2>
-          </RevealSection>
-
-          <div className="grid gap-6">
-            {remotePractitioners.map((p) => (
-              <RevealSection key={p.name}>
-                <PractitionerCard p={p} />
-              </RevealSection>
-            ))}
-          </div>
-        </section>
-
-        {grouped.map(([state, list]) => (
-          <section key={state} className="mb-16 md:mb-24 last:mb-0">
-            <RevealSection>
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-black mb-8 md:mb-10">
-                {state}
-              </h2>
-            </RevealSection>
-
-            <div className="grid gap-6">
-              {list.map((p) => (
-                <RevealSection key={p.name}>
-                  <PractitionerCard p={p} />
-                </RevealSection>
-              ))}
-            </div>
-          </section>
-        ))}
-      </main>
-
-      {/* ── Instagram accounts ── */}
-      <section id="instagram" className="px-6 pb-20 md:pb-28 max-w-6xl mx-auto scroll-mt-8">
+      <div className="flex flex-col items-center justify-center px-6 pt-32 pb-20 md:pt-40 md:pb-28 text-center max-w-2xl mx-auto min-h-[70vh]">
         <RevealSection>
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
-            instagram accounts
-          </h2>
-          <p className="playfair text-sm leading-[1.4] text-gray-text mb-10 max-w-2xl">
-            Accounts I follow that consistently share helpful, honest content
-            about endo, women&apos;s health, and hormonal health.
+          <p className="section-label text-sm text-charcoal mb-3 flex items-center justify-center gap-2">
+            <span className="w-2.5 h-2.5 bg-brown inline-block" />
+            the rolodex
           </p>
-        </RevealSection>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight mb-4">
+            <span className="font-black">coming</span>{" "}
+            <em className="playfair-italic font-light">soon.</em>
+          </h1>
+          <p className="playfair text-base leading-snug text-black mt-4 max-w-md mx-auto">
+            We&apos;re building a vetted, growing list of practitioners who actually believe you. It&apos;s almost ready.
+          </p>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {instagramAccounts.map((acct) => (
-            <RevealSection key={acct.handle}>
-              <a
-                href={acct.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block bg-gray-light border border-gray-mid p-8 hover:border-black transition-all duration-300 h-full card-hover"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-sm font-medium group-hover:text-black transition-colors duration-300 break-all">
-                    {acct.handle}
-                  </span>
-                </div>
-                <p className="playfair text-sm leading-[1.4] text-gray-text">
-                  {acct.description}
-                </p>
-              </a>
-            </RevealSection>
-          ))}
-        </div>
-      </section>
+          <div className="mt-10">
+            <p className="text-sm font-semibold text-black tracking-wider mb-4">
+              want to share a practitioner you love?
+            </p>
+            <a
+              href="mailto:thenocureclub@gmail.com?subject=Practitioner%20Recommendation"
+              className="btn-primary text-xs"
+            >
+              drop a name
+            </a>
+          </div>
+        </RevealSection>
+      </div>
 
       <Footer />
     </div>

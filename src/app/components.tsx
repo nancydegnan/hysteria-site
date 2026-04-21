@@ -126,10 +126,10 @@ export function SubpageNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "/about", label: "about" },
-    { href: "/tools", label: "shop" },
-    { href: "/reading", label: "read/watch/listen" },
-    { href: "/community", label: "community" },
+    { href: "/about", label: "the origin" },
+    { href: "/tools", label: "the outfitter" },
+    { href: "/reading", label: "the library" },
+    { href: "/community", label: "the chapter" },
     { href: "/hysteria-doc", label: "the documentary" },
     { href: "https://substack.com/@thenocureclub", label: "the newsletter" },
   ];
@@ -295,10 +295,10 @@ export function Footer() {
             </h4>
             <nav className="flex flex-col gap-2.5">
               {[
-                { href: "/about", label: "about" },
-                { href: "/tools", label: "shop" },
-                { href: "/reading", label: "read/watch/listen" },
-                { href: "/community", label: "community" },
+                { href: "/about", label: "the origin" },
+                { href: "/tools", label: "the outfitter" },
+                { href: "/reading", label: "the library" },
+                { href: "/community", label: "the chapter" },
                 { href: "/hysteria-doc", label: "the documentary" },
               ].map((link) => (
                 <Link

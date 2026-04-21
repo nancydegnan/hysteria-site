@@ -9,21 +9,21 @@ const sections = [
     label: "about us",
     title: "a note from the founder",
     description: "The personal story behind The No Cure Club.",
-    image: "/nancy 2.jpg",
+    image: "/NANCY/Monika Photos/C02407A6-A8FF-44C8-B9E4-325C7823D279-labbet-app.JPG",
   },
   {
     href: "/about/why-we-exist",
     label: "our mission",
     title: "why we exist",
     description: "What The No Cure Club is building.",
-    image: "/about.jpg",
+    image: "/the chapter/E3B43717-9F7E-4AC6-917A-3D4A6FE1D65D-labbet-app.JPG",
   },
   {
     href: "/about/manifesto",
     label: "manifesto",
     title: "our manifesto",
     description: "What we believe.",
-    image: "/manifesto.jpg",
+    image: "/the origin/74AFBD80-AFDC-4604-8A79-7BBA4A35CFB3-labbet-app.JPG",
   },
 ];
 

@@ -10,7 +10,7 @@ export default function GLP1AndEndoPage() {
         <header className="px-6 pt-24 pb-12 md:pt-28 md:pb-16 max-w-6xl mx-auto">
           <RevealSection>
             <p className="section-label text-sm text-black mb-3">
-              research
+              read
             </p>
             <h1 className="playfair text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
               Two Important Pieces of Research About GLP-1{"\u2019"}s and Endo
@@ -24,10 +24,10 @@ export default function GLP1AndEndoPage() {
 
       <main className="px-6 pb-20 md:pb-28 max-w-6xl mx-auto pt-16 md:pt-24">
         <Link
-          href="/reading/research"
+          href="/reading"
           className="font-['Helvetica','Arial',sans-serif] italic tracking-tight text-sm font-bold text-black hover:text-gray-text transition-colors duration-300 mb-10 inline-block"
         >
-          &larr; back to research
+          &larr; back to the library
         </Link>
 
         {/* ── Paper 1 ── */}

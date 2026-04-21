@@ -432,7 +432,7 @@ export const advocacyTools: FreeTool[] = [
     url: "https://nyulangone.org/locations/endometriosis-center/endometriosis-symptom-questionnaire",
     description:
       "Free screening tool from NYU Langone\u2019s Endometriosis Center. Asks about five key symptom areas \u2014 period pain, pain between periods, painful intercourse, avoidance of sex due to pain, and painful bowel movements \u2014 to help identify potential endometriosis and connect you with further evaluation.",
-    image: "/endo symptoms 2.jpg",
+    image: "/endo/DTS_BLOOM_Pointless_Agency_Photos_ID14730.jpg",
     imagePosition: "center 70%",
   },
   {
@@ -440,14 +440,14 @@ export const advocacyTools: FreeTool[] = [
     url: "https://www.endometriosis-uk.org/symptom-checker",
     description:
       "Quick screening tool from Endometriosis UK that takes less than a minute. Identifies common endo symptoms and lets you generate a letter to share with your doctor \u2014 helping you walk in prepared.",
-    image: "/endo symptoms 3.jpg",
+    image: "/endo/DTS_BLOOM_Pointless_Agency_Photos_ID14773.jpg",
   },
   {
     name: "pain perception project",
     url: "https://www.painperceptionproject.com/",
     description:
       "A patient-founded initiative producing tools for better understanding pain. Includes a Pelvic Pain Assessment that helps you effectively communicate with your doctor \u2014 because coming prepared is an element we\u2019ve never had.",
-    image: "/pain perception.jpg",
+    image: "/endo/DTS_INSOMNIA_Agustín_Farías_Photos_ID14454.jpg",
   },
 ];
 
@@ -457,13 +457,13 @@ export const healingTools: FreeTool[] = [
     url: "https://www.youtube.com/watch?v=vzzZVGc6VyQ",
     description:
       "Trauma recovery and deep healing music for restoration. A free sound bath designed to regulate your nervous system \u2014 helpful for managing pain, stress, and the emotional toll of chronic illness. I listen to this in the background while working or just around the house.",
-    image: "/nervous system reset.jpg",
+    image: "/the chapter/DTS_BLOOM_Pointless_Agency_Photos_ID14729.jpg",
   },
   {
     name: "lower your cortisol sound bath",
     url: "https://www.youtube.com/watch?v=S3k6KArOs0A",
     description:
       "Crystal singing bowls for stress relief. A free sound bath designed to help lower cortisol levels \u2014 useful for calming the nervous system when chronic pain, inflammation, or stress keep your body in overdrive. I listen to this in the background while working or just around the house.",
-    image: "/lower your cortisol.jpg",
+    image: "/the chapter/DTS_LIFE_IN_LILAC_Mar_Boerr_Photos_ID7448.jpg",
   },
 ];

@@ -432,6 +432,30 @@ export default function HysteriaDoc() {
         </div>
       </section>
 
+      {/* ====== QUOTE — CATHERINE EARNSHAW ====== */}
+      <section className="py-16 md:py-24 px-6 bg-chartreuse">
+        <div className="max-w-3xl mx-auto">
+          <RevealSection>
+            <p className="section-label text-sm text-black/40 mb-6">
+              the enclosed
+            </p>
+            <blockquote className="border-l-2 border-black pl-8">
+              <p className="text-xl md:text-2xl lg:text-3xl font-bold italic leading-[1.1] text-black">
+                &ldquo;I&apos;m tired of being enclosed here. I&apos;m wearying
+                to escape into that glorious world, and to be always there: not
+                seeing it dimly through tears, and yearning for it through the
+                walls of an aching heart.&rdquo;
+              </p>
+              <footer className="mt-4">
+                <p className="text-sm text-black/40">
+                  Catherine Earnshaw
+                </p>
+              </footer>
+            </blockquote>
+          </RevealSection>
+        </div>
+      </section>
+
       {/* ====== DONATION SECTION ====== */}
       <section id="donate" className="py-20 md:py-28 px-6 bg-chartreuse">
         <div className="max-w-6xl mx-auto">
