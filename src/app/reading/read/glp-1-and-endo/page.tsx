@@ -33,21 +33,21 @@ export default function GLP1AndEndoPage() {
         {/* ── Paper 1 ── */}
         <RevealSection>
           <section className="mb-14">
-            <h2 className="text-[11px] font-semibold uppercase tracking-[0.12em] text-black mb-4">
-              Paper 1
+            <h2 className="playfair text-xl md:text-2xl font-bold leading-tight mb-4">
+              Paper 1: Krasnyi et al., 2022
             </h2>
-            <h3 className="playfair text-xl md:text-2xl leading-tight mb-2">
-              Krasnyi et al., 2022 &mdash; International Journal of Molecular Sciences
-            </h3>
+            <p className="font-['Helvetica','Arial',sans-serif] tracking-tight text-sm text-black mb-2">
+              International Journal of Molecular Sciences
+            </p>
             <p className="font-['Helvetica','Arial',sans-serif] italic tracking-tight text-sm text-black mb-6">
               {"\u201C"}The Levels of Ghrelin, Glucagon, Visfatin and GLP-1 Are Decreased in the Peritoneal Fluid of Women with Endometriosis Along with the Increased Expression of the CD10 Protease by the Macrophages{"\u201D"}
             </p>
             <p className="font-['Helvetica','Arial',sans-serif] tracking-tight text-base leading-relaxed text-black mb-4">
               This is the foundational paper. The study evaluated energy metabolism factors including GLP-1 in the peritoneal fluid of 54 women with endometriosis compared to a control group of 30 women without it. It found that GLP-1 concentrations in peritoneal fluid were significantly reduced in endometriosis patients.
             </p>
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.12em] text-black mb-3 mt-8">
-              Why This Matters
-            </h4>
+            <h3 className="playfair text-lg md:text-xl font-bold leading-tight mb-3 mt-8">
+              Why this matters
+            </h3>
             <p className="font-['Helvetica','Arial',sans-serif] tracking-tight text-base leading-relaxed text-black mb-4">
               Decreased GLP-1 levels were correlated with reduced expression of the pro-inflammatory CD86 macrophage marker in peritoneal fluid &mdash; a marker that plays a critical role in the elimination of endometrial cells after retrograde menstruation. In other words, low GLP-1 in the pelvic environment appears to impair the immune system{"\u2019"}s ability to clear the debris that seeds endometriotic lesions in the first place. The authors concluded that a decrease in GLP-1 in peritoneal fluid may contribute to endometriosis development through its impact on the expression of pro-inflammatory markers of macrophages.
             </p>
@@ -68,12 +68,12 @@ export default function GLP1AndEndoPage() {
         {/* ── Paper 2 ── */}
         <RevealSection>
           <section className="mb-14">
-            <h2 className="text-[11px] font-semibold uppercase tracking-[0.12em] text-black mb-4">
-              Paper 2
+            <h2 className="playfair text-xl md:text-2xl font-bold leading-tight mb-4">
+              Paper 2: Sola-Leyva et al., 2025
             </h2>
-            <h3 className="playfair text-xl md:text-2xl leading-tight mb-2">
-              Sola-Leyva et al., 2025 &mdash; Acta Obstetricia et Gynecologica Scandinavica (Karolinska Institute)
-            </h3>
+            <p className="font-['Helvetica','Arial',sans-serif] tracking-tight text-sm text-black mb-2">
+              Acta Obstetricia et Gynecologica Scandinavica (Karolinska Institute)
+            </p>
             <p className="font-['Helvetica','Arial',sans-serif] italic tracking-tight text-sm text-black mb-6">
               {"\u201C"}The Hidden Impact of GLP-1 Receptor Agonists on Endometrial Receptivity and Implantation{"\u201D"}
             </p>
@@ -97,8 +97,8 @@ export default function GLP1AndEndoPage() {
         {/* ── What the two papers together suggest ── */}
         <RevealSection>
           <section className="mb-14">
-            <h2 className="text-[11px] font-semibold uppercase tracking-[0.12em] text-black mb-4">
-              What the Two Papers Together Suggest
+            <h2 className="playfair text-xl md:text-2xl font-bold leading-tight mb-4">
+              What the two papers together suggest
             </h2>
             <p className="font-['Helvetica','Arial',sans-serif] tracking-tight text-base leading-relaxed text-black mb-4">
               What the two papers together suggest is a coherent loop: endo patients have less natural GLP-1 in their pelvic environment, that deficit promotes the pro-inflammatory macrophage dysfunction that lets lesions take hold, and GLP-1 receptor agonists could theoretically restore that balance &mdash; suppressing NF-{"\u03BA"}B signaling, reducing cytokine production (TNF-{"\u03B1"}, IL-6), and re-polarizing macrophages toward an anti-inflammatory state.
@@ -109,15 +109,26 @@ export default function GLP1AndEndoPage() {
           </section>
         </RevealSection>
 
-        {/* ── How can I apply this research in my life? ── */}
+        {/* ── What this means for your care ── */}
         <RevealSection>
-          <section className="mb-14">
-            <h2 className="text-[11px] font-semibold uppercase tracking-[0.12em] text-black mb-4">
-              How Can I Apply This Research in My Life?
+          <section className="mb-14 border-l-4 border-black py-8 pl-8 pr-6">
+            <h2 className="playfair text-xl md:text-2xl font-bold leading-tight mb-4">
+              What this means for your care
             </h2>
-            <p className="font-['Helvetica','Arial',sans-serif] tracking-tight text-base leading-relaxed text-black italic">
-              Content coming soon.
-            </p>
+            <div className="space-y-4 font-['Helvetica','Arial',sans-serif] tracking-tight text-base leading-relaxed text-black">
+              <p>
+                If you{"\u2019"}re on a GLP-1 medication like Ozempic or Mounjaro for weight management or metabolic health and you also have endo, pay attention to what happens to your symptoms. Some women in this community have reported reduced pelvic pain, less bloating, and fewer flares {"\u2014"} and this research offers a biological explanation for why that might be happening. Your GLP-1 medication may be doing more than managing your blood sugar. It may be partially restoring the immune balance your pelvic environment is missing.
+              </p>
+              <p>
+                If you{"\u2019"}re not on a GLP-1 and don{"\u2019"}t plan to be, the deeper takeaway still applies: your endo may be driven as much by immune dysfunction as by estrogen. That reframe matters when you{"\u2019"}re building a treatment strategy. Hormonal suppression targets one piece. Anti-inflammatory nutrition, gut health, and immune support target another {"\u2014"} the piece this research says may be more foundational than the field previously understood.
+              </p>
+              <p>
+                If you{"\u2019"}re struggling with fertility alongside your endo diagnosis, the second paper{"\u2019"}s focus on endometrial receptivity is worth noting. The authors theorize that GLP-1 agonists could improve the uterine lining{"\u2019"}s readiness for implantation by reducing the inflammation that impairs it. This isn{"\u2019"}t a treatment recommendation {"\u2014"} it{"\u2019"}s an active research question {"\u2014"} but it{"\u2019"}s worth raising with a reproductive endocrinologist who is keeping up with the literature.
+              </p>
+              <p>
+                These papers are early. But they point toward something this community already senses: that endometriosis is an immune disease being treated with hormonal band-aids, and the real breakthroughs will come from understanding the inflammation at its root.
+              </p>
+            </div>
           </section>
         </RevealSection>
       </main>

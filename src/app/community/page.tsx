@@ -19,19 +19,20 @@ interface Event {
 
 const laEvents: Event[] = [
   {
-    date: "May 2, 2026",
+    date: "Saturday, May 2, 2026 · 4:30–6 PM",
     title: "cozy afternoon gathering",
     description:
       "Hosted at Nancy\u2019s home in Echo Park. An intimate gathering to ground, connect, and go deeper. Bean Protocol friendly light bites and Nancy\u2019s signature sugar free electrolyte drink to be provided for a nourishing evening.",
     image: "/the chapter/DTS_ONE_ROOF_Chris_Abatzis_Photos_ID11318.jpg",
-    link: "https://www.eventbrite.com/e/the-no-cure-club-afternoon-tea-gathering-tickets-1986841219572?aff=oddtdtcreator",
+    link: "https://partiful.com/e/AUpOin8g6k6GEKPjdxvX?c=0od_OhNY",
   },
   {
-    date: "May 30, 2026",
+    date: "Sunday, June 14, 2026 · 11 AM–1:30 PM",
     title: "launch event",
     description:
       "Our first event. An afternoon tea (caffeine free of course) gathering to connect, share, and support each other. Special guest, an incredible Pelvic Floor Physical Therapist located in LA.",
     image: "/the chapter/F160CA01-A597-4ADD-9264-A425949446A5-labbet-app.JPG",
+    link: "https://www.eventbrite.com/e/the-no-cure-club-afternoon-tea-gathering-tickets-1986841219572?aff=oddtdtcreator",
     extra: <>This will be a filmed event, to be included in <Link href="/hysteria-doc" className="underline hover:opacity-60 transition-opacity">the documentary</Link>.</>,
   },
 ];

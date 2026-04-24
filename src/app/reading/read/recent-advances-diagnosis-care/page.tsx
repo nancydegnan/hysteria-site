@@ -203,27 +203,24 @@ export default function RecentAdvancesPage() {
           </section>
         </RevealSection>
 
-        {/* ── What this actually means ── */}
+        {/* ── What this actually means for you ── */}
         <RevealSection>
-          <section className="mb-14">
+          <section className="mb-14 border-l-4 border-black py-8 pl-8 pr-6">
             <h2 className="playfair text-xl md:text-2xl font-bold leading-tight mb-4">
-              What this actually means
+              What this means for your care
             </h2>
             <div className="space-y-4 font-['Helvetica','Arial',sans-serif] tracking-tight text-base leading-relaxed text-black">
               <p>
-                Three takeaways worth holding onto.
+                If you{"\u2019"}ve been telling doctors about your bloating, your fatigue, your migraines, your mood {"\u2014"} and being treated like those are separate from your endo {"\u2014"} this paper says you{"\u2019"}re right and they{"\u2019"}re wrong. Genomic studies now confirm shared biology between endometriosis and those conditions. You don{"\u2019"}t need five specialists who don{"\u2019"}t talk to each other. You need a care approach that treats the whole pattern.
               </p>
               <p>
-                The field has stopped treating endometriosis as a standalone pelvic disease. It{"\u2019"}s being studied as part of a network of inflammatory, neurological, and GI conditions with shared biology. That changes what treatments become possible, and it validates what patients have been saying for years about the range of symptoms they experience.
+                If you want to get pregnant, or think you might someday, don{"\u2019"}t wait for a fertility crisis to start that conversation. This paper shows that endometriosis damages ovarian reserve over time {"\u2014"} even without surgery. Ask your provider about AMH testing now, not later. Early information gives you choices. Late information takes them away.
               </p>
               <p>
-                Fertility impacts are driven by multiple mechanisms, not just lesion location or surgical history. Inflammation is damaging ovarian reserve before any surgery happens. This deserves much earlier conversation with patients, not vague reassurance that fertility can be addressed later.
+                If you{"\u2019"}re pursuing dietary changes, working on your gut health, or taking anti-inflammatory supplements, this paper gives you peer-reviewed backing. The estrobolome {"\u2014"} the set of gut bacteria that reactivates estrogen {"\u2014"} is elevated in endo patients. That means the gut is directly feeding the estrogen load that fuels your lesions. Soluble fiber, probiotics, and anti-inflammatory nutrition aren{"\u2019"}t extras. They{"\u2019"}re targeting a documented mechanism. Print this section and bring it to your next appointment if you need to.
               </p>
               <p>
-                The gut is no longer a side topic. Microbiome composition, estrogen metabolism, and specific bacterial infections may each be driving parts of the disease. That means self-management strategies around diet, supplements, and gut health are grounded in real biology, not wellness theater.
-              </p>
-              <p>
-                The future of endometriosis care is going to be less standardized and more personalized. This paper is a solid map of where the research is already heading.
+                If you{"\u2019"}re watching the drug pipeline {"\u2014"} CGRP inhibitors for migraine-linked pain, mPGES-1 inhibitors for inflammation, anti-IL-8 antibodies {"\u2014"} these are in clinical trials now. Ask your doctor whether any repurposed treatments might apply to your case. The days of birth control or nothing are ending.
               </p>
             </div>
           </section>

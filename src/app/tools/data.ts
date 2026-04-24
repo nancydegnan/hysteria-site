@@ -63,7 +63,7 @@ export const tools: Tool[] = [
     description:
       "Soft, stretchy, stackable rings that let you customize penetration depth — reducing pain during intimacy by preventing contact with tender pelvic structures.",
     shortDescription: "Customizable rings for pain-free intimacy.",
-    personalNote: "temp text\nx, N",
+    personalNote: "This allows you to let go of the control that comes with deep penetration pain. For those of us who tense and guard in order to stop the pain, this brings back the fun and ease to sex even if you have pain. Plus the vibrator add-on is a real plus :)\nx, N",
     website: "https://thepelvicpeople.com",
     image: "/Orange_Ohnut_Updated-resize-min.webp",
   },
@@ -74,7 +74,7 @@ export const tools: Tool[] = [
     description:
       "A vibrating pelvic relaxation massager designed to release tight pelvic floor muscles. Non-phallic, gentle, and targeted — with different ends for shallow internal use and for massaging connected muscle groups.",
     shortDescription: "Gentle pelvic floor massager for muscle release.",
-    personalNote: "temp text\nx, N",
+    personalNote: "This is the gentlest entry into dearmouring that I\u2019ve ever had. Really helped ease my entry pain that came along with endo, and the vibrating function helps with pain but also adds pleasure to a process that can feel mechanical.\nx, N",
     website: "https://thepelvicpeople.com/products/kiwi",
     image: "/Kiwicollectionphoto_Editablebox_orange2-min.webp",
   },
@@ -88,6 +88,30 @@ export const tools: Tool[] = [
     personalNote: "This chair has changed my life. I have bad pelvic pain that radiates up my back, shoulder, and neck on the right side, and this chair helps me sit comfortably and allows me to change the angle of my pelvis in a supported way. I often sit in a \u201Chappy baby\u201D type of posture, which relieves the hip and pelvis tension.\nx, N",
     website: "https://www.walmart.com/ip/Pinmoco-Ergonomic-Cross-Legged-Swivel-Chair-Adjustable-Stool-for-Home-and-Office-White/14257963234",
     image: "/pinmoco chair.jpeg",
+  },
+  {
+    company: "CLEARLIGHT",
+    name: "amethyst PEMF mat",
+    price: "$1,099",
+    description:
+      "Far infrared therapy mat with over 25 pounds of pure amethyst crystals and built-in pulsed electromagnetic field (PEMF) technology. Ten PEMF cores operate at customizable frequencies between 3\u201323 Hz, letting you dial in the intensity for your needs. Generates far infrared wavelengths of 6\u201314 microns that penetrate deep into tissue, increasing blood flow and reducing inflammation. 12-layer construction with negative ion output for cellular detoxification and nervous system regulation.",
+    shortDescription: "PEMF + far infrared mat with customizable frequency levels.",
+    personalNote: "This is the PEMF mat I use daily as part of my experiment to put my endo into remission. PEMF works through electromagnetic induction \u2014 the pulses interact with cell surface receptors and suppress the same inflammatory pathways (NF-\u03BAB, TNF-\u03B1, IL-6) that drive endometriosis. I chose this one because it has different frequency levels you can customize, which many others don\u2019t. I use it on my pelvis, my back, and sometimes just lay on it full-body while I work.\nx, N",
+    website: "https://shop.infraredsauna.com/products/amethyst-pemf-mat",
+    image: "/the outfitter/clearlight PEMF.jpeg",
+    imageFit: "contain",
+  },
+  {
+    company: "CLEARLIGHT",
+    name: "personal tower red light therapy device",
+    price: "$699",
+    description:
+      "Targeted red light therapy tower with Variable Optics Technology \u2014 a mix of 7 to 60 degree optics that create multiple light wave acceptance angles for deeper cellular penetration. Delivers irradiance of 55\u2013110 mW/cm\u00B2 at 4 inches. Compact enough for targeted use on specific areas like the pelvis, face, hands, and feet. Comes with stand, goggles, and dust bag.",
+    shortDescription: "Targeted red light therapy tower with variable optics.",
+    personalNote: "This is the red light device I use every day as part of my experiment to put my endo into remission. Red light therapy (photobiomodulation) works at the mitochondrial level \u2014 it suppresses NF-\u03BAB, shifts macrophages from their inflammatory M1 state toward the repair-oriented M2 state, and enhances regulatory T cell function. I point this at my pelvis, lower back, and abdomen. The variable optics make a real difference in how deep the light penetrates.\nx, N",
+    website: "https://shop.infraredsauna.com/products/personal-tower-stand",
+    image: "/the outfitter/clearlight red light tower.png",
+    imageFit: "contain",
   },
   {
     company: "OTO Fertility",

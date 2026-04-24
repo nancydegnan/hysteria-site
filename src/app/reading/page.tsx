@@ -29,7 +29,11 @@ export default function ReadingPage() {
   function itemsForSection(sectionKey: string) {
     const sectionItems = readingItems.filter((item) => item.section === sectionKey);
     if (isAllSelected) return sectionItems;
-    return sectionItems.filter((item) => activeFormats.has(item.format));
+    return sectionItems.filter((item) => {
+      if (activeFormats.has(item.format)) return true;
+      if (item.format === "Article" && activeFormats.has("Study")) return true;
+      return false;
+    });
   }
 
   return (

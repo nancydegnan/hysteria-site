@@ -432,30 +432,6 @@ export default function HysteriaDoc() {
         </div>
       </section>
 
-      {/* ====== QUOTE — CATHERINE EARNSHAW ====== */}
-      <section className="py-16 md:py-24 px-6 bg-chartreuse">
-        <div className="max-w-3xl mx-auto">
-          <RevealSection>
-            <p className="section-label text-sm text-black/40 mb-6">
-              the enclosed
-            </p>
-            <blockquote className="border-l-2 border-black pl-8">
-              <p className="text-xl md:text-2xl lg:text-3xl font-bold italic leading-[1.1] text-black">
-                &ldquo;I&apos;m tired of being enclosed here. I&apos;m wearying
-                to escape into that glorious world, and to be always there: not
-                seeing it dimly through tears, and yearning for it through the
-                walls of an aching heart.&rdquo;
-              </p>
-              <footer className="mt-4">
-                <p className="text-sm text-black/40">
-                  Catherine Earnshaw
-                </p>
-              </footer>
-            </blockquote>
-          </RevealSection>
-        </div>
-      </section>
-
       {/* ====== DONATION SECTION ====== */}
       <section id="donate" className="py-20 md:py-28 px-6 bg-chartreuse">
         <div className="max-w-6xl mx-auto">
@@ -500,11 +476,12 @@ export default function HysteriaDoc() {
                 </div>
                 <div className="bg-black text-white p-8">
                   <h3 className="text-lg font-medium mb-2">
-                    100% Independent
+                    Patient-Led
                   </h3>
                   <p className="font-['Helvetica','Arial',sans-serif] text-sm text-white/70 leading-[1.4] tracking-tight">
-                    No studio backing. No corporate agenda. This film is made by
-                    patients, for everyone.
+                    The medical industry will never lead this change &mdash;
+                    patients have to. Media creates the demand that forces the
+                    system to respond.
                   </p>
                 </div>
                 <div className="bg-[#c8ff00] p-8 border-l-2 border-black">
@@ -519,6 +496,27 @@ export default function HysteriaDoc() {
               </div>
             </RevealSection>
           </div>
+        </div>
+      </section>
+
+      {/* ====== QUOTE — CATHERINE EARNSHAW ====== */}
+      <section className="pt-0 pb-16 md:pt-0 md:pb-24 px-6 bg-chartreuse">
+        <div className="max-w-3xl mx-auto">
+          <RevealSection>
+            <blockquote className="border-l-2 border-black pl-8">
+              <p className="text-xl md:text-2xl lg:text-3xl font-bold italic leading-[1.1] text-black">
+                &ldquo;I&apos;m tired of being enclosed here. I&apos;m wearying
+                to escape into that glorious world, and to be always there: not
+                seeing it dimly through tears, and yearning for it through the
+                walls of an aching heart.&rdquo;
+              </p>
+              <footer className="mt-4">
+                <p className="text-sm text-black/40">
+                  Catherine Earnshaw
+                </p>
+              </footer>
+            </blockquote>
+          </RevealSection>
         </div>
       </section>
 

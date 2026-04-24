@@ -254,6 +254,16 @@ export const podcastGroups: { theme: string; slug: string; image?: string; podca
           "Clinical herbalist and founder of Organic Olivia shares why she decided to break up with caffeine, how it impacts your body from a Traditional Chinese Medicine standpoint, and the benefits she\u2019s experienced \u2014 better sleep, higher libido, and more stable moods. She also covers how to counter withdrawal with minerals, vitamins, protein, and herbs.",
         image: "/what's the juice podcast.jpeg",
       },
+      {
+        title: "Beans, High Cortisol and Caffeine: How Beans Can Bind and Lower Stress Hormones",
+        show: "What's the Juice",
+        host: "Olivia Amitrano",
+        guest: "Karen Hurd",
+        url: "https://blog.organicolivia.com/podcast/beans-high-cortisol-and-caffeine-how-beans-can-bind-and-lower-stress-hormones-breaking-down-the-biochemistry-with-bean-queen-karen-hurd/",
+        description:
+          "Biochemist and nutritionist Karen Hurd \u2014 the \u2018Bean Queen\u2019 \u2014 explains how soluble fiber in beans binds and removes fat-soluble toxins and excess stress hormones from the body. Covers the connection between caffeine, adrenaline, and estrogen production, therapeutic bean consumption recommendations, and lifestyle modifications for managing anxiety and hormonal concerns.",
+        image: "/what's the juice podcast.jpeg",
+      },
     ],
   },
   {
@@ -592,43 +602,43 @@ export const sections: SectionMeta[] = [
   {
     key: "foundations",
     name: "the foundations",
-    intro: "Start-here material for the newly diagnosed.",
+    intro: "Start-here material for the newly diagnosed or if you think you might have endo.",
   },
   {
     key: "practice",
     name: "the practice",
-    intro: "Applied treatment content, from surgery to pelvic floor PT.",
+    intro: "Applied self-management: nutrition, gut health, nervous system regulation, and product safety.",
   },
   {
     key: "evidence",
     name: "the evidence",
-    intro: "Research, mechanistic explainers, and rigorous science journalism.",
+    intro: "The studies, the data, and the emerging science that's changing how endometriosis is understood.",
   },
   {
     key: "reckoning",
     name: "the reckoning",
-    intro: "Systemic critique of how medicine treats women.",
+    intro: "How medicine got here \u2014 the bias, the history, and the receipts.",
   },
   {
     key: "witness",
     name: "the witness",
-    intro: "First-person accounts, memoir, and narrative.",
+    intro: "First-person stories from people who lived it, filmed it, or wrote their way through it.",
   },
 ];
 
-export const allFormats: Format[] = ["Book", "Article", "Podcast", "Film", "Study"];
+export const allFormats: Format[] = ["Book", "Podcast", "Film", "Study"];
 
 /** Placeholder items. Replace with real editorial placements. */
 export const readingItems: ReadingItem[] = [
   {
-    title: "Beating Endo",
+    title: "Heal Endo",
     format: "Book",
-    source: "Iris Kerin Orbuch, MD & Amy Stein, DPT",
-    url: "https://www.amazon.com/Beating-Endo-Holistic-Treatment-Endometriosis/dp/0062861832",
+    source: "Katie Edmonds, NTP",
+    url: "https://www.amazon.com/Heal-Endo-Anti-Inflammatory-Approach-Endometriosis/dp/1792389485",
     description:
-      "A multi-disciplinary treatment plan from a laparoscopic surgeon and pelvic floor physical therapist covering surgery, physical therapy, nutrition, and mental health.",
+      "The #1 best-selling book on endometriosis takes an anti-inflammatory approach to healing, covering how the disease develops, dietary and lifestyle factors, the role of gut bacteria as an endo trigger, and how to build a comprehensive treatment plan including surgery.",
     section: "foundations",
-    image: "/beating endo.jpg",
+    image: "/heal endo.jpg",
   },
   {
     title: "Endo What?",
@@ -671,6 +681,15 @@ export const readingItems: ReadingItem[] = [
     image: "/you make sense podcast.jpeg",
   },
   {
+    title: "Endometriosis: New Insights and Opportunities for Relief of Symptoms",
+    format: "Study",
+    source: "Philippa T. K. Saunders & Andrew W. Horne, Biology of Reproduction",
+    url: "/reading/read/new-insights-relief-of-symptoms",
+    description:
+      "A comprehensive review framing endometriosis as a chronic neuroinflammatory disorder. Covers the three types of pain driving the disease, genetic links to migraine and depression, what\u2019s happening inside lesions, new drugs in the pipeline beyond hormonal suppression, and why self-management strategies like nutrition are clinically legitimate.",
+    section: "foundations",
+  },
+  {
     title: "WomanCode",
     format: "Book",
     source: "Alisa Vitti",
@@ -697,8 +716,18 @@ export const readingItems: ReadingItem[] = [
     url: "https://www.amazon.com/Your-Tastebuds-Are-holes-Trained/dp/1544510225",
     description:
       "A personal account of healing from Crohn's disease and endometriosis through dietary transformation, by the founder of The Bean Protocol.",
-    section: "foundations",
+    section: "practice",
     image: "/your tastebuds are assholes.jpg",
+  },
+  {
+    title: "Beans, High Cortisol and Caffeine: How Beans Can Bind and Lower Stress Hormones",
+    format: "Podcast",
+    source: "What's the Juice / Olivia Amitrano with Karen Hurd",
+    url: "https://blog.organicolivia.com/podcast/beans-high-cortisol-and-caffeine-how-beans-can-bind-and-lower-stress-hormones-breaking-down-the-biochemistry-with-bean-queen-karen-hurd/",
+    description:
+      "Biochemist and nutritionist Karen Hurd \u2014 the \u2018Bean Queen\u2019 \u2014 explains how soluble fiber in beans binds and removes fat-soluble toxins and excess stress hormones from the body. Covers the connection between caffeine, adrenaline, and estrogen production, therapeutic bean consumption recommendations, and lifestyle modifications for managing anxiety and hormonal concerns.",
+    section: "foundations",
+    image: "/what's the juice podcast.jpeg",
   },
   {
     title: "Endometriosis: Recent Advances That Could Accelerate Diagnosis and Improve Care",
@@ -742,7 +771,7 @@ export const readingItems: ReadingItem[] = [
     title: "A Study Found Toxic Metals in Popular Tampon Brands. Here's What Experts Advise",
     format: "Article",
     source: "Rachel Treisman, NPR",
-    url: "https://www.npr.org/2024/07/11/nx-s1-5036484/tampons-heavy-metals-study",
+    url: "/reading/read/toxic-metals-in-tampons",
     description:
       "Researchers found lead, arsenic, and other toxic metals in tampons across 14 popular brands. The first study to measure metallic contaminants in menstrual products.",
     section: "evidence",
@@ -751,16 +780,43 @@ export const readingItems: ReadingItem[] = [
     title: "OTO Fertility Launches World's First AI-Powered Platform & Wearable for Predictive Reproductive Insight",
     format: "Article",
     source: "OTO Fertility",
-    url: "https://otofertility.com/oto-fertility-biometric-ai-prediction/",
+    url: "/reading/read/oto-fertility-ai-platform",
     description:
       "OTO Fertility's new biometric platform and wearable device uses AI-powered insights to help predict fertility treatment outcomes.",
+    section: "evidence",
+  },
+  {
+    title: "Research Findings May Lead to New Test for Endometriosis",
+    format: "Article",
+    source: "University of Cincinnati",
+    url: "/reading/read/uc-endometriosis-diagnostic-test",
+    description:
+      "Dr. Katie Burns is developing a non-invasive, at-home diagnostic test using white blood cells in menstrual fluid as biomarkers. Her research reframes endometriosis as immune system-driven rather than hormone-driven, opening the door to new diagnostic and therapeutic approaches.",
+    section: "evidence",
+  },
+  {
+    title: "The Immune Science Behind Red Light Therapy",
+    format: "Study",
+    source: "Al Balah, Rafie & Osama, Lasers in Medical Science, 2025",
+    url: "/reading/read/photobiomodulation-immunomodulatory-effects",
+    description:
+      "A comprehensive review of how red and near-infrared light modulates macrophages, T cells, and dendritic cells at the molecular level. Covers macrophage M1-to-M2 polarization, Treg enhancement, NF-\u03BAB suppression, and clinical applications in autoimmune and inflammatory conditions.",
+    section: "evidence",
+  },
+  {
+    title: "How Pulsed Electromagnetic Fields Regulate Inflammation",
+    format: "Study",
+    source: "Kaadan, Salati, Cadossi & Aaron, Bioengineering, 2025",
+    url: "/reading/read/pemf-inflammatory-response-regulation",
+    description:
+      "A review of how PEMF therapy suppresses inflammatory pathways through adenosine receptor activation. Covers NF-\u03BAB and MAPK suppression, pro-inflammatory cytokine reduction, and clinical applications in tissue repair and chronic inflammation.",
     section: "evidence",
   },
   {
     title: "The Dangerous Dismissal of Women's Pain",
     format: "Article",
     source: "Maureen Salamon, Harvard Women's Health Watch",
-    url: "https://www.health.harvard.edu/pain/the-dangerous-dismissal-of-womens-pain",
+    url: "/reading/read/dangerous-dismissal-of-womens-pain",
     description:
       "How women's pain is systematically underestimated and undertreated. Women wait 30 minutes longer than men for hospital care and receive fewer pain medications for identical complaints.",
     section: "reckoning",
@@ -789,7 +845,7 @@ export const readingItems: ReadingItem[] = [
     title: "Women Exaggerate, Men Downplay: Gendered Endorsement of Emotional Dramatization Stereotypes Contributes to Gender Bias in Pain Expectations",
     format: "Study",
     source: "Gina A. Paganini, Kevin M. Summers, Leanne ten Brinke & E. Paige Lloyd",
-    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10688448/",
+    url: "/reading/read/gendered-pain-bias",
     description:
       "Across four experiments, researchers found that stereotypes about women being \"whiny\" or \"complaining\" lead others to dismiss their pain as dramatization, a bias with serious consequences in healthcare.",
     section: "reckoning",
@@ -798,7 +854,7 @@ export const readingItems: ReadingItem[] = [
     title: "Endometriosis: Ancient Disease, Ancient Treatments",
     format: "Article",
     source: "Drs. Camran, Farr & Ceana Nezhat / Endometriosis Foundation of America",
-    url: "https://www.endofound.org/endometriosis-ancient-disease-ancient-treatments",
+    url: "/reading/read/ancient-disease-ancient-treatments",
     description:
       "A look at how what Freud diagnosed as \"hysteria\" was likely unrecognized endometriosis. Chronicles the barbaric treatments women endured throughout history and how millions still await better care today.",
     section: "reckoning",
@@ -817,7 +873,7 @@ export const readingItems: ReadingItem[] = [
     title: "Endometriosis and Painful Ovulation: Why Ovulation Hurts, Where It's Felt, and What Helps",
     format: "Article",
     source: "Dr. Jolene Brighten",
-    url: "https://drbrighten.com/endometriosis-and-painful-ovulation/",
+    url: "/reading/read/endometriosis-and-painful-ovulation",
     description:
       "The connection between endometriosis and mid-cycle pain, explaining why ovulation discomfort can be as severe as menstrual pain and what can help.",
     section: "practice",
@@ -896,7 +952,7 @@ export const readingItems: ReadingItem[] = [
     title: "Endo Belly Hot Spot: Do You Have Ileocecal Valve Pain?",
     format: "Article",
     source: "Katie Edmonds",
-    url: "https://www.healendo.com/blog-1/2023/1/10/endo-belly-hot-spot",
+    url: "/reading/read/endo-belly-ileocecal-valve",
     description:
       "Explains the ileocecal valve, a small flap between the small and large intestine that can become inflamed in people with endometriosis, and offers practical strategies including dietary modifications and massage techniques.",
     section: "practice",
@@ -905,7 +961,7 @@ export const readingItems: ReadingItem[] = [
     title: "How Do You Stop Craving Sugar? Causes & Solutions Backed by Research",
     format: "Article",
     source: "Dr. Jolene Brighten",
-    url: "https://drbrighten.com/how-do-you-stop-craving-sugar/",
+    url: "/reading/read/stop-craving-sugar",
     description:
       "Research-backed breakdown of why sugar cravings happen, including hormonal causes, and practical solutions to manage them.",
     section: "practice",
@@ -914,21 +970,21 @@ export const readingItems: ReadingItem[] = [
     title: "Non-Toxic Period Products: A Fact-Packed Guide to Safer Cycles",
     format: "Article",
     source: "Cristina Solis, Orbasics",
-    url: "https://orbasics.com/blogs/stories/best-non-toxic-period-products",
+    url: "/reading/read/non-toxic-period-products",
     image: "/the library/articles/DTS_BLOOM_Pointless_Agency_Photos_ID14763.jpg",
     description:
       "Conventional pads and tampons contain heavy metals, pesticides, endocrine disruptors, and potential carcinogens. This guide breaks down what to avoid and recommends safer alternatives like organic cotton tampons, menstrual cups, and PFAS-free period underwear.",
     section: "practice",
   },
   {
-    title: "Heal Endo",
+    title: "Beating Endo",
     format: "Book",
-    source: "Katie Edmonds, NTP",
-    url: "https://www.amazon.com/Heal-Endo-Anti-Inflammatory-Approach-Endometriosis/dp/1792389485",
+    source: "Iris Kerin Orbuch, MD & Amy Stein, DPT",
+    url: "https://www.amazon.com/Beating-Endo-Holistic-Treatment-Endometriosis/dp/0062861832",
     description:
-      "The #1 best-selling book on endometriosis takes an anti-inflammatory approach to healing, covering how the disease develops, dietary and lifestyle factors, the role of gut bacteria as an endo trigger, and how to build a comprehensive treatment plan including surgery.",
-    section: "practice",
-    image: "/heal endo.jpg",
+      "A multi-disciplinary treatment plan from a laparoscopic surgeon and pelvic floor physical therapist covering surgery, physical therapy, nutrition, and mental health.",
+    section: "foundations",
+    image: "/beating endo.jpg",
   },
   {
     title: "Endometriosis & PCOS: A Whole-Body Guide",

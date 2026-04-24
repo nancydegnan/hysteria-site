@@ -375,7 +375,7 @@ export default function Home() {
             <div className="grid md:grid-cols-[1fr_2fr] gap-8 items-start">
               <div className="w-[70%] ml-auto aspect-[3/4] overflow-hidden">
                 <img
-                  src="/the chapter/DTS_Quiet_Glamour_DTS_Studio_Photos_ID8368.jpg"
+                  src="/the chapter/097E8C03-F895-4DB4-AC66-38011D606BCC-labbet-app.JPG"
                   alt="The Chapter"
                   className="w-full h-full object-cover"
                 />
@@ -454,10 +454,10 @@ export default function Home() {
                 I&apos;m not an expert, but I&apos;m a busy girl who&apos;s been trying to live a big life with endo, and I want to simplify things.
               </p>
               <p>
-                This club is my solution. Here, you will find the curated resources that have helped me, or friends I know and trust. We are always growing, so please send us resources to check out!
+                This club is my solution. Here, you will find the curated resources that have helped me, or friends I know and trust. We are always growing, so please <a href="mailto:hello@thenocureclub.com" className="underline hover:opacity-60 transition-opacity">send us resources</a> to check out!
               </p>
               <p>
-                We will be hosting gatherings for the Los Angeles community to meet in person, so check out our <Link href="/community" className="underline hover:opacity-60 transition-opacity">community page</Link> to see the latest events and grab your spot. We will often bring a specialist guest, and always do activities that create nervous system regulation and connection with each other and ourselves.
+                We will be hosting gatherings for the Los Angeles community to meet in person, so check out <Link href="/community" className="underline hover:opacity-60 transition-opacity">the chapter</Link> page to see the latest events and grab your spot. We will often bring a specialist guest, and always do activities that create nervous system regulation and connection with each other and ourselves.
               </p>
               <p>
                 We&apos;d love to have you in our club, you&apos;re always welcome.
@@ -635,7 +635,7 @@ export default function Home() {
                   </h3>
                 </div>
                 <div className="overflow-hidden">
-                  <img src="/the rolodex/793C77C8-7F98-4AAF-874C-3D7598BCCC0E-labbet-app.JPG" alt="The Rolodex" className="w-full object-cover aspect-[4/3] !rounded-none group-hover:scale-[1.03] transition-transform duration-500" style={{ objectPosition: "center bottom" }} />
+                  <img src="/the rolodex/51248765-9BE9-44EF-BEFE-FE0C4AA883D1-labbet-app.JPG" alt="The Rolodex" className="w-full object-cover aspect-[4/3] !rounded-none scale-[1.2] group-hover:scale-[1.23] transition-transform duration-500" style={{ objectPosition: "center 110%" }} />
                 </div>
                 <div className="px-8 pt-4 pb-6 text-left">
                   <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">

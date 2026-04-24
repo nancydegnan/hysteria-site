@@ -5,17 +5,19 @@ import Link from "next/link";
 import { tools, selfCareGroups, type Tool } from "./data";
 import { RevealSection, Footer, SubpageNav } from "../components";
 
-const filters = ["all", "pain relief", "self care", "home care", "wellness", "gut health", "courses"] as const;
+const filters = ["all", "pain & inflammation care", "self care", "home care", "wellness", "gut health", "courses"] as const;
 type Filter = (typeof filters)[number];
 
 /* Map each product to a filter category */
 const categoryMap: Record<string, Filter> = {
-  "ohmBody starter kit": "pain relief",
-  "ohnut": "pain relief",
-  "kiwi": "pain relief",
-  "thermotex platinum far infrared heating pad": "pain relief",
-  "krampz menstrual pain relief patches": "pain relief",
-  "pinmoco ergonomic cross-legged swivel chair": "pain relief",
+  "ohmBody starter kit": "pain & inflammation care",
+  "ohnut": "pain & inflammation care",
+  "kiwi": "pain & inflammation care",
+  "thermotex platinum far infrared heating pad": "pain & inflammation care",
+  "krampz menstrual pain relief patches": "pain & inflammation care",
+  "pinmoco ergonomic cross-legged swivel chair": "pain & inflammation care",
+  "amethyst PEMF mat": "pain & inflammation care",
+  "personal tower red light therapy device": "pain & inflammation care",
   "OTO fertility program": "wellness",
   "myFLO app": "wellness",
   "tiny health gut microbiome testing": "gut health",

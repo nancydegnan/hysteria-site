@@ -5,7 +5,7 @@ import { RevealSection, Footer, SubpageNav } from "../../../components";
 
 export function generateStaticParams() {
   return readArticles
-    .filter((a) => a.slug && a.slug !== "glp-1-and-endo" && a.slug !== "recent-advances-diagnosis-care")
+    .filter((a) => a.slug && a.slug !== "glp-1-and-endo" && a.slug !== "recent-advances-diagnosis-care" && a.slug !== "uc-endometriosis-diagnostic-test" && a.slug !== "new-insights-relief-of-symptoms" && a.slug !== "toxic-metals-in-tampons" && a.slug !== "dangerous-dismissal-of-womens-pain" && a.slug !== "gendered-pain-bias")
     .map((a) => ({ slug: a.slug! }));
 }
 
