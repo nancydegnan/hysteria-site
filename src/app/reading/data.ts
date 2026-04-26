@@ -23,6 +23,7 @@ export interface Film {
   director?: string;
   url: string;
   description: string;
+  image?: string;
 }
 
 export type ReadCategory =
