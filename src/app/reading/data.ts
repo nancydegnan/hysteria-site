@@ -959,6 +959,16 @@ export const readingItems: ReadingItem[] = [
     section: "practice",
   },
   {
+    title: "Everything You Need To Prep For Endo Surgery",
+    format: "Article",
+    source: "Chef Bai",
+    url: "https://chefbai.substack.com/p/everything-you-need-to-prep-for-endo",
+    description:
+      "A comprehensive guide to preparing for endometriosis excision surgery covering nervous system support, anti-inflammatory nutrition, targeted supplements, gentle movement, and practical logistics like pre-op questions, wellness cart setup, and work leave planning.",
+    section: "practice",
+    image: "/the library/articles/bai surgery image.jpg",
+  },
+  {
     title: "How Do You Stop Craving Sugar? Causes & Solutions Backed by Research",
     format: "Article",
     source: "Dr. Jolene Brighten",

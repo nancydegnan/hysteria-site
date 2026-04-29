@@ -139,6 +139,15 @@ export default function ReadingPage() {
                           />
                         </div>
                       )}
+                      {item.format === "Article" && item.image && (
+                        <div className="w-52 aspect-[4/3] bg-[#e4e0d9] mb-4 overflow-hidden">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                          />
+                        </div>
+                      )}
                       {item.format === "Film" && (
                         <div className="w-36 aspect-[2/3] bg-[#e4e0d9] mb-4 overflow-hidden">
                           {item.image ? (

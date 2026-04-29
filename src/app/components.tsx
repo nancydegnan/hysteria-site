@@ -45,10 +45,8 @@ export function RevealSection({
   );
 }
 
-export function NewsletterPopup() {
+export function GatheringsPopup() {
   const [visible, setVisible] = useState(false);
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const dismissed = sessionStorage.getItem("newsletter-dismissed");
@@ -60,16 +58,6 @@ export function NewsletterPopup() {
   const handleClose = () => {
     setVisible(false);
     sessionStorage.setItem("newsletter-dismissed", "1");
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    window.open(
-      `https://nocureclub.substack.com/subscribe?email=${encodeURIComponent(email)}`,
-      "_blank"
-    );
-    setSubmitted(true);
-    setTimeout(handleClose, 2000);
   };
 
   if (!visible) return null;
@@ -90,32 +78,26 @@ export function NewsletterPopup() {
         </svg>
       </button>
 
+      <h2 className="text-sm md:text-base font-black uppercase tracking-tight mb-1">
+        <span className="ncc-logo" style={{ fontSize: "inherit", transform: "none" }}>The No Cure Club</span>
+      </h2>
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-sm md:text-base font-black uppercase tracking-tight mb-1">
-          Join <span className="ncc-logo" style={{ fontSize: "inherit", transform: "none" }}>The No Cure Club</span>
-        </h2>
-        <div className="w-fit mx-auto">
-          <p className="text-xs text-charcoal mb-3" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
-            Your monthly dose of answers, resources, and proof you&apos;re not crazy.
-          </p>
-
-        {submitted ? (
-          <p className="text-xs font-semibold text-black">you&apos;re in! check your inbox.</p>
-        ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="your@email.com"
-              required
-              className="flex-1 !bg-gray-light !border-gray-mid !rounded-none text-xs !py-1.5"
-            />
-            <button type="submit" className="btn-primary text-xs !py-1.5 !px-5 whitespace-nowrap">
-              join the club
-            </button>
-          </form>
-        )}
+        <div className="flex items-center justify-center gap-6">
+          <div>
+            <p className="text-sm md:text-base font-black tracking-tight">
+              based in LA? come to the next gathering.
+            </p>
+            <p className="text-xs text-charcoal mt-1" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
+              monthly, in person. dates go out to the list first.
+            </p>
+          </div>
+          <Link
+            href="/community#la-meetups"
+            onClick={handleClose}
+            className="btn-primary text-xs !py-1.5 !px-5 whitespace-nowrap shrink-0"
+          >
+            RSVP
+          </Link>
         </div>
       </div>
     </div>
@@ -131,7 +113,7 @@ export function SubpageNav() {
     { href: "/reading", label: "the library" },
     { href: "/community", label: "the chapter" },
     { href: "/hysteria-doc", label: "the documentary" },
-    { href: "https://substack.com/@thenocureclub", label: "the newsletter" },
+    { href: "https://thenocureclub.substack.com", label: "the newsletter" },
   ];
 
   return (
@@ -165,14 +147,13 @@ export function SubpageNav() {
               </Link>
             )
           )}
-          <a
-            href="https://nocureclub.substack.com/subscribe"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary text-xs !py-2 !px-5"
-          >
-            join the club
-          </a>
+          <JoinTheClubForm
+            formClassName="flex items-center gap-2"
+            inputClassName="w-36 !bg-gray-light !border-gray-mid !rounded-none text-xs !py-2"
+            buttonClassName="btn-primary text-xs !py-2 !px-5 whitespace-nowrap"
+            successClassName="text-xs font-semibold text-black"
+            errorClassName="text-xs text-red-600"
+          />
         </div>
         <button
           className="md:hidden text-black"
@@ -340,6 +321,14 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="text-sm text-black hover:italic transition-all duration-300"
               >
+                instagram @jointhenocureclub
+              </a>
+              <a
+                href="https://www.instagram.com/nancydegnan/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-black hover:italic transition-all duration-300"
+              >
                 instagram @nancydegnan
               </a>
               <a
@@ -362,28 +351,13 @@ export function Footer() {
             <p className="text-xs text-charcoal mb-3" style={{ fontFamily: "Helvetica, Arial, sans-serif" }}>
               Your monthly dose of answers, resources, and proof you&apos;re not crazy.
             </p>
-            <form
-              className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const email = (e.currentTarget.elements.namedItem("footer-email") as HTMLInputElement).value;
-                window.open(
-                  `https://nocureclub.substack.com/subscribe?email=${encodeURIComponent(email)}`,
-                  "_blank"
-                );
-              }}
-            >
-              <input
-                type="email"
-                name="footer-email"
-                placeholder="your@email.com"
-                required
-                className="flex-1 !bg-gray-light !border-gray-mid !rounded-none text-xs !py-1.5"
-              />
-              <button type="submit" className="btn-primary text-xs !py-1.5 !px-5 whitespace-nowrap">
-                join the club
-              </button>
-            </form>
+            <JoinTheClubForm
+              formClassName="flex flex-col sm:flex-row gap-2 max-w-md mx-auto justify-center items-center"
+              inputClassName="flex-1 !bg-gray-light !border-gray-mid !rounded-none text-xs !py-1.5"
+              buttonClassName="btn-primary text-xs !py-1.5 !px-5 whitespace-nowrap"
+              successClassName="text-xs font-semibold text-black"
+              errorClassName="text-xs text-red-600"
+            />
           </div>
           <p className="text-xs text-black">
             &copy; {new Date().getFullYear()} The No Cure Club
@@ -391,5 +365,48 @@ export function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+const SUPASCRIBE_SRC =
+  "https://js.supascribe.com/v1/loader/zNBxYKLH0LWTTh1tMqpiAJjXwEt2.js";
+let supascribeReloadQueued = false;
+
+export function JoinTheClubForm({
+  formClassName,
+}: {
+  formClassName?: string;
+  inputClassName?: string;
+  buttonClassName?: string;
+  successClassName?: string;
+  errorClassName?: string;
+  buttonLabel?: React.ReactNode;
+  onSuccess?: () => void;
+} = {}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const embed = containerRef.current?.querySelector(
+        "[data-supascribe-embed-id]"
+      );
+      if (embed && embed.children.length === 0 && !supascribeReloadQueued) {
+        supascribeReloadQueued = true;
+        const script = document.createElement("script");
+        script.src = SUPASCRIBE_SRC;
+        script.async = true;
+        script.onload = () => {
+          supascribeReloadQueued = false;
+        };
+        document.body.appendChild(script);
+      }
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div ref={containerRef} className={formClassName}>
+      <div data-supascribe-embed-id="65043634212" data-supascribe-subscribe />
+    </div>
   );
 }

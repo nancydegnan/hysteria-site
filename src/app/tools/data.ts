@@ -23,16 +23,15 @@ export interface FreeTool {
 /* ── Products ── */
 export const tools: Tool[] = [
   {
-    company: "OhmBody",
-    name: "ohmBody starter kit",
-    price: "$719",
+    company: "Krampz Wellness",
+    name: "krampz menstrual pain relief patches",
+    price: "$19.99",
     description:
-      "Wearable earpiece that uses patented neurostimulation technology to simultaneously stimulate the vagus and trigeminal nerves — reducing period pain, lightening flow, and balancing your cycle. Drug-free, hormone-free relief.",
-    shortDescription: "Drug-free neurostimulation for period pain relief.",
-    personalNote: "This is helpful right before and during your cycle. It regulates the nervous system and gives that instant calm feeling to my pelvis when I switch it on. It\u2019s cumulative, so each time you use it, it helps more and more. This is a MUST for me when I get my period.\nx, N",
-    website: "https://www.ohmbody.com",
-
-    image: "/Ohmbody-image-1.webp",
+      "100% drug-free, non-toxic menstrual pain relief patches with far-infrared technology. Mineral-infused fabric with tourmaline and ceramic powder converts body heat into infrared energy for continuous relief. Lightweight, stretchable, water and sweat resistant — wear for up to 72 hours through workouts, workdays, or rest. Informed Choice Certified and clinically tested to increase blood circulation at the application site.",
+    shortDescription: "Drug-free far-infrared patches for menstrual pain relief.",
+    personalNote: "This is not a miracle patch, but it does take the edge off cramps and the pelvic \u201Cheaviness\u201D I experience every cycle before, during, and right after my period. I also use them on my back when that becomes inflamed around my cycle. While they don\u2019t entirely get rid of pain, they do certainly help. I recommend as a part of a treatment routine for chronic and acute onset pain.\nx, N",
+    website: "https://www.krampzwellness.com/products/menstrual-pain-relief-patches",
+    image: "/krampz.jpeg",
   },
   {
     company: "Thermotex",
@@ -46,15 +45,27 @@ export const tools: Tool[] = [
     image: "/thermotex.png",
   },
   {
-    company: "Krampz Wellness",
-    name: "krampz menstrual pain relief patches",
-    price: "$19.99",
+    company: "Olive My Pickle",
+    name: "olive my pickle",
+    price: "From $10",
     description:
-      "100% drug-free, non-toxic menstrual pain relief patches with far-infrared technology. Mineral-infused fabric with tourmaline and ceramic powder converts body heat into infrared energy for continuous relief. Lightweight, stretchable, water and sweat resistant — wear for up to 72 hours through workouts, workdays, or rest. Informed Choice Certified and clinically tested to increase blood circulation at the application site.",
-    shortDescription: "Drug-free far-infrared patches for menstrual pain relief.",
-    personalNote: "This is not a miracle patch, but it does take the edge off cramps and the pelvic \u201Cheaviness\u201D I experience every cycle before, during, and right after my period. I also use them on my back when that becomes inflamed around my cycle. While they don\u2019t entirely get rid of pain, they do certainly help. I recommend as a part of a treatment routine for chronic and acute onset pain.\nx, N",
-    website: "https://www.krampzwellness.com/products/menstrual-pain-relief-patches",
-    image: "/krampz.jpeg",
+      "Small-batch, traditionally fermented probiotic foods — pickles, sauerkraut, kimchi, olives, and probiotic pickle juice. Raw, unpasteurized, and packed with live cultures for real gut health support. No vinegar, no preservatives, no shortcuts.",
+    shortDescription: "Raw fermented foods packed with live probiotics.",
+    personalNote: "With endo, you need to be careful about how many fermented foods you're eating, they can sometimes fuel more inflammation if eaten in too much volume. I'm obsessed with this brand because all I need is a couple olives a few times per day, and I feed my gut with plenty of probiotics. Personal faves: the Muffaletta and Greek Olives.\nx, N",
+    website: "https://www.olivemypickle.com",
+    image: "/olive my pickle.png",
+    imageFit: "contain",
+  },
+  {
+    company: "OhmBody",
+    name: "ohmBody starter kit",
+    price: "$579",
+    description:
+      "Wearable earpiece that uses patented neurostimulation technology to simultaneously stimulate the vagus and trigeminal nerves — reducing period pain, lightening flow, and balancing your cycle. Drug-free, hormone-free relief.",
+    shortDescription: "Drug-free neurostimulation for period pain relief.",
+    personalNote: "This is helpful right before and during your cycle. It regulates the nervous system and gives that instant calm feeling to my pelvis when I switch it on. It\u2019s cumulative, so each time you use it, it helps more and more. This is a MUST for me when I get my period.\nx, N",
+    website: "https://www.ohmbody.com",
+    image: "/Ohmbody-image-1.webp",
   },
   {
     company: "The Pelvic People",
@@ -96,7 +107,7 @@ export const tools: Tool[] = [
     description:
       "Far infrared therapy mat with over 25 pounds of pure amethyst crystals and built-in pulsed electromagnetic field (PEMF) technology. Ten PEMF cores operate at customizable frequencies between 3\u201323 Hz, letting you dial in the intensity for your needs. Generates far infrared wavelengths of 6\u201314 microns that penetrate deep into tissue, increasing blood flow and reducing inflammation. 12-layer construction with negative ion output for cellular detoxification and nervous system regulation.",
     shortDescription: "PEMF + far infrared mat with customizable frequency levels.",
-    personalNote: "This is the PEMF mat I use daily as part of my experiment to put my endo into remission. PEMF works through electromagnetic induction \u2014 the pulses interact with cell surface receptors and suppress the same inflammatory pathways (NF-\u03BAB, TNF-\u03B1, IL-6) that drive endometriosis. I chose this one because it has different frequency levels you can customize, which many others don\u2019t. I use it on my pelvis, my back, and sometimes just lay on it full-body while I work.\nx, N",
+    personalNote: "This is the PEMF mat I use daily as part of my experiment to put my endo into remission. PEMF works through electromagnetic induction \u2014 the pulses interact with cell surface receptors and suppress the same inflammatory pathways (NF-\u03BAB, TNF-\u03B1, IL-6) that drive endometriosis. I chose this one because it has different frequency levels you can customize, which many others don\u2019t. I use it morning and night, levels 1 & 2 for pain relief and stress relief. This has been one of the most effective tools for me and the science is impossible to ignore.\nx, N",
     website: "https://shop.infraredsauna.com/products/amethyst-pemf-mat",
     image: "/the outfitter/clearlight PEMF.jpeg",
     imageFit: "contain",
@@ -131,7 +142,7 @@ export const tools: Tool[] = [
     description:
       "Cycle syncing app that aligns nutrition, movement, and lifestyle recommendations with your menstrual cycle phases. Provides daily phase-specific guidance on food, fitness, and productivity \u2014 users reported 83% reduction in PMS symptoms.",
     shortDescription: "Cycle syncing app for nutrition, movement, and lifestyle.",
-    personalNote: "temp text\nx, N",
+    personalNote: "If you like symptom tracking, this free app has helped me keep it simple and also be able to write in the details for the day. Cycle syncing is at the heart of this app.\nx, N",
     website: "https://floliving.com/pages/official-cycle-syncing-app-myflo",
     image: "/myflo.png",
   },
@@ -142,22 +153,32 @@ export const tools: Tool[] = [
     description:
       "Gold-standard deep shotgun gut microbiome testing that reveals the full picture of your gut health — including bacteria, fungi, parasites, and inflammation markers. I use the adult yearly membership, which includes two tests per year to track changes over time. Understanding your gut is a critical piece of the endometriosis puzzle, since gut dysbiosis is present in roughly 80% of endo cases.",
     shortDescription: "Deep gut microbiome testing for the full picture.",
-    personalNote: "temp text\nx, N",
+    personalNote: "I recently did my first gut test with them and found it genuinely helpful to understand my microbiome, and they do a private consult to go over your results with you, which was great.\nx, N",
     website: "https://www.tinyhealth.com/store",
     image: "/tiny health 2.png",
     imageFit: "contain",
   },
   {
-    company: "Olive My Pickle",
-    name: "olive my pickle",
-    price: "From $10",
+    company: "Sarah Baldwin Coaching",
+    name: "nervous system essentials",
+    price: "$67",
     description:
-      "Small-batch, traditionally fermented probiotic foods — pickles, sauerkraut, kimchi, olives, and probiotic pickle juice. Raw, unpasteurized, and packed with live cultures for real gut health support. No vinegar, no preservatives, no shortcuts.",
-    shortDescription: "Raw fermented foods packed with live probiotics.",
-    personalNote: "With endo, you need to be careful about how many fermented foods you're eating, they can sometimes fuel more inflammation if eaten in too much volume. I'm obsessed with this brand because all I need is a couple olives a few times per day, and I feed my gut with plenty of probiotics. Personal faves: the Muffaletta and Greek Olives.\nx, N",
-    website: "https://www.olivemypickle.com",
-    image: "/olive my pickle.png",
-    imageFit: "contain",
+      "Introductory 10-video course (~90 minutes) teaching you how to work with your autonomic nervous system using somatic tools grounded in Polyvagal Theory and Somatic Experiencing. Covers nervous system regulation, processing stored trauma, discharging dysregulation, and building capacity for positive experiences. Includes 7 downloadable worksheets with unlimited access.",
+    shortDescription: "Somatic nervous system regulation course grounded in Polyvagal Theory.",
+    personalNote: "This course taught me the fundamentals of my nervous system, and gave me the basic tools I needed to actually put regulation into practice. I use the tools I gained in this course every single day and it\u2019s made a tremendous difference for me and my pain.\nx, N",
+    website: "https://programs.sarahbaldwincoaching.com/nervous-system-essentials",
+    image: "/sarah baldwin course.png",
+  },
+  {
+    company: "The Workout Witch",
+    name: "release stress & stored trauma in 30 days",
+    price: "$57",
+    description:
+      "30-day somatic course by Liz Tenuto with sequenced video classes designed to release stress and stored trauma from your body and hips. Includes instant-download PDFs for progress tracking and 2 downloadable daily tension and trauma release routines. Pre-recorded classes you can do at your own pace with lifetime access.",
+    shortDescription: "30-day somatic course for releasing stress and stored trauma.",
+    personalNote: "This continues to be a course I turn to when I feel a build up in my pelvis, especially in big weeks where stress is high. Great way to release at the end of the day.\nx, N",
+    website: "https://theworkoutwitch.com/products/1724602",
+    image: "/workout witch course.jpeg",
   },
 ];
 
@@ -240,12 +261,13 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
       },
       {
         company: "CLEARSTEM",
-        name: "mindbodyskin hormonal acne supplement",
+        name: "hormonal acne supplement",
         price: "$58",
         description:
           "A hormonal acne supplement designed to address breakouts from the inside out, targeting the underlying hormonal factors that contribute to acne.",
+        personalNote: "This supplement got rid of my acne. I tried all of them, but this is the only one that did it. If I ever feel a breakout coming, I take 2/day for a few days and it\u2019s gone. I\u2019ve been acne free for a year. Tried and true.\nx, N",
         website: "https://clearstem.com/products/mindbodyskin-csb",
-        image: "/clearstem.png",
+        image: "/the outfitter/clearstem supplement.png",
         imageFit: "contain" as const,
       },
       {
@@ -311,6 +333,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "Ultra-gentle, soap-free cleansing bar that purifies and hydrates skin with a pH-balanced blend of shea butter, macadamia seed oil, squalane, and honey. Washes away impurities from face and body while supporting a healthy moisture balance. Fragrance-free, paraben-free, sulfate-free, vegan, and Leaping Bunny certified cruelty-free.",
         website: "https://www.goodmolecules.com/products/hydrate-cleanse-bar",
         image: "/soap 1.jpg",
+        imageFit: "contain",
       },
       {
         company: "Good Molecules",
@@ -320,6 +343,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "pH-balanced, soap-free cleansing bar with salicylic acid and tea tree oil to target breakouts, kaolin clay to balance excess sebum, and cocoa powder to soothe inflammation. Rosehip and grapeseed oils nourish and maintain moisture while promoting elasticity. Clears congestion from face and body without drying. Fragrance-free, paraben-free, sulfate-free, vegan, and Leaping Bunny certified cruelty-free.",
         website: "https://www.goodmolecules.com/products/clarify-cleanse-bar",
         image: "/soap 2.jpg",
+        imageFit: "contain",
       },
       {
         company: "Earth Therapeutics",
@@ -329,6 +353,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "Gentle exfoliating gloves that buff away dry skin and unclog pores, cleansing away toxins and impurities to reveal skin\u2019s natural glow. Massages the body and stimulates circulation. Made with organic cotton, recycled polyester, nylon, and elastic yarn.",
         website: "https://www.ulta.com/p/organic-cotton-exfoliating-gloves-pimprod2004281",
         image: "/exfoliating gloves.png",
+        imageFit: "contain",
       },
       {
         company: "SEEN",
@@ -338,6 +363,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "Award-winning styling cream created by a Harvard-trained dermatologist. Delivers body, bounce, and shine with heat protection up to 450\u00B0F. Fragrance-free, non-comedogenic, non-irritating, and clinically proven safe for sensitive, acne-prone, and eczema-prone skin. Made with plant-derived hemisqualane instead of silicone, plus bisabolol and squalane for moisture.",
         website: "https://helloseen.com/products/seen-blow-out-creme-fragrance-free",
         image: "/seen blow out.png",
+        imageFit: "contain",
       },
       {
         company: "SEEN",
@@ -347,6 +373,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "Award-winning hair serum that visibly smooths, shines, and strengthens hair in seconds with heat protection up to 450\u00B0F. Made with plant-derived hemisqualane, squalane, and olive-derived softeners — no silicone. Fragrance-free, non-comedogenic, non-irritating, and clinically proven safe for sensitive, acne-prone, and eczema-prone skin. Created by Harvard-trained dermatologist Dr. Iris Rubin.",
         website: "https://helloseen.com/products/seen-magic-serum-ff-1oz",
         image: "/seen serum.png",
+        imageFit: "contain",
       },
       {
         company: "SEEN",
@@ -356,6 +383,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "Multitasking leave-in conditioner that detangles and hydrates with heat, pollution, and UV protection. Made with plant-derived hemisqualane, bisabolol, and moringa oleifera — no silicone, sulfates, parabens, phthalates, or dyes. Fragrance-free, non-comedogenic, non-irritating, and safe for sensitive, acne-prone, and eczema-prone skin.",
         website: "https://helloseen.com/products/seen-leave-in-conditioner-fragrance-free",
         image: "/seen leave in.png",
+        imageFit: "contain",
       },
       {
         company: "SEEN",
@@ -365,6 +393,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "Curl-defining styling cream with soft hold, shine, and heat protection up to 450\u00B0F. Reduces frizz and breakage while guarding against UV and pollution. Made with plant-derived hemisqualane, squalane, bisabolol, and moringa oleifera — no silicone. Fragrance-free, non-comedogenic, non-irritating, and safe for sensitive, acne-prone, and eczema-prone skin.",
         website: "https://helloseen.com/products/seen-curly-creme-fragrance-free",
         image: "/seen curly.png",
+        imageFit: "contain",
       },
       {
         company: "The Seaweed Bath Co.",
@@ -374,6 +403,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "Nourishing, fragrance-free body wash with sustainably harvested Atlantic seaweed packed with 65+ vitamins and minerals, plus antioxidant-rich spirulina, Hawaiian kukui oil, coconut oil, and aloe vera. Doubles as a shaving gel. Paraben-free, sulfate-free, vegan, gluten-free, and Leaping Bunny certified cruelty-free.",
         website: "https://www.amazon.com/Seaweed-Bath-Co-Moisturizing-Unscented/dp/B004W4B8JW",
         image: "/seaweed shampoo.png",
+        imageFit: "contain",
       },
       {
         company: "The Seaweed Bath Co.",
@@ -383,6 +413,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "Fragrance-free conditioner with sustainably harvested Atlantic seaweed packed with 65+ vitamins and minerals, argan oil for moisture and shine, aloe, hyaluronic acid, and NaPCA amino acids for scalp hydration and environmental protection. Safe for color-treated hair. Paraben-free, sulfate-free, vegan, gluten-free, and Leaping Bunny certified cruelty-free.",
         website: "https://www.amazon.com/Seaweed-Bath-Co-Moisturizing-Conditioner/dp/B006RIJ57I",
         image: "/seaweed conditioner.png",
+        imageFit: "contain",
       },
       {
         company: "Phillip Adam",
@@ -392,6 +423,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "pH-balancing shampoo and conditioner set with apple cider vinegar and botanical extracts like chamomile, lemon balm, nettle, rosemary, and sage. Fragrance-free and formulated with hydrolyzed pea protein for shine and smoothness. SLS-free, paraben-free, phthalate-free, biodegradable, vegan, gluten-free, cruelty-free, and contains no dyes.",
         website: "https://www.amazon.com/Phillip-Adam-Fragrance-Shampoo-Conditioner/dp/B08426C8HY",
         image: "/phillip adam duo.png",
+        imageFit: "contain",
       },
     ],
   },
@@ -407,7 +439,8 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
         description:
           "All-in-one cleaning system with one plant and mineral-based concentrate that replaces every cleaner in your home. Kit includes a 33.8 oz concentrate (24 refills) and three refillable glass spray bottles for all-purpose, bathroom, and streak-free cleaning. Made with just seven ingredients including decyl glucoside and organic chamomile. Fragrance-free, free from harmful preservatives, dyes, bleach, and ammonia.",
         website: "https://www.amazon.com/Branch-Basics-Cleaning-Essentials-Fragrance-Free/dp/B0D9WGSBK5",
-        image: "/branch basics.jpeg",
+        image: "/branch basics.png",
+        imageFit: "contain",
       },
       {
         company: "Blueland",
@@ -417,6 +450,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "Plant and mineral-based cleaning duo with plastic-free, compostable refill packaging. Free & Clear laundry tablets are fragrance-free and accepted by the National Eczema Association — made without parabens, phosphates, dyes, ammonia, chlorine bleach, or phthalates. EPA Safer Choice certified, Cradle to Cradle Certified, and Leaping Bunny cruelty-free.",
         website: "https://www.blueland.com/products/laundry-toilet-duo?Laundry+Scent=Free+%26+Clear",
         image: "/blueland laundry.png",
+        imageFit: "contain",
       },
       {
         company: "Puracy",
@@ -426,6 +460,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "Unscented, plant-based stain remover with six enzyme types that tackle sweat, grass, pet accidents, ink, rust, and over 1,500 other stain types. Free from sulfates, chlorine, phosphates, peroxide, parabens, salicylates, brighteners, and petroleum. Hypoallergenic and PETA-certified vegan and cruelty-free.",
         website: "https://www.amazon.com/Puracy-Stain-Remover-Cleaning-Clothes/dp/B0BZ13TV19",
         image: "/puracy.png",
+        imageFit: "contain",
       },
       {
         company: "Blueland",
@@ -435,6 +470,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "Refillable foaming hand soap with a reusable glass Forever Bottle and plant-based tablet refills. Free & Clear option is fragrance-free and hypoallergenic — made without parabens, phosphates, phthalates, dyes, or microplastics. Vegan, gluten-free, and soy/nut-free. EPA Safer Choice, Cradle to Cradle Certified, and Leaping Bunny cruelty-free.",
         website: "https://www.blueland.com/products/hand-soap-sets?Color=Signature&Refill+Quantity=3+Tablets&Scent=Free+%26+Clear",
         image: "/blueland hand soap.png",
+        imageFit: "contain",
       },
       {
         company: "Blueland",
@@ -444,6 +480,17 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
           "Refillable powder dish soap and dishwasher detergent tablet set with plastic-free, compostable refill packaging. Fragrance-free, hypoallergenic, and clinically tested as non-irritating and non-sensitizing. Free from microplastics, parabens, phosphates, ammonia, chlorine bleach, or phthalates. EPA Safer Choice, Cradle to Cradle Certified, and Leaping Bunny cruelty-free.",
         website: "https://www.blueland.com/products/the-dish-duo",
         image: "/blueland dish soap.png",
+        imageFit: "contain",
+      },
+      {
+        company: "Hyoola",
+        name: "unscented beeswax candles",
+        price: "from $25",
+        description:
+          "100% natural beeswax taper candles. Unscented, dripless, and smokeless — a fragrance-free alternative to conventional candles that contain synthetic fragrance, paraffin wax, and phthalates, all of which are known endocrine disruptors.",
+        website: "https://www.amazon.com/Natural-Candles-210-Unscented-Dripless-Smokeless/dp/B0D5HG2JFX",
+        image: "/the outfitter/home care/beeswax candle.png",
+        imageFit: "contain",
       },
     ],
   },

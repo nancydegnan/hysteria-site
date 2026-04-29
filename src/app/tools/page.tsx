@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { tools, selfCareGroups, type Tool } from "./data";
+import { tools, selfCareGroups, healingTools, advocacyTools, type Tool } from "./data";
 import { RevealSection, Footer, SubpageNav } from "../components";
 
 const filters = ["all", "pain & inflammation care", "self care", "home care", "wellness", "gut health", "courses"] as const;
@@ -22,6 +22,8 @@ const categoryMap: Record<string, Filter> = {
   "myFLO app": "wellness",
   "tiny health gut microbiome testing": "gut health",
   "olive my pickle": "gut health",
+  "nervous system essentials": "courses",
+  "release stress & stored trauma in 30 days": "courses",
 };
 
 function getCategory(tool: Tool): Filter {
@@ -252,6 +254,93 @@ export default function ToolsPage() {
                       {group.products.length} {group.products.length === 1 ? "product" : "products"} &rarr;
                     </p>
                   </Link>
+                </RevealSection>
+              ))}
+            </div>
+          </section>
+        )}
+        {/* ── Support Your Healing (Free Tools) ── */}
+        {(active === "all") && (
+          <section className="mt-10 md:mt-14">
+            <RevealSection>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-black text-center mb-4">
+                support your healing
+              </h2>
+            </RevealSection>
+
+            <div className="flex flex-col gap-14">
+              {healingTools.map((ft) => (
+                <RevealSection key={ft.name}>
+                  <a
+                    href={ft.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center group"
+                  >
+                    <div className="w-64 md:w-80 aspect-[4/3] bg-[#e4e0d9] overflow-hidden">
+                      {ft.image && (
+                        <img src={ft.image} alt={ft.name} className="w-full h-full object-cover" style={ft.imagePosition ? { objectPosition: ft.imagePosition } : undefined} />
+                      )}
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-charcoal mb-1.5">
+                        free tool
+                      </p>
+                      <h3 className="playfair text-xl md:text-2xl font-bold leading-snug">
+                        {ft.name}
+                      </h3>
+                      <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-snug tracking-tight mt-2">
+                        {ft.description}
+                      </p>
+                      <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
+                        explore &rarr;
+                      </span>
+                    </div>
+                  </a>
+                </RevealSection>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Advocate For Yourself (Free Tools) ── */}
+        {(active === "all") && (
+          <section className="mt-10 md:mt-14">
+            <RevealSection>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-black text-center mb-4">
+                advocate for yourself
+              </h2>
+            </RevealSection>
+
+            <div className="flex flex-col gap-14">
+              {advocacyTools.map((ft) => (
+                <RevealSection key={ft.name}>
+                  <a
+                    href={ft.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center group"
+                  >
+                    <div className="w-64 md:w-80 aspect-[4/3] bg-[#e4e0d9] overflow-hidden">
+                      {ft.image && (
+                        <img src={ft.image} alt={ft.name} className="w-full h-full object-cover" style={ft.imagePosition ? { objectPosition: ft.imagePosition } : undefined} />
+                      )}
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-charcoal mb-1.5">
+                        free tool
+                      </p>
+                      <h3 className="playfair text-xl md:text-2xl font-bold leading-snug">
+                        {ft.name}
+                      </h3>
+                      <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-snug tracking-tight mt-2">
+                        {ft.description}
+                      </p>
+                      <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
+                        explore &rarr;
+                      </span>
+                    </div>
+                  </a>
                 </RevealSection>
               ))}
             </div>

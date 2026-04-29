@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { RevealSection, Footer, NewsletterPopup } from "./components";
+import { RevealSection, Footer, GatheringsPopup, JoinTheClubForm } from "./components";
 import { tools } from "./tools/data";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
     { href: "/reading", label: "the library" },
     { href: "/community", label: "the chapter" },
     { href: "/hysteria-doc", label: "the documentary" },
-    { href: "https://substack.com/@thenocureclub", label: "the newsletter" },
+    { href: "https://thenocureclub.substack.com", label: "the newsletter" },
   ];
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white text-foreground">
-      <NewsletterPopup />
+      <GatheringsPopup />
       {/* SVG filter for distressed text — hidden, referenced by CSS */}
       <svg className="absolute w-0 h-0" aria-hidden="true">
         <defs>
@@ -49,7 +49,7 @@ export default function Home() {
           <Link href="/" className="ncc-logo text-lg text-black">
             The No Cure Club
           </Link>
-          <div className="hidden md:flex items-center gap-5">
+          <div className="hidden md:flex items-center gap-4">
             {navLinks.map((link) =>
               link.href.startsWith("http") ? (
                 <a
@@ -57,7 +57,7 @@ export default function Home() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-black hover:italic transition-all duration-300"
+                  className="text-xs text-black hover:italic transition-all duration-300"
                 >
                   {link.label}
                 </a>
@@ -65,20 +65,19 @@ export default function Home() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-black hover:italic transition-all duration-300"
+                  className="text-xs text-black hover:italic transition-all duration-300"
                 >
                   {link.label}
                 </Link>
               )
             )}
-            <a
-              href="https://nocureclub.substack.com/subscribe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-xs !py-2 !px-5"
-            >
-              join the club
-            </a>
+            <JoinTheClubForm
+              formClassName="flex items-center gap-1.5"
+              inputClassName="w-28 !bg-gray-light !border-gray-mid !rounded-none !text-[10px] !py-1.5"
+              buttonClassName="btn-primary !text-[10px] !py-1.5 !px-4 whitespace-nowrap"
+              successClassName="text-[10px] font-semibold text-black"
+              errorClassName="text-[10px] text-red-600"
+            />
           </div>
           <button
             className="md:hidden text-black"
@@ -140,7 +139,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="https://substack.com/@thenocureclub"
+                href="https://thenocureclub.substack.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-black hover:opacity-60 transition-opacity"
@@ -154,14 +153,13 @@ export default function Home() {
             <Link href="/" className="ncc-logo text-[5vw] md:text-[5.5vw] lg:text-[4.5vw] text-black whitespace-nowrap leading-none">
               The No Cure Club
             </Link>
-            <a
-              href="https://nocureclub.substack.com/subscribe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary !text-[10px] !py-1.5 !px-3 md:!text-xs md:!py-2 md:!px-5"
-            >
-              join the club
-            </a>
+            <JoinTheClubForm
+              formClassName="flex items-center gap-1.5"
+              inputClassName="w-28 md:w-36 !bg-gray-light !border-gray-mid !rounded-none !text-[10px] !py-1.5 md:!text-xs md:!py-2"
+              buttonClassName="btn-primary !text-[10px] !py-1.5 !px-3 md:!text-xs md:!py-2 md:!px-5 whitespace-nowrap"
+              successClassName="text-[10px] md:text-xs font-semibold text-black"
+              errorClassName="text-[10px] md:text-xs text-red-600"
+            />
           </div>
           <div className="pb-24 md:pb-32"></div>
         </div>
@@ -263,28 +261,7 @@ export default function Home() {
               </RevealSection>
 
               <RevealSection>
-                <form
-                  className="flex flex-col sm:flex-row gap-3"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    const email = (e.currentTarget.elements.namedItem("email") as HTMLInputElement).value;
-                    window.open(
-                      `https://nocureclub.substack.com/subscribe?email=${encodeURIComponent(email)}`,
-                      "_blank"
-                    );
-                  }}
-                >
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="your@email.com"
-                    required
-                    className="flex-1 !bg-black/10 !border-charcoal/30 text-black placeholder-black/40 !rounded-full"
-                  />
-                  <button type="submit" className="btn-blush whitespace-nowrap">
-                    <span className="playfair-italic font-bold">join</span>{" "}<span className="ncc-logo">The No Cure Club</span>
-                  </button>
-                </form>
+                <JoinTheClubForm />
                 <p className="text-xs text-black mt-4">Drop your email to get our monthly newsletter and we&apos;ll let you know when the next gathering is.</p>
               </RevealSection>
             </div>
@@ -424,7 +401,7 @@ export default function Home() {
           <RevealSection>
             <div className="w-full aspect-[3/4] overflow-hidden">
               <img
-                src="/NANCY/nancy backyard.JPG"
+                src="/NANCY/Monika Photos/8A426141-7675-47B9-BCC8-14ECF0BB0C6D-labbet-app.JPG"
                 alt="Nancy"
                 className="w-full h-full object-cover"
               />
@@ -625,35 +602,6 @@ export default function Home() {
           <RevealSection stagger>
             <div className="grid md:grid-cols-3 gap-6">
               <Link
-                href="/practitioners"
-                className="group relative border border-[#665e4c] rounded-none overflow-hidden transition-all duration-300"
-              >
-                <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                  <h3 className="text-white text-2xl md:text-3xl tracking-tight">
-                    <span className="font-black">coming</span>{" "}
-                    <em className="playfair-italic font-light">soon.</em>
-                  </h3>
-                </div>
-                <div className="overflow-hidden">
-                  <img src="/the rolodex/51248765-9BE9-44EF-BEFE-FE0C4AA883D1-labbet-app.JPG" alt="The Rolodex" className="w-full object-cover aspect-[4/3] !rounded-none scale-[1.2] group-hover:scale-[1.23] transition-transform duration-500" style={{ objectPosition: "center 110%" }} />
-                </div>
-                <div className="px-8 pt-4 pb-6 text-left">
-                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
-                    the rolodex
-                  </p>
-                  <h3 className="playfair text-xl mb-1">
-                    tested <em className="playfair-italic">allies.</em>
-                  </h3>
-                  <p className="playfair text-sm text-black leading-snug">
-                    a growing list of practitioners who actually believe you.
-                  </p>
-                  <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
-                    explore &rarr;
-                  </span>
-                </div>
-              </Link>
-
-              <Link
                 href="/tools"
                 className="group border border-[#665e4c] rounded-none overflow-hidden hover:bg-chartreuse transition-all duration-300"
               >
@@ -692,6 +640,35 @@ export default function Home() {
                   </h3>
                   <p className="playfair text-sm text-black leading-snug">
                     consider this your club curriculum.
+                  </p>
+                  <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
+                    explore &rarr;
+                  </span>
+                </div>
+              </Link>
+
+              <Link
+                href="/practitioners"
+                className="group relative border border-[#665e4c] rounded-none overflow-hidden transition-all duration-300"
+              >
+                <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  <h3 className="text-white text-2xl md:text-3xl tracking-tight">
+                    <span className="font-black">coming</span>{" "}
+                    <em className="playfair-italic font-light">soon.</em>
+                  </h3>
+                </div>
+                <div className="overflow-hidden">
+                  <img src="/the rolodex/C55A1B2E-6359-4B84-811E-5A5C925723CB-labbet-app.JPG" alt="The Rolodex" className="w-full object-cover aspect-[4/3] !rounded-none scale-[1.2] group-hover:scale-[1.23] transition-transform duration-500" style={{ objectPosition: "center 110%" }} />
+                </div>
+                <div className="px-8 pt-4 pb-6 text-left">
+                  <p className="text-xs font-semibold text-black mb-1.5 uppercase tracking-wider">
+                    the rolodex
+                  </p>
+                  <h3 className="playfair text-xl mb-1">
+                    tested <em className="playfair-italic">allies.</em>
+                  </h3>
+                  <p className="playfair text-sm text-black leading-snug">
+                    a growing list of practitioners who actually believe you.
                   </p>
                   <span className="text-sm font-medium inline-block mt-3 text-black group-hover:translate-x-1 transition-transform duration-300">
                     explore &rarr;

@@ -3,9 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { RevealSection, Footer, SubpageNav } from "../components";
-import { advocacyTools, healingTools } from "../tools/data";
-
-const filters = ["all", "gatherings", "free tools: heal", "free tools: advocate"] as const;
+const filters = ["all", "gatherings"] as const;
 type Filter = (typeof filters)[number];
 
 interface Event {
@@ -19,7 +17,7 @@ interface Event {
 
 const laEvents: Event[] = [
   {
-    date: "Saturday, May 2, 2026 · 4:30–6 PM",
+    date: "Saturday, May 2, 2026 · 4–6:30 PM",
     title: "cozy afternoon gathering",
     description:
       "Hosted at Nancy\u2019s home in Echo Park. An intimate gathering to ground, connect, and go deeper. Bean Protocol friendly light bites and Nancy\u2019s signature sugar free electrolyte drink to be provided for a nourishing evening.",
@@ -30,10 +28,10 @@ const laEvents: Event[] = [
     date: "Sunday, June 14, 2026 · 11 AM–1:30 PM",
     title: "launch event",
     description:
-      "Our first event. An afternoon tea (caffeine free of course) gathering to connect, share, and support each other. Special guest, an incredible Pelvic Floor Physical Therapist located in LA.",
+      "Our official launch. An afternoon tea (caffeine free of course) gathering to connect, share, and support each other, held at ",
     image: "/the chapter/F160CA01-A597-4ADD-9264-A425949446A5-labbet-app.JPG",
     link: "https://www.eventbrite.com/e/the-no-cure-club-afternoon-tea-gathering-tickets-1986841219572?aff=oddtdtcreator",
-    extra: <>This will be a filmed event, to be included in <Link href="/hysteria-doc" className="underline hover:opacity-60 transition-opacity">the documentary</Link>.</>,
+    extra: <><a href="https://www.atelierbyartmingo.com/" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-60 transition-opacity">Atelier Pasadena</a>. Special guest to be announced closer to the event. This will be a filmed event, to be included in <Link href="/hysteria-doc" className="underline hover:opacity-60 transition-opacity">the documentary</Link>.</>,
   },
 ];
 
@@ -118,94 +116,6 @@ export default function CommunityPage() {
                     )}
                   </div>
                 </div>
-              </RevealSection>
-            ))}
-          </div>
-        </div>
-      </section>}
-
-      {/* ── Free Tools: Heal ── */}
-      {(active === "all" || active === "free tools: heal") && <section id="free-tools-heal" className="py-20 md:py-28 px-6">
-        <div className="max-w-6xl mx-auto">
-          <RevealSection>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-black mb-10 lowercase">
-              support your healing
-            </h2>
-          </RevealSection>
-
-          <div className="flex flex-col gap-14">
-            {healingTools.map((ft) => (
-              <RevealSection key={ft.name}>
-                <a
-                  href={ft.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center group"
-                >
-                  <div className="w-64 md:w-80 aspect-[4/3] bg-[#e4e0d9] overflow-hidden">
-                    {ft.image && (
-                      <img src={ft.image} alt={ft.name} className="w-full h-full object-cover" style={ft.imagePosition ? { objectPosition: ft.imagePosition } : undefined} />
-                    )}
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-charcoal mb-1.5">
-                      free tool
-                    </p>
-                    <h3 className="playfair text-xl md:text-2xl font-bold leading-snug">
-                      {ft.name}
-                    </h3>
-                    <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-snug tracking-tight mt-2">
-                      {ft.description}
-                    </p>
-                    <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
-                      explore &rarr;
-                    </span>
-                  </div>
-                </a>
-              </RevealSection>
-            ))}
-          </div>
-        </div>
-      </section>}
-
-      {/* ── Free Tools: Advocate ── */}
-      {(active === "all" || active === "free tools: advocate") && <section id="free-tools-advocate" className="py-20 md:py-28 px-6">
-        <div className="max-w-6xl mx-auto">
-          <RevealSection>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-black mb-10 lowercase">
-              advocate for yourself
-            </h2>
-          </RevealSection>
-
-          <div className="flex flex-col gap-14">
-            {advocacyTools.map((ft) => (
-              <RevealSection key={ft.name}>
-                <a
-                  href={ft.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center group"
-                >
-                  <div className="w-64 md:w-80 aspect-[4/3] bg-[#e4e0d9] overflow-hidden">
-                    {ft.image && (
-                      <img src={ft.image} alt={ft.name} className="w-full h-full object-cover" style={ft.imagePosition ? { objectPosition: ft.imagePosition } : undefined} />
-                    )}
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-charcoal mb-1.5">
-                      free tool
-                    </p>
-                    <h3 className="playfair text-xl md:text-2xl font-bold leading-snug">
-                      {ft.name}
-                    </h3>
-                    <p className="font-['Helvetica','Arial',sans-serif] text-sm text-black leading-snug tracking-tight mt-2">
-                      {ft.description}
-                    </p>
-                    <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
-                      explore &rarr;
-                    </span>
-                  </div>
-                </a>
               </RevealSection>
             ))}
           </div>

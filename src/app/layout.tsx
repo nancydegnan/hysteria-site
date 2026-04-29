@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Lora, Work_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -41,6 +42,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${lora.variable} ${workSans.variable} antialiased`}>
         {children}
+        <Script
+          src="https://js.supascribe.com/v1/loader/zNBxYKLH0LWTTh1tMqpiAJjXwEt2.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

@@ -94,7 +94,7 @@ export default function AboutNancyPage() {
 
           <RevealSection>
             <img
-              src="/NANCY/Monika Photos/8A426141-7675-47B9-BCC8-14ECF0BB0C6D-labbet-app.JPG"
+              src="/the origin/C93C3BB7-DD8F-4124-B982-4EFE85CC63B1-labbet-app.JPG"
               alt="Nancy portrait"
               className="w-full aspect-[3/4] object-cover"
               style={{ objectPosition: "center 80%" }}

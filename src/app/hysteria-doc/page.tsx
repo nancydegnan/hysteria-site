@@ -32,7 +32,7 @@ export default function HysteriaDoc() {
             href="#donate"
             className="text-sm text-black font-bold hover:italic transition-all duration-300"
           >
-            support
+            support the film
           </a>
         </div>
       </nav>
@@ -338,55 +338,40 @@ export default function HysteriaDoc() {
               </h2>
               <div className="space-y-5 font-['Helvetica','Arial',sans-serif] text-base text-black leading-[1.4] tracking-tight">
                 <p>
-                  In 2020, when the world was falling apart, so did my body. My
-                  period became so painful I was vomiting and blacking out for
-                  hours. Doctors told me it was normal. Maybe I should try
-                  antidepressants. Maybe I just needed to have a baby.
+                  In 2020, when the world was falling apart, so did my body. My period became so painful I was vomiting and blacking out for hours. Doctors told me it was normal. Maybe I should try antidepressants. Maybe I just needed to have a baby.
                 </p>
                 <p>
                   <strong className="text-black">I would not accept.</strong>
                 </p>
                 <p>
-                  After a year of research, I self-diagnosed and found a surgeon
-                  who confirmed Stage 3 Endometriosis. When I walked into his
-                  office for the post-op, ready for a treatment plan, he sighed
-                  and said my only options were{" "}
-                  <strong className="text-black">birth control</strong> or{" "}
-                  <strong className="text-black">medical menopause</strong>.
+                  After a year of research, I self-diagnosed and found a surgeon who confirmed Stage 3 Endometriosis. When I walked into his office for the post-op, ready for a treatment plan, he sighed and said my only options were birth control or medical menopause.
                 </p>
                 <p>
-                  I was devastated.{" "}
-                  <strong className="text-black">
-                    Birth control would mask the symptoms while the disease grew
-                    internally
-                  </strong>{" "}
-                  — risking my organs, my fertility, my future. But desperate to
-                  get my life back, I took the prescription and moved on.
+                  I was 25.
                 </p>
                 <p>
-                  Then I discovered the work of women who are transforming how we
-                  understand female biology. And I became determined to present
-                  new options to the world.
+                  That was the moment I understood something most women with endo eventually understand: the medical system has decided this disease is unsolvable, and the only thing on offer is symptom suppression while the disease keeps growing.
                 </p>
                 <p>
-                  I do not accept that Endo is &ldquo;just something I have to
-                  live with.&rdquo; I refuse the narrative that women are cursed
-                  with the harder biology.{" "}
-                  <strong className="text-black">
-                    We have a biology optimized for flow and harmony, strength
-                    and resilience
-                  </strong>{" "}
-                  — distorted under a lens that was never built for us.
+                  <strong className="text-black">I refused that as a final answer.</strong>
                 </p>
                 <p>
-                  <strong className="text-black">
-                    I have set out to put my Endo into remission.
-                  </strong>{" "}
-                  Not less pain —{" "}
-                  <strong className="text-black">no pain.</strong> To restore
-                  health to my whole body, not just my uterus. I want my story to
-                  bring hope to anyone suffering with chronic pain. There are
-                  answers, and I am determined to bring them to the masses.
+                  For the last five years, I have been building my own protocol. Surgery. Diet. Nervous system work. Light therapy. Movement. Supplementation. Community. The work of doctors, scientists, and practitioners who are quietly transforming how we understand female biology, stitched together into something coherent enough to live inside.
+                </p>
+                <p>
+                  <strong className="text-black">I am putting my endometriosis into remission.</strong> Not less pain. No pain. Not symptom management. Restoration.
+                </p>
+                <p>
+                  <strong className="text-black">This documentary is the record of that work.</strong>
+                </p>
+                <p>
+                  It exists because the path I&apos;m walking should not require the resources I&apos;ve had to find it. Most women with endo are handed two options and told to pick. I want this film to be the third option, made visible. The protocol stack, the practitioners, the science, the failures, the breakthroughs, all of it documented so the next woman doesn&apos;t have to spend a year in the dark figuring out that there&apos;s more than what she was told.
+                </p>
+                <p>
+                  There are answers.
+                </p>
+                <p>
+                  <strong className="text-black">I am determined to put them on the screen.</strong>
                 </p>
               </div>
             </RevealSection>

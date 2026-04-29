@@ -30,78 +30,89 @@ export default function WhyWeExistPage() {
           &larr; back to about
         </Link>
 
-        <div className="space-y-6 text-base text-black leading-[1.85] max-w-3xl">
-          <RevealSection>
-            <p>
-              There is no shortage of wellness content for women. There is an
-              enormous shortage of useful content for women with complex,
-              chronic, hormonally-driven conditions. Content that meets them
-              where they actually live.
-            </p>
-          </RevealSection>
+        <div className="grid md:grid-cols-[1fr_auto] gap-12 items-start">
+          <div className="space-y-3 text-base text-black leading-snug">
+            <RevealSection>
+              <p>
+                There is no shortage of wellness content for women.
+              </p>
+              <p className="mt-3">
+                There is an enormous shortage of useful curated content for women living with complex, chronic, multi-system conditions like endometriosis. Content that meets them where they actually live.
+              </p>
+            </RevealSection>
 
-          <RevealSection>
-            <p>
-              Not in a retreat center. Not on a $400/month supplement protocol.
-              In an apartment, at a desk job, trying to get through a Tuesday.
-            </p>
-          </RevealSection>
+            <RevealSection>
+              <p>
+                Not at a retreat. Not on a $400/month supplement protocol.
+              </p>
+              <p className="mt-3">
+                <em>In an apartment. At a desk job. Trying to get through a Tuesday.</em>
+              </p>
+            </RevealSection>
 
-          <RevealSection>
-            <p>
-              The No Cure Club exists because no one has built what we needed:
-              a real, curated hub that covers the whole life of someone
-              managing a condition like endometriosis. Not just the diagnosis
-              and the surgery options. The office chair that relieves pelvic
-              pain. The skincare routine that isn&apos;t quietly dismantling
-              your hormones. The cleaning products you use every day that may
-              be feeding the inflammation you&apos;re fighting. The pain
-              relief tools that actually work. The research your doctor
-              hasn&apos;t read yet.
-            </p>
-          </RevealSection>
+            <RevealSection>
+              <p>
+                <span className="ncc-logo font-bold" style={{ fontSize: "inherit", transform: "none" }}>The No Cure Club</span> exists because I realized no one had built what we needed.
+              </p>
+              <p className="mt-3">
+                A real, curated hub that covers the whole life of someone managing a condition like endometriosis. Not just diagnosis and surgery options.
+              </p>
+              <p className="mt-3">
+                The office chair that relieves pelvic pain. The skincare routine and cleaning products that aren&apos;t quietly wrecking your hormones. The podcast episode that changes your relationship to your nervous system. The pain relief tools that actually work. The research your doctor hasn&apos;t read yet, put in normal, easy-to-understand language.
+              </p>
+            </RevealSection>
 
-          <RevealSection>
-            <p>
-              This is a multimodal approach to hormonal health, because the
-              body is multimodal. Endo doesn&apos;t live only in the uterus.
-              Chronic inflammation doesn&apos;t respond to a single lever.
-              Healing isn&apos;t linear, and it doesn&apos;t fit into a
-              15-minute appointment.
-            </p>
-          </RevealSection>
+            <RevealSection>
+              <p>
+                Endo doesn&apos;t live in the uterus alone. Chronic inflammation doesn&apos;t respond to one lever. Healing isn&apos;t linear, and it doesn&apos;t fit into a 15-minute appointment.
+              </p>
+            </RevealSection>
 
-          <RevealSection>
-            <p>
-              We are here for women and everyone with a female body who is
-              done being told their pain is normal, their hormones are a
-              problem to be suppressed, and their only options are the ones on
-              a prescription pad. We are here for anyone who suspects the
-              system wasn&apos;t designed with their biology in mind, because
-              it wasn&apos;t. Medical research has been built, for most of its
-              history, around the male body as the default. Female biology is
-              cyclical, hormonally dynamic, exquisitely sensitive to
-              environment. And it has been undertreated, misunderstood, and
-              pathologized.
-            </p>
-          </RevealSection>
+            <RevealSection>
+              <p>
+                This is for women and anyone who has or once had a uterus who is done being told their pain is normal, their hormones are a problem to be suppressed, their only real options are on a prescription pad.
+              </p>
+              <p className="mt-6">
+                It&apos;s for anyone who suspects the system wasn&apos;t built with their biology in mind.
+              </p>
+              <p className="mt-1">
+                Because it wasn&apos;t.
+              </p>
+              <p className="mt-3">
+                For most of its history, medical research was built around the male body as the default. <em>Female biology is cyclical, hormonally dynamic, deeply responsive to its environment.</em> It has been undertreated, misunderstood, and pathologized.
+              </p>
+            </RevealSection>
 
-          <RevealSection>
-            <p>
-              <strong className="text-black">
+            <RevealSection>
+              <p>
                 We are not anti-medicine. We are pro-whole picture.
-              </strong>
-            </p>
-          </RevealSection>
+              </p>
+            </RevealSection>
 
-          <RevealSection>
-            <p>
-              The No Cure Club is the intersection point: where cutting-edge
-              femtech meets ancestral wisdom meets modern science meets the
-              unglamorous, practical realities of chronic illness. Where your
-              biology is not a liability. Where the goal isn&apos;t just less
-              pain. It&apos;s full, unapologetic health.
-            </p>
+            <RevealSection>
+              <p>
+                <strong>This is where femtech meets ancestral wisdom meets modern science meets the unglamorous, practical reality of chronic illness.</strong>
+              </p>
+              <p className="mt-6">
+                Where your biology is not a liability.
+              </p>
+              <p className="mt-1">
+                Where the goal isn&apos;t just less pain.
+              </p>
+              <p className="mt-1">
+                It&apos;s full, unapologetic health.
+              </p>
+            </RevealSection>
+          </div>
+
+          <RevealSection className="hidden md:block">
+            <div className="w-72 lg:w-80 aspect-[3/4] overflow-hidden sticky top-28">
+              <img
+                src="/the origin/F12D13FD-721A-4BB1-818F-337E0FB48E42-labbet-app.JPG"
+                alt="The No Cure Club"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </RevealSection>
         </div>
       </main>
