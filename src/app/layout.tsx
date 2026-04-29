@@ -3,6 +3,8 @@ import { Inter, Lora, Work_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -42,6 +44,22 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${lora.variable} ${workSans.variable} antialiased`}>
         {children}
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
         <Script
           src="https://js.supascribe.com/v1/loader/zNBxYKLH0LWTTh1tMqpiAJjXwEt2.js"
           strategy="afterInteractive"
