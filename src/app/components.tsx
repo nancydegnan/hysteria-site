@@ -121,11 +121,11 @@ export function SubpageNav() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link
           href="/"
-          className="text-xl ncc-logo text-black"
+          className="text-lg ncc-logo text-black"
         >
           The No Cure Club
         </Link>
-        <div className="hidden md:flex items-center gap-5">
+        <div className="hidden md:flex items-center gap-4">
           {navLinks.map((link) =>
             link.href.startsWith("http") ? (
               <a
@@ -133,7 +133,7 @@ export function SubpageNav() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-black hover:italic transition-all duration-300"
+                className="text-xs text-black hover:italic transition-all duration-300"
               >
                 {link.label}
               </a>
@@ -141,18 +141,18 @@ export function SubpageNav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-black hover:italic transition-all duration-300"
+                className="text-xs text-black hover:italic transition-all duration-300"
               >
                 {link.label}
               </Link>
             )
           )}
           <JoinTheClubForm
-            formClassName="flex items-center gap-2"
-            inputClassName="w-36 !bg-gray-light !border-gray-mid !rounded-none text-xs !py-2"
-            buttonClassName="btn-primary text-xs !py-2 !px-5 whitespace-nowrap"
-            successClassName="text-xs font-semibold text-black"
-            errorClassName="text-xs text-red-600"
+            formClassName="flex items-center gap-1.5"
+            inputClassName="w-28 !bg-gray-light !border-gray-mid !rounded-none !text-[10px] !py-1.5"
+            buttonClassName="btn-primary !text-[10px] !py-1.5 !px-4 whitespace-nowrap"
+            successClassName="text-[10px] font-semibold text-black"
+            errorClassName="text-[10px] text-red-600"
           />
         </div>
         <button
