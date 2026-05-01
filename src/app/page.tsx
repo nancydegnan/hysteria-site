@@ -125,7 +125,7 @@ export default function Home() {
       {/* ====== RUSSH-STYLE HERO HEADER ====== */}
       <header className="pt-4 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div className="flex items-center gap-3 md:gap-4">
               <a
                 href="https://www.instagram.com/jointhenocureclub/"
@@ -150,16 +150,18 @@ export default function Home() {
                 </svg>
               </a>
             </div>
-            <Link href="/" className="ncc-logo text-[5vw] md:text-[5.5vw] lg:text-[4.5vw] text-black whitespace-nowrap leading-none">
+            <Link href="/" className="ncc-logo text-[9vw] md:text-[5.5vw] lg:text-[4.5vw] text-black whitespace-nowrap leading-none self-center md:self-auto mt-8 md:mt-0">
               The No Cure Club
             </Link>
-            <JoinTheClubForm
-              formClassName="flex items-center gap-1.5"
-              inputClassName="w-28 md:w-36 !bg-gray-light !border-gray-mid !rounded-none !text-[10px] !py-1.5 md:!text-xs md:!py-2"
-              buttonClassName="btn-primary !text-[10px] !py-1.5 !px-3 md:!text-xs md:!py-2 md:!px-5 whitespace-nowrap"
-              successClassName="text-[10px] md:text-xs font-semibold text-black"
-              errorClassName="text-[10px] md:text-xs text-red-600"
-            />
+            <div className="hidden md:block">
+              <JoinTheClubForm
+                formClassName="flex items-center gap-1.5"
+                inputClassName="w-28 md:w-36 !bg-gray-light !border-gray-mid !rounded-none !text-[10px] !py-1.5 md:!text-xs md:!py-2"
+                buttonClassName="btn-primary !text-[10px] !py-1.5 !px-3 md:!text-xs md:!py-2 md:!px-5 whitespace-nowrap"
+                successClassName="text-[10px] md:text-xs font-semibold text-black"
+                errorClassName="text-[10px] md:text-xs text-red-600"
+              />
+            </div>
           </div>
           <div className="pb-24 md:pb-32"></div>
         </div>
@@ -350,7 +352,7 @@ export default function Home() {
           <div className="w-[80%] mx-auto border-t-2 border-foreground/40 mb-12" />
           <RevealSection>
             <div className="grid md:grid-cols-[1fr_2fr] gap-8 items-start">
-              <div className="w-[70%] ml-auto aspect-[3/4] overflow-hidden">
+              <div className="w-[60%] md:w-[70%] md:ml-auto aspect-square md:aspect-[3/4] overflow-hidden">
                 <img
                   src="/the chapter/097E8C03-F895-4DB4-AC66-38011D606BCC-labbet-app.JPG"
                   alt="The Chapter"
@@ -399,7 +401,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Portrait — left side */}
           <RevealSection>
-            <div className="w-full aspect-[3/4] overflow-hidden">
+            <div className="w-[60%] md:w-full aspect-square md:aspect-[3/4] overflow-hidden">
               <img
                 src="/NANCY/Monika Photos/8A426141-7675-47B9-BCC8-14ECF0BB0C6D-labbet-app.JPG"
                 alt="Nancy"
@@ -431,7 +433,7 @@ export default function Home() {
                 I&apos;m not an expert, but I&apos;m a busy girl who&apos;s been trying to live a big life with endo, and I want to simplify things.
               </p>
               <p>
-                This club is my solution. Here, you will find the curated resources that have helped me, or friends I know and trust. We are always growing, so please <a href="mailto:hello@thenocureclub.com" className="underline hover:opacity-60 transition-opacity">send us resources</a> to check out!
+                This club is my solution. Here, you will find the curated resources that have helped me, or friends I know and trust. We are always growing, so please <a href="mailto:hey@thenocureclub.com" className="underline hover:opacity-60 transition-opacity">send us resources</a> to check out!
               </p>
               <p>
                 We will be hosting gatherings for the Los Angeles community to meet in person, so check out <Link href="/community" className="underline hover:opacity-60 transition-opacity">the chapter</Link> page to see the latest events and grab your spot. We will often bring a specialist guest, and always do activities that create nervous system regulation and connection with each other and ourselves.

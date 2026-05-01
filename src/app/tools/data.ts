@@ -12,14 +12,6 @@ export interface Tool {
   imagePosition?: string;
 }
 
-export interface FreeTool {
-  name: string;
-  url: string;
-  description: string;
-  image?: string;
-  imagePosition?: string;
-}
-
 /* ── Products ── */
 export const tools: Tool[] = [
   {
@@ -63,31 +55,9 @@ export const tools: Tool[] = [
     description:
       "Wearable earpiece that uses patented neurostimulation technology to simultaneously stimulate the vagus and trigeminal nerves — reducing period pain, lightening flow, and balancing your cycle. Drug-free, hormone-free relief.",
     shortDescription: "Drug-free neurostimulation for period pain relief.",
-    personalNote: "This is helpful right before and during your cycle. It regulates the nervous system and gives that instant calm feeling to my pelvis when I switch it on. It\u2019s cumulative, so each time you use it, it helps more and more. This is a MUST for me when I get my period.\nx, N",
+    personalNote: "This is helpful right before and during your cycle. It regulates the nervous system and gives that instant calm feeling to my pelvis when I switch it on. It\u2019s cumulative, so each time you use it, it helps more and more.\nx, N",
     website: "https://www.ohmbody.com",
-    image: "/Ohmbody-image-1.webp",
-  },
-  {
-    company: "The Pelvic People",
-    name: "ohnut",
-    price: "$75",
-    description:
-      "Soft, stretchy, stackable rings that let you customize penetration depth — reducing pain during intimacy by preventing contact with tender pelvic structures.",
-    shortDescription: "Customizable rings for pain-free intimacy.",
-    personalNote: "This allows you to let go of the control that comes with deep penetration pain. For those of us who tense and guard in order to stop the pain, this brings back the fun and ease to sex even if you have pain. Plus the vibrator add-on is a real plus :)\nx, N",
-    website: "https://thepelvicpeople.com",
-    image: "/Orange_Ohnut_Updated-resize-min.webp",
-  },
-  {
-    company: "The Pelvic People",
-    name: "kiwi",
-    price: "$115",
-    description:
-      "A vibrating pelvic relaxation massager designed to release tight pelvic floor muscles. Non-phallic, gentle, and targeted — with different ends for shallow internal use and for massaging connected muscle groups.",
-    shortDescription: "Gentle pelvic floor massager for muscle release.",
-    personalNote: "This is the gentlest entry into dearmouring that I\u2019ve ever had. Really helped ease my entry pain that came along with endo, and the vibrating function helps with pain but also adds pleasure to a process that can feel mechanical.\nx, N",
-    website: "https://thepelvicpeople.com/products/kiwi",
-    image: "/Kiwicollectionphoto_Editablebox_orange2-min.webp",
+    image: "/Ohmbody-image-1.jpeg",
   },
   {
     company: "Pinmoco",
@@ -159,6 +129,69 @@ export const tools: Tool[] = [
     imageFit: "contain",
   },
   {
+    company: "The Workout Witch",
+    name: "release stress & stored trauma in 30 days",
+    price: "$57",
+    description:
+      "30-day somatic course by Liz Tenuto with sequenced video classes designed to release stress and stored trauma from your body and hips. Includes instant-download PDFs for progress tracking and 2 downloadable daily tension and trauma release routines. Pre-recorded classes you can do at your own pace with lifetime access.",
+    shortDescription: "30-day somatic course for releasing stress and stored trauma.",
+    personalNote: "This continues to be a course I turn to when I feel a build up in my pelvis, especially in big weeks where stress is high. Great way to release at the end of the day.\nx, N",
+    website: "https://theworkoutwitch.com/products/1724602",
+    image: "/workout witch course.jpeg",
+  },
+];
+
+/* ── Sexual Health ── */
+export const sexualHealthTools: Tool[] = [
+  {
+    company: "The Pelvic People",
+    name: "ohnut",
+    price: "$75",
+    description:
+      "Soft, stretchy, stackable rings that let you customize penetration depth — reducing pain during intimacy by preventing contact with tender pelvic structures.",
+    shortDescription: "Customizable rings for pain-free intimacy.",
+    personalNote: "This allows you to let go of the control that comes with deep penetration pain. For those of us who tense and guard in order to stop the pain, this brings back the fun and ease to sex even if you have pain. Plus the vibrator add-on is a real plus :)\nx, N",
+    website: "https://thepelvicpeople.com",
+    image: "/Orange_Ohnut_Updated-resize-min.webp",
+  },
+  {
+    company: "The Pelvic People",
+    name: "kiwi",
+    price: "$115",
+    description:
+      "A vibrating pelvic relaxation massager designed to release tight pelvic floor muscles. Non-phallic, gentle, and targeted — with different ends for shallow internal use and for massaging connected muscle groups.",
+    shortDescription: "Gentle pelvic floor massager for muscle release.",
+    personalNote: "This is the gentlest entry into dearmouring that I\u2019ve ever had. Really helped ease my entry pain that came along with endo, and the vibrating function helps with pain but also adds pleasure to a process that can feel mechanical.\nx, N",
+    website: "https://thepelvicpeople.com/products/kiwi",
+    image: "/Kiwicollectionphoto_Editablebox_orange2-min.webp",
+  },
+  {
+    company: "Yoni Pleasure Palace",
+    name: "the cervix serpent",
+    price: "From $80",
+    description:
+      "Handcrafted glass wand with an elongated S-shape that follows the vagina\u2019s natural curvature. Designed for vaginal dearmoring \u2014 gently releasing tension, pain, and numbness held in the pelvic floor and cervix. The 3.0 is completely smooth with a small egg-shaped end, the gentlest option for those with pelvic pain or sensitivity. Comes with a velvet storage pouch.",
+    shortDescription: "Handcrafted glass wand for vaginal dearmoring and pelvic release.",
+    personalNote: "A gorgeous tool for helping with deep penetration pain and releasing tension in the pelvic floor paired with the de-armouring guided audio. This has been a life-changing tool for me and feels like a luxurious self-love ritual rather than just another pelvic wand.\nx, N",
+    website: "https://yonipleasurepalace.com/en-us/products/the-cervix-serpent?variant=62756924588401",
+    image: "/the outfitter/sexual health/Cervix Serpent 3.0.jpeg",
+  },
+  {
+    company: "Yoni Pleasure Palace",
+    name: "cervix serpent guided audio ritual",
+    price: "$33",
+    description:
+      "A guided audio dearmoring session that walks you through mapping and massaging the vaginal canal with the Cervix Serpent wand. Covers four sacred spots around the vaginal wall, three layers of superficial tissue, pelvic floor massage from within, and cervical massage \u2014 using breath and sound to release tension, pain, and numbness.",
+    shortDescription: "Guided audio for vaginal dearmoring with the Cervix Serpent.",
+    personalNote: "This is a life-changing guided experience alongside the cervix serpent, but can honestly be used with any tool you like (including The Pelvic People Kiwi for a more gentle experience). I highly recommend for anyone who deals with pain with sex and wants a deeply supportive guide to reconnect to her body.\nx, N",
+    website: "https://yonipleasurepalace.com/en-us/products/cervix-serpent-guided-audio-ritual",
+    image: "/the outfitter/sexual health/Vaginal Dearmouring Meditation.jpeg",
+  },
+];
+
+/* ── Nervous System ── */
+export const nervousSystemTools: Tool[] = [
+  {
     company: "Sarah Baldwin Coaching",
     name: "nervous system essentials",
     price: "$67",
@@ -179,6 +212,49 @@ export const tools: Tool[] = [
     personalNote: "This continues to be a course I turn to when I feel a build up in my pelvis, especially in big weeks where stress is high. Great way to release at the end of the day.\nx, N",
     website: "https://theworkoutwitch.com/products/1724602",
     image: "/workout witch course.jpeg",
+  },
+  {
+    company: "OhmBody",
+    name: "ohmBody starter kit",
+    price: "$579",
+    description:
+      "Wearable earpiece that uses patented neurostimulation technology to simultaneously stimulate the vagus and trigeminal nerves — reducing period pain, lightening flow, and balancing your cycle. Drug-free, hormone-free relief.",
+    shortDescription: "Drug-free neurostimulation for period pain relief.",
+    personalNote: "This is helpful right before and during your cycle. It regulates the nervous system and gives that instant calm feeling to my pelvis when I switch it on. It\u2019s cumulative, so each time you use it, it helps more and more.\nx, N",
+    website: "https://www.ohmbody.com",
+    image: "/Ohmbody-image-1.jpeg",
+  },
+  {
+    company: "CLEARLIGHT",
+    name: "amethyst PEMF mat",
+    price: "$1,099",
+    description:
+      "Far infrared therapy mat with over 25 pounds of pure amethyst crystals and built-in pulsed electromagnetic field (PEMF) technology. Ten PEMF cores operate at customizable frequencies between 3\u201323 Hz, letting you dial in the intensity for your needs. Generates far infrared wavelengths of 6\u201314 microns that penetrate deep into tissue, increasing blood flow and reducing inflammation. 12-layer construction with negative ion output for cellular detoxification and nervous system regulation.",
+    shortDescription: "PEMF + far infrared mat with customizable frequency levels.",
+    personalNote: "This is the PEMF mat I use daily as part of my experiment to put my endo into remission. PEMF works through electromagnetic induction \u2014 the pulses interact with cell surface receptors and suppress the same inflammatory pathways (NF-\u03BAB, TNF-\u03B1, IL-6) that drive endometriosis. I chose this one because it has different frequency levels you can customize, which many others don\u2019t. I use it morning and night, levels 1 & 2 for pain relief and stress relief. This has been one of the most effective tools for me and the science is impossible to ignore.\nx, N",
+    website: "https://shop.infraredsauna.com/products/amethyst-pemf-mat",
+    image: "/the outfitter/clearlight PEMF.jpeg",
+    imageFit: "contain",
+  },
+  {
+    company: "YouTube",
+    name: "nervous system reset sound bath",
+    price: "Free",
+    description:
+      "Trauma recovery and deep healing music for restoration. A free sound bath designed to regulate your nervous system \u2014 helpful for managing pain, stress, and the emotional toll of chronic illness. I listen to this in the background while working or just around the house.",
+    shortDescription: "Sound bath for nervous system regulation and trauma recovery.",
+    website: "https://www.youtube.com/watch?v=vzzZVGc6VyQ",
+    image: "/the chapter/DTS_BLOOM_Pointless_Agency_Photos_ID14729.jpg",
+  },
+  {
+    company: "YouTube",
+    name: "lower your cortisol sound bath",
+    price: "Free",
+    description:
+      "Crystal singing bowls for stress relief. A free sound bath designed to help lower cortisol levels \u2014 useful for calming the nervous system when chronic pain, inflammation, or stress keep your body in overdrive. I listen to this in the background while working or just around the house.",
+    shortDescription: "Crystal singing bowl sound bath for lowering cortisol.",
+    website: "https://www.youtube.com/watch?v=S3k6KArOs0A",
+    image: "/the chapter/DTS_LIFE_IN_LILAC_Mar_Boerr_Photos_ID7448.jpg",
   },
 ];
 
@@ -496,45 +572,3 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
   },
 ];
 
-/* ── Free Tools ── */
-export const advocacyTools: FreeTool[] = [
-  {
-    name: "endometriosis symptom questionnaire",
-    url: "https://nyulangone.org/locations/endometriosis-center/endometriosis-symptom-questionnaire",
-    description:
-      "Free screening tool from NYU Langone\u2019s Endometriosis Center. Asks about five key symptom areas \u2014 period pain, pain between periods, painful intercourse, avoidance of sex due to pain, and painful bowel movements \u2014 to help identify potential endometriosis and connect you with further evaluation.",
-    image: "/endo/DTS_BLOOM_Pointless_Agency_Photos_ID14730.jpg",
-    imagePosition: "center 70%",
-  },
-  {
-    name: "endometriosis symptom checker",
-    url: "https://www.endometriosis-uk.org/symptom-checker",
-    description:
-      "Quick screening tool from Endometriosis UK that takes less than a minute. Identifies common endo symptoms and lets you generate a letter to share with your doctor \u2014 helping you walk in prepared.",
-    image: "/endo/DTS_BLOOM_Pointless_Agency_Photos_ID14773.jpg",
-  },
-  {
-    name: "pain perception project",
-    url: "https://www.painperceptionproject.com/",
-    description:
-      "A patient-founded initiative producing tools for better understanding pain. Includes a Pelvic Pain Assessment that helps you effectively communicate with your doctor \u2014 because coming prepared is an element we\u2019ve never had.",
-    image: "/endo/DTS_INSOMNIA_Agustín_Farías_Photos_ID14454.jpg",
-  },
-];
-
-export const healingTools: FreeTool[] = [
-  {
-    name: "nervous system reset sound bath",
-    url: "https://www.youtube.com/watch?v=vzzZVGc6VyQ",
-    description:
-      "Trauma recovery and deep healing music for restoration. A free sound bath designed to regulate your nervous system \u2014 helpful for managing pain, stress, and the emotional toll of chronic illness. I listen to this in the background while working or just around the house.",
-    image: "/the chapter/DTS_BLOOM_Pointless_Agency_Photos_ID14729.jpg",
-  },
-  {
-    name: "lower your cortisol sound bath",
-    url: "https://www.youtube.com/watch?v=S3k6KArOs0A",
-    description:
-      "Crystal singing bowls for stress relief. A free sound bath designed to help lower cortisol levels \u2014 useful for calming the nervous system when chronic pain, inflammation, or stress keep your body in overdrive. I listen to this in the background while working or just around the house.",
-    image: "/the chapter/DTS_LIFE_IN_LILAC_Mar_Boerr_Photos_ID7448.jpg",
-  },
-];

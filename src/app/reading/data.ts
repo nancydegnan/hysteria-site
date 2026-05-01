@@ -262,7 +262,7 @@ export const podcastGroups: { theme: string; slug: string; image?: string; podca
         guest: "Karen Hurd",
         url: "https://blog.organicolivia.com/podcast/beans-high-cortisol-and-caffeine-how-beans-can-bind-and-lower-stress-hormones-breaking-down-the-biochemistry-with-bean-queen-karen-hurd/",
         description:
-          "Biochemist and nutritionist Karen Hurd \u2014 the \u2018Bean Queen\u2019 \u2014 explains how soluble fiber in beans binds and removes fat-soluble toxins and excess stress hormones from the body. Covers the connection between caffeine, adrenaline, and estrogen production, therapeutic bean consumption recommendations, and lifestyle modifications for managing anxiety and hormonal concerns.",
+          "Biochemist and nutritionist Karen Hurd, the \u2018Bean Queen,\u2019 explains how soluble fiber in beans binds and removes fat-soluble toxins and excess stress hormones from the body. Covers the connection between caffeine, adrenaline, and estrogen production, therapeutic bean consumption recommendations, and lifestyle modifications for managing anxiety and hormonal concerns.",
         image: "/what's the juice podcast.jpeg",
       },
     ],
@@ -574,14 +574,15 @@ export const readArticles: Article[] = [
    NEW PURPOSE-BASED DATA MODEL
    ══════════════════════════════════════════════ */
 
-export type Format = "Book" | "Article" | "Podcast" | "Film" | "Study";
+export type Format = "Book" | "E-Book" | "Article" | "Podcast" | "Film" | "Study" | "Self-Advocate";
 
 export type SectionKey =
   | "foundations"
   | "evidence"
   | "reckoning"
   | "practice"
-  | "witness";
+  | "witness"
+  | "woo";
 
 export interface ReadingItem {
   title: string;
@@ -603,31 +604,36 @@ export const sections: SectionMeta[] = [
   {
     key: "foundations",
     name: "the foundations",
-    intro: "Start-here material for the newly diagnosed or if you think you might have endo.",
+    intro: "the place to start. if you\u2019ve just been diagnosed, if you suspect endo, or if a doctor has told you it\u2019s normal and you know it isn\u2019t, this is where i\u2019d send my sister.",
   },
   {
     key: "practice",
     name: "the practice",
-    intro: "Applied self-management: nutrition, gut health, nervous system regulation, and product safety.",
+    intro: "the daily work. food, gut, nervous system, what you put on your skin, what gets in. nothing here is glamorous, but this is where the actual healing happens. read one thing, change one thing.",
   },
   {
     key: "evidence",
     name: "the evidence",
-    intro: "The studies, the data, and the emerging science that's changing how endometriosis is understood.",
+    intro: "the science. studies, data, and the emerging research that\u2019s reframing endometriosis as what it actually is: a chronic systemic inflammatory disease with immune and neurogenic involvement. not just a uterus problem. bring this to your next appointment.",
   },
   {
     key: "reckoning",
     name: "the reckoning",
-    intro: "How medicine got here \u2014 the bias, the history, and the receipts.",
+    intro: "how we got here. the bias, the history, the receipts. women have been told their pain is exaggerated, imagined, or deserved for as long as there\u2019s been a medical system to tell them. this section is where you go to understand that you didn\u2019t make it up.",
   },
   {
     key: "witness",
     name: "the witness",
-    intro: "First-person stories from people who lived it, filmed it, or wrote their way through it.",
+    intro: "the first-person ones. the women who lived it, filmed it, wrote their way through it. when the medical literature isn\u2019t enough and you need to read someone else\u2019s account of the same thing, this is the shelf for you.",
+  },
+  {
+    key: "woo",
+    name: "the woo",
+    intro: "ritual, energy work, moon cycles, intuition. the practices women have been passing to each other long before anyone was measuring, and the ones i keep coming back to. take what\u2019s yours.",
   },
 ];
 
-export const allFormats: Format[] = ["Book", "Podcast", "Film", "Study"];
+export const allFormats: Format[] = ["Book", "Podcast", "Film", "Study", "Self-Advocate"];
 
 /** Placeholder items. Replace with real editorial placements. */
 export const readingItems: ReadingItem[] = [
@@ -726,7 +732,7 @@ export const readingItems: ReadingItem[] = [
     source: "What's the Juice / Olivia Amitrano with Karen Hurd",
     url: "https://blog.organicolivia.com/podcast/beans-high-cortisol-and-caffeine-how-beans-can-bind-and-lower-stress-hormones-breaking-down-the-biochemistry-with-bean-queen-karen-hurd/",
     description:
-      "Biochemist and nutritionist Karen Hurd \u2014 the \u2018Bean Queen\u2019 \u2014 explains how soluble fiber in beans binds and removes fat-soluble toxins and excess stress hormones from the body. Covers the connection between caffeine, adrenaline, and estrogen production, therapeutic bean consumption recommendations, and lifestyle modifications for managing anxiety and hormonal concerns.",
+      "Biochemist and nutritionist Karen Hurd, the \u2018Bean Queen,\u2019 explains how soluble fiber in beans binds and removes fat-soluble toxins and excess stress hormones from the body. Covers the connection between caffeine, adrenaline, and estrogen production, therapeutic bean consumption recommendations, and lifestyle modifications for managing anxiety and hormonal concerns.",
     section: "foundations",
     image: "/what's the juice podcast.jpeg",
   },
@@ -999,7 +1005,7 @@ export const readingItems: ReadingItem[] = [
   },
   {
     title: "Endometriosis & PCOS: A Whole-Body Guide",
-    format: "Book",
+    format: "E-Book",
     source: "Savannah Regensburger, MS, MBA, CNS",
     url: "https://savannahregensburger.substack.com/p/endometriosis-and-pcos-e-book-2499",
     description:
@@ -1036,5 +1042,55 @@ export const readingItems: ReadingItem[] = [
     description:
       "BAFTA-winning documentary short blending self-documented material, family archive, and reconstructive memories into a story about medical disbelief and community.",
     section: "witness",
+  },
+  {
+    title: "Pussy: A Reclamation",
+    format: "Book",
+    source: "Regena Thomashauer",
+    url: "https://www.amazon.com/Pussy-Reclamation-Regena-Thomashauer/dp/1401950264",
+    description:
+      "A reclamation of feminine power, pleasure, and the body as a source of wisdom. Thomashauer reframes the language and cultural narratives around female sexuality, offering a path back to embodied self-trust and desire as tools for healing.",
+    section: "woo",
+    image: "/the library/the woo/pussy book.jpg",
+  },
+  {
+    title: "Synchronicity Reveals Our Ecological Niche",
+    format: "Podcast",
+    source: "Medicine Stories / Amber with Sophie Strand",
+    url: "https://open.spotify.com/episode/28GA88YyQQrwxbJpEqFbKo",
+    description:
+      "Sophie Strand and Amber explore chronic illness, trauma, and healing through a communal lens. The conversation moves through how diagnoses can function as both blessing and curse, the theatrical nature of medical practice, and how synchronicity reveals our place within larger ecological systems.",
+    section: "woo",
+    image: "/the library/the woo/medicine stories.jpeg",
+  },
+  {
+    title: "The Energy to Heal: Why Metabolism Matters Most",
+    format: "Podcast",
+    source: "Medicine Stories / Amber Magnolia Hill with Kaya of Fundamental Nourishment",
+    url: "https://podcasts.apple.com/us/podcast/the-energy-to-heal-why-metabolism-matters-most-kaya/id1317478907?i=1000758652889",
+    description:
+      "Kaya and Amber explore how cellular energy and metabolic function sit underneath everything else in healing. The conversation reframes metabolism as the central lens for understanding chronic illness and fatigue, prioritizing nourishment over restriction.",
+    section: "woo",
+    image: "/the library/the woo/medicine stories.jpeg",
+  },
+  {
+    title: "Sophie Strand on Myths as Maps",
+    format: "Podcast",
+    source: "For The Wild / Ayana Young with Sophie Strand",
+    url: "https://forthewild.world/listen/sophie-strand-on-myths-as-maps-312",
+    description:
+      "Sophie Strand explores how myths function as maps for understanding our connection to the natural world. A conversation about decay, composting, and finding wisdom in rot rather than purity, and what it means to be human through the lens of complicated relationships and interconnectedness.",
+    section: "woo",
+    image: "/the library/the woo/for the wild.jpeg",
+  },
+  {
+    title: "Anchor Cards for Grief",
+    format: "Podcast",
+    source: "Tarot for the Wild Soul / Lindsay Mack",
+    url: "https://podm8.com/episodes/tarot-for-the-wild-soul-with-lindsay-mack/117-anchor-cards-for-grief",
+    description:
+      "Lindsay Mack presents eight tarot anchor cards for navigating grief. A workshop-style episode that uses tarot as a healing resource for self-care and emotional processing during personal and collective loss, with a trauma-informed approach throughout.",
+    section: "woo",
+    image: "/the library/the woo/tarot for the wild soul.png",
   },
 ];

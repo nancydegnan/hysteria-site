@@ -14,7 +14,7 @@ export function useScrollReveal() {
           el.classList.add("is-visible");
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.05 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -200,62 +200,6 @@ export function SubpageNav() {
   );
 }
 
-export function SelfCareCard({ product }: { product: { name: string; website: string; image?: string; imageFit?: "contain" | "cover"; imagePosition?: string; company: string; price: string; description: string; personalNote?: string } }) {
-  const [noteVisible, setNoteVisible] = useState(false);
-
-  const handleClick = (e: React.MouseEvent) => {
-    if (product.personalNote && !noteVisible) {
-      e.preventDefault();
-      setNoteVisible(true);
-    }
-  };
-
-  return (
-    <a
-      href={product.website}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block text-center"
-      onClick={handleClick}
-      onMouseLeave={() => setNoteVisible(false)}
-    >
-      {product.image ? (
-        <div className={`relative overflow-hidden bg-gray-light mb-5 ${product.imageFit === "contain" ? "aspect-square w-[65%] mx-auto p-4" : "aspect-[3/4]"}`}>
-          <img
-            src={product.image}
-            alt={product.name}
-            className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-[1.03] ${product.imageFit === "contain" ? "object-contain" : "object-cover"}`}
-          />
-          {product.personalNote && (
-            <div className={`absolute inset-0 bg-background/90 transition-opacity duration-500 flex items-center justify-center p-6 ${noteVisible ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
-              <p className="playfair-italic text-[var(--foreground)] text-xs leading-[1.4] whitespace-pre-line text-left font-bold">
-                {product.personalNote}
-              </p>
-            </div>
-          )}
-        </div>
-      ) : (
-        <div className="bg-gray-light flex items-center justify-center aspect-[3/4] mb-5">
-          <span className="text-sm text-gray-text">{product.name}</span>
-        </div>
-      )}
-
-      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-text">
-        {product.company}
-      </p>
-      <h3 className="playfair text-base leading-snug mt-1.5">
-        {product.name}
-      </h3>
-      <p className="text-sm text-gray-text mt-1">
-        {product.price}
-      </p>
-      <p className="text-xs text-gray-text mt-2 leading-[1.4]">
-        {product.description}
-      </p>
-    </a>
-  );
-}
-
 export function Footer() {
   return (
     <footer className="bg-white border-t border-gray-mid py-16 md:py-24 px-6">
@@ -300,10 +244,10 @@ export function Footer() {
             <div className="text-sm space-y-2.5 text-black">
               <p>
                 <a
-                  href="mailto:hello@thenocureclub.com"
+                  href="mailto:hey@thenocureclub.com"
                   className="hover:text-black transition-colors duration-300"
                 >
-                  hello@thenocureclub.com
+                  hey@thenocureclub.com
                 </a>
               </p>
               <p>press inquiries welcome.</p>

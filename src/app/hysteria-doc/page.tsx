@@ -38,7 +38,7 @@ export default function HysteriaDoc() {
       </nav>
 
       {/* ====== HERO SECTION ====== */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 pt-16 overflow-hidden">
+      <section className="relative h-[100dvh] md:min-h-screen flex items-center justify-center px-6 pt-16 overflow-hidden">
         <video
           autoPlay
           loop
@@ -52,7 +52,7 @@ export default function HysteriaDoc() {
 
         <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <RevealSection>
-            <div className="flex justify-between items-center max-w-4xl mx-auto mb-16 md:mb-24">
+            <div className="flex justify-between items-center max-w-4xl mx-auto mb-6 md:mb-24">
               <span className="font-bold text-sm text-chartreuse">
                 A Documentary Film
               </span>
@@ -60,16 +60,16 @@ export default function HysteriaDoc() {
                 by Nancy Degnan
               </span>
             </div>
-            <p className="font-bold italic text-lg md:text-xl text-chartreuse mb-16 md:mb-24">
+            <p className="font-bold italic text-lg md:text-xl text-chartreuse mb-6 md:mb-24">
               I went looking for a diagnosis.
             </p>
             <h1 className="hysteria-title text-[5rem] md:text-[9rem] lg:text-[12rem] text-chartreuse leading-[0.85] animate-strobe">
               HYSTERIA
             </h1>
-            <p className="font-bold italic text-lg md:text-xl text-chartreuse mt-24 md:mt-36">
+            <p className="font-bold italic text-lg md:text-xl text-chartreuse mt-8 md:mt-36">
               I found a global crisis.
             </p>
-            <div className="mt-12">
+            <div className="mt-6 md:mt-12">
               <a
                 href="#about"
                 className="inline-block text-chartreuse/60 hover:text-chartreuse transition-colors duration-500"

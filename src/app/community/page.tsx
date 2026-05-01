@@ -1,10 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { RevealSection, Footer, SubpageNav } from "../components";
-const filters = ["all", "gatherings"] as const;
-type Filter = (typeof filters)[number];
 
 interface Event {
   date: string;
@@ -36,8 +33,6 @@ const laEvents: Event[] = [
 ];
 
 export default function CommunityPage() {
-  const [active, setActive] = useState<Filter>("all");
-
   return (
     <div className="min-h-screen bg-white text-black">
       <SubpageNav />
@@ -58,27 +53,12 @@ export default function CommunityPage() {
               Dates go out to the mailing list first.
             </p>
 
-            <div className="flex flex-wrap gap-3 mt-8">
-              {filters.map((f) => (
-                <button
-                  key={f}
-                  onClick={() => setActive(f)}
-                  className={`playfair-italic text-sm px-5 py-2 border-b-2 transition-all duration-300 cursor-pointer ${
-                    active === f
-                      ? "border-black text-black"
-                      : "border-transparent text-charcoal hover:text-black hover:border-chartreuse"
-                  }`}
-                >
-                  {f}
-                </button>
-              ))}
-            </div>
           </RevealSection>
         </header>
       </div>
 
       {/* ── Los Angeles In-Person Meetups ── */}
-      {(active === "all" || active === "gatherings") && <section id="la-meetups" className="pt-10 md:pt-14 pb-20 md:pb-28 px-6">
+      <section id="la-meetups" className="pt-10 md:pt-14 pb-20 md:pb-28 px-6">
         <div className="max-w-6xl mx-auto">
           <RevealSection>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-black mb-10 lowercase">
@@ -120,7 +100,7 @@ export default function CommunityPage() {
             ))}
           </div>
         </div>
-      </section>}
+      </section>
 
       <Footer />
     </div>
