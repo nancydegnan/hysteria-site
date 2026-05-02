@@ -47,14 +47,21 @@ export default function ReadingPage() {
             <p className="section-label text-sm text-black mb-3">
               the library
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl tracking-tight">
               <span className="font-black">what</span>{" "}
-              <em className="playfair-italic font-light">stayed with me.</em>
+              <em className="playfair-italic font-light">we&apos;re reading, watching, listening to.</em>
             </h1>
-            <p className="font-['Helvetica','Arial',sans-serif] text-base leading-[1.4] tracking-tight mt-1 text-black max-w-2xl">
-              Books, films, podcasts, articles, and research worth your time,
-              organized by what you need right now.
-            </p>
+            <div className="font-['Helvetica','Arial',sans-serif] text-base leading-[1.4] tracking-tight mt-4 text-black max-w-2xl">
+              <p>
+                it took me years to find the books, podcasts, and research that actually helped. there&apos;s a lot of good information out there now. more than there used to be. but sorting through it is its own job, and you already have one.
+              </p>
+              <p className="mt-4">
+                so i did the digging. this is the library i wish someone had handed me five years ago. updated monthly with what feels important now, anchored by the foundational pieces that will always be here.
+              </p>
+              <p className="mt-4">
+                take what you need. leave the rest.
+              </p>
+            </div>
           </RevealSection>
         </header>
       </div>

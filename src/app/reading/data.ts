@@ -629,7 +629,7 @@ export const sections: SectionMeta[] = [
   {
     key: "woo",
     name: "the woo",
-    intro: "ritual, energy work, moon cycles, intuition. the practices women have been passing to each other long before anyone was measuring, and the ones i keep coming back to. take what\u2019s yours.",
+    intro: "the practices where the body and the sacred are the same conversation. yes, it\u2019s woo. i know. but it works, and the women before us knew that long before anyone was measuring. take what\u2019s yours.",
   },
 ];
 
@@ -664,6 +664,16 @@ export const readingItems: ReadingItem[] = [
     url: "https://www.youtube.com/watch?v=FBGUk49BpU4",
     description:
       "Dr. Brighten and world-renowned endometriosis expert Dr. Ramiro Cabrera Carranco dive into the latest breakthroughs in diagnosing and managing this multisystemic inflammatory disease.",
+    section: "foundations",
+    image: "/dr brighten podcast.jpeg",
+  },
+  {
+    title: "Autonomic Nervous System Dysregulation? Try This for Instant Calm",
+    format: "Podcast",
+    source: "Dr. Jolene Brighten with Meliza Mokrani",
+    url: "https://drbrighten.com/podcasts/nervous-system-dysregulation/",
+    description:
+      "Meliza Mokrani explores how chronic stress, trauma, and cultural conditioning dysregulate the nervous system, manifesting as hormone imbalances, sleep disruption, and anxiety. Covers identifying sympathetic overdrive, using a trigger journal to recognize stress patterns, how unhealed trauma alters biology across generations, and practical tools for regulation.",
     section: "foundations",
     image: "/dr brighten podcast.jpeg",
   },
@@ -922,7 +932,7 @@ export const readingItems: ReadingItem[] = [
     url: "https://whatsthejuice.libsyn.com/s3e20-caffine-solo",
     description:
       "Clinical herbalist and founder of Organic Olivia shares why she broke up with caffeine, how it impacts your body from a Traditional Chinese Medicine standpoint, and how to counter withdrawal with minerals, vitamins, protein, and herbs.",
-    section: "practice",
+    section: "witness",
     image: "/what's the juice podcast.jpeg",
   },
   {
@@ -932,8 +942,17 @@ export const readingItems: ReadingItem[] = [
     url: "https://podcasts.apple.com/us/podcast/48-healing-your-chronic-pain-conditions-once-and-for/id1735161262?i=1000691038022",
     description:
       "Nicole Sachs shares how she has helped thousands address chronic pain and autoimmune conditions without medication. Explores the science behind the mind-body connection and strategies for breaking cycles of persistent symptoms.",
-    section: "practice",
+    section: "witness",
     image: "/the wellness podcast.jpeg",
+  },
+  {
+    title: "Salema Veliu on Endometriosis and Pilates",
+    format: "Podcast",
+    source: "Movement Notes / Olya with Salema Veliu",
+    url: "https://open.spotify.com/episode/5Ov8TrkXXwrEZ0dcpZBDoz",
+    description:
+      "Movement educator Salema Veliu brings deep anatomical and neurological expertise alongside lived experience to explain how endometriosis affects the fascia, diaphragm, and nervous system. Addresses the gap between diagnosis and understanding what's happening in your body \u2014 for movement professionals working with affected clients and anyone navigating their own diagnosis.",
+    section: "practice",
   },
   {
     title: "Chronic Pelvic Pain, Foot Pain, Anxiety, and IBS with Alex",
@@ -1044,6 +1063,26 @@ export const readingItems: ReadingItem[] = [
     section: "witness",
   },
   {
+    title: "Navigating the World with Invisible Conditions",
+    format: "Podcast",
+    source: "You're Great / Unique Hammond with Sam Shay",
+    url: "https://www.youregreat.com/blog/2024/11/29/sam-shay-navigating-the-world-with-invisible-conditions",
+    description:
+      "Sam Shay shares her experience living with Type 1 Diabetes and navigating life with an invisible condition. A conversation about resilience, self-discovery, and the power of embracing discomfort for the sake of growth.",
+    section: "witness",
+    image: "/you're great podcast.jpeg",
+  },
+  {
+    title: "Listener Questions with Natalie Brown",
+    format: "Podcast",
+    source: "Sounds Heal / Natalie Brown",
+    url: "https://open.spotify.com/episode/61iRW4RcvBisS6WxM6D1P1",
+    description:
+      "A special anniversary episode where Natalie Brown answers listener questions on biofield clearing, the physiology of sound healing, how sound supports the nervous system, and the relationship between formal training and intuitive ability.",
+    section: "woo",
+    image: "/the library/the woo/sounds heal.jpg",
+  },
+  {
     title: "Pussy: A Reclamation",
     format: "Book",
     source: "Regena Thomashauer",
@@ -1052,16 +1091,6 @@ export const readingItems: ReadingItem[] = [
       "A reclamation of feminine power, pleasure, and the body as a source of wisdom. Thomashauer reframes the language and cultural narratives around female sexuality, offering a path back to embodied self-trust and desire as tools for healing.",
     section: "woo",
     image: "/the library/the woo/pussy book.jpg",
-  },
-  {
-    title: "Synchronicity Reveals Our Ecological Niche",
-    format: "Podcast",
-    source: "Medicine Stories / Amber with Sophie Strand",
-    url: "https://open.spotify.com/episode/28GA88YyQQrwxbJpEqFbKo",
-    description:
-      "Sophie Strand and Amber explore chronic illness, trauma, and healing through a communal lens. The conversation moves through how diagnoses can function as both blessing and curse, the theatrical nature of medical practice, and how synchronicity reveals our place within larger ecological systems.",
-    section: "woo",
-    image: "/the library/the woo/medicine stories.jpeg",
   },
   {
     title: "The Energy to Heal: Why Metabolism Matters Most",
@@ -1074,23 +1103,33 @@ export const readingItems: ReadingItem[] = [
     image: "/the library/the woo/medicine stories.jpeg",
   },
   {
-    title: "Sophie Strand on Myths as Maps",
+    title: "Turning Yourself On with Regena Thomashauer",
     format: "Podcast",
-    source: "For The Wild / Ayana Young with Sophie Strand",
-    url: "https://forthewild.world/listen/sophie-strand-on-myths-as-maps-312",
+    source: "Why Isn't Everyone Doing This? / Emily Fletcher with Regena Thomashauer",
+    url: "https://www.youtube.com/watch?v=LozPoDPgVvY",
     description:
-      "Sophie Strand explores how myths function as maps for understanding our connection to the natural world. A conversation about decay, composting, and finding wisdom in rot rather than purity, and what it means to be human through the lens of complicated relationships and interconnectedness.",
+      "Regena Thomashauer (Mama Gena) shares how she went from being disconnected from her own pleasure to fully attuned, and why accessing your turn-on is so difficult. A conversation about using pleasure to manifest desires, why expressing emotion is the key to feeling pleasure, and how feminine power transforms creativity and vitality.",
     section: "woo",
-    image: "/the library/the woo/for the wild.jpeg",
+    image: "/the library/the woo/why isnt everyone doing this.jpg",
   },
   {
-    title: "Anchor Cards for Grief",
+    title: "Pleasure Manifestation, Swamping & P*ssy Power with Regena Thomashauer",
     format: "Podcast",
-    source: "Tarot for the Wild Soul / Lindsay Mack",
-    url: "https://podm8.com/episodes/tarot-for-the-wild-soul-with-lindsay-mack/117-anchor-cards-for-grief",
+    source: "BETTER! / Dr. Stephanie Estima with Regena Thomashauer",
+    url: "https://www.iheart.com/podcast/269-better-muscle-metabolism-m-49636029/episode/pleasure-manifestation-swamping-pssy-power-with-regena-thomashauer-100641739",
     description:
-      "Lindsay Mack presents eight tarot anchor cards for navigating grief. A workshop-style episode that uses tarot as a healing resource for self-care and emotional processing during personal and collective loss, with a trauma-informed approach throughout.",
+      "Regena Thomashauer (Mama Gena) and Dr. Stephanie Estima explore pleasure and desire as pathways to manifestation and empowerment. Covers reconnecting with the body, reclaiming language around female sexuality, the practice of 'swamping' as community and sisterhood, period-related shame, and building women up through complimenting.",
     section: "woo",
-    image: "/the library/the woo/tarot for the wild soul.png",
+    image: "/the library/the woo/better dr stephanie estima.jpg",
+  },
+  {
+    title: "Yoni Power, Crystal Healing, and Everything Pleasure with Rosie Rees",
+    format: "Podcast",
+    source: "You Go Girlfriend / Katelin Vincent with Rosie Rees",
+    url: "https://open.spotify.com/episode/3W89m8wzx3cOYiMv5rkL06",
+    description:
+      "Rosie Rees explores intimate wellness and self-empowerment through yoni eggs and crystal tools. A conversation about connecting with yourself on a deeper, more intimate level \u2014 the practical and the mystical sides of pleasure, sexual wellness, feminine empowerment, and body connection as practices for self-discovery and sensuality.",
+    section: "woo",
+    image: "/the library/the woo/you go girlfriend.jpg",
   },
 ];

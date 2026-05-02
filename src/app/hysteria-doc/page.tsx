@@ -60,13 +60,13 @@ export default function HysteriaDoc() {
                 by Nancy Degnan
               </span>
             </div>
-            <p className="font-bold italic text-lg md:text-xl text-chartreuse mb-6 md:mb-24">
+            <p className="font-bold italic text-lg md:text-xl text-chartreuse mb-16 md:mb-24">
               I went looking for a diagnosis.
             </p>
             <h1 className="hysteria-title text-[5rem] md:text-[9rem] lg:text-[12rem] text-chartreuse leading-[0.85] animate-strobe">
               HYSTERIA
             </h1>
-            <p className="font-bold italic text-lg md:text-xl text-chartreuse mt-8 md:mt-36">
+            <p className="font-bold italic text-lg md:text-xl text-chartreuse mt-16 md:mt-36">
               I found a global crisis.
             </p>
             <div className="mt-6 md:mt-12">
@@ -346,9 +346,13 @@ export default function HysteriaDoc() {
                 <p>
                   After a year of research, I self-diagnosed and found a surgeon who confirmed Stage 3 Endometriosis. When I walked into his office for the post-op, ready for a treatment plan, he sighed and said my only options were birth control or medical menopause.
                 </p>
-                <p>
-                  I was 25.
-                </p>
+                <div className="lg:hidden overflow-hidden">
+                  <img
+                    src="/IMG_1568 3.jpg"
+                    alt="Nancy before surgery in hospital gown and cap"
+                    className="w-full h-[340px] object-cover object-center"
+                  />
+                </div>
                 <p>
                   That was the moment I understood something most women with endo eventually understand: the medical system has decided this disease is unsolvable, and the only thing on offer is symptom suppression while the disease keeps growing.
                 </p>
@@ -364,6 +368,14 @@ export default function HysteriaDoc() {
                 <p>
                   <strong className="text-black">This documentary is the record of that work.</strong>
                 </p>
+                <div className="lg:hidden overflow-hidden">
+                  <img
+                    src="/IMG_0509.jpg"
+                    alt="Nancy resting during recovery"
+                    className="w-full h-[300px] object-cover"
+                    style={{ objectPosition: "0% center" }}
+                  />
+                </div>
                 <p>
                   It exists because the path I&apos;m walking should not require the resources I&apos;ve had to find it. Most women with endo are handed two options and told to pick. I want this film to be the third option, made visible. The protocol stack, the practitioners, the science, the failures, the breakthroughs, all of it documented so the next woman doesn&apos;t have to spend a year in the dark figuring out that there&apos;s more than what she was told.
                 </p>
@@ -378,14 +390,14 @@ export default function HysteriaDoc() {
 
             <RevealSection>
               <div className="flex flex-col gap-6">
-                <div className="overflow-hidden">
+                <div className="hidden lg:block overflow-hidden">
                   <img
                     src="/IMG_1568 3.jpg"
                     alt="Nancy before surgery in hospital gown and cap"
                     className="w-full h-[340px] object-cover object-center"
                   />
                 </div>
-                <div className="overflow-hidden">
+                <div className="hidden lg:block overflow-hidden">
                   <img
                     src="/IMG_0509.jpg"
                     alt="Nancy resting during recovery"
