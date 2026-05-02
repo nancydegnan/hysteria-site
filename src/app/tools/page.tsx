@@ -65,8 +65,8 @@ const typeLabelMap: Record<string, string> = {
   "nervous system essentials": "COURSE",
   "release stress & stored trauma in 30 days": "COURSE",
   "ohmBody starter kit": "DEVICE",
-  "nervous system reset sound bath": "COURSE",
-  "lower your cortisol sound bath": "COURSE",
+  "nervous system reset sound bath": "MUSIC",
+  "lower your cortisol sound bath": "MUSIC",
   /* sexual health */
   "ohnut": "TOOL",
   "kiwi": "TOOL",
