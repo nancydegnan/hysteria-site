@@ -71,7 +71,8 @@ const typeLabelMap: Record<string, string> = {
   "ohnut": "TOOL",
   "kiwi": "TOOL",
   "the cervix serpent": "TOOL",
-  "cervix serpent guided audio ritual": "COURSE",
+  "cervix serpent guided audio ritual": "MEDITATION",
+  "yoni reclamation guided meditation": "MEDITATION",
   /* skincare */
   "dieux skincare": "SKINCARE",
   "good molecules skincare": "SKINCARE",

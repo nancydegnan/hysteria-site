@@ -187,6 +187,17 @@ export const sexualHealthTools: Tool[] = [
     website: "https://yonipleasurepalace.com/en-us/products/cervix-serpent-guided-audio-ritual",
     image: "/the outfitter/sexual health/Vaginal Dearmouring Meditation.jpeg",
   },
+  {
+    company: "Yoni Pleasure Palace",
+    name: "yoni reclamation guided meditation",
+    price: "$33",
+    description:
+      "A 23-minute trauma-informed guided meditation that moves through your life in 7-year increments, exploring your evolving relationship with your body at each stage. Incorporates gentle breathing, reflective questions, affirmations, and reparenting whispers to help rewire old patterns. Designed for anyone healing from sexual shame, rebuilding body trust, or pursuing sensual and spiritual reclamation.",
+    shortDescription: "Trauma-informed guided meditation for body reclamation.",
+    personalNote: "A beautiful companion to the dearmoring work. This one goes deeper into the emotional and psychological layers of reconnecting with your body, especially if shame or medical trauma has created distance.\nx, N",
+    website: "https://yonipleasurepalace.com/en-us/collections/e-products/products/yoni-reclamation-guided-meditation",
+    image: "/the outfitter/sexual health/yoni reclaimation.webp",
+  },
 ];
 
 /* ── Nervous System ── */
