@@ -17,7 +17,7 @@ const laEvents: Event[] = [
     date: "Sunday, June 14, 2026 \u00B7 11 AM\u20131:30 PM",
     title: "launch event",
     description:
-      "Our official launch. An afternoon tea (caffeine free of course) gathering to connect, share, and support each other, held at ",
+      "Our official launch. A mid-morning tea (caffeine free of course) gathering to connect, share, and support each other, held at ",
     image: "/the chapter/F160CA01-A597-4ADD-9264-A425949446A5-labbet-app.JPG",
     link: "https://www.eventbrite.com/e/the-no-cure-club-afternoon-tea-gathering-tickets-1986841219572?aff=oddtdtcreator",
     extra: <><a href="https://www.atelierbyartmingo.com/" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-60 transition-opacity">Atelier Pasadena</a>. Special guest to be announced closer to the event. This will be a filmed event, to be included in <Link href="/hysteria-doc" className="underline hover:opacity-60 transition-opacity">the documentary</Link>.</>,
