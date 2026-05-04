@@ -14,21 +14,20 @@ interface Event {
 
 const laEvents: Event[] = [
   {
-    date: "Saturday, May 2, 2026 · 4–6:30 PM",
-    title: "cozy afternoon gathering",
-    description:
-      "Hosted at Nancy\u2019s home in Echo Park. An intimate gathering to ground, connect, and go deeper. Bean Protocol friendly light bites and Nancy\u2019s signature sugar free electrolyte drink to be provided for a nourishing evening.",
-    image: "/the chapter/DTS_ONE_ROOF_Chris_Abatzis_Photos_ID11318.jpg",
-    link: "https://partiful.com/e/AUpOin8g6k6GEKPjdxvX?c=0od_OhNY",
-  },
-  {
-    date: "Sunday, June 14, 2026 · 11 AM–1:30 PM",
+    date: "Sunday, June 14, 2026 \u00B7 11 AM\u20131:30 PM",
     title: "launch event",
     description:
       "Our official launch. An afternoon tea (caffeine free of course) gathering to connect, share, and support each other, held at ",
     image: "/the chapter/F160CA01-A597-4ADD-9264-A425949446A5-labbet-app.JPG",
     link: "https://www.eventbrite.com/e/the-no-cure-club-afternoon-tea-gathering-tickets-1986841219572?aff=oddtdtcreator",
     extra: <><a href="https://www.atelierbyartmingo.com/" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-60 transition-opacity">Atelier Pasadena</a>. Special guest to be announced closer to the event. This will be a filmed event, to be included in <Link href="/hysteria-doc" className="underline hover:opacity-60 transition-opacity">the documentary</Link>.</>,
+  },
+  {
+    date: "Saturday, July 25, 2026 \u00B7 11 AM\u20131 PM",
+    title: "cozy gathering",
+    description:
+      "Hosted at Nancy\u2019s home in Echo Park. An intimate gathering to ground, connect, and go deeper. Bean Protocol friendly light bites and Nancy\u2019s signature sugar free electrolyte drink to be provided for a nourishing evening.",
+    image: "/the chapter/DTS_ONE_ROOF_Chris_Abatzis_Photos_ID11318.jpg",
   },
 ];
 
@@ -50,7 +49,7 @@ export default function CommunityPage() {
             <p className="font-['Helvetica','Arial',sans-serif] text-base leading-[1.4] tracking-tight mt-6 text-charcoal max-w-2xl">
               Monthly gatherings in LA. Come as you are — no
               pressure, no agenda, just a room full of people who get it.
-              Dates go out to the mailing list first.
+              RSVPs go out to the mailing list first.
             </p>
 
           </RevealSection>
