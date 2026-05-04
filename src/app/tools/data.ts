@@ -409,7 +409,7 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
   },
   {
     theme: "in the shower",
-    slug: "hair-care",
+    slug: "in-the-shower",
     image: "/in the shower.png",
     products: [
       {
@@ -442,6 +442,13 @@ export const selfCareGroups: { theme: string; slug: string; image?: string; prod
         image: "/exfoliating gloves.png",
         imageFit: "contain",
       },
+    ],
+  },
+  {
+    theme: "hair care",
+    slug: "hair-care",
+    image: "/seen blow out.png",
+    products: [
       {
         company: "SEEN",
         name: "blow-out creme, fragrance free",

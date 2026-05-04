@@ -7,7 +7,7 @@ import { RevealSection, Footer, SubpageNav } from "../components";
 const filters = ["all", "nervous system", "pain & inflammation care", "self care", "home care", "gut health", "sexual health", "wellness"] as const;
 type Filter = (typeof filters)[number];
 
-const selfCareFilters = ["all", "skincare", "make up", "in the shower"] as const;
+const selfCareFilters = ["all", "skincare", "make up", "in the shower", "hair care"] as const;
 
 const FEATURED_COUNT = 5;
 
@@ -289,7 +289,8 @@ export default function ToolsPage() {
         {active === "all" && (
           <>
             {featuredCollections.map(({ filter, products }, i) => {
-              const featured = products.slice(0, FEATURED_COUNT);
+              const showAll = filter === "self care";
+              const displayed = showAll ? products : products.slice(0, FEATURED_COUNT);
               return (
                 <section key={filter} className={i > 0 ? "mt-20 md:mt-28" : ""}>
                   <RevealSection>
@@ -302,21 +303,23 @@ export default function ToolsPage() {
                   </RevealSection>
 
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-12">
-                    {featured.map((tool) => (
+                    {displayed.map((tool) => (
                       <RevealSection key={tool.name}>
                         <ProductCard tool={tool} />
                       </RevealSection>
                     ))}
                   </div>
 
-                  <RevealSection>
-                    <button
-                      onClick={() => { setActive(filter); setSelfCareSub("all"); }}
-                      className="playfair-italic text-sm mt-8 inline-block hover:translate-x-1 transition-transform duration-300 cursor-pointer"
-                    >
-                      see all in {filter} &rarr;
-                    </button>
-                  </RevealSection>
+                  {!showAll && (
+                    <RevealSection>
+                      <button
+                        onClick={() => { setActive(filter); setSelfCareSub("all"); }}
+                        className="playfair-italic text-sm mt-8 inline-block hover:translate-x-1 transition-transform duration-300 cursor-pointer"
+                      >
+                        see all in {filter} &rarr;
+                      </button>
+                    </RevealSection>
+                  )}
                 </section>
               );
             })}
