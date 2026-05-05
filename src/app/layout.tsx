@@ -52,6 +52,9 @@ export const metadata: Metadata = {
       "A curation hub and community for people living with endometriosis and pelvic pain. Resources and tools that cover all aspects of living and working with endo. Started by one of us.",
     images: ["/thenocureclubopengraph.png"],
   },
+  other: {
+    "impact-site-verification": "9da3efaa-094e-416c-b1fb-a8dd5e3b68d2",
+  },
 };
 
 export default function RootLayout({
