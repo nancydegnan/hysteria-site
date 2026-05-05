@@ -24,6 +24,7 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thenocureclub.com"),
   title: "The No Cure Club | A Community for Endometriosis & Pelvic Pain",
   description:
     "A curation hub and community for people living with endometriosis and pelvic pain. Resources and tools that cover all aspects of living and working with endo. Started by one of us.",
@@ -35,12 +36,21 @@ export const metadata: Metadata = {
     description:
       "A curation hub and community for people living with endometriosis and pelvic pain. Resources and tools that cover all aspects of living and working with endo. Started by one of us.",
     type: "website",
+    images: [
+      {
+        url: "/thenocureclubopengraph.png",
+        width: 1200,
+        height: 630,
+        alt: "The No Cure Club",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "The No Cure Club | A Community for Endometriosis & Pelvic Pain",
     description:
       "A curation hub and community for people living with endometriosis and pelvic pain. Resources and tools that cover all aspects of living and working with endo. Started by one of us.",
+    images: ["/thenocureclubopengraph.png"],
   },
 };
 
