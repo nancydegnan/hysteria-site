@@ -1,7 +1,23 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import { RevealSection, Footer, SubpageNav } from "../components";
+
+export const metadata: Metadata = {
+  title: "The Origin | The No Cure Club",
+  description:
+    "How a stage 3 endometriosis diagnosis became a remission protocol, a documentary, and a community. Nancy's story, and why this club exists.",
+  openGraph: {
+    title: "The Origin | The No Cure Club",
+    description:
+      "How a stage 3 endometriosis diagnosis became a remission protocol, a documentary, and a community. Nancy's story, and why this club exists.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Origin | The No Cure Club",
+    description:
+      "How a stage 3 endometriosis diagnosis became a remission protocol, a documentary, and a community. Nancy's story, and why this club exists.",
+  },
+};
 
 const sections = [
   {

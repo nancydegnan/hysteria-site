@@ -1,7 +1,23 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import { RevealSection, Footer, SubpageNav } from "../components";
+
+export const metadata: Metadata = {
+  title: "The Chapter | In-Person Endometriosis Meetups in Los Angeles",
+  description:
+    "Intimate gatherings for the LA endo community. Nervous system regulation, witnessing circles, and the space where you can come as you are.",
+  openGraph: {
+    title: "The Chapter | In-Person Endometriosis Meetups in Los Angeles",
+    description:
+      "Intimate gatherings for the LA endo community. Nervous system regulation, witnessing circles, and the space where you can come as you are.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Chapter | In-Person Endometriosis Meetups in Los Angeles",
+    description:
+      "Intimate gatherings for the LA endo community. Nervous system regulation, witnessing circles, and the space where you can come as you are.",
+  },
+};
 
 interface Event {
   date: string;

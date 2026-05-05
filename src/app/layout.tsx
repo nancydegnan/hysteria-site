@@ -24,17 +24,23 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "The No Cure Club — An Endometriosis Community & Curation Hub",
+  title: "The No Cure Club | A Community for Endometriosis & Pelvic Pain",
   description:
-    "The No Cure Club is a community and curation hub for people living with endometriosis. Resources, stories, advocacy, and the HYSTERIA documentary — because no one should fight alone.",
+    "A curation hub and community for people living with endometriosis and pelvic pain. Resources and tools that cover all aspects of living and working with endo. Started by one of us.",
   verification: {
     google: "IMiLn6jqQWYUC3NG0a9ESA7s3hzK4dDF0oAQVilVllk",
   },
   openGraph: {
-    title: "The No Cure Club — An Endometriosis Community & Curation Hub",
+    title: "The No Cure Club | A Community for Endometriosis & Pelvic Pain",
     description:
-      "Resources, stories, and solidarity for people living with endometriosis. No cure. No silence. No surrender.",
+      "A curation hub and community for people living with endometriosis and pelvic pain. Resources and tools that cover all aspects of living and working with endo. Started by one of us.",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The No Cure Club | A Community for Endometriosis & Pelvic Pain",
+    description:
+      "A curation hub and community for people living with endometriosis and pelvic pain. Resources and tools that cover all aspects of living and working with endo. Started by one of us.",
   },
 };
 
