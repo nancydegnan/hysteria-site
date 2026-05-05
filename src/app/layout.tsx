@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   title: "The No Cure Club — An Endometriosis Community & Curation Hub",
   description:
     "The No Cure Club is a community and curation hub for people living with endometriosis. Resources, stories, advocacy, and the HYSTERIA documentary — because no one should fight alone.",
+  verification: {
+    google: "IMiLn6jqQWYUC3NG0a9ESA7s3hzK4dDF0oAQVilVllk",
+  },
   openGraph: {
     title: "The No Cure Club — An Endometriosis Community & Curation Hub",
     description:
