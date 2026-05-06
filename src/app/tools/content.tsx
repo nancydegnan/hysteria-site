@@ -194,6 +194,13 @@ function ProductCard({ tool }: { tool: Tool }) {
         </p>
       )}
 
+      {/* Promo note */}
+      {tool.promoNote && (
+        <p className="font-['Helvetica','Arial',sans-serif] tracking-tight text-sm leading-[1.4] text-black font-bold italic mb-1">
+          {tool.promoNote}
+        </p>
+      )}
+
       {/* Description */}
       {tool.description && (
         <p className="font-['Helvetica','Arial',sans-serif] tracking-tight text-sm leading-[1.4] text-black">

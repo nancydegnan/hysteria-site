@@ -5,6 +5,7 @@ export interface Tool {
   price: string;
   description: string;
   shortDescription?: string;
+  promoNote?: string;
   personalNote?: string;
   website: string;
   image?: string;
@@ -54,9 +55,10 @@ export const tools: Tool[] = [
     price: "$579",
     description:
       "Wearable earpiece that uses patented neurostimulation technology to simultaneously stimulate the vagus and trigeminal nerves — reducing period pain, lightening flow, and balancing your cycle. Drug-free, hormone-free relief.",
+    promoNote: "The No Cure Club members get 10% off with code NCC10.",
     shortDescription: "Drug-free neurostimulation for period pain relief.",
     personalNote: "This is helpful right before and during your cycle. It regulates the nervous system and gives that instant calm feeling to my pelvis when I switch it on. It\u2019s cumulative, so each time you use it, it helps more and more.\nx, N",
-    website: "https://www.ohmbody.com",
+    website: "https://www.ohmbody.com/products/ohmbody-starter-kit?im_ref=QroxTcRMDxycUfDxv3QZm0AUUkuU1IypQ22QRU0&sharedid=&irpid=7270898&utm_source=impact&utm_medium=affiliate_impact&irgwc=1&afsrc=1&tw_source=impact&tw_campaign=7270898",
     image: "/Ohmbody-image-1.jpeg",
   },
   {
@@ -230,9 +232,10 @@ export const nervousSystemTools: Tool[] = [
     price: "$579",
     description:
       "Wearable earpiece that uses patented neurostimulation technology to simultaneously stimulate the vagus and trigeminal nerves — reducing period pain, lightening flow, and balancing your cycle. Drug-free, hormone-free relief.",
+    promoNote: "The No Cure Club members get 10% off with code NCC10.",
     shortDescription: "Drug-free neurostimulation for period pain relief.",
     personalNote: "This is helpful right before and during your cycle. It regulates the nervous system and gives that instant calm feeling to my pelvis when I switch it on. It\u2019s cumulative, so each time you use it, it helps more and more.\nx, N",
-    website: "https://www.ohmbody.com",
+    website: "https://www.ohmbody.com/products/ohmbody-starter-kit?im_ref=QroxTcRMDxycUfDxv3QZm0AUUkuU1IypQ22QRU0&sharedid=&irpid=7270898&utm_source=impact&utm_medium=affiliate_impact&irgwc=1&afsrc=1&tw_source=impact&tw_campaign=7270898",
     image: "/Ohmbody-image-1.jpeg",
   },
   {
