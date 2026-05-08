@@ -369,6 +369,20 @@ export const articleGroups: { theme: string; slug: string; image?: string; artic
         description:
           "Explains the ileocecal valve \u2014 a small flap between the small and large intestine that can become inflamed in people with endometriosis \u2014 and offers practical strategies including dietary modifications and massage techniques to help rehabilitate this common pain point.",
       },
+      {
+        title: "Removing the \u2018Chronic\u2019 from Endometriosis Stress",
+        author: "Katie Edmonds",
+        url: "https://www.healendo.com/blog-1/stress-less",
+        description:
+          "Explores how chronic stress exacerbates endometriosis and offers practical strategies for distinguishing between distress and beneficial stress. Covers problem-solving to eliminate manageable stressors and tapping as an emotional release technique for unresolvable trauma, alongside lifestyle changes for retraining negative thought patterns.",
+      },
+      {
+        title: "Sitting = Prison for Your Uterus",
+        author: "Katie Edmonds",
+        url: "https://www.healendo.com/blog-1/2019/9/25/sitting-endometriosis",
+        description:
+          "Explains how prolonged chair sitting causes pelvic congestion and reduced blood flow, worsening endometriosis symptoms. Offers three corrections for better chair posture, makes the case for floor sitting to open hips, and includes two corrective exercises \u2014 lunges and table-top hip flexor releases \u2014 to counteract tightness.",
+      },
     ],
   },
   {
@@ -549,6 +563,22 @@ export const readArticles: Article[] = [
     url: "https://www.healendo.com/blog-1/2023/1/10/endo-belly-hot-spot",
     description:
       "Explains the ileocecal valve \u2014 a small flap between the small and large intestine that can become inflamed in people with endometriosis \u2014 and offers practical strategies including dietary modifications and massage techniques to help rehabilitate this common pain point.",
+    category: "the practice",
+  },
+  {
+    title: "Removing the \u2018Chronic\u2019 from Endometriosis Stress",
+    author: "Katie Edmonds",
+    url: "https://www.healendo.com/blog-1/stress-less",
+    description:
+      "Explores how chronic stress exacerbates endometriosis and offers practical strategies for distinguishing between distress and beneficial stress. Covers problem-solving to eliminate manageable stressors and tapping as an emotional release technique for unresolvable trauma, alongside lifestyle changes for retraining negative thought patterns.",
+    category: "the practice",
+  },
+  {
+    title: "Sitting = Prison for Your Uterus",
+    author: "Katie Edmonds",
+    url: "https://www.healendo.com/blog-1/2019/9/25/sitting-endometriosis",
+    description:
+      "Explains how prolonged chair sitting causes pelvic congestion and reduced blood flow, worsening endometriosis symptoms. Offers posture corrections, makes the case for floor sitting, and includes corrective exercises to counteract tightness.",
     category: "the practice",
   },
   {
@@ -981,6 +1011,24 @@ export const readingItems: ReadingItem[] = [
     url: "/reading/read/endo-belly-ileocecal-valve",
     description:
       "Explains the ileocecal valve, a small flap between the small and large intestine that can become inflamed in people with endometriosis, and offers practical strategies including dietary modifications and massage techniques.",
+    section: "practice",
+  },
+  {
+    title: "Removing the \u2018Chronic\u2019 from Endometriosis Stress",
+    format: "Article",
+    source: "Katie Edmonds",
+    url: "https://www.healendo.com/blog-1/stress-less",
+    description:
+      "Explores how chronic stress exacerbates endometriosis and offers practical strategies for distinguishing between distress and beneficial stress. Covers problem-solving, tapping as an emotional release technique, and lifestyle changes for retraining negative thought patterns.",
+    section: "practice",
+  },
+  {
+    title: "Sitting = Prison for Your Uterus",
+    format: "Article",
+    source: "Katie Edmonds",
+    url: "https://www.healendo.com/blog-1/2019/9/25/sitting-endometriosis",
+    description:
+      "Explains how prolonged chair sitting causes pelvic congestion and reduced blood flow, worsening endometriosis symptoms. Offers posture corrections, floor sitting, and corrective exercises to counteract tightness.",
     section: "practice",
   },
   {
