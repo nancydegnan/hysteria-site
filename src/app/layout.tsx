@@ -57,6 +57,49 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "The No Cure Club",
+    url: "https://thenocureclub.com",
+    logo: "https://thenocureclub.com/thenocureclubopengraph.png",
+    description:
+      "A community and curation hub for people living with endometriosis and pelvic pain.",
+    founder: { "@id": "https://thenocureclub.com/about#nancy-degnan" },
+    sameAs: [
+      "https://www.instagram.com/jointhenocureclub/",
+      "https://thenocureclub.substack.com",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "hey@thenocureclub.com",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://thenocureclub.com/about#nancy-degnan",
+    name: "Nancy Degnan",
+    jobTitle: "Documentary filmmaker and founder of The No Cure Club",
+    description:
+      "Filmmaker behind the HYSTERIA documentary, exploring the 4,000-year lineage of medical dismissal of women's pain. Founder of The No Cure Club, a community for people living with endometriosis and pelvic pain.",
+    url: "https://thenocureclub.com/about",
+    sameAs: [
+      "https://www.instagram.com/nancydegnan/",
+      "https://www.tiktok.com/@nancydegnan",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "The No Cure Club",
+    url: "https://thenocureclub.com",
+    description:
+      "A community and curation hub for people living with endometriosis and pelvic pain.",
+  },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -65,6 +108,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${lora.variable} ${workSans.variable} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
         {GA_ID && (
           <>
