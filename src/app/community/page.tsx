@@ -30,20 +30,12 @@ interface Event {
 
 const laEvents: Event[] = [
   {
-    date: "Sunday, June 14, 2026 \u00B7 11 AM\u20131:30 PM",
-    title: "launch event",
-    description:
-      "Our official launch. A mid-morning tea (caffeine free of course) gathering to connect, share, and support each other, held at ",
-    image: "/the chapter/F160CA01-A597-4ADD-9264-A425949446A5-labbet-app.JPG",
-    link: "https://www.eventbrite.com/e/the-no-cure-club-afternoon-tea-gathering-tickets-1986841219572?aff=oddtdtcreator",
-    extra: <><a href="https://www.atelierbyartmingo.com/" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-60 transition-opacity">Atelier Pasadena</a>. Special guest to be announced closer to the event. This will be a filmed event, to be included in <Link href="/hysteria-doc" className="underline hover:opacity-60 transition-opacity">the documentary</Link>.</>,
-  },
-  {
-    date: "Saturday, July 25, 2026 \u00B7 11 AM\u20131 PM",
+    date: "Saturday, August 29, 2026 \u00B7 11 AM\u20131 PM",
     title: "cozy gathering",
     description:
-      "Hosted at Nancy\u2019s home in Echo Park. An intimate gathering to ground, connect, and go deeper. Bean Protocol friendly light bites and Nancy\u2019s signature sugar free electrolyte drink to be provided for a nourishing evening.",
-    image: "/the chapter/DTS_ONE_ROOF_Chris_Abatzis_Photos_ID11318.jpg",
+      "An intimate gathering to ground, connect, and share with our fellow endo/pelvic pain sisters. Light snack (anti-inflammatory-friendly) and herbal tea provided.",
+    image: "/the chapter/IMG_2926.jpg",
+    link: "https://partiful.com/e/zXm3B7P0cvhirT6a3Hlj",
   },
 ];
 
