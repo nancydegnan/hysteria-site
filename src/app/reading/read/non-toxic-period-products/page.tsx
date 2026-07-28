@@ -3,7 +3,7 @@ import { RevealSection, Footer, SubpageNav } from "../../../components";
 
 export default function NonToxicPeriodProductsPage() {
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-background text-black">
       <SubpageNav />
       <div className="border-b border-gray-mid">
         <header className="px-6 pt-24 pb-12 md:pt-28 md:pb-16 max-w-6xl mx-auto">

@@ -20,7 +20,7 @@ export default function PodcastsPage() {
       : allEpisodes.filter((ep) => ep.category === active);
 
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-background text-black">
       <SubpageNav />
 
       <div className="border-b border-gray-mid">

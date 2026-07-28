@@ -64,7 +64,7 @@ export function GatheringsPopup() {
 
   return (
     <div
-      className="fixed left-0 right-0 z-[45] border-t-2 border-black bg-white px-6 py-3 md:py-4 transition-transform duration-500"
+      className="fixed left-0 right-0 z-[45] border-t-2 border-black bg-background px-6 py-3 md:py-4 transition-transform duration-500"
       style={{ bottom: "40px" }}
     >
       <button
@@ -117,7 +117,7 @@ export function SubpageNav() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b-2 border-black">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b-2 border-black">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link
           href="/"
@@ -170,7 +170,7 @@ export function SubpageNav() {
         </button>
       </div>
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-mid bg-white px-6 py-4 flex flex-col gap-3">
+        <div className="md:hidden border-t border-gray-mid bg-background px-6 py-4 flex flex-col gap-3">
           {navLinks.map((link) =>
             link.href.startsWith("http") ? (
               <a
@@ -202,7 +202,7 @@ export function SubpageNav() {
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-mid py-16 md:py-24 px-6">
+    <footer className="bg-background border-t border-gray-mid py-16 md:py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12 md:mb-16">
           <h3 className="text-4xl md:text-5xl ncc-logo text-black">

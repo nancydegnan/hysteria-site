@@ -8,7 +8,7 @@ const group = bookGroups.find((g) => g.slug === "medical-history-and-advocacy")!
 
 export default function BooksSubsectionPage() {
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-background text-black">
       <SubpageNav />
 
       <div className="border-b border-gray-mid">

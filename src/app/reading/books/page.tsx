@@ -42,7 +42,7 @@ export default function BooksPage() {
       : allBooks.filter((b) => b.category === active);
 
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-background text-black">
       <SubpageNav />
 
       <div className="border-b border-gray-mid">

@@ -10,12 +10,12 @@ export default function Home() {
   const [showStickyNav, setShowStickyNav] = useState(false);
 
   const navLinks = [
-    { href: "/about", label: "the origin" },
-    { href: "/tools", label: "the outfitter" },
-    { href: "/reading", label: "the library" },
-    { href: "/community", label: "the chapter" },
-    { href: "/hysteria-doc", label: "the documentary" },
-    { href: "https://thenocureclub.substack.com", label: "the newsletter" },
+    { href: "/about", label: "the origin", desc: "*about the club" },
+    { href: "/tools", label: "the outfitter", desc: "*shop our picks" },
+    { href: "/reading", label: "the library", desc: "*what's worth reading" },
+    { href: "/community", label: "the chapter", desc: "*join our next gathering" },
+    { href: "/hysteria-doc", label: "the documentary", desc: "*healing endo" },
+    { href: "https://thenocureclub.substack.com", label: "the newsletter", desc: "*bi-weekly articles" },
   ];
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-foreground">
+    <div className="min-h-screen bg-background text-foreground">
       <GatheringsPopup />
       {/* SVG filter for distressed text — hidden, referenced by CSS */}
       <svg className="absolute w-0 h-0" aria-hidden="true">
@@ -41,7 +41,7 @@ export default function Home() {
 
       {/* ====== STICKY NAV (appears on scroll) ====== */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b-2 border-black transition-transform duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b-2 border-black transition-transform duration-300 ${
           showStickyNav ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -50,27 +50,30 @@ export default function Home() {
             The No Cure Club
           </Link>
           <div className="hidden md:flex items-center gap-4">
-            {navLinks.map((link) =>
-              link.href.startsWith("http") ? (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-black hover:italic transition-all duration-300"
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-xs text-black hover:italic transition-all duration-300"
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+            {navLinks.map((link) => (
+              <span key={link.href} className="relative group">
+                <span className="playfair-italic text-[10px] absolute bottom-full left-1/2 -translate-x-1/2 mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                  {link.desc}
+                </span>
+                {link.href.startsWith("http") ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-black hover:italic transition-all duration-300"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="text-xs text-black hover:italic transition-all duration-300"
+                  >
+                    {link.label}
+                  </Link>
+                )}
+              </span>
+            ))}
             <JoinTheClubForm
               formClassName="flex items-center gap-1.5"
               inputClassName="w-28 !bg-gray-light !border-gray-mid !rounded-none !text-[10px] !py-1.5"
@@ -94,7 +97,7 @@ export default function Home() {
           </button>
         </div>
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-mid bg-white px-6 py-4 flex flex-col gap-3">
+          <div className="md:hidden border-t border-gray-mid bg-background px-6 py-4 flex flex-col gap-3">
             {navLinks.map((link) =>
               link.href.startsWith("http") ? (
                 <a
@@ -150,9 +153,14 @@ export default function Home() {
                 </svg>
               </a>
             </div>
-            <Link href="/" className="ncc-logo text-[9vw] md:text-[5.5vw] lg:text-[4.5vw] text-black whitespace-nowrap leading-none self-center md:self-auto mt-8 md:mt-0">
-              The No Cure Club
-            </Link>
+            <div className="self-center md:self-auto mt-8 md:mt-0">
+              <Link href="/" className="ncc-logo text-[9vw] md:text-[5.5vw] lg:text-[4.5vw] text-black whitespace-nowrap leading-none">
+                The No Cure Club
+              </Link>
+              <p className="playfair-italic text-xs md:text-sm text-black -mt-2 text-left">
+                just because there&apos;s no &ldquo;cure&rdquo; doesn&apos;t mean we can&apos;t heal
+              </p>
+            </div>
             <div className="hidden md:block">
               <JoinTheClubForm
                 formClassName="flex items-center gap-1.5"
@@ -168,27 +176,30 @@ export default function Home() {
       </header>
       <nav className="border-b-2 border-black px-6 pb-5">
         <div className="max-w-5xl mx-auto hidden md:flex items-center justify-center gap-6 lg:gap-8">
-          {navLinks.map((link) =>
-            link.href.startsWith("http") ? (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-black hover:italic transition-all duration-300"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-black hover:italic transition-all duration-300"
-              >
-                {link.label}
-              </Link>
-            )
-          )}
+          {navLinks.map((link) => (
+            <span key={link.href} className="relative group">
+              <span className="playfair-italic text-[11px] absolute bottom-full left-1/2 -translate-x-1/2 mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                {link.desc}
+              </span>
+              {link.href.startsWith("http") ? (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-black hover:italic transition-all duration-300"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  href={link.href}
+                  className="text-sm text-black hover:italic transition-all duration-300"
+                >
+                  {link.label}
+                </Link>
+              )}
+            </span>
+          ))}
         </div>
         {/* Mobile: dropdown menu */}
         <div className="md:hidden flex flex-col items-center relative">
@@ -243,7 +254,7 @@ export default function Home() {
             <RevealSection>
               <div className="w-full aspect-[16/9] overflow-hidden">
                 <img
-                  src="/NANCY/nancy gallery.png"
+                  src="/NANCY/Monika Photos/NancyNoCureClub-7.jpg"
                   alt="Nancy"
                   className="w-full h-full object-cover"
                 />
@@ -258,7 +269,7 @@ export default function Home() {
                   <em className="playfair-italic font-light">the club.</em>
                 </h2>
                 <p className="playfair text-base text-black leading-snug mb-4">
-                  I spent years thinking I was the only person I knew with endometriosis and chronic pelvic pain. Turns out I just didn&apos;t know where to look. This is the space I wish existed when I first searched &ldquo;what do I do if I have endometriosis.&rdquo; Created by one of us, for all of us.
+                  I spent years thinking I was the only person I knew with endometriosis and chronic pelvic pain. Turns out I just didn&apos;t know where to look. This is the space I wish existed when I first searched &ldquo;what do I do if I have endometriosis.&rdquo; Created by one of us, for all of us. Monthly gatherings in LA.
                 </p>
               </RevealSection>
 
@@ -282,7 +293,7 @@ export default function Home() {
       </section>
 
       {/* ====== FEATURED PRODUCTS ====== */}
-      <section id="resources" className="py-20 md:py-28 px-6 torn-edge-bottom bg-white">
+      <section id="resources" className="py-20 md:py-28 px-6 torn-edge-bottom bg-background">
         <div className="max-w-6xl mx-auto">
           <RevealSection>
             <div className="flex items-end justify-between mb-2">
@@ -351,45 +362,45 @@ export default function Home() {
         <div className="max-w-6xl mx-auto text-black">
           <div className="w-[80%] mx-auto border-t-2 border-foreground/40 mb-12" />
           <RevealSection>
-            <div className="grid md:grid-cols-[1fr_2fr] gap-8 items-start">
-              <div className="w-[60%] md:w-[70%] md:ml-auto aspect-square md:aspect-[3/4] overflow-hidden">
-                <img
-                  src="/the chapter/097E8C03-F895-4DB4-AC66-38011D606BCC-labbet-app.JPG"
-                  alt="The Chapter"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <p className="section-label text-sm text-charcoal mb-1 flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 bg-brown inline-block" />
-                  the chapter
+            <div className="w-[85%] md:w-[60%] mx-auto aspect-[3/2] overflow-hidden">
+              <img
+                src="/the chapter/nocureclub2-5.jpg"
+                alt="The Chapter"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </RevealSection>
+          <RevealSection>
+            <div className="max-w-3xl mx-auto text-center mt-10">
+              <p className="section-label text-sm text-charcoal mb-1 flex items-center justify-center gap-2">
+                <span className="w-2.5 h-2.5 bg-brown inline-block" />
+                the chapter
+              </p>
+              <h2 className="playfair-italic text-xl md:text-2xl lg:text-3xl text-black font-light tracking-tighter mb-2">
+                welcome to{" "}<span className="ncc-logo text-black not-italic ml-2">The No Cure Club</span>
+              </h2>
+              <p className="text-sm font-semibold text-black leading-snug tracking-wider mb-6 mt-4">
+                Welcome to the club nobody wanted to join. I&apos;m so glad you&apos;re here.
+                <br />
+                <em className="font-normal">Started by someone going through it, for everyone going through it. Come find your people.</em>
+              </p>
+              <Link
+                href="/community#la-meetups"
+                className="inline-block border border-charcoal/30 rounded-none p-6 text-left group hover:bg-chartreuse hover:border-charcoal/30 transition-all duration-300"
+              >
+                <p className="text-xs font-semibold mb-1 uppercase tracking-wider">
+                  los angeles
                 </p>
-                <h2 className="playfair-italic text-xl md:text-2xl lg:text-3xl text-black font-light tracking-tighter mb-2">
-                  welcome to{" "}<span className="ncc-logo text-black not-italic ml-2">The No Cure Club</span>
-                </h2>
-                <p className="text-sm font-semibold text-black leading-snug tracking-wider mb-6 mt-4">
-                  Welcome to the club nobody wanted to join. I&apos;m so glad you&apos;re here.
-                  <br />
-                  <em className="font-normal">Started by someone going through it, for everyone going through it. Come find your people.</em>
+                <h3 className="playfair-italic text-base mb-1">
+                  in-person meetups
+                </h3>
+                <p className="playfair text-xs leading-snug">
+                  Intimate live gatherings to bring the LA endo community together. Dates go out to the mailing list first.
                 </p>
-                <Link
-                  href="/community#la-meetups"
-                  className="inline-block border border-charcoal/30 rounded-none p-6 text-left group hover:bg-chartreuse hover:border-charcoal/30 transition-all duration-300"
-                >
-                  <p className="text-xs font-semibold mb-1 uppercase tracking-wider">
-                    los angeles
-                  </p>
-                  <h3 className="playfair-italic text-base mb-1">
-                    in-person meetups
-                  </h3>
-                  <p className="playfair text-xs leading-snug">
-                    Intimate live gatherings to bring the LA endo community together. Dates go out to the mailing list first.
-                  </p>
-                  <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
-                    see events &rarr;
-                  </span>
-                </Link>
-              </div>
+                <span className="text-sm font-medium inline-block mt-3 group-hover:translate-x-1 transition-transform duration-300">
+                  see events &rarr;
+                </span>
+              </Link>
             </div>
           </RevealSection>
           <div className="w-[80%] mx-auto border-t-2 border-foreground/40 mt-12" />
@@ -459,7 +470,7 @@ export default function Home() {
             <div className="flex gap-3 md:gap-4 overflow-x-auto pb-4 scrollbar-hide items-stretch -mx-6 px-6">
               {/* Endo questionnaire box */}
               <div className="shrink-0" style={{ width: "min(280px, 70vw)" }}>
-                <div className="rounded-none p-6 md:p-8 flex flex-col justify-between h-full" style={{ background: '#e4e0d9' }}>
+                <div className="rounded-none p-6 md:p-8 flex flex-col justify-between h-full border border-black">
                   <div>
                     <h2 className="playfair text-base md:text-lg tracking-tight mb-2 font-bold">
                       think you might have <em className="playfair-italic">endo?</em>
@@ -489,7 +500,7 @@ export default function Home() {
                 className="shrink-0 group"
                 style={{ width: "min(280px, 70vw)" }}
               >
-                <div className="rounded-none p-5 pb-6 h-full flex flex-col" style={{ background: '#f5f3f0' }}>
+                <div className="rounded-none p-5 pb-6 h-full flex flex-col border border-black">
                   <div className="w-full aspect-square rounded-none overflow-hidden mb-4">
                     <img
                       src="/in the flo.jpg"
@@ -522,7 +533,7 @@ export default function Home() {
                 className="shrink-0 group"
                 style={{ width: "min(280px, 70vw)" }}
               >
-                <div className="rounded-none p-5 pb-6 h-full flex flex-col" style={{ background: '#f5f3f0' }}>
+                <div className="rounded-none p-5 pb-6 h-full flex flex-col border border-black">
                   <div className="w-full aspect-square rounded-none overflow-hidden mb-4">
                     <img
                       src="/you're great.webp"
@@ -555,7 +566,7 @@ export default function Home() {
                 className="shrink-0 group"
                 style={{ width: "min(280px, 70vw)" }}
               >
-                <div className="rounded-none p-5 pb-6 h-full flex flex-col" style={{ background: '#f5f3f0' }}>
+                <div className="rounded-none p-5 pb-6 h-full flex flex-col border border-black">
                   <div className="w-full aspect-square rounded-none overflow-hidden mb-4">
                     <img
                       src="/this is endometriosis.jpg"

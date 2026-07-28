@@ -2,28 +2,28 @@
 
 :root {
   --black: #1a1c19;
-  --white: #FFFDF5;
+  --white: #F5F7D8;
   --blush: #E8788A;
   --gray-light: #e4e0d9;
   --gray-mid: #d3d1c6;
   --gray-text: #9c9283;
   --brown: #7d6a4c;
-  --chartreuse: #fdffaf;
+  --chartreuse: #EAFA64;
   --charcoal: #50514c;
   --foreground: #332e24;
 }
 
 @theme {
-  --color-background: #FFFDF5;
+  --color-background: #F5F7D8;
   --color-foreground: #332e24;
   --color-black: #1a1c19;
-  --color-white: #FFFDF5;
+  --color-white: #F5F7D8;
   --color-blush: #E8788A;
   --color-gray-light: #e4e0d9;
   --color-gray-mid: #d3d1c6;
   --color-gray-text: #9c9283;
   --color-brown: #7d6a4c;
-  --color-chartreuse: #fdffaf;
+  --color-chartreuse: #EAFA64;
   --color-charcoal: #50514c;
   --color-cream-dark: #FDEEF1;
   --font-heading: 'Helvetica', 'Arial', sans-serif;
@@ -36,7 +36,7 @@ html {
 }
 
 body {
-  background: #FFFDF5;
+  background: #F5F7D8 !important;
   color: #332e24;
   font-family: var(--font-body), sans-serif;
   overflow-x: hidden;

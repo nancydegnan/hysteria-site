@@ -165,7 +165,7 @@ void _remotePractitioners;
 
 export default function PractitionersPage() {
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-background text-black">
       <SubpageNav />
 
       <div className="flex flex-col items-center justify-center px-6 pt-32 pb-20 md:pt-40 md:pb-28 text-center max-w-2xl mx-auto min-h-[70vh]">

@@ -37,7 +37,7 @@ const sections = [
 
 export default function ReadingPage() {
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-background text-black">
       {/* ── Header ── */}
       <SubpageNav />
 
@@ -85,7 +85,7 @@ export default function ReadingPage() {
                 href={s.href}
                 className="block group text-center"
               >
-                <div className="w-full aspect-[16/9] bg-white overflow-hidden">
+                <div className="w-full aspect-[16/9] bg-background overflow-hidden">
                   {s.image && (
                     <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
                   )}

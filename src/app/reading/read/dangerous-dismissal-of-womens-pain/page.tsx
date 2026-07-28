@@ -3,7 +3,7 @@ import { RevealSection, Footer, SubpageNav } from "../../../components";
 
 export default function DangerousDismissalPage() {
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-background text-black">
       <SubpageNav />
 
       <div className="border-b border-gray-mid">
